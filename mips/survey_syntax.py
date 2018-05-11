@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import re
+import sys
 import struct
 import ctypes
 import random
@@ -100,8 +101,15 @@ def tokenize(string):
 	return result
 
 seen = {}
-END = 0x1000000
-for instr_word in xrange(0,END):
+START = 0
+END = 0x100000000
+
+if sys.argv[2:]:
+	START = int(sys.argv[1], 16)
+	END = int(sys.argv[2], 16)
+	print "doing %08X to %08X" % (START, END)
+
+for instr_word in xrange(START,END):
 #while 1:
 #	instr_word = random.randint(0,0xFFFFFFFF)
 
