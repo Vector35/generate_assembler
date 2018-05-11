@@ -88,7 +88,7 @@ int main(int ac, char **av)
 
 	CS_init();
 
-	for(uint32_t insword; insword<0xFFFFFFFF; ++insword) {
+	for(uint32_t insword=0; ; ++insword) {
 		char result[64];
 
 		CS_disasm((uint8_t *)&insword, result);
@@ -118,6 +118,9 @@ int main(int ac, char **av)
 		if(interrupt) {
 			break;
 		}
+
+		if(insword == 0xFFFFFFFF)
+			break;
 	}
 
 	for(auto it=opcs.begin(); it!=opcs.end(); it++) {
