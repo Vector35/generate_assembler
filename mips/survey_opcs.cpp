@@ -76,7 +76,19 @@ void CS_disasm(uint8_t *data, char *result)
 /******************************/
 int main(int ac, char **av)
 {
-	map<string,int> opcs;
+	map<string,uint32_t> data;
+
+	#define MODE_COUNT 0				// count the number of times each opcode is encountered
+	#define MODE_SEED 1					// store an instruction word for each opcode
+	int mode = MODE_COUNT;
+	if(!strcmp(av[1], "count")) {
+		fprintf(stderr, "MODE: count opcodes in instruction space\n");
+		mode = MODE_COUNT;
+	}
+	else if(!strcmp(av[1], "seed")) {
+		mode = MODE_SEED;
+		fprintf(stderr, "MODE: remember example instruction word for each opcode\n");
+	}
 
 	double delta;
 	struct timespec t0,t1;
@@ -93,11 +105,15 @@ int main(int ac, char **av)
 
 		CS_disasm((uint8_t *)&insword, result);
 
-		if(opcs.find(result) == opcs.end()) {
-			opcs[result] = 1;
+		if(data.find(result) == data.end()) {
+			if(mode == MODE_COUNT)
+				data[result] = 1;
+			else if(mode == MODE_SEED)
+				data[result] = insword;
 		}
 		else {
-			opcs[result] += 1;
+			if(mode == MODE_COUNT)
+				data[result] += 1;
 		}
 
 		if(show_status) {
@@ -123,10 +139,13 @@ int main(int ac, char **av)
 			break;
 	}
 
-	for(auto it=opcs.begin(); it!=opcs.end(); it++) {
+	for(auto it=data.begin(); it!=data.end(); it++) {
 		string opc = it->first;
-		int freq = it->second;
-		printf("%s appears %d times\n", opc.c_str(), freq);
+		uint32_t value = it->second;
+		if(mode == MODE_COUNT)
+			printf("\"%s\":%d\n", opc.c_str(), value);
+		else if(mode == MODE_SEED)
+			printf("\"%s\":0x%08X\n", opc.c_str(), value);
 	}
 }
 
