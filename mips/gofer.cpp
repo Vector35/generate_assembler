@@ -51,8 +51,10 @@ extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
 	else
 	if(result) {
 		strcpy(result, insn->mnemonic);
-		strcat(result, " ");
-		strcat(result, insn->op_str);
+		if(insn->op_str[0]) {
+			strcat(result, " ");
+			strcat(result, insn->op_str);
+		}
 	}
 }
 
