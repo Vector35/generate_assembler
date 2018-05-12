@@ -35,7 +35,7 @@ void CS_init(void)
 {
 	int rc = -1;
 
-	cs_mode mode = (cs_mode)(CS_MODE_BIG_ENDIAN | CS_MODE_MIPS32R6);
+	cs_mode mode = (cs_mode)(CS_MODE_LITTLE_ENDIAN | CS_MODE_MIPS32R6);
 	if(cs_open(CS_ARCH_MIPS, mode, &CS_handle) != CS_ERR_OK) {
 		printf("ERROR: cs_open()\n");
 		exit(-1);

@@ -23,7 +23,7 @@ extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
 	static csh handle = 0;
 	static cs_insn *insn = NULL;
 	if (!init) {
-		cs_mode mode = (cs_mode)(CS_MODE_BIG_ENDIAN | CS_MODE_MIPS32R6);
+		cs_mode mode = (cs_mode)(CS_MODE_LITTLE_ENDIAN | CS_MODE_MIPS32R6);
 		if(cs_open(CS_ARCH_MIPS, mode, &handle) != CS_ERR_OK) {
 			printf("ERROR: cs_open()\n");
 			exit(-1);
