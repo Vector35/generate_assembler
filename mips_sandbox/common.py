@@ -65,7 +65,7 @@ def tokenize(string):
 		# dollar literals
 		elif re.match(r'^\$\d+', string):
 			tmp = re.match(r'^(\$\d+)', string).group(1)
-			result.append( ('DOLLAR_NUM', int(tmp[1:])) )
+			result.append( ('CASH', int(tmp[1:])) )
 			eat = len(tmp)
 		# punctuation, operators
 		elif string[0] in list('[](),.*+-'):
@@ -80,7 +80,7 @@ def tokenize(string):
 
 gofer = None
 cbuf = None
-def syntax(insword):
+def disasm(insword):
 	# initialize disassembler, if necessary
 	global gofer, cbuf
 	if not gofer:
@@ -90,7 +90,10 @@ def syntax(insword):
 	data = struct.pack('<I', insword)
 	gofer.get_disasm_capstone(data, 4, ctypes.byref(cbuf))
 
-	instr = cbuf.value
+	return cbuf.value
+	
+def syntax(insword):
+	instr = disasm(insword)
 	tokens = tokenize(instr)
 	syntax = tokens[0][1];
 	
@@ -98,5 +101,4 @@ def syntax(insword):
 		syntax += ' ' + ' '.join(map(lambda x: x[0], tokens[1:]))
 
 	return syntax
-	
 

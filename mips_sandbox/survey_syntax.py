@@ -44,7 +44,7 @@ while 1:
 
 	syntax = common.syntax(insword)
 
-	#if syntax in ['lwc2 DOLLAR_NUM , ( )', 'jialc NUM ,']:
+	#if syntax in ['lwc2 CASH , ( )', 'jialc NUM ,']:
 	#	print 'wtf? %08X: %s' % (insword, instr)
 	#	sys.exit(-1)
 
