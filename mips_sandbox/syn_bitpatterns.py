@@ -23,8 +23,13 @@ for l in lines:
 ###############
 # go!
 ###############
-DEPTH = 3 
-for syn in sorted(syn2example):
+DEPTH = 4 
+
+targets = sorted(syn2example)
+if sys.argv[1:]:
+	targets = [sys.argv[1]]
+
+for syn in targets:
 	example = syn2example[syn]
 
 	syn2 = common.syntax(example)
@@ -51,8 +56,7 @@ for syn in sorted(syn2example):
 					#print 'clearing bit %d' % positions[i]
 					example_ &= ctypes.c_uint32(~mask).value
 
-			#print 'new example: %08X' % example_
-			#print 'trying %s' % bin(example_)[2:]
+			#print 'new example: %08X %s' % (example_, bin(example_))
 
 			syn2 = common.syntax(example_)
 			if syn == syn2:
