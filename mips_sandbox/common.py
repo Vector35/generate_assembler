@@ -17,7 +17,7 @@ def tokenize(string):
 
 	# pick off opcode
 	opcode = re.match(r'^([\w\.]+)', string).group(1)
-	result.append(('OPC', opcode))
+	result.append( ['OPC', opcode] )
 	string = string[len(opcode):]
 
 	# pick off the rest
@@ -29,53 +29,68 @@ def tokenize(string):
 		# "f" registers $f0,$f1,...,$f31
 		elif re.match(r'^\$f\d+', string):
 			tmp = re.match(r'^(\$f\d+)', string).group(1) # eg: $f2
-			result.append( ('FREG',int(tmp[2:])) )
+			result.append( ['FREG',int(tmp[2:])] )
 			eat = len(tmp)
 		# "w" registers $w0,$w1,...,$w31
 		elif re.match(r'^\$w\d+', string):
 			tmp = re.match(r'^(\$w\d+)', string).group(1) # eg: $w0
-			result.append( ('WREG',int(tmp[2:])) )
+			result.append( ['WREG',int(tmp[2:])] )
 			eat = len(tmp)
 		# "ac" registers $ac0,$ac1,$ac2,$ac3
 		elif re.match(r'^\$ac\d+', string):
 			tmp = re.match(r'^(\$ac\d+)', string).group(1) # eg: $w0
-			result.append( ('ACREG',int(tmp[3:])) )
+			result.append( ['ACREG',int(tmp[3:])] )
 			eat = len(tmp)
 		# ----------------
 		# many alias registers
 		# ----------------
 		# $zero
 		elif re.match(r'^\$zero', string):
-			result.append( ('GPREG',0) )
+			result.append( ['GPREG',0] )
 			eat = 5
 		# aliases
 		elif string[0:3] in gpr_aliases:
-			result.append( ('GPREG',gpr_aliases[string[0:3]]) )
+			result.append( ['GPREG',gpr_aliases[string[0:3]]] )
 			eat = 3
 		# hex numeric literals
 		elif re.match(r'^-?0x[a-fA-F0-9]+', string):
 			tmp = re.match(r'^(-?0x[a-fA-F0-9]+)', string).group(1)
-			result.append( ('NUM', int(tmp,16)) )
+			result.append( ['NUM', int(tmp,16)] )
 			eat = len(tmp)			
 		# numeric literals
 		elif re.match(r'^-?\d+', string):
 			tmp = re.match(r'(^-?\d+)', string).group(1)
-			result.append( ('NUM', int(tmp)) )
+			result.append( ['NUM', int(tmp)] )
 			eat = len(tmp)
 		# dollar literals
 		elif re.match(r'^\$\d+', string):
 			tmp = re.match(r'^(\$\d+)', string).group(1)
-			result.append( ('CASH', int(tmp[1:])) )
+			result.append( ['CASH', int(tmp[1:])] )
 			eat = len(tmp)
 		# punctuation, operators
 		elif string[0] in list('[](),.*+-'):
-			result.append( (string[0],string[0]) )
+			result.append( [string[0],string[0]] )
 			eat = 1			
 		else:
 			raise Exception('dunno what to do with: %s (original input: %s)' % (string, string_))
 		
 		string = string[eat:]
 
+	# if the opcode is a branch, and the last token type is num, change it to type offset
+	branch_instrs = \
+		['bc1eqc', 'bc1nez', 'bc2eqz', 'bc2nez', 'beq', 'beqc', 'beql', 'begz', \
+		'beqzalc', 'beqzc', 'beqzl', 'bgec', 'bgeuc', 'bgez', 'bgezalc', \
+		'bgezall', 'bgezc', 'bgezl', 'bgtz', 'bgtzalc', 'bgtzc', 'bgtzl', \
+		'blez', 'blezalc', 'blezc', 'blezl', 'bltc', 'bltuc', 'bltz', \
+		'bltzalc', 'bltzall', 'bltzc', 'bltzl', 'bne', 'bnec', 'bnegi.b', \
+		'bnegi.d', 'bnegi.h', 'bnegi.w', 'bnez', 'bnezalc', 'bnezc', 'bnezl', \
+		'bnvc', 'bnz.b', 'bnz.d', 'bnz.h', 'bnz.v', 'bnz.w', 'bz.b', 'bz.d', \
+		'bz.h', 'bz.v', 'bz.w', 'bnel', 'bovc']
+
+	if (result[0][1] in branch_instrs) and result[-1][0]=='NUM':
+		result[-1][0] = 'OFFS'
+
+	# done
 	return result
 
 gofer = None

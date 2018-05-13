@@ -20,8 +20,8 @@ using namespace std;
 /* capstone stuff */
 #include <capstone/capstone.h>
 
-#define DEBUG_FITNESS 1
-#define DEBUG_NATSEL 1
+#define DEBUG_FITNESS 0
+#define DEBUG_NATSEL 0
 #define MYLOG printf
 //#define MYLOG(...) while(0);
 
@@ -123,10 +123,10 @@ map<string, info> lookup = {
 {                            "balc NUM",{0xE8000000,0x03FFFFFF}}, // 111010xxxxxxxxxxxxxxxxxxxxxxxxxx  balc 0
 {          "balign GPREG , GPREG , NUM",{0x7C000431,0x03FFF800}}, // 011111xxxxxxxxxxxxxxx10000110001  balign $zero, $zero, 0
 {                              "bc NUM",{0xC8000000,0x03FFFFFF}}, // 110010xxxxxxxxxxxxxxxxxxxxxxxxxx  bc 0
-{                   "bc1eqz FREG , NUM",{0x45200000,0x001FFFFF}}, // 01000101001xxxxxxxxxxxxxxxxxxxxx  bc1eqz $f0, 4
-{                   "bc1nez FREG , NUM",{0x45A00000,0x001FFFFF}}, // 01000101101xxxxxxxxxxxxxxxxxxxxx  bc1nez $f0, 4
-{                   "bc2eqz CASH , NUM",{0x49200000,0x001FFFFF}}, // 01001001001xxxxxxxxxxxxxxxxxxxxx  bc2eqz $0, 4
-{                   "bc2nez CASH , NUM",{0x49A00000,0x001FFFFF}}, // 01001001101xxxxxxxxxxxxxxxxxxxxx  bc2nez $0, 4
+{                  "bc1eqz FREG , OFFS",{0x45200000,0x001FFFFF}}, // 01000101001xxxxxxxxxxxxxxxxxxxxx  bc1eqz $f0, 4
+{                  "bc1nez FREG , OFFS",{0x45A00000,0x001FFFFF}}, // 01000101101xxxxxxxxxxxxxxxxxxxxx  bc1nez $f0, 4
+{                  "bc2eqz CASH , OFFS",{0x49200000,0x001FFFFF}}, // 01001001001xxxxxxxxxxxxxxxxxxxxx  bc2eqz $0, 4
+{                  "bc2nez CASH , OFFS",{0x49A00000,0x001FFFFF}}, // 01001001101xxxxxxxxxxxxxxxxxxxxx  bc2nez $0, 4
 {           "bclr.b WREG , WREG , WREG",{0x7980000D,0x001FFFC0}}, // 01111001100xxxxxxxxxxxxxxx001101  bclr.b $w0, $w0, $w0
 {           "bclr.d WREG , WREG , WREG",{0x79E0000D,0x001FFFC0}}, // 01111001111xxxxxxxxxxxxxxx001101  bclr.d $w0, $w0, $w0
 {           "bclr.h WREG , WREG , WREG",{0x79A0000D,0x001FFFC0}}, // 01111001101xxxxxxxxxxxxxxx001101  bclr.h $w0, $w0, $w0
@@ -135,24 +135,24 @@ map<string, info> lookup = {
 {           "bclri.d WREG , WREG , NUM",{0x79800009,0x003FFFC0}}, // 0111100110xxxxxxxxxxxxxxxx001001  bclri.d $w0, $w0, 0
 {           "bclri.h WREG , WREG , NUM",{0x79E00009,0x000FFFC0}}, // 011110011110xxxxxxxxxxxxxx001001  bclri.h $w0, $w0, 0
 {           "bclri.w WREG , WREG , NUM",{0x79C00009,0x001FFFC0}}, // 01111001110xxxxxxxxxxxxxxx001001  bclri.w $w0, $w0, 0
-{             "beq GPREG , GPREG , NUM",{0x10010000,0x03FFFFFF}}, // 000100xxxxxxxxxxxxxxxxxxxxxxxxxx  beq $zero, $at, 4
-{            "beqc GPREG , GPREG , NUM",{0x21090000,0x03FFFFFF}}, // 001000xxxxxxxxxxxxxxxxxxxxxxxxxx  beqc $t0, $t1, 0
-{            "beql GPREG , GPREG , NUM",{0x51000000,0x03FFFFFF}}, // 010100xxxxxxxxxxxxxxxxxxxxxxxxxx  beql $t0, $zero, 4
-{                    "beqz GPREG , NUM",{0x11000000,0x03E0FFFF}}, // 000100xxxxx00000xxxxxxxxxxxxxxxx  beqz $t0, 4
-{                 "beqzalc GPREG , NUM",{0x20010000,0x001FFFFF}}, // 00100000000xxxxxxxxxxxxxxxxxxxxx  beqzalc $at, 0
-{                   "beqzc GPREG , NUM",{0xD9000000,0x03FFFFFF}}, // 110110xxxxxxxxxxxxxxxxxxxxxxxxxx  beqzc $t0, 0
-{                   "beqzl GPREG , NUM",{0x50000000,0x0000FFFF}}, // 0101000000000000xxxxxxxxxxxxxxxx  beqzl $zero, 4
-{            "bgec GPREG , GPREG , NUM",{0x59010000,0x03FFFFFF}}, // 010110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgec $t0, $at, 0
-{           "bgeuc GPREG , GPREG , NUM",{0x19010000,0x03FFFFFF}}, // 000110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgeuc $t0, $at, 0
-{                    "bgez GPREG , NUM",{0x04010000,0x03E0FFFF}}, // 000001xxxxx00001xxxxxxxxxxxxxxxx  bgez $zero, 4
-{                 "bgezalc GPREG , NUM",{0x19080000,0x03FFFFFF}}, // 000110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgezalc $t0, 0
-{                 "bgezall GPREG , NUM",{0x04130000,0x03E0FFFF}}, // 000001xxxxx10011xxxxxxxxxxxxxxxx  bgezall $zero, 4
-{                   "bgezc GPREG , NUM",{0x59080000,0x03FFFFFF}}, // 010110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgezc $t0, 0
-{                   "bgezl GPREG , NUM",{0x04030000,0x03E0FFFF}}, // 000001xxxxx00011xxxxxxxxxxxxxxxx  bgezl $zero, 4
-{                    "bgtz GPREG , NUM",{0x1C000000,0x03E0FFFF}}, // 000111xxxxx00000xxxxxxxxxxxxxxxx  bgtz $zero, 0
-{                 "bgtzalc GPREG , NUM",{0x1C010000,0x001FFFFF}}, // 00011100000xxxxxxxxxxxxxxxxxxxxx  bgtzalc $at, 0
-{                   "bgtzc GPREG , NUM",{0x5C010000,0x001FFFFF}}, // 01011100000xxxxxxxxxxxxxxxxxxxxx  bgtzc $at, 0
-{                   "bgtzl GPREG , NUM",{0x5C000000,0x03E0FFFF}}, // 010111xxxxx00000xxxxxxxxxxxxxxxx  bgtzl $zero, 4
+{            "beq GPREG , GPREG , OFFS",{0x10010000,0x03FFFFFF}}, // 000100xxxxxxxxxxxxxxxxxxxxxxxxxx  beq $zero, $at, 4
+{           "beqc GPREG , GPREG , OFFS",{0x21090000,0x03FFFFFF}}, // 001000xxxxxxxxxxxxxxxxxxxxxxxxxx  beqc $t0, $t1, 0
+{           "beql GPREG , GPREG , OFFS",{0x51000000,0x03FFFFFF}}, // 010100xxxxxxxxxxxxxxxxxxxxxxxxxx  beql $t0, $zero, 4
+{                   "beqz GPREG , OFFS",{0x11000000,0x03E0FFFF}}, // 000100xxxxx00000xxxxxxxxxxxxxxxx  beqz $t0, 4
+{                "beqzalc GPREG , OFFS",{0x20010000,0x001FFFFF}}, // 00100000000xxxxxxxxxxxxxxxxxxxxx  beqzalc $at, 0
+{                  "beqzc GPREG , OFFS",{0xD9000000,0x03FFFFFF}}, // 110110xxxxxxxxxxxxxxxxxxxxxxxxxx  beqzc $t0, 0
+{                  "beqzl GPREG , OFFS",{0x50000000,0x0000FFFF}}, // 0101000000000000xxxxxxxxxxxxxxxx  beqzl $zero, 4
+{           "bgec GPREG , GPREG , OFFS",{0x59010000,0x03FFFFFF}}, // 010110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgec $t0, $at, 0
+{          "bgeuc GPREG , GPREG , OFFS",{0x19010000,0x03FFFFFF}}, // 000110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgeuc $t0, $at, 0
+{                   "bgez GPREG , OFFS",{0x04010000,0x03E0FFFF}}, // 000001xxxxx00001xxxxxxxxxxxxxxxx  bgez $zero, 4
+{                "bgezalc GPREG , OFFS",{0x19080000,0x03FFFFFF}}, // 000110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgezalc $t0, 0
+{                "bgezall GPREG , OFFS",{0x04130000,0x03E0FFFF}}, // 000001xxxxx10011xxxxxxxxxxxxxxxx  bgezall $zero, 4
+{                  "bgezc GPREG , OFFS",{0x59080000,0x03FFFFFF}}, // 010110xxxxxxxxxxxxxxxxxxxxxxxxxx  bgezc $t0, 0
+{                  "bgezl GPREG , OFFS",{0x04030000,0x03E0FFFF}}, // 000001xxxxx00011xxxxxxxxxxxxxxxx  bgezl $zero, 4
+{                   "bgtz GPREG , OFFS",{0x1C000000,0x03E0FFFF}}, // 000111xxxxx00000xxxxxxxxxxxxxxxx  bgtz $zero, 0
+{                "bgtzalc GPREG , OFFS",{0x1C010000,0x001FFFFF}}, // 00011100000xxxxxxxxxxxxxxxxxxxxx  bgtzalc $at, 0
+{                  "bgtzc GPREG , OFFS",{0x5C010000,0x001FFFFF}}, // 01011100000xxxxxxxxxxxxxxxxxxxxx  bgtzc $at, 0
+{                  "bgtzl GPREG , OFFS",{0x5C000000,0x03E0FFFF}}, // 010111xxxxx00000xxxxxxxxxxxxxxxx  bgtzl $zero, 4
 {          "binsl.b WREG , WREG , WREG",{0x7B00000D,0x001FFFC0}}, // 01111011000xxxxxxxxxxxxxxx001101  binsl.b $w0, $w0, $w0
 {          "binsl.d WREG , WREG , WREG",{0x7B60000D,0x001FFFC0}}, // 01111011011xxxxxxxxxxxxxxx001101  binsl.d $w0, $w0, $w0
 {          "binsl.h WREG , WREG , WREG",{0x7B20000D,0x001FFFC0}}, // 01111011001xxxxxxxxxxxxxxx001101  binsl.h $w0, $w0, $w0
@@ -171,43 +171,43 @@ map<string, info> lookup = {
 {          "binsri.w WREG , WREG , NUM",{0x7BC00009,0x001FFFC0}}, // 01111011110xxxxxxxxxxxxxxx001001  binsri.w $w0, $w0, 0
 {                "bitrev GPREG , GPREG",{0x7C0006D2,0x001FF800}}, // 01111100000xxxxxxxxxx11011010010  bitrev $zero, $zero
 {               "bitswap GPREG , GPREG",{0x7C000020,0x001FF800}}, // 01111100000xxxxxxxxxx00000100000  bitswap $zero, $zero
-{                    "blez GPREG , NUM",{0x18000000,0x03E0FFFF}}, // 000110xxxxx00000xxxxxxxxxxxxxxxx  blez $zero, 4
-{                 "blezalc GPREG , NUM",{0x18010000,0x001FFFFF}}, // 00011000000xxxxxxxxxxxxxxxxxxxxx  blezalc $at, 0
-{                   "blezc GPREG , NUM",{0x58010000,0x001FFFFF}}, // 01011000000xxxxxxxxxxxxxxxxxxxxx  blezc $at, 0
-{                   "blezl GPREG , NUM",{0x58000000,0x03E0FFFF}}, // 010110xxxxx00000xxxxxxxxxxxxxxxx  blezl $zero, 4
-{            "bltc GPREG , GPREG , NUM",{0x5D010000,0x03FFFFFF}}, // 010111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltc $t0, $at, 0
-{           "bltuc GPREG , GPREG , NUM",{0x1D010000,0x03FFFFFF}}, // 000111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltuc $t0, $at, 0
-{                    "bltz GPREG , NUM",{0x04000000,0x03E0FFFF}}, // 000001xxxxx00000xxxxxxxxxxxxxxxx  bltz $zero, 4
-{                 "bltzalc GPREG , NUM",{0x1D080000,0x03FFFFFF}}, // 000111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltzalc $t0, 0
-{                 "bltzall GPREG , NUM",{0x04120000,0x03E0FFFF}}, // 000001xxxxx10010xxxxxxxxxxxxxxxx  bltzall $zero, 4
-{                   "bltzc GPREG , NUM",{0x5D080000,0x03FFFFFF}}, // 010111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltzc $t0, 0
-{                   "bltzl GPREG , NUM",{0x04020000,0x03E0FFFF}}, // 000001xxxxx00010xxxxxxxxxxxxxxxx  bltzl $zero, 4
+{                   "blez GPREG , OFFS",{0x18000000,0x03E0FFFF}}, // 000110xxxxx00000xxxxxxxxxxxxxxxx  blez $zero, 4
+{                "blezalc GPREG , OFFS",{0x18010000,0x001FFFFF}}, // 00011000000xxxxxxxxxxxxxxxxxxxxx  blezalc $at, 0
+{                  "blezc GPREG , OFFS",{0x58010000,0x001FFFFF}}, // 01011000000xxxxxxxxxxxxxxxxxxxxx  blezc $at, 0
+{                  "blezl GPREG , OFFS",{0x58000000,0x03E0FFFF}}, // 010110xxxxx00000xxxxxxxxxxxxxxxx  blezl $zero, 4
+{           "bltc GPREG , GPREG , OFFS",{0x5D010000,0x03FFFFFF}}, // 010111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltc $t0, $at, 0
+{          "bltuc GPREG , GPREG , OFFS",{0x1D010000,0x03FFFFFF}}, // 000111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltuc $t0, $at, 0
+{                   "bltz GPREG , OFFS",{0x04000000,0x03E0FFFF}}, // 000001xxxxx00000xxxxxxxxxxxxxxxx  bltz $zero, 4
+{                "bltzalc GPREG , OFFS",{0x1D080000,0x03FFFFFF}}, // 000111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltzalc $t0, 0
+{                "bltzall GPREG , OFFS",{0x04120000,0x03E0FFFF}}, // 000001xxxxx10010xxxxxxxxxxxxxxxx  bltzall $zero, 4
+{                  "bltzc GPREG , OFFS",{0x5D080000,0x03FFFFFF}}, // 010111xxxxxxxxxxxxxxxxxxxxxxxxxx  bltzc $t0, 0
+{                  "bltzl GPREG , OFFS",{0x04020000,0x03E0FFFF}}, // 000001xxxxx00010xxxxxxxxxxxxxxxx  bltzl $zero, 4
 {           "bmnz.v WREG , WREG , WREG",{0x7880001E,0x001FFFC0}}, // 01111000100xxxxxxxxxxxxxxx011110  bmnz.v $w0, $w0, $w0
 {           "bmnzi.b WREG , WREG , NUM",{0x78000001,0x00FFFFC0}}, // 01111000xxxxxxxxxxxxxxxxxx000001  bmnzi.b $w0, $w0, 0
 {            "bmz.v WREG , WREG , WREG",{0x78A0001E,0x001FFFC0}}, // 01111000101xxxxxxxxxxxxxxx011110  bmz.v $w0, $w0, $w0
 {            "bmzi.b WREG , WREG , NUM",{0x79000001,0x00FFFFC0}}, // 01111001xxxxxxxxxxxxxxxxxx000001  bmzi.b $w0, $w0, 0
-{             "bne GPREG , GPREG , NUM",{0x14010000,0x03FFFFFF}}, // 000101xxxxxxxxxxxxxxxxxxxxxxxxxx  bne $zero, $at, 4
-{            "bnec GPREG , GPREG , NUM",{0x61090000,0x03FFFFFF}}, // 011000xxxxxxxxxxxxxxxxxxxxxxxxxx  bnec $t0, $t1, 0
+{            "bne GPREG , GPREG , OFFS",{0x14010000,0x03FFFFFF}}, // 000101xxxxxxxxxxxxxxxxxxxxxxxxxx  bne $zero, $at, 4
+{           "bnec GPREG , GPREG , OFFS",{0x61090000,0x03FFFFFF}}, // 011000xxxxxxxxxxxxxxxxxxxxxxxxxx  bnec $t0, $t1, 0
 {           "bneg.b WREG , WREG , WREG",{0x7A80000D,0x001FFFC0}}, // 01111010100xxxxxxxxxxxxxxx001101  bneg.b $w0, $w0, $w0
 {           "bneg.d WREG , WREG , WREG",{0x7AE0000D,0x001FFFC0}}, // 01111010111xxxxxxxxxxxxxxx001101  bneg.d $w0, $w0, $w0
 {           "bneg.h WREG , WREG , WREG",{0x7AA0000D,0x001FFFC0}}, // 01111010101xxxxxxxxxxxxxxx001101  bneg.h $w0, $w0, $w0
 {           "bneg.w WREG , WREG , WREG",{0x7AC0000D,0x001FFFC0}}, // 01111010110xxxxxxxxxxxxxxx001101  bneg.w $w0, $w0, $w0
-{           "bnegi.b WREG , WREG , NUM",{0x7AF00009,0x0007FFC0}}, // 0111101011110xxxxxxxxxxxxx001001  bnegi.b $w0, $w0, 0
-{           "bnegi.d WREG , WREG , NUM",{0x7A800009,0x003FFFC0}}, // 0111101010xxxxxxxxxxxxxxxx001001  bnegi.d $w0, $w0, 0
-{           "bnegi.h WREG , WREG , NUM",{0x7AE00009,0x000FFFC0}}, // 011110101110xxxxxxxxxxxxxx001001  bnegi.h $w0, $w0, 0
-{           "bnegi.w WREG , WREG , NUM",{0x7AC00009,0x001FFFC0}}, // 01111010110xxxxxxxxxxxxxxx001001  bnegi.w $w0, $w0, 0
-{            "bnel GPREG , GPREG , NUM",{0x54010000,0x03FFFFFF}}, // 010101xxxxxxxxxxxxxxxxxxxxxxxxxx  bnel $zero, $at, 4
-{                    "bnez GPREG , NUM",{0x14000000,0x03E0FFFF}}, // 000101xxxxx00000xxxxxxxxxxxxxxxx  bnez $zero, 4
-{                 "bnezalc GPREG , NUM",{0x60010000,0x001FFFFF}}, // 01100000000xxxxxxxxxxxxxxxxxxxxx  bnezalc $at, 0
-{                   "bnezc GPREG , NUM",{0xF9000000,0x03FFFFFF}}, // 111110xxxxxxxxxxxxxxxxxxxxxxxxxx  bnezc $t0, 0
-{                   "bnezl GPREG , NUM",{0x54000000,0x03E0FFFF}}, // 010101xxxxx00000xxxxxxxxxxxxxxxx  bnezl $zero, 4
-{            "bnvc GPREG , GPREG , NUM",{0x60000000,0x03FFFFFF}}, // 011000xxxxxxxxxxxxxxxxxxxxxxxxxx  bnvc $zero, $zero, 0
-{                    "bnz.b WREG , NUM",{0x47800000,0x001FFFFF}}, // 01000111100xxxxxxxxxxxxxxxxxxxxx  bnz.b $w0, 4
-{                    "bnz.d WREG , NUM",{0x47E00000,0x001FFFFF}}, // 01000111111xxxxxxxxxxxxxxxxxxxxx  bnz.d $w0, 4
-{                    "bnz.h WREG , NUM",{0x47A00000,0x001FFFFF}}, // 01000111101xxxxxxxxxxxxxxxxxxxxx  bnz.h $w0, 4
-{                    "bnz.v WREG , NUM",{0x45E00000,0x001FFFFF}}, // 01000101111xxxxxxxxxxxxxxxxxxxxx  bnz.v $w0, 4
-{                    "bnz.w WREG , NUM",{0x47C00000,0x001FFFFF}}, // 01000111110xxxxxxxxxxxxxxxxxxxxx  bnz.w $w0, 4
-{            "bovc GPREG , GPREG , NUM",{0x20000000,0x03FFFFFF}}, // 001000xxxxxxxxxxxxxxxxxxxxxxxxxx  bovc $zero, $zero, 0
+{          "bnegi.b WREG , WREG , OFFS",{0x7AF00009,0x0007FFC0}}, // 0111101011110xxxxxxxxxxxxx001001  bnegi.b $w0, $w0, 0
+{          "bnegi.d WREG , WREG , OFFS",{0x7A800009,0x003FFFC0}}, // 0111101010xxxxxxxxxxxxxxxx001001  bnegi.d $w0, $w0, 0
+{          "bnegi.h WREG , WREG , OFFS",{0x7AE00009,0x000FFFC0}}, // 011110101110xxxxxxxxxxxxxx001001  bnegi.h $w0, $w0, 0
+{          "bnegi.w WREG , WREG , OFFS",{0x7AC00009,0x001FFFC0}}, // 01111010110xxxxxxxxxxxxxxx001001  bnegi.w $w0, $w0, 0
+{           "bnel GPREG , GPREG , OFFS",{0x54010000,0x03FFFFFF}}, // 010101xxxxxxxxxxxxxxxxxxxxxxxxxx  bnel $zero, $at, 4
+{                   "bnez GPREG , OFFS",{0x14000000,0x03E0FFFF}}, // 000101xxxxx00000xxxxxxxxxxxxxxxx  bnez $zero, 4
+{                "bnezalc GPREG , OFFS",{0x60010000,0x001FFFFF}}, // 01100000000xxxxxxxxxxxxxxxxxxxxx  bnezalc $at, 0
+{                  "bnezc GPREG , OFFS",{0xF9000000,0x03FFFFFF}}, // 111110xxxxxxxxxxxxxxxxxxxxxxxxxx  bnezc $t0, 0
+{                  "bnezl GPREG , OFFS",{0x54000000,0x03E0FFFF}}, // 010101xxxxx00000xxxxxxxxxxxxxxxx  bnezl $zero, 4
+{           "bnvc GPREG , GPREG , OFFS",{0x60000000,0x03FFFFFF}}, // 011000xxxxxxxxxxxxxxxxxxxxxxxxxx  bnvc $zero, $zero, 0
+{                   "bnz.b WREG , OFFS",{0x47800000,0x001FFFFF}}, // 01000111100xxxxxxxxxxxxxxxxxxxxx  bnz.b $w0, 4
+{                   "bnz.d WREG , OFFS",{0x47E00000,0x001FFFFF}}, // 01000111111xxxxxxxxxxxxxxxxxxxxx  bnz.d $w0, 4
+{                   "bnz.h WREG , OFFS",{0x47A00000,0x001FFFFF}}, // 01000111101xxxxxxxxxxxxxxxxxxxxx  bnz.h $w0, 4
+{                   "bnz.v WREG , OFFS",{0x45E00000,0x001FFFFF}}, // 01000101111xxxxxxxxxxxxxxxxxxxxx  bnz.v $w0, 4
+{                   "bnz.w WREG , OFFS",{0x47C00000,0x001FFFFF}}, // 01000111110xxxxxxxxxxxxxxxxxxxxx  bnz.w $w0, 4
+{           "bovc GPREG , GPREG , OFFS",{0x20000000,0x03FFFFFF}}, // 001000xxxxxxxxxxxxxxxxxxxxxxxxxx  bovc $zero, $zero, 0
 {                        "bposge32 NUM",{0x041C0000,0x0000FFFF}}, // 0000010000011100xxxxxxxxxxxxxxxx  bposge32 4
 {                               "break",{0x0000000D,0x00000000}}, // 00000000000000000000000000001101  break
 {                           "break NUM",{0x0200000D,0x03FF0000}}, // 000000xxxxxxxxxx0000000000001101  break 0x200
@@ -222,11 +222,11 @@ map<string, info> lookup = {
 {           "bseti.d WREG , WREG , NUM",{0x7A000009,0x003FFFC0}}, // 0111101000xxxxxxxxxxxxxxxx001001  bseti.d $w0, $w0, 0
 {           "bseti.h WREG , WREG , NUM",{0x7A600009,0x000FFFC0}}, // 011110100110xxxxxxxxxxxxxx001001  bseti.h $w0, $w0, 0
 {           "bseti.w WREG , WREG , NUM",{0x7A400009,0x001FFFC0}}, // 01111010010xxxxxxxxxxxxxxx001001  bseti.w $w0, $w0, 0
-{                     "bz.b WREG , NUM",{0x47000000,0x001FFFFF}}, // 01000111000xxxxxxxxxxxxxxxxxxxxx  bz.b $w0, 4
-{                     "bz.d WREG , NUM",{0x47600000,0x001FFFFF}}, // 01000111011xxxxxxxxxxxxxxxxxxxxx  bz.d $w0, 4
-{                     "bz.h WREG , NUM",{0x47200000,0x001FFFFF}}, // 01000111001xxxxxxxxxxxxxxxxxxxxx  bz.h $w0, 4
-{                     "bz.v WREG , NUM",{0x45600000,0x001FFFFF}}, // 01000101011xxxxxxxxxxxxxxxxxxxxx  bz.v $w0, 4
-{                     "bz.w WREG , NUM",{0x47400000,0x001FFFFF}}, // 01000111010xxxxxxxxxxxxxxxxxxxxx  bz.w $w0, 4
+{                    "bz.b WREG , OFFS",{0x47000000,0x001FFFFF}}, // 01000111000xxxxxxxxxxxxxxxxxxxxx  bz.b $w0, 4
+{                    "bz.d WREG , OFFS",{0x47600000,0x001FFFFF}}, // 01000111011xxxxxxxxxxxxxxxxxxxxx  bz.d $w0, 4
+{                    "bz.h WREG , OFFS",{0x47200000,0x001FFFFF}}, // 01000111001xxxxxxxxxxxxxxxxxxxxx  bz.h $w0, 4
+{                    "bz.v WREG , OFFS",{0x45600000,0x001FFFFF}}, // 01000101011xxxxxxxxxxxxxxxxxxxxx  bz.v $w0, 4
+{                    "bz.w WREG , OFFS",{0x47400000,0x001FFFFF}}, // 01000111010xxxxxxxxxxxxxxxxxxxxx  bz.w $w0, 4
 {                         "cache , ( )",{0x7C000025,0x00000000}}, // 01111100000000000000000000100101  cache 0x450, ()
 {                     "cache , ( NUM )",{0x7E000025,0x03E0FF80}}, // 011111xxxxx00000xxxxxxxxx0100101  cache 0x450, (0x100000)
 {                     "cache , NUM ( )",{0x7C010025,0x001F0000}}, // 01111100000xxxxx0000000000100101  cache 0x450, 1()
@@ -1116,7 +1116,8 @@ enum tok_type {
 	TT_CASH,
 	TT_NUM,
 	TT_PUNC,
-	TT_OPCODE
+	TT_OPCODE,
+	TT_OFFS
 };
 
 struct token {
@@ -1130,6 +1131,20 @@ int tokenize(string src, vector<token>& result, string& err)
 	int rc = -1, n=0;
 	char *endptr;
 	const char *inbuf = src.c_str();
+
+	map<string,int> branches = {
+		{"bc1eqc",1}, {"bc1nez",1}, {"bc2eqz",1}, {"bc2nez",1}, {"beq",1},
+		{"beqc",1}, {"beql",1}, {"begz",1}, {"beqzalc",1}, {"beqzc",1},
+		{"beqzl",1}, {"bgec",1}, {"bgeuc",1}, {"bgez",1}, {"bgezalc",1},
+		{"bgezall",1}, {"bgezc",1}, {"bgezl",1}, {"bgtz",1}, {"bgtzalc",1},
+		{"bgtzc",1}, {"bgtzl",1}, {"blez",1}, {"blezalc",1}, {"blezc",1},
+		{"blezl",1}, {"bltc",1}, {"bltuc",1}, {"bltz",1}, {"bltzalc",1},
+		{"bltzall",1}, {"bltzc",1}, {"bltzl",1}, {"bne",1}, {"bnec",1},
+		{"bnegi.b",1}, {"bnegi.d",1}, {"bnegi.h",1}, {"bnegi.w",1}, {"bnez",1},
+		{"bnezalc",1}, {"bnezc",1}, {"bnezl",1}, {"bnvc",1}, {"bnz.b",1},
+		{"bnz.d",1}, {"bnz.h",1}, {"bnz.v",1}, {"bnz.w",1}, {"bz.b",1},
+		{"bz.d",1}, {"bz.h",1}, {"bz.v",1}, {"bz.w",1}, {"bnel",1}, {"bovc",1}
+	};
 
 	result.clear();
 
@@ -1235,6 +1250,14 @@ int tokenize(string src, vector<token>& result, string& err)
 		}
 	}
 
+	/* if the opcode is a brancher, and the last token is a NUM, set it to OFFS */
+
+
+	if(branches.find(result[0].sval) != branches.end())
+		if(result[result.size()-1].type == TT_NUM)
+			result[result.size()-1].type = TT_OFFS;
+
+	/* done */
 	rc = 0;
 	cleanup:
 	return rc;
@@ -1251,6 +1274,7 @@ const char* token_type_tostr(int tt)
 		case TT_NUM: return "NUM";
 		case TT_PUNC: return "PUNC";
 		case TT_OPCODE: return "OPCODE";
+		case TT_OFFS: return "OFFS";
 		default:
 			return "ERR_RESOLVING_TOKEN_TYPE";
 	}
@@ -1273,6 +1297,7 @@ string tokens_to_syntax(vector<token>& tokens)
 			case TT_ACREG:
 			case TT_CASH:
 			case TT_NUM:
+			case TT_OFFS:
 				result += token_type_tostr(t.type);
 				break;
 			case TT_PUNC:
@@ -1301,6 +1326,7 @@ string token_to_string(token t)
 		case TT_ACREG:
 		case TT_CASH:
 		case TT_NUM:
+		case TT_OFFS:
 		{
 			char buf[64];
 			sprintf(buf, "%08X", (uint32_t)t.ival);
@@ -1411,6 +1437,19 @@ float fitness(vector<token> dst, vector<token> src) {
 //				score += hamming_similarity * scorePerToken;
 //				break;
 //			}
+
+			case TT_OFFS:
+			{
+				uint32_t a = (src[i].ival >> 2)-1;
+				uint32_t b = (dst[i].ival >> 2)-1;
+				float hamming_similarity = hamming_similar32(a, b);
+				if(DEBUG_FITNESS) {
+					printf("comparing %08X(->%08X) and %08X(->%08X) have hamming similarity %f\n",
+						(uint32_t)src[i].ival, a, (uint32_t)dst[i].ival, b, hamming_similarity);
+				}
+				score += hamming_similarity * scorePerToken;
+				break;
+			}
 
 			/* opcodes and flags must string match */
 			case TT_OPCODE:
@@ -1544,12 +1583,12 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 	uint32_t vary_mask = info.mask;
 
 	/* for relative branches, shift the target address to 0 */
-	map<string,int> binstrs = {{"j",1}, {"bnel",1}};
-	if(binstrs.find(toks_src[0].sval) != binstrs.end()) {
-		if(toks_src.back().type == TT_NUM) {
-			toks_src.back().ival += 4;
-		}
-	}
+//	map<string,int> binstrs = {{"j",1}, {"bnel",1}};
+//	if(binstrs.find(toks_src[0].sval) != binstrs.end()) {
+//		if(toks_src.back().type == TT_NUM) {
+//			toks_src.back().ival += 4;
+//		}
+//	}
 
 	/* start with the parent */
 	uint32_t parent = info.seed;
