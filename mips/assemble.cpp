@@ -1412,20 +1412,15 @@ uint32_t special_handling(uint32_t seed, uint32_t insword, int bit)
 {
 	switch(seed)
 	{
-		case 0x18000000:
+		/* instructions need first two register fields to match */
+		case 0x59080000: // bgezc
+		case 0x19080000: // bgezalc
+		case 0x1D080000: // bltzalc
+		case 0x5D080000: // bltzc
 		{
-			/* bgezalc needs two regs to agree */
-			// 000110 xxxxx xxxxx 0000000000000000 */
 			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
 			return enforce_bit_match(insword, bit, matches);
 		}
-		case 0x5D080000:
-		{
-			/* bltzc needs two regs to agree */
-			// 000110 xxxxx xxxxx 0000000000000000 */
-			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
-			return enforce_bit_match(insword, bit, matches);
-		}		
 		default:
 		return insword;
 	}
@@ -1462,8 +1457,8 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 	uint32_t vary_mask = info.mask;
 
 	/* for relative branches, shift the target address to 0 */
-	if(toks_src[0].sval[0]=='b' && toks_src[0].sval.back() != 'a' && toks_src.back().type == TT_NUM) {
-		toks_src.back().ival -= addr;
+	if(toks_src[0].sval=="bnel" && toks_src.back().type == TT_NUM) {
+		toks_src.back().ival -= (addr+4);
 		addr = 0;
 	}
 
@@ -1498,8 +1493,9 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 
 		bool overtake = false;
 
-		for(; b1i<n_flips; b1i = (b1i+1) % n_flips) {
+		for(; ; b1i = (b1i+1) % n_flips) {
 			uint32_t child = parent ^ flipper[b1i];
+			//printf("flipping bit: %08X, changing %08X -> %08X\n", flipper[b1i], parent, child);
 			child = special_handling(info.seed, child, flipper_idx[b1i]);
 
 			//MYLOG("b1i is now: %d\n", b1i);
@@ -1509,13 +1505,14 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 				parent = child;
 				top_score = s;
 				overtake = true;
+				b1i = (b1i+1 % n_flips);
 				break;
 			}
 
-			if(1) {
+			if(0) {
 				string tmp;
 				disasm((uint8_t *)&child, addr, tmp, err);
-				//MYLOG("%08X: %s fails to overtake, score %f\n", child, tmp.c_str(), s);		
+				MYLOG("%08X: %s fails to overtake, score %f\n", child, tmp.c_str(), s);		
 			}
 	
 			failures++;
@@ -1564,7 +1561,7 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 
 		if(overtake) {
 			failstreak = 0;
-			if(1) {
+			if(0) {
 				string tmp;
 				disasm((uint8_t *)&parent, addr, tmp, err);
 				MYLOG("%08X: %s overtakes with 1-bit flip (%d) after %d failures, score %f\n", parent, tmp.c_str(), b1i, failures, top_score);		
@@ -1942,7 +1939,7 @@ int main(int ac, char **av)
 			t0 = clock();
 			if(assemble_single(src, TEST_ADDR, encoding, err)) {
 				printf("ERROR: %s\n", err.c_str());
-				printf("last instruction: \"%s\"\n", src.c_str());
+				printf("last instruction: '%s'\n", src.c_str());
 				return -1;
 			}
 			tdelta = (double)(clock()-t0)/CLOCKS_PER_SEC;
