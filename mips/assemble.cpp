@@ -20,6 +20,8 @@ using namespace std;
 /* capstone stuff */
 #include <capstone/capstone.h>
 
+#define DEBUG_FITNESS 1
+#define DEBUG_NATSEL 1
 #define MYLOG printf
 //#define MYLOG(...) while(0);
 
@@ -1119,7 +1121,7 @@ enum tok_type {
 
 struct token {
 	tok_type type;
-	uint32_t ival;
+	uint64_t ival;
 	string sval;
 };
 
@@ -1210,7 +1212,7 @@ int tokenize(string src, vector<token>& result, string& err)
 		}
 		/* hexadecimal immediates */
 		else if((c=='0' && d=='x') || (c=='-' && d=='0' && e=='x')) {
-			uint32_t value = strtoul(inbuf, &endptr, 16);
+			uint64_t value = strtoull(inbuf, &endptr, 16);
 			result.push_back({TT_NUM, value, ""});
 			inbuf = endptr;
 		}
@@ -1283,24 +1285,89 @@ string tokens_to_syntax(vector<token>& tokens)
 	return result;
 }
 
+string token_to_string(token t)
+{
+	if(t.type==TT_PUNC)
+		return t.sval;
+
+	string result;
+	result += token_type_tostr(t.type);
+	result += "(";
+
+	switch(t.type) {
+		case TT_GPREG:
+		case TT_FREG:
+		case TT_WREG:
+		case TT_ACREG:
+		case TT_CASH:
+		case TT_NUM:
+		{
+			char buf[64];
+			sprintf(buf, "%08X", (uint32_t)t.ival);
+			result += "(";
+			result += buf;
+			result += ")";
+			break;
+		}
+		case TT_OPCODE:
+			result += t.sval;
+			break;
+		case TT_PUNC:
+			break;
+	}
+
+	result += ")";
+	return result;
+}
+
+string tokens_to_string(vector<token>& tokens)
+{
+	string result;
+
+	for(int i=0; i<tokens.size(); ++i) {
+		result += token_to_string(tokens[i]);
+		if(i != tokens.size()-1)
+			result += " ";
+	}
+
+	return result;
+}
+
 /*****************************************************************************/
 /* genetic */
 /*****************************************************************************/
 
-int count_bits(uint32_t x)
+int count_bits32(uint32_t x)
 {
 	x = x - ((x >> 1) & 0x55555555);
 	x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
 	return ((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
 }
 
-float hamming_similar(int a, int b)
+int count_bits64(uint64_t x)
 {
-	return (32-count_bits(a ^ b)) / 32.0f;
+	return count_bits32(x) + count_bits32(x >> 32);
+}
+
+float hamming_similar32(uint32_t a, uint32_t b)
+{
+	return (32-count_bits32(a ^ b)) / 32.0f;
+}
+
+float hamming_similar64(uint64_t a, uint64_t b)
+{
+	return (64-count_bits64(a ^ b)) / 64.0f;
 }
 
 float fitness(vector<token> dst, vector<token> src) {
 	int n = dst.size();
+
+	if(DEBUG_FITNESS) {
+		string left = tokens_to_string(dst);
+		string right = tokens_to_string(src);
+		printf(" left: %s\n", left.c_str());
+		printf("right: %s\n", right.c_str());
+	}
 
 	/* same number of tokens */
 	if(n != src.size())
@@ -1312,6 +1379,8 @@ float fitness(vector<token> dst, vector<token> src) {
 
 	/* for each token... */
 	for(int i=0; i<n; ++i) {
+		//printf("on token %d (types:%s and %s)\n", 
+		//	i, token_type_tostr(src[i].type), token_type_tostr(dst[i].type));
 		/* same type */
 		if(src[i].type != dst[i].type)
 			return 0;
@@ -1323,8 +1392,26 @@ float fitness(vector<token> dst, vector<token> src) {
 			case TT_ACREG:
 			case TT_CASH:
 			case TT_NUM:
-				score += hamming_similar(src[i].ival, dst[i].ival) * scorePerToken;
+			{
+				float hamming_similarity = hamming_similar32(src[i].ival, dst[i].ival);
+				if(DEBUG_FITNESS) {
+					printf("comparing %08X and %08X have hamming similarity %f\n",
+						(uint32_t)src[i].ival, (uint32_t)dst[i].ival, hamming_similarity);
+				}
+				score += hamming_similarity * scorePerToken;
 				break;
+			}
+
+//			case TT_NUM:
+//			{
+//				float hamming_similarity = hamming_similar64(src[i].ival, dst[i].ival);
+//				if(DEBUG_FITNESS) {
+//					printf("comparing %08llX and %08llX have hamming similarity %f\n", src[i].ival, dst[i].ival, hamming_similarity);
+//				}
+//				score += hamming_similarity * scorePerToken;
+//				break;
+//			}
+
 			/* opcodes and flags must string match */
 			case TT_OPCODE:
 			case TT_PUNC:
@@ -1357,13 +1444,13 @@ float score(vector<token> baseline, uint32_t newcomer, uint32_t addr)
 	else {
 		//printf("NOT SHORTCUT!\n");
 	}
-
+	
 	/* mnemonics are the same, tokenize now... */
 	if(tokenize(src, toks_child, err)) {
 		printf("ERROR: %s\n", err.c_str());
 		return 0;
 	}
-
+	
 	return fitness(baseline, toks_child);
 }
 
@@ -1457,9 +1544,11 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 	uint32_t vary_mask = info.mask;
 
 	/* for relative branches, shift the target address to 0 */
-	if(toks_src[0].sval=="bnel" && toks_src.back().type == TT_NUM) {
-		toks_src.back().ival -= (addr+4);
-		addr = 0;
+	map<string,int> binstrs = {{"j",1}, {"bnel",1}};
+	if(binstrs.find(toks_src[0].sval) != binstrs.end()) {
+		if(toks_src.back().type == TT_NUM) {
+			toks_src.back().ival += 4;
+		}
 	}
 
 	/* start with the parent */
@@ -1495,7 +1584,7 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 
 		for(; ; b1i = (b1i+1) % n_flips) {
 			uint32_t child = parent ^ flipper[b1i];
-			//printf("flipping bit: %08X, changing %08X -> %08X\n", flipper[b1i], parent, child);
+			//printf("\tflipper[%d]=%08X, changing %08X -> %08X\n", b1i, flipper[b1i], parent, child);
 			child = special_handling(info.seed, child, flipper_idx[b1i]);
 
 			//MYLOG("b1i is now: %d\n", b1i);
@@ -1505,11 +1594,11 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 				parent = child;
 				top_score = s;
 				overtake = true;
-				b1i = (b1i+1 % n_flips);
+				b1i = (b1i+1) % n_flips;
 				break;
 			}
 
-			if(0) {
+			if(DEBUG_NATSEL) {
 				string tmp;
 				disasm((uint8_t *)&child, addr, tmp, err);
 				MYLOG("%08X: %s fails to overtake, score %f\n", child, tmp.c_str(), s);		
@@ -1561,7 +1650,7 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 
 		if(overtake) {
 			failstreak = 0;
-			if(0) {
+			if(DEBUG_NATSEL) {
 				string tmp;
 				disasm((uint8_t *)&parent, addr, tmp, err);
 				MYLOG("%08X: %s overtakes with 1-bit flip (%d) after %d failures, score %f\n", parent, tmp.c_str(), b1i, failures, top_score);		
