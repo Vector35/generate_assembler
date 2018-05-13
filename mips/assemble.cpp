@@ -20,6 +20,7 @@ using namespace std;
 /* capstone stuff */
 #include <capstone/capstone.h>
 
+#define DEBUG_DISASM 0
 #define DEBUG_FITNESS 0
 #define DEBUG_NATSEL 0
 #define MYLOG printf
@@ -1070,6 +1071,9 @@ int disasm(uint8_t *data, uint32_t addr, string& result, string& err)
 		init = true;
 	}
 
+	if(DEBUG_DISASM)
+		printf("incoming: %08X\n", *(uint32_t *)data);
+
 	count = cs_disasm(handle, data,
 		/* code_size */ 4,
 		/* address */ addr,
@@ -1092,12 +1096,17 @@ int disasm(uint8_t *data, uint32_t addr, string& result, string& err)
 		}
 	}
 	else {
+		//kprintf("RAW RAW: %s %s\n", insn->mnemonic, insn->op_str);
+
 		result = insn->mnemonic;
 		if(insn->op_str[0]) {
 			result += " ";
 			result += insn->op_str;
 		}
 	}
+	
+	if(DEBUG_DISASM)
+		printf("outgoing: %s\n", result.c_str());
 
 	rc = 0;
 	cleanup:
@@ -1122,7 +1131,7 @@ enum tok_type {
 
 struct token {
 	tok_type type;
-	uint64_t ival;
+	uint32_t ival;
 	string sval;
 };
 
@@ -1133,8 +1142,8 @@ int tokenize(string src, vector<token>& result, string& err)
 	const char *inbuf = src.c_str();
 
 	map<string,int> branches = {
-		{"bc1eqc",1}, {"bc1nez",1}, {"bc2eqz",1}, {"bc2nez",1}, {"beq",1},
-		{"beqc",1}, {"beql",1}, {"begz",1}, {"beqzalc",1}, {"beqzc",1},
+		{"bc1eqz",1}, {"bc1nez",1}, {"bc2eqz",1}, {"bc2nez",1},
+		{"beq",1},{"beqc",1}, {"beql",1}, {"beqz",1}, {"beqzalc",1}, {"beqzc",1},
 		{"beqzl",1}, {"bgec",1}, {"bgeuc",1}, {"bgez",1}, {"bgezalc",1},
 		{"bgezall",1}, {"bgezc",1}, {"bgezl",1}, {"bgtz",1}, {"bgtzalc",1},
 		{"bgtzc",1}, {"bgtzl",1}, {"blez",1}, {"blezalc",1}, {"blezc",1},
@@ -1227,7 +1236,7 @@ int tokenize(string src, vector<token>& result, string& err)
 		}
 		/* hexadecimal immediates */
 		else if((c=='0' && d=='x') || (c=='-' && d=='0' && e=='x')) {
-			uint64_t value = strtoull(inbuf, &endptr, 16);
+			uint32_t value = strtoul(inbuf, &endptr, 16);
 			result.push_back({TT_NUM, value, ""});
 			inbuf = endptr;
 		}
@@ -1370,9 +1379,19 @@ int count_bits32(uint32_t x)
 	return ((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
 }
 
+int count_bits16(uint16_t x)
+{
+	return count_bits32(x);
+}
+
 int count_bits64(uint64_t x)
 {
 	return count_bits32(x) + count_bits32(x >> 32);
+}
+
+float hamming_similar16(uint16_t a, uint16_t b)
+{
+	return (16-count_bits16(a ^ b)) / 16.0f;
 }
 
 float hamming_similar32(uint32_t a, uint32_t b)
@@ -1391,8 +1410,8 @@ float fitness(vector<token> dst, vector<token> src) {
 	if(DEBUG_FITNESS) {
 		string left = tokens_to_string(dst);
 		string right = tokens_to_string(src);
-		printf(" left: %s\n", left.c_str());
-		printf("right: %s\n", right.c_str());
+		printf("   left: %s\n", left.c_str());
+		printf("  right: %s\n", right.c_str());
 	}
 
 	/* same number of tokens */
@@ -1440,11 +1459,25 @@ float fitness(vector<token> dst, vector<token> src) {
 
 			case TT_OFFS:
 			{
-				uint32_t a = (src[i].ival >> 2)-1;
-				uint32_t b = (dst[i].ival >> 2)-1;
-				float hamming_similarity = hamming_similar32(a, b);
+				uint16_t a, b;
+				if(src[i].ival & 0x80000000) {
+					a = ((~(src[i].ival)) + 1);
+					a >>= 2;
+				}
+				else {
+					a = (src[i].ival >> 2);
+				}
+				if(src[i].ival & 0x80000000) {
+					b = ((~(dst[i].ival)) + 1);
+					b >>= 2;
+				}
+				else {
+					b = (dst[i].ival >> 2);
+				}
+
+				float hamming_similarity = hamming_similar16(a, b);
 				if(DEBUG_FITNESS) {
-					printf("comparing %08X(->%08X) and %08X(->%08X) have hamming similarity %f\n",
+					printf("comparing %08X(->%04X) and %08X(->%04X) have hamming similarity %f\n",
 						(uint32_t)src[i].ival, a, (uint32_t)dst[i].ival, b, hamming_similarity);
 				}
 				score += hamming_similarity * scorePerToken;
@@ -1971,6 +2004,17 @@ int main(int ac, char **av)
 
 	srand(time(NULL));
 
+	if(0) {
+		string foo, bar;
+		disasm((uint8_t *)"\x73\x71\xed\x5c", 0, foo, bar);
+		printf("wtf: %s\n", foo.c_str());
+		disasm((uint8_t *)"\x5e\x59\x3f\x5f", 0, foo, bar);
+		printf("wtf: %s\n", foo.c_str());
+		disasm((uint8_t *)"\xb5\x06\xff\x7d", 0, foo, bar);
+		printf("wtf: %s\n", foo.c_str());
+		return -1;
+	}
+
 	/* decide mode */
 	#define MODE_FILE 0
 	#define MODE_RANDOM 1
@@ -2058,8 +2102,8 @@ int main(int ac, char **av)
 				printf("ERROR: %s\n", err.c_str());
 				goto cleanup;
 			}
-	
-			if(src == "undefined")
+
+			if(src == "undefined" || src.substr(0,5)=="cache" || src.substr(0,4)=="pref")
 				continue;
 	
 			printf("%08X: %s\n", insWord, src.c_str());
@@ -2067,7 +2111,7 @@ int main(int ac, char **av)
 			t0 = clock();
 			if(assemble_single(src, TEST_ADDR, encoding, err)) {
 				printf("ERROR: %s\n", err.c_str());
-				printf("last instruction: '%s'\n", src.c_str());
+				printf("last instruction: %08X: '%s'\n", insWord, src.c_str());
 				return -1;
 			}
 			tdelta = (double)(clock()-t0)/CLOCKS_PER_SEC;

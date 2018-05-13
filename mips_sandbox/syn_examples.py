@@ -24,14 +24,18 @@ for l in lines:
 # go!
 ###############
 
+targets = sorted(opc2example)
+if sys.argv[1:]:
+	targets = [sys.argv[1]]
+
 syn2example = {}
 
-DEPTH = 3 
-for opc in sorted(opc2example):
+DEPTH = 4 
+for opc in targets:
 	print "// on %s" % opc
 	example = opc2example[opc]
 
-	syn = common.syntax(example)
+	syn = common.syntax_from_insword(example)
 	if not syn in syn2example:
 		print "\"%s\": 0x%08X" % (syn, example)
 		syn2example[syn] = example
@@ -51,10 +55,13 @@ for opc in sorted(opc2example):
 					#print 'clearing bit %d' % positions[i]
 					example2 &= ctypes.c_uint32(~mask).value
 
-			syn2 = common.syntax(example2)
+			instr2 = common.disasm(example2)
+			syn2 = common.syntax_from_string(instr2)
 
 			if not (syn2 == opc or syn2.startswith(opc+' ')):
 				continue
+
+			print '%08X: %s %s' % (example2, instr2, syn2)
 
 			if not syn2 in syn2example:
 				print "\"%s\": 0x%08X" % (syn2, example2)

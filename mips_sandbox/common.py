@@ -78,7 +78,7 @@ def tokenize(string):
 
 	# if the opcode is a branch, and the last token type is num, change it to type offset
 	branch_instrs = \
-		['bc1eqc', 'bc1nez', 'bc2eqz', 'bc2nez', 'beq', 'beqc', 'beql', 'begz', \
+		['bc1eqz', 'bc1nez', 'bc2eqz', 'bc2nez', 'beq', 'beqc', 'beql', 'begz', \
 		'beqzalc', 'beqzc', 'beqzl', 'bgec', 'bgeuc', 'bgez', 'bgezalc', \
 		'bgezall', 'bgezc', 'bgezl', 'bgtz', 'bgtzalc', 'bgtzc', 'bgtzl', \
 		'blez', 'blezalc', 'blezc', 'blezl', 'bltc', 'bltuc', 'bltz', \
@@ -107,8 +107,7 @@ def disasm(insword):
 
 	return cbuf.value
 	
-def syntax(insword):
-	instr = disasm(insword)
+def syntax_from_string(instr):
 	tokens = tokenize(instr)
 	syntax = tokens[0][1];
 	
@@ -116,4 +115,7 @@ def syntax(insword):
 		syntax += ' ' + ' '.join(map(lambda x: x[0], tokens[1:]))
 
 	return syntax
+
+def syntax_from_insword(insword):
+	return syntax_from_string(disasm(insword))
 

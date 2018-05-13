@@ -38,11 +38,11 @@ if sys.argv[2:]:
 
 t0 = time.time()
 
-#for insword in xrange(START,END):
-while 1:
-	insword = random.randint(0,0xFFFFFFFF)
+for insword in xrange(START,END):
+#while 1:
+#	insword = random.randint(0,0xFFFFFFFF)
 
-	syntax = common.syntax(insword)
+	syntax = common.syntax_from_insword(insword)
 
 	#if syntax in ['lwc2 CASH , ( )', 'jialc NUM ,']:
 	#	print 'wtf? %08X: %s' % (insword, instr)
