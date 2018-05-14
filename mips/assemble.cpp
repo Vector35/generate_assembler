@@ -23,6 +23,7 @@ using namespace std;
 #define DEBUG_DISASM 0
 #define DEBUG_FITNESS 0
 #define DEBUG_NATSEL 0
+#define DEBUG_HOOKS 1
 #define MYLOG printf
 //#define MYLOG(...) while(0);
 
@@ -1459,6 +1460,10 @@ float fitness(vector<token> dst, vector<token> src) {
 
 			case TT_OFFS:
 			{
+				// give branch offsets full score, handle them in post_hook
+				score += scorePerToken;
+				break;
+
 				uint16_t a, b;
 				if(src[i].ival & 0x80000000) {
 					a = ((~(src[i].ival)) + 1);
@@ -1531,6 +1536,10 @@ struct match {
 	uint32_t dst_hi, dst_lo; // destination bit range
 };
 
+/*****************************************************************************/
+/* assembling hooks */
+/*****************************************************************************/
+
 // force certain regions of bits to match
 uint32_t enforce_bit_match(uint32_t inp, int bit, vector<match> matches)
 {
@@ -1562,32 +1571,16 @@ uint32_t enforce_bit_match(uint32_t inp, int bit, vector<match> matches)
 	return inp;
 }
 
-// for certain instructions with difficult inter-field dependencies
-// inputs:
-//     seed: the seed value that may need the special case
-//  insword: instruction word
-//      bit: last bit changed
-uint32_t special_handling(uint32_t seed, uint32_t insword, int bit)
-{
-	switch(seed)
-	{
-		/* instructions need first two register fields to match */
-		case 0x59080000: // bgezc
-		case 0x19080000: // bgezalc
-		case 0x1D080000: // bltzalc
-		case 0x5D080000: // bltzc
-		{
-			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
-			return enforce_bit_match(insword, bit, matches);
-		}
-		default:
-		return insword;
-	}
-}
+/* FIRST shot at manipulating the assembling process
+	set the seed perhaps to a better value
 
-uint32_t manual_assemble(uint32_t seed, vector<token> toks)
+*/
+uint32_t hook_first(uint32_t seed, vector<token> toks)
 {
-	if(DEBUG_NATSEL) {
+	if(seed != 0x7c000004 && seed != 0x7c000000)
+		return seed;
+
+	if(DEBUG_HOOKS) {
 		printf("manually assembling (seed=%08X): %s\n", seed, tokens_to_string(toks).c_str());
 		for(int i=0; i<toks.size(); ++i)
 			printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
@@ -1620,6 +1613,59 @@ uint32_t manual_assemble(uint32_t seed, vector<token> toks)
 	return insword;
 }
 
+/* SECOND shot at manipulating the assembling process
+	"help" bit flips also affect dependent fields
+
+	for certain instructions with difficult inter-field dependencies
+	inputs:
+		seed: the seed value that may need the special case
+		insword: instruction word
+	bit: last bit changed
+*/
+uint32_t hook_middle(uint32_t seed, uint32_t insword, int bit)
+{
+	switch(seed)
+	{
+		/* instructions need first two register fields to match */
+		case 0x59080000: // bgezc
+		case 0x19080000: // bgezalc
+		case 0x1D080000: // bltzalc
+		case 0x5D080000: // bltzc
+		{
+			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
+			return enforce_bit_match(insword, bit, matches);
+		}
+		default:
+		return insword;
+	}
+}
+
+/* LAST shot at manipulating the assembling process
+
+	fill in anything missing, like OFFS	
+*/
+uint32_t hook_last(uint32_t seed, uint32_t insword, vector<token> toks)
+{
+	token tok = toks[toks.size()-1];
+
+	uint32_t result = insword;
+
+	/* resolve offset manually, until this fixed:
+		https://github.com/aquynh/capstone/issues/1134 */
+	if(tok.type == TT_OFFS) {
+		uint16_t oenc = ((tok.ival >> 2)-1) & 0xFFFF;
+		if(DEBUG_HOOKS)
+			printf("encoded address %08X to %04X\n", tok.ival, oenc);
+		result = (insword & 0xFFFF0000) | oenc;
+	}
+
+	return result;
+}
+
+/*****************************************************************************/
+/* main assembler function */
+/*****************************************************************************/
+
 #define N_OFFSPRING 1
 #define N_BITS_FLIP 3
 #define FAILURES_LIMIT 20000
@@ -1630,8 +1676,6 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 
 	/* decompose instruction into tokens */
 	vector<token> toks_src;
-	vector<token> toks_child;
-
 	if(tokenize(src, toks_src, err)) {
 		err = "invalid syntax";
 		return -1;
@@ -1647,16 +1691,9 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 	}
 	
 	auto info = lookup[syn_src];
-
 	if(DEBUG_NATSEL)
 		printf("starting with seed: %08X\n", info.seed);
-
-	uint32_t encoding = manual_assemble(info.seed, toks_src);
-	if(encoding)
-		info.seed = encoding;
-
-	if(DEBUG_NATSEL)
-		printf("starting with seed: %08X\n", info.seed);
+	info.seed = hook_first(info.seed, toks_src);
 
 	uint32_t vary_mask = info.mask;
 
@@ -1685,6 +1722,10 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 		/* winner? */
 		if(top_score > 99.99) {
 			MYLOG("%08X wins!\n", parent);
+
+			/* run last hook */
+			parent = hook_last(info.seed, parent, toks_src);
+
 			memcpy(result, &parent, 4);
 			break;
 		}
@@ -1694,7 +1735,7 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 		for(; ; b1i = (b1i+1) % n_flips) {
 			uint32_t child = parent ^ flipper[b1i];
 			//printf("\tflipper[%d]=%08X, changing %08X -> %08X\n", b1i, flipper[b1i], parent, child);
-			child = special_handling(info.seed, child, flipper_idx[b1i]);
+			child = hook_middle(info.seed, child, flipper_idx[b1i]);
 
 			//MYLOG("b1i is now: %d\n", b1i);
 
@@ -1729,7 +1770,7 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 					for(int i=0; i<n_flips; ++i) {
 						if(rand()%2) {
 							parent ^= flipper[i];
-							parent = special_handling(info.seed, parent, flipper_idx[i]);
+							parent = hook_middle(info.seed, parent, flipper_idx[i]);
 						}
 					}
 
