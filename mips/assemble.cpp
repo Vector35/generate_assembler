@@ -1585,6 +1585,24 @@ uint32_t special_handling(uint32_t seed, uint32_t insword, int bit)
 	}
 }
 
+uint32_t manual_assemble(vector<token> toks)
+{
+	//printf("manually assembling: %s\n", tokens_to_string(toks).c_str());
+	//for(int i=0; i<toks.size(); ++i)
+	//	printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
+
+	if(toks[0].sval == "ins") {
+		uint32_t insword = 0x7C000004;
+		insword |= toks[3].ival << 21;							// rs
+		insword |= toks[1].ival << 16;							// rt
+		insword |= (toks[7].ival + toks[5].ival - 1) << 11;		// msb (pos+size-1)
+		insword |= toks[5].ival << 6;							// lsb (pos)
+		return insword;
+	}
+
+	return 0x00000000;
+}
+
 #define N_OFFSPRING 1
 #define N_BITS_FLIP 3
 #define FAILURES_LIMIT 20000
@@ -1602,26 +1620,22 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 		return -1;
 	}
 
-	/* form syntax, look it up */
+	/* form syntax, look it up, or manually assemble it */
 	string syn_src = tokens_to_syntax(toks_src);
-	
 	//printf("src:%s has syntax:%s\n", src.c_str(), syn_src.c_str());
 
 	if(lookup.find(syn_src) == lookup.end()) {
 		err = "invalid syntax (tried to look up: \"" + syn_src + "\")";
 		return -1;
 	}
-
+	
 	auto info = lookup[syn_src];
-	uint32_t vary_mask = info.mask;
 
-	/* for relative branches, shift the target address to 0 */
-//	map<string,int> binstrs = {{"j",1}, {"bnel",1}};
-//	if(binstrs.find(toks_src[0].sval) != binstrs.end()) {
-//		if(toks_src.back().type == TT_NUM) {
-//			toks_src.back().ival += 4;
-//		}
-//	}
+	uint32_t encoding = manual_assemble(toks_src);
+	if(encoding)
+		info.seed = encoding;
+
+	uint32_t vary_mask = info.mask;
 
 	/* start with the parent */
 	uint32_t parent = info.seed;
@@ -2003,17 +2017,6 @@ int main(int ac, char **av)
 	int failsWorst = 0;
 
 	srand(time(NULL));
-
-	if(0) {
-		string foo, bar;
-		disasm((uint8_t *)"\x73\x71\xed\x5c", 0, foo, bar);
-		printf("wtf: %s\n", foo.c_str());
-		disasm((uint8_t *)"\x5e\x59\x3f\x5f", 0, foo, bar);
-		printf("wtf: %s\n", foo.c_str());
-		disasm((uint8_t *)"\xb5\x06\xff\x7d", 0, foo, bar);
-		printf("wtf: %s\n", foo.c_str());
-		return -1;
-	}
 
 	/* decide mode */
 	#define MODE_FILE 0
