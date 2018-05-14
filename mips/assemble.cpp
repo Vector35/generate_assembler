@@ -1585,22 +1585,39 @@ uint32_t special_handling(uint32_t seed, uint32_t insword, int bit)
 	}
 }
 
-uint32_t manual_assemble(vector<token> toks)
+uint32_t manual_assemble(uint32_t seed, vector<token> toks)
 {
-	//printf("manually assembling: %s\n", tokens_to_string(toks).c_str());
-	//for(int i=0; i<toks.size(); ++i)
-	//	printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
-
-	if(toks[0].sval == "ins") {
-		uint32_t insword = 0x7C000004;
-		insword |= toks[3].ival << 21;							// rs
-		insword |= toks[1].ival << 16;							// rt
-		insword |= (toks[7].ival + toks[5].ival - 1) << 11;		// msb (pos+size-1)
-		insword |= toks[5].ival << 6;							// lsb (pos)
-		return insword;
+	if(DEBUG_NATSEL) {
+		printf("manually assembling (seed=%08X): %s\n", seed, tokens_to_string(toks).c_str());
+		for(int i=0; i<toks.size(); ++i)
+			printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
 	}
 
-	return 0x00000000;
+	uint32_t insword = 0;
+
+	switch(seed) {
+		case 0x7C000004: // INS
+		{
+			insword = 0x7C000004;
+			insword |= toks[3].ival << 21;							// rs
+			insword |= toks[1].ival << 16;							// rt
+			insword |= (toks[7].ival + toks[5].ival - 1) << 11;		// msb (pos+size-1)
+			insword |= toks[5].ival << 6;							// lsb (pos)
+			break;
+		}
+
+		case 0x7C000000: // EXT
+		{
+			insword = 0x7C000000;
+			insword |= toks[3].ival << 21;							// rs
+			insword |= toks[1].ival << 16;							// rt
+			insword |= (toks[7].ival - 1) << 11;					// msbd (size-1)
+			insword |= toks[5].ival << 6;							// lsb (pos)
+			break;
+		}
+	}
+
+	return insword;
 }
 
 #define N_OFFSPRING 1
@@ -1631,9 +1648,15 @@ int assemble_single(string src, uint32_t addr, uint8_t *result, string& err)
 	
 	auto info = lookup[syn_src];
 
-	uint32_t encoding = manual_assemble(toks_src);
+	if(DEBUG_NATSEL)
+		printf("starting with seed: %08X\n", info.seed);
+
+	uint32_t encoding = manual_assemble(info.seed, toks_src);
 	if(encoding)
 		info.seed = encoding;
+
+	if(DEBUG_NATSEL)
+		printf("starting with seed: %08X\n", info.seed);
 
 	uint32_t vary_mask = info.mask;
 
