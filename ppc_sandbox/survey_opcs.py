@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 
-# from /usr/local/include/capstone/mips.h we have:
-#
-# MIPS_INS_ABSQ_S = 0
-# MIPS_INS_ADD = 1
-# ...
-# MIPS_INSN_JR_HB =~ 590
-
 import sys
 import struct
 import ctypes
