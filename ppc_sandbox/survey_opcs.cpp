@@ -79,19 +79,19 @@ int main(int ac, char **av)
 	map<string,uint32_t> data;
 
 	if(ac < 2) {
-		printf("ERROR: supply \"count\" or \"seed\"\n");
+		printf("ERROR: supply \"count\" or \"examples\"\n");
 		return -1;
 	}
 
 	#define MODE_COUNT 0				// count the number of times each opcode is encountered
-	#define MODE_SEED 1					// store an instruction word for each opcode
+	#define MODE_EXAMPLES 1					// store an instruction word for each opcode
 	int mode = MODE_COUNT;
 	if(!strcmp(av[1], "count")) {
 		fprintf(stderr, "MODE: count opcodes in instruction space\n");
 		mode = MODE_COUNT;
 	}
-	else if(!strcmp(av[1], "seed")) {
-		mode = MODE_SEED;
+	else if(!strcmp(av[1], "examples")) {
+		mode = MODE_EXAMPLES;
 		fprintf(stderr, "MODE: remember example instruction word for each opcode\n");
 	}
 
@@ -109,11 +109,18 @@ int main(int ac, char **av)
 		char result[64];
 
 		CS_disasm((uint8_t *)&insword, result);
+		/* chop off punctuation */
+		for(int i=0; 1; i++) {
+			if(isalnum(result[i]))
+				continue;
+			result[i] = '\0';
+			break;
+		}
 
 		if(data.find(result) == data.end()) {
 			if(mode == MODE_COUNT)
 				data[result] = 1;
-			else if(mode == MODE_SEED)
+			else if(mode == MODE_EXAMPLES)
 				data[result] = insword;
 		}
 		else {
@@ -148,9 +155,9 @@ int main(int ac, char **av)
 		string opc = it->first;
 		uint32_t value = it->second;
 		if(mode == MODE_COUNT)
-			printf("\"%s\":%d\n", opc.c_str(), value);
-		else if(mode == MODE_SEED)
-			printf("\"%s\":0x%08X\n", opc.c_str(), value);
+			printf("'%s': %d\n", opc.c_str(), value);
+		else if(mode == MODE_EXAMPLES)
+			printf("'%s': 0x%08X\n", opc.c_str(), value);
 	}
 }
 

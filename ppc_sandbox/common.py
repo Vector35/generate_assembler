@@ -69,7 +69,7 @@ def disasm(word):
 	global adapt, cbuf, ibuf
 
 	if not adapt:
-		adapt = ctypes.CDLL("testadapt.so")
+		adapt = ctypes.CDLL("gofer.so")
 		cbuf = ctypes.create_string_buffer(256)
 		ibuf = ctypes.create_string_buffer(4)
 
@@ -77,6 +77,17 @@ def disasm(word):
 	data = struct.pack('<I', word)
 
 	# ask capstone
-	rc = adapt.get_disasm_capstone(data, 4, ctypes.byref(cbuf))
-	if rc: raise Exception("ERROR: get_disasm_capstone()")
+	adapt.get_disasm_capstone(data, 4, ctypes.byref(cbuf))
 	return cbuf.value
+
+def syntax_from_string(instr):
+	tokens = tokenize(instr)
+	syntax = tokens[0][1];
+	
+	if tokens[1:]:
+		syntax += ' ' + ' '.join(map(lambda x: x[0], tokens[1:]))
+
+	return syntax
+
+def syntax_from_insword(insword):
+	return syntax_from_string(disasm(insword))	
