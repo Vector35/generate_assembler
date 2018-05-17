@@ -64,6 +64,6 @@ for opc in targets:
 			#print '%08X: %s %s' % (example2, instr2, syn2)
 
 			if not syn2 in syn2example:
-				print "\"%s\": 0x%08X" % (syn2, example2)
+				print "'%s': 0x%08X" % (syn2, example2)
 				syn2example[syn2] = example2
 
