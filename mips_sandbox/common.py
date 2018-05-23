@@ -2,6 +2,8 @@ import re
 import ctypes
 import struct
 
+import itertools
+
 def tokenize(string):
 	gpr_aliases = {'$zero':0, '$at':1, '$v0':2, '$v1':3, \
 			'$a0':4, '$a1':5, '$a2':6, '$a3':7, \
@@ -16,7 +18,8 @@ def tokenize(string):
 	result = []
 
 	# pick off opcode
-	opcode = re.match(r'^([\w\.]+)', string).group(1)
+	# (includes the .fmt)
+	opcode = re.match(r'^([\.\w]+)', string).group(1)
 	result.append( ['OPC', opcode] )
 	string = string[len(opcode):]
 
@@ -82,10 +85,9 @@ def tokenize(string):
 		'beqzalc', 'beqzc', 'beqzl', 'bgec', 'bgeuc', 'bgez', 'bgezalc', \
 		'bgezall', 'bgezc', 'bgezl', 'bgtz', 'bgtzalc', 'bgtzc', 'bgtzl', \
 		'blez', 'blezalc', 'blezc', 'blezl', 'bltc', 'bltuc', 'bltz', \
-		'bltzalc', 'bltzall', 'bltzc', 'bltzl', 'bne', 'bnec', 'bnegi.b', \
-		'bnegi.d', 'bnegi.h', 'bnegi.w', 'bnez', 'bnezalc', 'bnezc', 'bnezl', \
-		'bnvc', 'bnz.b', 'bnz.d', 'bnz.h', 'bnz.v', 'bnz.w', 'bz.b', 'bz.d', \
-		'bz.h', 'bz.v', 'bz.w', 'bnel', 'bovc']
+		'bltzalc', 'bltzall', 'bltzc', 'bltzl', 'bne', 'bnec', 'bnegi', \
+		'bnez', 'bnezalc', 'bnezc', 'bnezl', \
+		'bnvc', 'bnz', 'bz', 'bnel', 'bovc']
 
 	if (result[0][1] in branch_instrs) and result[-1][0]=='NUM':
 		result[-1][0] = 'OFFS'
@@ -109,13 +111,58 @@ def disasm(insword):
 	
 def syntax_from_string(instr):
 	tokens = tokenize(instr)
-	syntax = tokens[0][1];
 	
-	if tokens[1:]:
-		syntax += ' ' + ' '.join(map(lambda x: x[0], tokens[1:]))
+	# first part of result is opcode
+	syntax = tokens[0][1];
+	tokens = tokens[1:]
+
+	# possibly second part is suffix
+	if tokens and tokens[0][0] == 'SUFFIX':
+		syntax += ' '+tokens[0][1]
+		tokens = tokens[1:]
+
+	# the remainder
+	if tokens:
+		syntax += ' ' + ' '.join(map(lambda x: x[0], tokens))
 
 	return syntax
 
 def syntax_from_insword(insword):
 	return syntax_from_string(disasm(insword))
 
+# return all 32-bit values have 4, 3, 2, 1 and 0 bits set
+def fuzz4():
+	fuzz = [0]
+
+	for positions in itertools.combinations(range(32), 1):
+		mask = (1<<positions[0])
+		fuzz.append(mask)
+
+	for positions in itertools.combinations(range(32), 2):
+		mask = (1<<positions[0])|(1<<positions[1])
+		fuzz.append(mask)
+
+	for positions in itertools.combinations(range(32), 3):
+		mask = (1<<positions[0])|(1<<positions[1])|(1<<positions[2])
+		fuzz.append(mask)
+
+	for positions in itertools.combinations(range(32), 4):
+		mask = (1<<positions[0])|(1<<positions[1])|(1<<positions[2])|(1<<positions[3])
+		fuzz.append(mask)
+
+	# fuzz should have all 4-bit subsets, 3-bit subsets, 2-bit, 1-bit, 0-bit
+	assert len(fuzz) == 32*31*30*29/24 + 32*31*30/6 + 32*31/2 + 32 + 1
+
+	return fuzz
+
+def fuzz5():
+	fuzz = fuzz4()
+	
+	for positions in itertools.combinations(range(32), 5):
+		mask = (1<<positions[0])|(1<<positions[1])|(1<<positions[2])|(1<<positions[3])|(1<<positions[4])
+		fuzz.append(mask)
+	
+	# fuzz should have all 4-bit subsets, 3-bit subsets, 2-bit, 1-bit, 0-bit
+	assert len(fuzz) == 32*31*30*29*28/120 + 32*31*30*29/24 + 32*31*30/6 + 32*31/2 + 32 + 1
+
+	return fuzz	

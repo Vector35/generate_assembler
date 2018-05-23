@@ -13,10 +13,26 @@ using namespace std;
 /* capstone stuff */
 /******************************/
 #include <capstone/capstone.h>
-#include <capstone/arm.h>
 
-void CS_disasm(csh handle, cs_insn *insn, uint8_t *data, char *result)
+void disasm(uint8_t *data, char *result)
 {
+	/* init? */
+	static thread_local csh handle = 0;
+	static thread_local cs_insn *insn = NULL;
+	if(insn == NULL) {
+		cs_mode mode = (cs_mode)(CS_MODE_LITTLE_ENDIAN | CS_MODE_MIPS32R6);
+		if(cs_open(CS_ARCH_MIPS, mode, &handle) != CS_ERR_OK) {
+			fprintf(stderr, "ERROR: cs_open()\n");
+			exit(-1);
+		}
+
+		insn = cs_malloc(handle);
+		if(!insn) {
+			fprintf(stderr, "ERROR: cs_malloc()\n");
+			exit(-1);
+		}		
+	}
+
 	uint64_t addr = 0;
 	size_t size = 4;
 	const uint8_t *pinsword = data;
@@ -34,14 +50,8 @@ void CS_disasm(csh handle, cs_insn *insn, uint8_t *data, char *result)
 	}
 	else
 	if(result) {
-		int n = strlen(insn->mnemonic);
+		/* includes the .fmt */
 		strcpy(result, insn->mnemonic);
-		for(int i=0; i<n; ++i) {
-			if(result[i]=='.') {
-				result[i] = '\0';
-				break;
-			}
-		}
 	}
 	else {
 		fprintf(stderr, "ERROR\n");
@@ -82,7 +92,7 @@ void *worker(void *arg_) {
 	for(uint64_t insword64=arg->start; insword64!=arg->stop; ++insword64) {
 		char distxt[64];
 		uint32_t insword32 = insword64;
-		CS_disasm(CS_handle, CS_insn, (uint8_t *)&insword32, distxt);
+		disasm((uint8_t *)&insword32, distxt);
 
 		auto it = result->find(distxt);
 		if(it == result->end()) {
@@ -108,7 +118,7 @@ void *worker(void *arg_) {
 #define MAXENCODING 0x100000000
 int main(int ac, char **av)
 {
-	int mode = MODE_COUNT;
+	int mode = MODE_SEED;
 	if(ac>1 && !strcmp(av[1], "count")) {
 		fprintf(stderr, "MODE: count opcodes in instruction space\n");
 		mode = MODE_COUNT;
@@ -152,10 +162,10 @@ int main(int ac, char **av)
 				result[it->first] = it->second;
 
 				if(mode == MODE_SEED)
-					printf("'%s': 0x%08X,\n", (it->first).c_str(), it->second);
+					printf("\"%s\": 0x%08X\n", (it->first).c_str(), it->second);
 				else
 				if(mode == MODE_COUNT)
-					printf("'%s': %d,\n", (it->first).c_str(), it->second);
+					printf("\"%s\"': %d\n", (it->first).c_str(), it->second);
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 CPPFLAGS = 
 CPPFLAGS += -I/usr/local/include -std=c++11 -O0 -g
 
-all: gofer.so survey_opcs
+all: gofer.so opc_seeds
 
 gofer.so: gofer.cpp
 	g++ $(CPPFLAGS) \
@@ -11,8 +11,11 @@ gofer.so: gofer.cpp
 	install_name_tool -change libcapstone.3.dylib /usr/local/lib/libcapstone.3.dylib gofer.so
 	#install_name_tool -add_rpath `pwd` gofer.so
 
-survey_opcs: survey_opcs.cpp
-	g++ -std=c++11 -Ofast survey_opcs.cpp -lcapstone -o survey_opcs
+opc_seeds: opc_seeds.cpp
+	g++ -std=c++11 -Ofast opc_seeds.cpp -pthread -lcapstone -o opc_seeds
 
 clean:
 	rm gofer.so 2>/dev/null
+	rm opc_seeds 2>/dev/null
+	rm gofer 2>/dev/null
+	rm -rf gofer.so.dSYM 2>/dev/null
