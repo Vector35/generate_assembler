@@ -37,7 +37,7 @@ for opc in targets:
 
 	syn = common.syntax_from_insword(example)
 	if not syn in syn2example:
-		print "\"%s\": 0x%08X" % (syn, example)
+		print "'%s': 0x%08X" % (syn, example)
 		syn2example[syn] = example
 
 	# for every <DEPTH> bit positions

@@ -56,10 +56,9 @@ for syn in targets:
 					#print 'clearing bit %d' % positions[i]
 					example_ &= ctypes.c_uint32(~mask).value
 
-			#print 'new example: %08X %s' % (example_, bin(example_))
-
 			syn2 = common.syntax_from_insword(example_)
 			if syn == syn2:
+				#print '%08X: %s' % (example_, bin(example_)[2:])
 				always1 &= example_
 				always0 &= ctypes.c_uint32(~example_).value
 			else:
