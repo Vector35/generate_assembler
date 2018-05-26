@@ -62,6 +62,11 @@ for opc in targets:
 		continue
 		
 	seed = opc2seed[opc]
+
+	if common.syntax_from_string(common.disasm(seed)) in syn2seed:
+		print 'skipping %s' % opc
+		continue
+
 	#print "// on %08X: %s" % (seed, opc)
 
 	for (i,mask) in enumerate(fuzz):

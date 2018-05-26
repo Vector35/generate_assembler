@@ -10,6 +10,7 @@ def tokenize(string):
 	#
 	# pre-tokenize
 	#
+	cc = ['eq','ge','gt','hi','hn','hs','le','lo','ls','lt','mi','ne','pl','vc','vs']
 	digits = list('1234567890')
 	hdigits = digits + list('abcdef')
 	letters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZ')
@@ -18,7 +19,6 @@ def tokenize(string):
 
 	ptoks = []
 
-	opc = ''
 	n = 0
 
 	# opcode
@@ -40,7 +40,7 @@ def tokenize(string):
 		# immediates
 		elif string[0] == '#':
 			n = 1
-			while string[n:] and string[n] in (hdigits + list('-+0xe.')):
+			while string[n:] and string[n] in (hdigits + list('-+xe.')):
 				n += 1
 			ptoks.append(string[0:n])
 			string = string[n:]
@@ -52,17 +52,20 @@ def tokenize(string):
 				n += 1
 			ptoks.append(string[0:n])
 			string = string[n:]	
+
 		# decimal literals, like the 5 in "vmla.i32 q0, q0, d0[5]"
 		elif string[0] in digits:
 			n = 1
 			while string[n:] and string[n] in digits:
 				n += 1
 			ptoks.append(string[0:n])
-			string = string[n:]	
+			string = string[n:]
+
 		# stretches of punctuation
 		elif string[0] in punc:
 			ptoks.append(string[0])
 			string = string[1:]
+
 		# register lists {...}
 		elif string[0] == '{':
 			n = 1
@@ -70,11 +73,12 @@ def tokenize(string):
 				n += 1
 			ptoks.append(string[0:n+1])
 			string = string[n+1:]
+
 		# spaces discarded
 		elif string[0] == ' ':
 			string = string[1:]
 		else:
-			raise Exception('pretokenize stumped on: %s (original input: %s)' % (string, string_))
+			raise Exception('pretokenize stumped on: -%s- (original input: %s)' % (string, string_))
 
 	#print 'pre tokens: ' + ' '.join(ptoks)
 
@@ -101,8 +105,8 @@ def tokenize(string):
 			toks.append('SREG')			
 		elif tok in alias2gpr:
 			toks.append('GPR')
-		elif tok in ['le','be']:
-			toks.append(tok)
+		elif re.match(r'^mvfr\d', tok):
+			toks.append('MEDIAREG')
 		elif tok in ['none', 'a', 'i', 'f', 'ai', 'af', 'if', 'aif']:
 			toks.append('IRQ')
 		elif tok in shifts:
@@ -113,14 +117,16 @@ def tokenize(string):
 			toks.append('NUM')
 		elif re.match(r'^#?-?\d+', tok):
 			toks.append('NUM')
-		elif tok in list('[](),.*+-!^:'):
+		elif tok in list('[](),.*+-!^:') + ['CC','le','be']:
+			toks.append(tok)
+		elif tok in ['.s8','.s16','.s32','.s64','.u32','.8','.16','.32','.i32','.i64']:
 			toks.append(tok)
 		elif re.match(r'^[aif]+', tok):
 			toks.append('OPT')
 		elif tok in ['sy','st','ish','ishst','nsh','nshst','osh','oshst']: # dmb options
 			toks.append('OPT')
 		else:
-			raise Exception('tokenize stumped on: %s (original input: %s)' % (tok, string_))
+			raise Exception('tokenize stumped on: -%s- (original input: %s)' % (tok, string_))
 
 	# done
 	return toks
@@ -137,6 +143,7 @@ def disasm(insword):
 	data = struct.pack('<I', insword)
 	gofer.get_disasm_capstone(data, 4, ctypes.byref(cbuf))
 
+	#print 'disassembled %08X to -%s-' % (insword, cbuf.value)
 	return cbuf.value
 	
 def syntax_from_string(instr):
