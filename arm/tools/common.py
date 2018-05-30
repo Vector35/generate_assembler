@@ -61,7 +61,7 @@ def tokenize(string):
 			ptoks.append(string[0:n])
 			string = string[n:]
 
-		# stretches of punctuation
+		# punctuation
 		elif string[0] in punc:
 			ptoks.append(string[0])
 			string = string[1:]
@@ -153,7 +153,7 @@ def syntax_from_string(instr):
 def syntax_from_insword(insword):
 	return syntax_from_string(disasm(insword))
 
-# return all 32-bit values have 4, 3, 2, 1 and 0 bits set
+# return all 32-bit values that have 4, 3, 2, 1 and 0 bits set
 def fuzz4():
 	fuzz = [0]
 

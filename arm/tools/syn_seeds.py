@@ -26,7 +26,7 @@ for l in lines:
 # go!
 ###############
 
-fuzz = common.fuzz4()
+fuzz = common.fuzz5()
 
 targets = sorted(opc2seed)
 
