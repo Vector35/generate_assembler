@@ -47,6 +47,7 @@ if sys.argv[1:] and sys.argv[1].startswith('--survey='):
 	sys.exit(0)
 
 start = targets[0]
+# just an opcode, like `./syn_seeds --start=poppl`
 if sys.argv[1:] and sys.argv[1].startswith('--start='):
 	start = sys.argv[1][8:]
 

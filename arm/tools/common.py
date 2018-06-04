@@ -47,11 +47,11 @@ def tokenize(string):
 
 		# hex literals
 		elif string[0] == '0' and (string[1:] and string[1]=='x'):
-			n = 2 
+			n = 2
 			while string[n:] and string[n] in hdigits:
 				n += 1
 			ptoks.append(string[0:n])
-			string = string[n:]	
+			string = string[n:]
 
 		# decimal literals, like the 5 in "vmla.i32 q0, q0, d0[5]"
 		elif string[0] in digits:
@@ -102,7 +102,7 @@ def tokenize(string):
 		elif re.match(r'^c\d+', tok):
 			toks.append('CREG')
 		elif re.match(r'^s\d+', tok):
-			toks.append('SREG')			
+			toks.append('SREG')
 		elif tok in alias2gpr:
 			toks.append('GPR')
 		elif re.match(r'^mvfr\d', tok):
@@ -145,10 +145,10 @@ def disasm(insword):
 
 	#print 'disassembled %08X to -%s-' % (insword, cbuf.value)
 	return cbuf.value
-	
+
 def syntax_from_string(instr):
 	tokens = tokenize(instr)
-	return ' '.join(tokens)	
+	return ' '.join(tokens)
 
 def syntax_from_insword(insword):
 	return syntax_from_string(disasm(insword))
@@ -180,12 +180,24 @@ def fuzz4():
 
 def fuzz5():
 	fuzz = fuzz4()
-	
+
 	for positions in itertools.combinations(range(32), 5):
 		mask = (1<<positions[0])|(1<<positions[1])|(1<<positions[2])|(1<<positions[3])|(1<<positions[4])
 		fuzz.append(mask)
-	
+
 	# fuzz should have all 4-bit subsets, 3-bit subsets, 2-bit, 1-bit, 0-bit
 	assert len(fuzz) == 32*31*30*29*28/120 + 32*31*30*29/24 + 32*31*30/6 + 32*31/2 + 32 + 1
 
-	return fuzz	
+	return fuzz
+
+def fuzz6():
+	fuzz = fuzz5()
+
+	for positions in itertools.combinations(range(32), 6):
+		mask = (1<<positions[0])|(1<<positions[1])|(1<<positions[2])|(1<<positions[3])|(1<<positions[4])|(1<<positions[5])
+		fuzz.append(mask)
+
+	# fuzz should have all 5-bit subets, 4-bit subsets, 3-bit subsets, 2-bit, 1-bit, 0-bit
+	assert len(fuzz) == 32*31*30*29*28*27/720 + 32*31*30*29*28/120 + 32*31*30*29/24 + 32*31*30/6 + 32*31/2 + 32 + 1
+
+	return fuzz
