@@ -1,7 +1,7 @@
 Generate assemblers from disassemblers, code to accompany the [2018 Jailbreak Security Summit](http://www.jailbreaksecuritysummit.com/) talk.
 
-* See the ./ppc_tools/README.md for ppc specific notes
-* See the ./mips_tools/README.md for mips specific notes
+* See the ./ppc/tools/README.md for ppc specific notes
+* See the ./mips/tools/README.md for mips specific notes
 
 ## Files
 
@@ -9,7 +9,8 @@ Generate assemblers from disassemblers, code to accompany the [2018 Jailbreak Se
 * ./ppc/tools - helper programs, tests, etc.
 * ./mips - the main mips assembler
 * ./mips/tools - helper programs, tests, etc.
-
+* ./arm - the main arm assembler (WIP)
+* ./arm/tools - helper programs, test, etc.
 
 ## Speed
 
