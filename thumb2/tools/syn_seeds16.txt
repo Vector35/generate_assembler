@@ -1,0 +1,132 @@
+"adcs GPR , GPR": 0x4140
+"adcs GPR , GPR , NUM": 0xF150
+"add GPR , GPR": 0x4400
+"add GPR , GPR , GPR": 0x4468
+"add GPR , GPR , NUM": 0xAC00
+"add GPR , NUM": 0xB000
+"adds GPR , GPR , GPR": 0x1800
+"adds GPR , GPR , NUM": 0x1C00
+"adds GPR , NUM": 0x3000
+"adr GPR , NUM": 0xA000
+"ands GPR , GPR": 0x4000
+"ands GPR , GPR , NUM": 0xF010
+"asrs GPR , GPR , NUM": 0x1000
+"asrs GPR , GPR": 0x4100
+"b NUM": 0xE000
+"beq NUM": 0xD000
+"bge NUM": 0xDA00
+"bgt NUM": 0xDC00
+"bhi NUM": 0xD800
+"bhs NUM": 0xD200
+"bics GPR , GPR": 0x4380
+"bkpt NUM": 0xBE00
+"ble NUM": 0xDD00
+"blo NUM": 0xD300
+"bls NUM": 0xD900
+"blt NUM": 0xDB00
+"blx GPR": 0x4780
+"bmi NUM": 0xD400
+"bne NUM": 0xD100
+"bpl NUM": 0xD500
+"bvc NUM": 0xD700
+"bvs NUM": 0xD600
+"bx GPR": 0x4700
+"cbnz GPR , NUM": 0xB900
+"cbz GPR , NUM": 0xB100
+"cmn GPR , GPR": 0x42C0
+"cmp GPR , NUM": 0x2800
+"cmp GPR , GPR": 0x4280
+"cpsid IRQ": 0xB670
+"cpsie IRQ": 0xB660
+"eors GPR , GPR": 0x4040
+"hint NUM": 0xBF50
+"it CC": 0xBF08
+"it OPT": 0xBFE8
+"ite CC": 0xBF0C
+"ite OPT": 0xBFEC
+"itee CC": 0xBF0E
+"itee OPT": 0xBFEE
+"iteee CC": 0xBF0F
+"iteee OPT": 0xBFEF
+"iteet CC": 0xBF0D
+"iteet OPT": 0xBFED
+"itet CC": 0xBF0A
+"itet OPT": 0xBFEA
+"itete CC": 0xBF0B
+"itete OPT": 0xBFEB
+"itett CC": 0xBF09
+"itett OPT": 0xBFE9
+"itt CC": 0xBF04
+"itt OPT": 0xBFE4
+"itte CC": 0xBF06
+"itte OPT": 0xBFE6
+"ittee CC": 0xBF07
+"ittee OPT": 0xBFE7
+"ittet CC": 0xBF05
+"ittet OPT": 0xBFE5
+"ittt CC": 0xBF02
+"ittt OPT": 0xBFE2
+"ittte CC": 0xBF03
+"ittte OPT": 0xBFE3
+"itttt CC": 0xBF01
+"itttt OPT": 0xBFE1
+"ldm GPR , RLIST": 0xC801
+"ldm GPR ! , RLIST": 0xC901
+"ldr GPR , [ GPR , NUM ]": 0x4800
+"ldr GPR , [ GPR , GPR ]": 0x5800
+"ldr GPR , [ GPR ]": 0x6800
+"ldrb GPR , [ GPR , GPR ]": 0x5C00
+"ldrb GPR , [ GPR , NUM ]": 0x7C00
+"ldrb GPR , [ GPR ]": 0x7800
+"ldrh GPR , [ GPR , GPR ]": 0x5A00
+"ldrh GPR , [ GPR , NUM ]": 0x8A00
+"ldrh GPR , [ GPR ]": 0x8800
+"ldrsb GPR , [ GPR , GPR ]": 0x5600
+"ldrsh GPR , [ GPR , GPR ]": 0x5E00
+"lsls GPR , GPR , NUM": 0x0100
+"lsls GPR , GPR": 0x4080
+"lsrs GPR , GPR , NUM": 0x0800
+"lsrs GPR , GPR": 0x40C0
+"mov GPR , GPR": 0x4600
+"movs GPR , GPR": 0x0000
+"movs GPR , NUM": 0x2000
+"muls GPR , GPR , GPR": 0x4340
+"mvns GPR , GPR": 0x43C0
+"nop": 0xBF00
+"orrs GPR , GPR": 0x4300
+"pop RLIST": 0xBD00
+"push RLIST": 0xB500
+"rev GPR , GPR": 0xBA00
+"rev16 GPR , GPR": 0xBA40
+"revsh GPR , GPR": 0xBAC0
+"rors GPR , GPR": 0x41C0
+"rsbs GPR , GPR , NUM": 0x4240
+"sbcs GPR , GPR": 0x4180
+"setend CC": 0xB650
+"setend be": 0xB658
+"sev": 0xBF40
+"stm GPR ! , RLIST": 0xC401
+"str GPR , [ GPR , GPR ]": 0x5000
+"str GPR , [ GPR ]": 0x6000
+"str GPR , [ GPR , NUM ]": 0x9001
+"strb GPR , [ GPR , GPR ]": 0x5400
+"strb GPR , [ GPR , NUM ]": 0x7400
+"strb GPR , [ GPR ]": 0x7000
+"strh GPR , [ GPR , GPR ]": 0x5200
+"strh GPR , [ GPR , NUM ]": 0x8200
+"strh GPR , [ GPR ]": 0x8000
+"sub GPR , NUM": 0xB080
+"subs GPR , GPR , GPR": 0x1A00
+"subs GPR , GPR , NUM": 0x1E00
+"subs GPR , NUM": 0x3A00
+"svc NUM": 0xDF00
+"sxtb GPR , GPR": 0xB240
+"sxth GPR , GPR": 0xB200
+"trap": 0xDEFE
+"tst GPR , GPR": 0x4200
+"udf NUM": 0xDE00
+"uxtb GPR , GPR": 0xB2C0
+"uxth GPR , GPR": 0xB280
+"wfe": 0xBF20
+"wfi": 0xBF30
+"yield": 0xBF10
