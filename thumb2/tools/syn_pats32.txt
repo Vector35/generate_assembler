@@ -1,0 +1,1543 @@
+{           "adc GPR , GPR , NUM",{0xF1400000,0x40F7FFF}}, // 11110x010100xxxx0xxxxxxxxxxxxxxx
+{         "adc.w GPR , GPR , GPR",{0xEB400000,0xF8F0F}}, // 111010110100xxxxx000xxxx0000xxxx
+{ "adc.w GPR , GPR , GPR , SHIFT",{0xEB400030,0xF8F0F}}, // 111010110100xxxxx000xxxx0011xxxx
+{"adc.w GPR , GPR , GPR , SHIFT NUM",{0xEB400010,0xFFFFF}}, // 111010110100xxxxxxxxxxxxxxxxxxxx
+{                "adcs GPR , GPR",{0x41500000,0x3FFFFF}}, // 0100000101xxxxxxxxxxxxxxxxxxxxxx
+{          "adcs GPR , GPR , NUM",{0xF1500000,0x40F7FFF}}, // 11110x010101xxxx0xxxxxxxxxxxxxxx
+{        "adcs.w GPR , GPR , GPR",{0xEB500000,0xF8F0F}}, // 111010110101xxxxx000xxxx0000xxxx
+{"adcs.w GPR , GPR , GPR , SHIFT",{0xEB500030,0xF8F0F}}, // 111010110101xxxxx000xxxx0011xxxx
+{"adcs.w GPR , GPR , GPR , SHIFT NUM",{0xEB500010,0xFFFFF}}, // 111010110101xxxxxxxxxxxxxxxxxxxx
+{         "add.w GPR , GPR , GPR",{0xEB000000,0xF8F0F}}, // 111010110000xxxxx000xxxx0000xxxx
+{ "add.w GPR , GPR , GPR , SHIFT",{0xEB000030,0xF8F0F}}, // 111010110000xxxxx000xxxx0011xxxx
+{"add.w GPR , GPR , GPR , SHIFT NUM",{0xEB000010,0xFFFFF}}, // 111010110000xxxxxxxxxxxxxxxxxxxx
+{         "add.w GPR , GPR , NUM",{0xF1000000,0x40F7FFF}}, // 11110x010000xxxx0xxxxxxxxxxxxxxx
+{        "adds.w GPR , GPR , GPR",{0xEB100000,0xF8F0F}}, // 111010110001xxxxx000xxxx0000xxxx
+{"adds.w GPR , GPR , GPR , SHIFT",{0xEB100030,0xF8F0F}}, // 111010110001xxxxx000xxxx0011xxxx
+{"adds.w GPR , GPR , GPR , SHIFT NUM",{0xEB100010,0xFFFFF}}, // 111010110001xxxxxxxxxxxxxxxxxxxx
+{        "adds.w GPR , GPR , NUM",{0xF1100000,0x40F7FFF}}, // 11110x010001xxxx0xxxxxxxxxxxxxxx
+{          "addw GPR , GPR , NUM",{0xF2000000,0x40F7FFF}}, // 11110x100000xxxx0xxxxxxxxxxxxxxx
+{           "and GPR , GPR , NUM",{0xF0000000,0x40F7FFF}}, // 11110x000000xxxx0xxxxxxxxxxxxxxx
+{         "and.w GPR , GPR , GPR",{0xEA000000,0xF8F0F}}, // 111010100000xxxxx000xxxx0000xxxx
+{ "and.w GPR , GPR , GPR , SHIFT",{0xEA000030,0xF8F0F}}, // 111010100000xxxxx000xxxx0011xxxx
+{"and.w GPR , GPR , GPR , SHIFT NUM",{0xEA000010,0xFFFFF}}, // 111010100000xxxxxxxxxxxxxxxxxxxx
+{                "ands GPR , GPR",{0x40100000,0x3FFFFF}}, // 0100000000xxxxxxxxxxxxxxxxxxxxxx
+{          "ands GPR , GPR , NUM",{0xF0100000,0x40F7FFF}}, // 11110x000001xxxx0xxxxxxxxxxxxxxx
+{        "ands.w GPR , GPR , GPR",{0xEA100000,0xF8F0F}}, // 111010100001xxxxx000xxxx0000xxxx
+{"ands.w GPR , GPR , GPR , SHIFT",{0xEA100030,0xF8F0F}}, // 111010100001xxxxx000xxxx0011xxxx
+{"ands.w GPR , GPR , GPR , SHIFT NUM",{0xEA100010,0xFFFFF}}, // 111010100001xxxxxxxxxxxxxxxxxxxx
+{         "asr.w GPR , GPR , GPR",{0xFA40F000,0xF0F0F}}, // 111110100100xxxx1111xxxx0000xxxx
+{        "asrs.w GPR , GPR , GPR",{0xFA50F000,0xF0F0F}}, // 111110100101xxxx1111xxxx0000xxxx
+{                       "b.w NUM",{0xF0009000,0x7FF2FFF}}, // 11110xxxxxxxxxxx10x1xxxxxxxxxxxx
+{                     "beq.w NUM",{0xF0008000,0x43F2FFF}}, // 11110x0000xxxxxx10x0xxxxxxxxxxxx
+{           "bfc GPR , NUM , NUM",{0xF36F0000,0x7FDF}}, // 11110011011011110xxxxxxxxx0xxxxx
+{     "bfi GPR , GPR , NUM , NUM",{0xF3600000,0xF7FDF}}, // 111100110110xxxx0xxxxxxxxx0xxxxx
+{                     "bge.w NUM",{0xF2808000,0x43F2FFF}}, // 11110x1010xxxxxx10x0xxxxxxxxxxxx
+{                     "bgt.w NUM",{0xF3008000,0x43F2FFF}}, // 11110x1100xxxxxx10x0xxxxxxxxxxxx
+{                     "bhi.w NUM",{0xF2008000,0x43F2FFF}}, // 11110x1000xxxxxx10x0xxxxxxxxxxxx
+{                     "bhs.w NUM",{0xF0808000,0x43F2FFF}}, // 11110x0010xxxxxx10x0xxxxxxxxxxxx
+{           "bic GPR , GPR , NUM",{0xF0200000,0x40F7FFF}}, // 11110x000010xxxx0xxxxxxxxxxxxxxx
+{         "bic.w GPR , GPR , GPR",{0xEA200000,0xF8F0F}}, // 111010100010xxxxx000xxxx0000xxxx
+{ "bic.w GPR , GPR , GPR , SHIFT",{0xEA200030,0xF8F0F}}, // 111010100010xxxxx000xxxx0011xxxx
+{"bic.w GPR , GPR , GPR , SHIFT NUM",{0xEA200010,0xFFFFF}}, // 111010100010xxxxxxxxxxxxxxxxxxxx
+{          "bics GPR , GPR , NUM",{0xF0300000,0x40F7FFF}}, // 11110x000011xxxx0xxxxxxxxxxxxxxx
+{        "bics.w GPR , GPR , GPR",{0xEA300000,0xF8F0F}}, // 111010100011xxxxx000xxxx0000xxxx
+{"bics.w GPR , GPR , GPR , SHIFT",{0xEA300030,0xF8F0F}}, // 111010100011xxxxx000xxxx0011xxxx
+{"bics.w GPR , GPR , GPR , SHIFT NUM",{0xEA300010,0xFFFFF}}, // 111010100011xxxxxxxxxxxxxxxxxxxx
+{                        "bl NUM",{0xF000D000,0x7FF2FFF}}, // 11110xxxxxxxxxxx11x1xxxxxxxxxxxx
+{                     "ble.w NUM",{0xF3408000,0x43F2FFF}}, // 11110x1101xxxxxx10x0xxxxxxxxxxxx
+{                     "blo.w NUM",{0xF0C08000,0x43F2FFF}}, // 11110x0011xxxxxx10x0xxxxxxxxxxxx
+{                     "bls.w NUM",{0xF2408000,0x43F2FFF}}, // 11110x1001xxxxxx10x0xxxxxxxxxxxx
+{                     "blt.w NUM",{0xF2C08000,0x43F2FFF}}, // 11110x1011xxxxxx10x0xxxxxxxxxxxx
+{                       "blx NUM",{0xF000C000,0x7FF2FFE}}, // 11110xxxxxxxxxxx11x0xxxxxxxxxxx0
+{                     "bmi.w NUM",{0xF1008000,0x43F2FFF}}, // 11110x0100xxxxxx10x0xxxxxxxxxxxx
+{                     "bne.w NUM",{0xF0408000,0x43F2FFF}}, // 11110x0001xxxxxx10x0xxxxxxxxxxxx
+{                     "bpl.w NUM",{0xF1408000,0x43F2FFF}}, // 11110x0101xxxxxx10x0xxxxxxxxxxxx
+{                     "bvc.w NUM",{0xF1C08000,0x43F2FFF}}, // 11110x0111xxxxxx10x0xxxxxxxxxxxx
+{                     "bvs.w NUM",{0xF1808000,0x43F2FFF}}, // 11110x0110xxxxxx10x0xxxxxxxxxxxx
+{                       "bxj GPR",{0xF3C08F00,0xF0000}}, // 111100111100xxxx1000111100000000
+{"cdp PREG , NUM , CREG , CREG , CREG , NUM",{0xEE000000,0xFFFFEF}}, // 11101110xxxxxxxxxxxxxxxxxxx0xxxx
+{"cdp2 PREG , NUM , CREG , CREG , CREG , NUM",{0xFE000000,0xFFFFEF}}, // 11111110xxxxxxxxxxxxxxxxxxx0xxxx
+{                         "clrex",{0xF3BF8F2F,0x0000}}, // 11110011101111111000111100101111
+{                 "clz GPR , GPR",{0xFAB0F080,0xF0F0F}}, // 111110101011xxxx1111xxxx1000xxxx
+{               "cmn.w GPR , GPR",{0xEB100F00,0xF800F}}, // 111010110001xxxxx00011110000xxxx
+{       "cmn.w GPR , GPR , SHIFT",{0xEB100F30,0xF800F}}, // 111010110001xxxxx00011110011xxxx
+{   "cmn.w GPR , GPR , SHIFT NUM",{0xEB100F10,0xFF0FF}}, // 111010110001xxxxxxxx1111xxxxxxxx
+{               "cmn.w GPR , NUM",{0xF1100F00,0x40F70FF}}, // 11110x010001xxxx0xxx1111xxxxxxxx
+{               "cmp.w GPR , GPR",{0xEBB00F00,0xF800F}}, // 111010111011xxxxx00011110000xxxx
+{       "cmp.w GPR , GPR , SHIFT",{0xEBB00F30,0xF800F}}, // 111010111011xxxxx00011110011xxxx
+{   "cmp.w GPR , GPR , SHIFT NUM",{0xEBB00F10,0xFF0FF}}, // 111010111011xxxxxxxx1111xxxxxxxx
+{               "cmp.w GPR , NUM",{0xF1B00F00,0x40F70FF}}, // 11110x011011xxxx0xxx1111xxxxxxxx
+{                       "cps NUM",{0xF3AF8100,0x00FF}}, // 111100111010111110000001xxxxxxxx
+{               "cpsid IRQ , NUM",{0xF3AF8700,0x00FF}}, // 111100111010111110000111xxxxxxxx
+{                   "cpsid.w IRQ",{0xF3AF8600,0x00E0}}, // 111100111010111110000110xxx00000
+{               "cpsie IRQ , NUM",{0xF3AF8500,0x00FF}}, // 111100111010111110000101xxxxxxxx
+{                   "cpsie.w IRQ",{0xF3AF8400,0x00E0}}, // 111100111010111110000100xxx00000
+{                       "dbg NUM",{0xF3AF80F0,0x000F}}, // 1111001110101111100000001111xxxx
+{                       "dmb NUM",{0xF3BF8F50,0x000D}}, // 1111001110111111100011110101xx0x
+{                       "dmb OPT",{0xF3BF8F52,0x000D}}, // 1111001110111111100011110101xx1x
+{                       "dsb NUM",{0xF3BF8F40,0x000D}}, // 1111001110111111100011110100xx0x
+{                       "dsb OPT",{0xF3BF8F42,0x000D}}, // 1111001110111111100011110100xx1x
+{           "eor GPR , GPR , NUM",{0xF0800000,0x40F7FFF}}, // 11110x001000xxxx0xxxxxxxxxxxxxxx
+{         "eor.w GPR , GPR , GPR",{0xEA800000,0xF8F0F}}, // 111010101000xxxxx000xxxx0000xxxx
+{ "eor.w GPR , GPR , GPR , SHIFT",{0xEA800030,0xF8F0F}}, // 111010101000xxxxx000xxxx0011xxxx
+{"eor.w GPR , GPR , GPR , SHIFT NUM",{0xEA800010,0xFFFFF}}, // 111010101000xxxxxxxxxxxxxxxxxxxx
+{                "eors GPR , GPR",{0x40500000,0x3FFFFF}}, // 0100000001xxxxxxxxxxxxxxxxxxxxxx
+{          "eors GPR , GPR , NUM",{0xF0900000,0x40F7FFF}}, // 11110x001001xxxx0xxxxxxxxxxxxxxx
+{        "eors.w GPR , GPR , GPR",{0xEA900000,0xF8F0F}}, // 111010101001xxxxx000xxxx0000xxxx
+{"eors.w GPR , GPR , GPR , SHIFT",{0xEA900030,0xF8F0F}}, // 111010101001xxxxx000xxxx0011xxxx
+{"eors.w GPR , GPR , GPR , SHIFT NUM",{0xEA900010,0xFFFFF}}, // 111010101001xxxxxxxxxxxxxxxxxxxx
+{         "fldmdbx GPR ! , RLIST",{0xED300B01,0xFF0FE}}, // 111011010011xxxxxxxx1011xxxxxxx1
+{         "fldmiax GPR ! , RLIST",{0xECB00B01,0xFF0FE}}, // 111011001011xxxxxxxx1011xxxxxxx1
+{           "fldmiax GPR , RLIST",{0xEC900B01,0xFF0FE}}, // 111011001001xxxxxxxx1011xxxxxxx1
+{         "fstmdbx GPR ! , RLIST",{0xED200B01,0xFF0FE}}, // 111011010010xxxxxxxx1011xxxxxxx1
+{         "fstmiax GPR ! , RLIST",{0xECA00B01,0xFF0FE}}, // 111011001010xxxxxxxx1011xxxxxxx1
+{           "fstmiax GPR , RLIST",{0xEC800B01,0xFF0FE}}, // 111011001000xxxxxxxx1011xxxxxxx1
+{                    "hint.w NUM",{0xF3AF8005,0x00FF}}, // 111100111010111110000000xxxxxxxx
+{                       "isb NUM",{0xF3BF8F60,0x000F}}, // 1111001110111111100011110110xxxx
+{                       "isb OPT",{0xF3BF8F6F,0x0000}}, // 11110011101111111000111101101111
+{"ldc PREG , CREG , [ GPR , NUM ]",{0xED100000,0x8FFFFF}}, // 11101101x001xxxxxxxxxxxxxxxxxxxx
+{"ldc PREG , CREG , [ GPR , NUM ] !",{0xED300000,0x8FFFFF}}, // 11101101x011xxxxxxxxxxxxxxxxxxxx
+{     "ldc PREG , CREG , [ GPR ]",{0xED900000,0xFFF00}}, // 111011011001xxxxxxxxxxxx00000000
+{"ldc PREG , CREG , [ GPR ] , NUM",{0xEC300000,0x8FFFFF}}, // 11101100x011xxxxxxxxxxxxxxxxxxxx
+{"ldc PREG , CREG , [ GPR ] , RLIST",{0xEC900000,0xFFFFF}}, // 111011001001xxxxxxxxxxxxxxxxxxxx
+{"ldc2 PREG , CREG , [ GPR , NUM ]",{0xFD100000,0x8FFFFF}}, // 11111101x001xxxxxxxxxxxxxxxxxxxx
+{"ldc2 PREG , CREG , [ GPR , NUM ] !",{0xFD300000,0x8FFFFF}}, // 11111101x011xxxxxxxxxxxxxxxxxxxx
+{    "ldc2 PREG , CREG , [ GPR ]",{0xFD900000,0xFFF00}}, // 111111011001xxxxxxxxxxxx00000000
+{"ldc2 PREG , CREG , [ GPR ] , NUM",{0xFC300000,0x8FFFFF}}, // 11111100x011xxxxxxxxxxxxxxxxxxxx
+{"ldc2 PREG , CREG , [ GPR ] , RLIST",{0xFC900000,0xFFFFF}}, // 111111001001xxxxxxxxxxxxxxxxxxxx
+{"ldc2l PREG , CREG , [ GPR , NUM ]",{0xFD500000,0x8FFFFF}}, // 11111101x101xxxxxxxxxxxxxxxxxxxx
+{"ldc2l PREG , CREG , [ GPR , NUM ] !",{0xFD700000,0x8FFFFF}}, // 11111101x111xxxxxxxxxxxxxxxxxxxx
+{   "ldc2l PREG , CREG , [ GPR ]",{0xFDD00000,0xFFF00}}, // 111111011101xxxxxxxxxxxx00000000
+{"ldc2l PREG , CREG , [ GPR ] , NUM",{0xFC700000,0x8FFFFF}}, // 11111100x111xxxxxxxxxxxxxxxxxxxx
+{"ldc2l PREG , CREG , [ GPR ] , RLIST",{0xFCD00000,0xFFFFF}}, // 111111001101xxxxxxxxxxxxxxxxxxxx
+{"ldcl PREG , CREG , [ GPR , NUM ]",{0xED500000,0x8FFFFF}}, // 11101101x101xxxxxxxxxxxxxxxxxxxx
+{"ldcl PREG , CREG , [ GPR , NUM ] !",{0xED700000,0x8FFFFF}}, // 11101101x111xxxxxxxxxxxxxxxxxxxx
+{    "ldcl PREG , CREG , [ GPR ]",{0xEDD00000,0xFFF00}}, // 111011011101xxxxxxxxxxxx00000000
+{"ldcl PREG , CREG , [ GPR ] , NUM",{0xEC700000,0x8FFFFF}}, // 11101100x111xxxxxxxxxxxxxxxxxxxx
+{"ldcl PREG , CREG , [ GPR ] , RLIST",{0xECD00000,0xFFFFF}}, // 111011001101xxxxxxxxxxxxxxxxxxxx
+{           "ldm.w GPR ! , RLIST",{0xE8B00100,0xFFFFF}}, // 111010001011xxxxxxxxxxxxxxxxxxxx
+{             "ldm.w GPR , RLIST",{0xE8900100,0xFFFFF}}, // 111010001001xxxxxxxxxxxxxxxxxxxx
+{           "ldmdb GPR ! , RLIST",{0xE9300100,0xFFFFF}}, // 111010010011xxxxxxxxxxxxxxxxxxxx
+{             "ldmdb GPR , RLIST",{0xE9100100,0xFFFFF}}, // 111010010001xxxxxxxxxxxxxxxxxxxx
+{       "ldr GPR , [ GPR , GPR ]",{0x58500900,0x1FFFFFF}}, // 0101100xxxxxxxxxxxxxxxxxxxxxxxxx
+{       "ldr GPR , [ GPR , NUM ]",{0xF8500C00,0xF7FFFFFF}}, // xxxx1xxxxxxxxxxxxxxxxxxxxxxxxxxx
+{     "ldr GPR , [ GPR , NUM ] !",{0xF8500D00,0xFF2FF}}, // 111110000101xxxxxxxx11x1xxxxxxxx
+{             "ldr GPR , [ GPR ]",{0x68100900,0xF03FFFFF}}, // xxxx100000xxxxxxxxxxxxxxxxxxxxxx
+{       "ldr GPR , [ GPR ] , NUM",{0xF8500900,0xFF2FF}}, // 111110000101xxxxxxxx10x1xxxxxxxx
+{"ldr.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8500010,0xFF03F}}, // 111110000101xxxxxxxx000000xxxxxx
+{     "ldr.w GPR , [ GPR , GPR ]",{0xF8500000,0xFF00F}}, // 111110000101xxxxxxxx00000000xxxx
+{     "ldr.w GPR , [ GPR , NUM ]",{0xF8D00001,0x8FFFFF}}, // 11111000x101xxxxxxxxxxxxxxxxxxxx
+{           "ldr.w GPR , [ GPR ]",{0xF8D00000,0xFF000}}, // 111110001101xxxxxxxx000000000000
+{      "ldrb GPR , [ GPR , GPR ]",{0x5C100900,0x1FFFFFF}}, // 0101110xxxxxxxxxxxxxxxxxxxxxxxxx
+{      "ldrb GPR , [ GPR , NUM ]",{0xF8100C00,0x87FFFFFF}}, // x1111xxxxxxxxxxxxxxxxxxxxxxxxxxx
+{    "ldrb GPR , [ GPR , NUM ] !",{0xF8100D00,0xFF2FF}}, // 111110000001xxxxxxxx11x1xxxxxxxx
+{            "ldrb GPR , [ GPR ]",{0x78100900,0x3FFFFF}}, // 0111100000xxxxxxxxxxxxxxxxxxxxxx
+{      "ldrb GPR , [ GPR ] , NUM",{0xF8100900,0xFF2FF}}, // 111110000001xxxxxxxx10x1xxxxxxxx
+{"ldrb.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8100010,0xFF03F}}, // 111110000001xxxxxxxx000000xxxxxx
+{    "ldrb.w GPR , [ GPR , GPR ]",{0xF8100000,0xFF00F}}, // 111110000001xxxxxxxx00000000xxxx
+{    "ldrb.w GPR , [ GPR , NUM ]",{0xF8900001,0x8FFFFF}}, // 11111000x001xxxxxxxxxxxxxxxxxxxx
+{          "ldrb.w GPR , [ GPR ]",{0xF8900000,0xFF000}}, // 111110001001xxxxxxxx000000000000
+{     "ldrbt GPR , [ GPR , NUM ]",{0xF8100E01,0xFF0FF}}, // 111110000001xxxxxxxx1110xxxxxxxx
+{           "ldrbt GPR , [ GPR ]",{0xF8100E00,0xFF000}}, // 111110000001xxxxxxxx111000000000
+{"ldrd GPR , GPR , [ GPR , NUM ]",{0xE9500000,0x8FFFFF}}, // 11101001x101xxxxxxxxxxxxxxxxxxxx
+{"ldrd GPR , GPR , [ GPR , NUM ] !",{0xE9700000,0x8FFFFF}}, // 11101001x111xxxxxxxxxxxxxxxxxxxx
+{      "ldrd GPR , GPR , [ GPR ]",{0xE9D00000,0xFFF00}}, // 111010011101xxxxxxxxxxxx00000000
+{"ldrd GPR , GPR , [ GPR ] , NUM",{0xE8700000,0x8FFFFF}}, // 11101000x111xxxxxxxxxxxxxxxxxxxx
+{     "ldrex GPR , [ GPR , NUM ]",{0xE8500F01,0xFF0FF}}, // 111010000101xxxxxxxx1111xxxxxxxx
+{           "ldrex GPR , [ GPR ]",{0xE8500F00,0xFF000}}, // 111010000101xxxxxxxx111100000000
+{          "ldrexb GPR , [ GPR ]",{0xE8D00F4F,0xFF000}}, // 111010001101xxxxxxxx111101001111
+{    "ldrexd GPR , GPR , [ GPR ]",{0xE8D0007F,0xFFF00}}, // 111010001101xxxxxxxxxxxx01111111
+{          "ldrexh GPR , [ GPR ]",{0xE8D00F5F,0xFF000}}, // 111010001101xxxxxxxx111101011111
+{      "ldrh GPR , [ GPR , GPR ]",{0x5A300900,0x1FFFFFF}}, // 0101101xxxxxxxxxxxxxxxxxxxxxxxxx
+{      "ldrh GPR , [ GPR , NUM ]",{0xF8300C00,0x77FFFFFF}}, // 1xxx1xxxxxxxxxxxxxxxxxxxxxxxxxxx
+{    "ldrh GPR , [ GPR , NUM ] !",{0xF8300D00,0xFF2FF}}, // 111110000011xxxxxxxx11x1xxxxxxxx
+{            "ldrh GPR , [ GPR ]",{0x88300900,0x3FFFFF}}, // 1000100000xxxxxxxxxxxxxxxxxxxxxx
+{      "ldrh GPR , [ GPR ] , NUM",{0xF8300900,0xFF2FF}}, // 111110000011xxxxxxxx10x1xxxxxxxx
+{"ldrh.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8300010,0xFF03F}}, // 111110000011xxxxxxxx000000xxxxxx
+{    "ldrh.w GPR , [ GPR , GPR ]",{0xF8300000,0xFF00F}}, // 111110000011xxxxxxxx00000000xxxx
+{    "ldrh.w GPR , [ GPR , NUM ]",{0xF8B00001,0x8FFFFF}}, // 11111000x011xxxxxxxxxxxxxxxxxxxx
+{          "ldrh.w GPR , [ GPR ]",{0xF8B00000,0xFF000}}, // 111110001011xxxxxxxx000000000000
+{     "ldrht GPR , [ GPR , NUM ]",{0xF8300E01,0xFF0FF}}, // 111110000011xxxxxxxx1110xxxxxxxx
+{           "ldrht GPR , [ GPR ]",{0xF8300E00,0xFF000}}, // 111110000011xxxxxxxx111000000000
+{     "ldrsb GPR , [ GPR , GPR ]",{0x57100900,0x1FFFFFF}}, // 0101011xxxxxxxxxxxxxxxxxxxxxxxxx
+{     "ldrsb GPR , [ GPR , NUM ]",{0xF9100C00,0xFF0FF}}, // 111110010001xxxxxxxx1100xxxxxxxx
+{   "ldrsb GPR , [ GPR , NUM ] !",{0xF9100D00,0xFF2FF}}, // 111110010001xxxxxxxx11x1xxxxxxxx
+{     "ldrsb GPR , [ GPR ] , NUM",{0xF9100900,0xFF2FF}}, // 111110010001xxxxxxxx10x1xxxxxxxx
+{"ldrsb.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF9100010,0xFF03F}}, // 111110010001xxxxxxxx000000xxxxxx
+{   "ldrsb.w GPR , [ GPR , GPR ]",{0xF9100000,0xFF00F}}, // 111110010001xxxxxxxx00000000xxxx
+{   "ldrsb.w GPR , [ GPR , NUM ]",{0xF9900001,0x8FFFFF}}, // 11111001x001xxxxxxxxxxxxxxxxxxxx
+{         "ldrsb.w GPR , [ GPR ]",{0xF9900000,0xFF000}}, // 111110011001xxxxxxxx000000000000
+{    "ldrsbt GPR , [ GPR , NUM ]",{0xF9100E01,0xFF0FF}}, // 111110010001xxxxxxxx1110xxxxxxxx
+{          "ldrsbt GPR , [ GPR ]",{0xF9100E00,0xFF000}}, // 111110010001xxxxxxxx111000000000
+{     "ldrsh GPR , [ GPR , GPR ]",{0x5F300900,0x1FFFFFF}}, // 0101111xxxxxxxxxxxxxxxxxxxxxxxxx
+{     "ldrsh GPR , [ GPR , NUM ]",{0xF9300C00,0xFF0FF}}, // 111110010011xxxxxxxx1100xxxxxxxx
+{   "ldrsh GPR , [ GPR , NUM ] !",{0xF9300D00,0xFF2FF}}, // 111110010011xxxxxxxx11x1xxxxxxxx
+{     "ldrsh GPR , [ GPR ] , NUM",{0xF9300900,0xFF2FF}}, // 111110010011xxxxxxxx10x1xxxxxxxx
+{"ldrsh.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF9300010,0xFF03F}}, // 111110010011xxxxxxxx000000xxxxxx
+{   "ldrsh.w GPR , [ GPR , GPR ]",{0xF9300000,0xFF00F}}, // 111110010011xxxxxxxx00000000xxxx
+{   "ldrsh.w GPR , [ GPR , NUM ]",{0xF9B00001,0x8FFFFF}}, // 11111001x011xxxxxxxxxxxxxxxxxxxx
+{         "ldrsh.w GPR , [ GPR ]",{0xF9B00000,0xFF000}}, // 111110011011xxxxxxxx000000000000
+{    "ldrsht GPR , [ GPR , NUM ]",{0xF9300E01,0xFF0FF}}, // 111110010011xxxxxxxx1110xxxxxxxx
+{          "ldrsht GPR , [ GPR ]",{0xF9300E00,0xFF000}}, // 111110010011xxxxxxxx111000000000
+{      "ldrt GPR , [ GPR , NUM ]",{0xF8500E01,0xFF0FF}}, // 111110000101xxxxxxxx1110xxxxxxxx
+{            "ldrt GPR , [ GPR ]",{0xF8500E00,0xFF000}}, // 111110000101xxxxxxxx111000000000
+{         "lsl.w GPR , GPR , GPR",{0xFA0FF000,0xF0F0F}}, // 111110100000xxxx1111xxxx0000xxxx
+{         "lsl.w GPR , GPR , NUM",{0xEA4F1000,0xFFCF}}, // 1110101001001111xxxxxxxxxx00xxxx
+{        "lsls.w GPR , GPR , GPR",{0xFA1FF000,0xF0F0F}}, // 111110100001xxxx1111xxxx0000xxxx
+{        "lsls.w GPR , GPR , NUM",{0xEA5F1000,0xFFCF}}, // 1110101001011111xxxxxxxxxx00xxxx
+{         "lsr.w GPR , GPR , GPR",{0xFA20F000,0xF0F0F}}, // 111110100010xxxx1111xxxx0000xxxx
+{        "lsrs.w GPR , GPR , GPR",{0xFA30F000,0xF0F0F}}, // 111110100011xxxx1111xxxx0000xxxx
+{"mcr PREG , NUM , GPR , CREG , CREG , NUM",{0xEE000010,0xEFFFEF}}, // 11101110xxx0xxxxxxxxxxxxxxx1xxxx
+{"mcr2 PREG , NUM , GPR , CREG , CREG , NUM",{0xFE000010,0xEFFFEF}}, // 11111110xxx0xxxxxxxxxxxxxxx1xxxx
+{"mcrr PREG , NUM , GPR , GPR , CREG",{0xEC400000,0xFFFFF}}, // 111011000100xxxxxxxxxxxxxxxxxxxx
+{"mcrr2 PREG , NUM , GPR , GPR , CREG",{0xFC400000,0xFFFFF}}, // 111111000100xxxxxxxxxxxxxxxxxxxx
+{     "mla GPR , GPR , GPR , GPR",{0xFB000000,0xFFF0F}}, // 111110110000xxxxxxxxxxxx0000xxxx
+{     "mls GPR , GPR , GPR , GPR",{0xFB000010,0xFFF0F}}, // 111110110000xxxxxxxxxxxx0001xxxx
+{               "mov.w GPR , GPR",{0xEA4F0000,0x8F0F}}, // 1110101001001111x000xxxx0000xxxx
+{               "mov.w GPR , NUM",{0xF04F0000,0x4007FFF}}, // 11110x00010011110xxxxxxxxxxxxxxx
+{              "movs.w GPR , GPR",{0xEA5F0000,0x8F0F}}, // 1110101001011111x000xxxx0000xxxx
+{              "movs.w GPR , NUM",{0xF05F0000,0x4007FFF}}, // 11110x00010111110xxxxxxxxxxxxxxx
+{                "movt GPR , NUM",{0xF2C00000,0x40F7FFF}}, // 11110x101100xxxx0xxxxxxxxxxxxxxx
+{                "movw GPR , NUM",{0xF2400000,0x40F7FFF}}, // 11110x100100xxxx0xxxxxxxxxxxxxxx
+{"mrc PREG , NUM , GPR , CREG , CREG , NUM",{0xEE100010,0xEFFFEF}}, // 11101110xxx1xxxxxxxxxxxxxxx1xxxx
+{"mrc PREG , NUM , STATR , CREG , CREG , NUM",{0xEE10F010,0xEF0FEF}}, // 11101110xxx1xxxx1111xxxxxxx1xxxx
+{"mrc2 PREG , NUM , GPR , CREG , CREG , NUM",{0xFE100010,0xEFFFEF}}, // 11111110xxx1xxxxxxxxxxxxxxx1xxxx
+{"mrc2 PREG , NUM , STATR , CREG , CREG , NUM",{0xFE10F010,0xEF0FEF}}, // 11111110xxx1xxxx1111xxxxxxx1xxxx
+{"mrrc PREG , NUM , GPR , GPR , CREG",{0xEC500000,0xFFFFF}}, // 111011000101xxxxxxxxxxxxxxxxxxxx
+{"mrrc2 PREG , NUM , GPR , GPR , CREG",{0xFC500000,0xFFFFF}}, // 111111000101xxxxxxxxxxxxxxxxxxxx
+{               "mrs GPR , STATR",{0xF3EF8000,0x100F00}}, // 11110011111x11111000xxxx00000000
+{               "msr STATR , GPR",{0xF3908000,0x1F0F00}}, // 11110011100xxxxx1000xxxx00000000
+{           "mul GPR , GPR , GPR",{0xFB00F000,0xF0F0F}}, // 111110110000xxxx1111xxxx0000xxxx
+{                 "mvn GPR , NUM",{0xF06F0000,0x4007FFF}}, // 11110x00011011110xxxxxxxxxxxxxxx
+{               "mvn.w GPR , GPR",{0xEA6F0000,0x8F0F}}, // 1110101001101111x000xxxx0000xxxx
+{       "mvn.w GPR , GPR , SHIFT",{0xEA6F0030,0x8F0F}}, // 1110101001101111x000xxxx0011xxxx
+{   "mvn.w GPR , GPR , SHIFT NUM",{0xEA6F0010,0xFFFF}}, // 1110101001101111xxxxxxxxxxxxxxxx
+{                "mvns GPR , NUM",{0xF07F0000,0x4007FFF}}, // 11110x00011111110xxxxxxxxxxxxxxx
+{              "mvns.w GPR , GPR",{0xEA7F0000,0x8F0F}}, // 1110101001111111x000xxxx0000xxxx
+{      "mvns.w GPR , GPR , SHIFT",{0xEA7F0030,0x8F0F}}, // 1110101001111111x000xxxx0011xxxx
+{  "mvns.w GPR , GPR , SHIFT NUM",{0xEA7F0010,0xFFFF}}, // 1110101001111111xxxxxxxxxxxxxxxx
+{                         "nop.w",{0xF3AF8000,0x0000}}, // 11110011101011111000000000000000
+{           "orn GPR , GPR , GPR",{0xEA600000,0xF8F0F}}, // 111010100110xxxxx000xxxx0000xxxx
+{   "orn GPR , GPR , GPR , SHIFT",{0xEA600030,0xF8F0F}}, // 111010100110xxxxx000xxxx0011xxxx
+{"orn GPR , GPR , GPR , SHIFT NUM",{0xEA600010,0xFFFFF}}, // 111010100110xxxxxxxxxxxxxxxxxxxx
+{           "orn GPR , GPR , NUM",{0xF0600000,0x40F7FFF}}, // 11110x000110xxxx0xxxxxxxxxxxxxxx
+{          "orns GPR , GPR , GPR",{0xEA700000,0xF8F0F}}, // 111010100111xxxxx000xxxx0000xxxx
+{  "orns GPR , GPR , GPR , SHIFT",{0xEA700030,0xF8F0F}}, // 111010100111xxxxx000xxxx0011xxxx
+{"orns GPR , GPR , GPR , SHIFT NUM",{0xEA700010,0xFFFFF}}, // 111010100111xxxxxxxxxxxxxxxxxxxx
+{          "orns GPR , GPR , NUM",{0xF0700000,0x40F7FFF}}, // 11110x000111xxxx0xxxxxxxxxxxxxxx
+{           "orr GPR , GPR , NUM",{0xF0400000,0x40F7FFF}}, // 11110x000100xxxx0xxxxxxxxxxxxxxx
+{         "orr.w GPR , GPR , GPR",{0xEA400000,0xF8F0F}}, // 111010100100xxxxx000xxxx0000xxxx
+{ "orr.w GPR , GPR , GPR , SHIFT",{0xEA400030,0xF8F0F}}, // 111010100100xxxxx000xxxx0011xxxx
+{"orr.w GPR , GPR , GPR , SHIFT NUM",{0xEA400010,0xFFFFF}}, // 111010100100xxxxxxxxxxxxxxxxxxxx
+{          "orrs GPR , GPR , NUM",{0xF0500000,0x40F7FFF}}, // 11110x000101xxxx0xxxxxxxxxxxxxxx
+{        "orrs.w GPR , GPR , GPR",{0xEA500000,0xF8F0F}}, // 111010100101xxxxx000xxxx0000xxxx
+{"orrs.w GPR , GPR , GPR , SHIFT",{0xEA500030,0xF8F0F}}, // 111010100101xxxxx000xxxx0011xxxx
+{"orrs.w GPR , GPR , GPR , SHIFT NUM",{0xEA500010,0xFFFFF}}, // 111010100101xxxxxxxxxxxxxxxxxxxx
+{         "pkhbt GPR , GPR , GPR",{0xEAC00000,0xF8F0F}}, // 111010101100xxxxx000xxxx0000xxxx
+{"pkhbt GPR , GPR , GPR , SHIFT NUM",{0xEAC00040,0xFFFCF}}, // 111010101100xxxxxxxxxxxxxx00xxxx
+{"pkhtb GPR , GPR , GPR , SHIFT NUM",{0xEAC00020,0xFFFCF}}, // 111010101100xxxxxxxxxxxxxx10xxxx
+{ "pld [ GPR , GPR , SHIFT NUM ]",{0xF810F010,0xF003F}}, // 111110000001xxxx1111000000xxxxxx
+{             "pld [ GPR , GPR ]",{0xF810F000,0xF000F}}, // 111110000001xxxx111100000000xxxx
+{             "pld [ GPR , NUM ]",{0xF890F001,0x8F0FFF}}, // 11111000x001xxxx1111xxxxxxxxxxxx
+{                   "pld [ GPR ]",{0xF890F000,0xF0000}}, // 111110001001xxxx1111000000000000
+{"pldw [ GPR , GPR , SHIFT NUM ]",{0xF830F010,0xF003F}}, // 111110000011xxxx1111000000xxxxxx
+{            "pldw [ GPR , GPR ]",{0xF830F000,0xF000F}}, // 111110000011xxxx111100000000xxxx
+{            "pldw [ GPR , NUM ]",{0xF8B0F001,0x8F0FFF}}, // 11111000x011xxxx1111xxxxxxxxxxxx
+{                  "pldw [ GPR ]",{0xF8B0F000,0xF0000}}, // 111110001011xxxx1111000000000000
+{ "pli [ GPR , GPR , SHIFT NUM ]",{0xF910F010,0xF003F}}, // 111110010001xxxx1111000000xxxxxx
+{             "pli [ GPR , GPR ]",{0xF910F000,0xF000F}}, // 111110010001xxxx111100000000xxxx
+{             "pli [ GPR , NUM ]",{0xF990F001,0x8F0FFF}}, // 11111001x001xxxx1111xxxxxxxxxxxx
+{                   "pli [ GPR ]",{0xF990F000,0xF0000}}, // 111110011001xxxx1111000000000000
+{                   "pop.w RLIST",{0xE8BD0300,0xDFFF}}, // 1110100010111101xx0xxxxxxxxxxxxx
+{                  "push.w RLIST",{0xE92D0300,0x5FFF}}, // 11101001001011010x0xxxxxxxxxxxxx
+{          "qadd GPR , GPR , GPR",{0xFA80F080,0xF0F0F}}, // 111110101000xxxx1111xxxx1000xxxx
+{        "qadd16 GPR , GPR , GPR",{0xFA90F010,0xF0F0F}}, // 111110101001xxxx1111xxxx0001xxxx
+{         "qadd8 GPR , GPR , GPR",{0xFA80F010,0xF0F0F}}, // 111110101000xxxx1111xxxx0001xxxx
+{          "qasx GPR , GPR , GPR",{0xFAA0F010,0xF0F0F}}, // 111110101010xxxx1111xxxx0001xxxx
+{         "qdadd GPR , GPR , GPR",{0xFA80F090,0xF0F0F}}, // 111110101000xxxx1111xxxx1001xxxx
+{         "qdsub GPR , GPR , GPR",{0xFA80F0B0,0xF0F0F}}, // 111110101000xxxx1111xxxx1011xxxx
+{          "qsax GPR , GPR , GPR",{0xFAE0F010,0xF0F0F}}, // 111110101110xxxx1111xxxx0001xxxx
+{          "qsub GPR , GPR , GPR",{0xFA80F0A0,0xF0F0F}}, // 111110101000xxxx1111xxxx1010xxxx
+{        "qsub16 GPR , GPR , GPR",{0xFAD0F010,0xF0F0F}}, // 111110101101xxxx1111xxxx0001xxxx
+{         "qsub8 GPR , GPR , GPR",{0xFAC0F010,0xF0F0F}}, // 111110101100xxxx1111xxxx0001xxxx
+{                "rbit GPR , GPR",{0xFA90F0A0,0xF0F0F}}, // 111110101001xxxx1111xxxx1010xxxx
+{               "rev.w GPR , GPR",{0xFA90F080,0xF0F0F}}, // 111110101001xxxx1111xxxx1000xxxx
+{             "rev16.w GPR , GPR",{0xFA90F090,0xF0F0F}}, // 111110101001xxxx1111xxxx1001xxxx
+{             "revsh.w GPR , GPR",{0xFA90F0B0,0xF0F0F}}, // 111110101001xxxx1111xxxx1011xxxx
+{                     "rfedb GPR",{0xE810C000,0xF0000}}, // 111010000001xxxx1100000000000000
+{                   "rfedb GPR !",{0xE830C000,0xF0000}}, // 111010000011xxxx1100000000000000
+{                     "rfeia GPR",{0xE990C000,0xF0000}}, // 111010011001xxxx1100000000000000
+{                   "rfeia GPR !",{0xE9B0C000,0xF0000}}, // 111010011011xxxx1100000000000000
+{         "ror.w GPR , GPR , GPR",{0xFA60F000,0xF0F0F}}, // 111110100110xxxx1111xxxx0000xxxx
+{        "rors.w GPR , GPR , GPR",{0xFA70F000,0xF0F0F}}, // 111110100111xxxx1111xxxx0000xxxx
+{                 "rrx GPR , GPR",{0xEA4F0030,0x8F0F}}, // 1110101001001111x000xxxx0011xxxx
+{                "rrxs GPR , GPR",{0xEA5F0030,0x8F0F}}, // 1110101001011111x000xxxx0011xxxx
+{           "rsb GPR , GPR , GPR",{0xEBC00000,0xF8F0F}}, // 111010111100xxxxx000xxxx0000xxxx
+{   "rsb GPR , GPR , GPR , SHIFT",{0xEBC00030,0xF8F0F}}, // 111010111100xxxxx000xxxx0011xxxx
+{"rsb GPR , GPR , GPR , SHIFT NUM",{0xEBC00010,0xFFFFF}}, // 111010111100xxxxxxxxxxxxxxxxxxxx
+{         "rsb.w GPR , GPR , NUM",{0xF1C00000,0x40F7FFF}}, // 11110x011100xxxx0xxxxxxxxxxxxxxx
+{          "rsbs GPR , GPR , GPR",{0xEBD00000,0xF8F0F}}, // 111010111101xxxxx000xxxx0000xxxx
+{  "rsbs GPR , GPR , GPR , SHIFT",{0xEBD00030,0xF8F0F}}, // 111010111101xxxxx000xxxx0011xxxx
+{"rsbs GPR , GPR , GPR , SHIFT NUM",{0xEBD00010,0xFFFFF}}, // 111010111101xxxxxxxxxxxxxxxxxxxx
+{          "rsbs GPR , GPR , NUM",{0x42500000,0x3FFFFF}}, // 0100001001xxxxxxxxxxxxxxxxxxxxxx
+{        "rsbs.w GPR , GPR , NUM",{0xF1D00000,0x40F7FFF}}, // 11110x011101xxxx0xxxxxxxxxxxxxxx
+{        "sadd16 GPR , GPR , GPR",{0xFA90F000,0xF0F0F}}, // 111110101001xxxx1111xxxx0000xxxx
+{         "sadd8 GPR , GPR , GPR",{0xFA80F000,0xF0F0F}}, // 111110101000xxxx1111xxxx0000xxxx
+{          "sasx GPR , GPR , GPR",{0xFAA0F000,0xF0F0F}}, // 111110101010xxxx1111xxxx0000xxxx
+{           "sbc GPR , GPR , NUM",{0xF1600000,0x40F7FFF}}, // 11110x010110xxxx0xxxxxxxxxxxxxxx
+{         "sbc.w GPR , GPR , GPR",{0xEB600000,0xF8F0F}}, // 111010110110xxxxx000xxxx0000xxxx
+{ "sbc.w GPR , GPR , GPR , SHIFT",{0xEB600030,0xF8F0F}}, // 111010110110xxxxx000xxxx0011xxxx
+{"sbc.w GPR , GPR , GPR , SHIFT NUM",{0xEB600010,0xFFFFF}}, // 111010110110xxxxxxxxxxxxxxxxxxxx
+{                "sbcs GPR , GPR",{0x41B00000,0x3FFFFF}}, // 0100000110xxxxxxxxxxxxxxxxxxxxxx
+{          "sbcs GPR , GPR , NUM",{0xF1700000,0x40F7FFF}}, // 11110x010111xxxx0xxxxxxxxxxxxxxx
+{        "sbcs.w GPR , GPR , GPR",{0xEB700000,0xF8F0F}}, // 111010110111xxxxx000xxxx0000xxxx
+{"sbcs.w GPR , GPR , GPR , SHIFT",{0xEB700030,0xF8F0F}}, // 111010110111xxxxx000xxxx0011xxxx
+{"sbcs.w GPR , GPR , GPR , SHIFT NUM",{0xEB700010,0xFFFFF}}, // 111010110111xxxxxxxxxxxxxxxxxxxx
+{    "sbfx GPR , GPR , NUM , NUM",{0xF3400000,0x40F7FFF}}, // 11110x110100xxxx0xxxxxxxxxxxxxxx
+{          "sdiv GPR , GPR , GPR",{0xFB90F0F0,0xF0F0F}}, // 111110111001xxxx1111xxxx1111xxxx
+{           "sel GPR , GPR , GPR",{0xFAA0F080,0xF0F0F}}, // 111110101010xxxx1111xxxx1000xxxx
+{                         "sev.w",{0xF3AF8004,0x0000}}, // 11110011101011111000000000000100
+{       "shadd16 GPR , GPR , GPR",{0xFA90F020,0xF0F0F}}, // 111110101001xxxx1111xxxx0010xxxx
+{        "shadd8 GPR , GPR , GPR",{0xFA80F020,0xF0F0F}}, // 111110101000xxxx1111xxxx0010xxxx
+{         "shasx GPR , GPR , GPR",{0xFAA0F020,0xF0F0F}}, // 111110101010xxxx1111xxxx0010xxxx
+{         "shsax GPR , GPR , GPR",{0xFAE0F020,0xF0F0F}}, // 111110101110xxxx1111xxxx0010xxxx
+{       "shsub16 GPR , GPR , GPR",{0xFAD0F020,0xF0F0F}}, // 111110101101xxxx1111xxxx0010xxxx
+{        "shsub8 GPR , GPR , GPR",{0xFAC0F020,0xF0F0F}}, // 111110101100xxxx1111xxxx0010xxxx
+{                       "smc NUM",{0xF7F08000,0xF0FFF}}, // 111101111111xxxx1000xxxxxxxxxxxx
+{  "smlabb GPR , GPR , GPR , GPR",{0xFB100000,0xFFF0F}}, // 111110110001xxxxxxxxxxxx0000xxxx
+{  "smlabt GPR , GPR , GPR , GPR",{0xFB100010,0xFFF0F}}, // 111110110001xxxxxxxxxxxx0001xxxx
+{   "smlad GPR , GPR , GPR , GPR",{0xFB200000,0xFFF0F}}, // 111110110010xxxxxxxxxxxx0000xxxx
+{  "smladx GPR , GPR , GPR , GPR",{0xFB200010,0xFFF0F}}, // 111110110010xxxxxxxxxxxx0001xxxx
+{   "smlal GPR , GPR , GPR , GPR",{0xFBC00000,0xFFF0F}}, // 111110111100xxxxxxxxxxxx0000xxxx
+{ "smlalbb GPR , GPR , GPR , GPR",{0xFBC00080,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1000xxxx
+{ "smlalbt GPR , GPR , GPR , GPR",{0xFBC00090,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1001xxxx
+{  "smlald GPR , GPR , GPR , GPR",{0xFBC000C0,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1100xxxx
+{ "smlaldx GPR , GPR , GPR , GPR",{0xFBC000D0,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1101xxxx
+{ "smlaltb GPR , GPR , GPR , GPR",{0xFBC000A0,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1010xxxx
+{ "smlaltt GPR , GPR , GPR , GPR",{0xFBC000B0,0xFFF0F}}, // 111110111100xxxxxxxxxxxx1011xxxx
+{  "smlatb GPR , GPR , GPR , GPR",{0xFB100020,0xFFF0F}}, // 111110110001xxxxxxxxxxxx0010xxxx
+{  "smlatt GPR , GPR , GPR , GPR",{0xFB100030,0xFFF0F}}, // 111110110001xxxxxxxxxxxx0011xxxx
+{  "smlawb GPR , GPR , GPR , GPR",{0xFB300000,0xFFF0F}}, // 111110110011xxxxxxxxxxxx0000xxxx
+{  "smlawt GPR , GPR , GPR , GPR",{0xFB300010,0xFFF0F}}, // 111110110011xxxxxxxxxxxx0001xxxx
+{   "smlsd GPR , GPR , GPR , GPR",{0xFB400000,0xFFF0F}}, // 111110110100xxxxxxxxxxxx0000xxxx
+{  "smlsdx GPR , GPR , GPR , GPR",{0xFB400010,0xFFF0F}}, // 111110110100xxxxxxxxxxxx0001xxxx
+{  "smlsld GPR , GPR , GPR , GPR",{0xFBD000C0,0xFFF0F}}, // 111110111101xxxxxxxxxxxx1100xxxx
+{ "smlsldx GPR , GPR , GPR , GPR",{0xFBD000D0,0xFFF0F}}, // 111110111101xxxxxxxxxxxx1101xxxx
+{   "smmla GPR , GPR , GPR , GPR",{0xFB500000,0xFFF0F}}, // 111110110101xxxxxxxxxxxx0000xxxx
+{  "smmlar GPR , GPR , GPR , GPR",{0xFB500010,0xFFF0F}}, // 111110110101xxxxxxxxxxxx0001xxxx
+{   "smmls GPR , GPR , GPR , GPR",{0xFB600000,0xFFF0F}}, // 111110110110xxxxxxxxxxxx0000xxxx
+{  "smmlsr GPR , GPR , GPR , GPR",{0xFB600010,0xFFF0F}}, // 111110110110xxxxxxxxxxxx0001xxxx
+{         "smmul GPR , GPR , GPR",{0xFB50F000,0xF0F0F}}, // 111110110101xxxx1111xxxx0000xxxx
+{        "smmulr GPR , GPR , GPR",{0xFB50F010,0xF0F0F}}, // 111110110101xxxx1111xxxx0001xxxx
+{         "smuad GPR , GPR , GPR",{0xFB20F000,0xF0F0F}}, // 111110110010xxxx1111xxxx0000xxxx
+{        "smuadx GPR , GPR , GPR",{0xFB20F010,0xF0F0F}}, // 111110110010xxxx1111xxxx0001xxxx
+{        "smulbb GPR , GPR , GPR",{0xFB10F000,0xF0F0F}}, // 111110110001xxxx1111xxxx0000xxxx
+{        "smulbt GPR , GPR , GPR",{0xFB10F010,0xF0F0F}}, // 111110110001xxxx1111xxxx0001xxxx
+{   "smull GPR , GPR , GPR , GPR",{0xFB800000,0xFFF0F}}, // 111110111000xxxxxxxxxxxx0000xxxx
+{        "smultb GPR , GPR , GPR",{0xFB10F020,0xF0F0F}}, // 111110110001xxxx1111xxxx0010xxxx
+{        "smultt GPR , GPR , GPR",{0xFB10F030,0xF0F0F}}, // 111110110001xxxx1111xxxx0011xxxx
+{        "smulwb GPR , GPR , GPR",{0xFB30F000,0xF0F0F}}, // 111110110011xxxx1111xxxx0000xxxx
+{        "smulwt GPR , GPR , GPR",{0xFB30F010,0xF0F0F}}, // 111110110011xxxx1111xxxx0001xxxx
+{         "smusd GPR , GPR , GPR",{0xFB40F000,0xF0F0F}}, // 111110110100xxxx1111xxxx0000xxxx
+{        "smusdx GPR , GPR , GPR",{0xFB40F010,0xF0F0F}}, // 111110110100xxxx1111xxxx0001xxxx
+{             "srsdb GPR ! , NUM",{0xE82DC000,0x001F}}, // 111010000010110111000000000xxxxx
+{               "srsdb GPR , NUM",{0xE80DC000,0x001F}}, // 111010000000110111000000000xxxxx
+{             "srsia GPR ! , NUM",{0xE9ADC000,0x001F}}, // 111010011010110111000000000xxxxx
+{               "srsia GPR , NUM",{0xE98DC000,0x001F}}, // 111010011000110111000000000xxxxx
+{          "ssat GPR , NUM , GPR",{0xF3000000,0x40F0F1F}}, // 11110x110000xxxx0000xxxx000xxxxx
+{"ssat GPR , NUM , GPR , SHIFT NUM",{0xF3000040,0x42F7FDF}}, // 11110x1100x0xxxx0xxxxxxxxx0xxxxx
+{        "ssat16 GPR , NUM , GPR",{0xF3200000,0x40F0F0F}}, // 11110x110010xxxx0000xxxx0000xxxx
+{          "ssax GPR , GPR , GPR",{0xFAE0F000,0xF0F0F}}, // 111110101110xxxx1111xxxx0000xxxx
+{        "ssub16 GPR , GPR , GPR",{0xFAD0F000,0xF0F0F}}, // 111110101101xxxx1111xxxx0000xxxx
+{         "ssub8 GPR , GPR , GPR",{0xFAC0F000,0xF0F0F}}, // 111110101100xxxx1111xxxx0000xxxx
+{"stc PREG , CREG , [ GPR , NUM ]",{0xED000000,0x8FFFFF}}, // 11101101x000xxxxxxxxxxxxxxxxxxxx
+{"stc PREG , CREG , [ GPR , NUM ] !",{0xED200000,0x8FFFFF}}, // 11101101x010xxxxxxxxxxxxxxxxxxxx
+{     "stc PREG , CREG , [ GPR ]",{0xED800000,0xFFF00}}, // 111011011000xxxxxxxxxxxx00000000
+{"stc PREG , CREG , [ GPR ] , NUM",{0xEC200000,0x8FFFFF}}, // 11101100x010xxxxxxxxxxxxxxxxxxxx
+{"stc PREG , CREG , [ GPR ] , RLIST",{0xEC800000,0xFFFFF}}, // 111011001000xxxxxxxxxxxxxxxxxxxx
+{"stc2 PREG , CREG , [ GPR , NUM ]",{0xFD000000,0x8FFFFF}}, // 11111101x000xxxxxxxxxxxxxxxxxxxx
+{"stc2 PREG , CREG , [ GPR , NUM ] !",{0xFD200000,0x8FFFFF}}, // 11111101x010xxxxxxxxxxxxxxxxxxxx
+{    "stc2 PREG , CREG , [ GPR ]",{0xFD800000,0xFFF00}}, // 111111011000xxxxxxxxxxxx00000000
+{"stc2 PREG , CREG , [ GPR ] , NUM",{0xFC200000,0x8FFFFF}}, // 11111100x010xxxxxxxxxxxxxxxxxxxx
+{"stc2 PREG , CREG , [ GPR ] , RLIST",{0xFC800000,0xFFFFF}}, // 111111001000xxxxxxxxxxxxxxxxxxxx
+{"stc2l PREG , CREG , [ GPR , NUM ]",{0xFD400000,0x8FFFFF}}, // 11111101x100xxxxxxxxxxxxxxxxxxxx
+{"stc2l PREG , CREG , [ GPR , NUM ] !",{0xFD600000,0x8FFFFF}}, // 11111101x110xxxxxxxxxxxxxxxxxxxx
+{   "stc2l PREG , CREG , [ GPR ]",{0xFDC00000,0xFFF00}}, // 111111011100xxxxxxxxxxxx00000000
+{"stc2l PREG , CREG , [ GPR ] , NUM",{0xFC600000,0x8FFFFF}}, // 11111100x110xxxxxxxxxxxxxxxxxxxx
+{"stc2l PREG , CREG , [ GPR ] , RLIST",{0xFCC00000,0xFFFFF}}, // 111111001100xxxxxxxxxxxxxxxxxxxx
+{"stcl PREG , CREG , [ GPR , NUM ]",{0xED400000,0x8FFFFF}}, // 11101101x100xxxxxxxxxxxxxxxxxxxx
+{"stcl PREG , CREG , [ GPR , NUM ] !",{0xED600000,0x8FFFFF}}, // 11101101x110xxxxxxxxxxxxxxxxxxxx
+{    "stcl PREG , CREG , [ GPR ]",{0xEDC00000,0xFFF00}}, // 111011011100xxxxxxxxxxxx00000000
+{"stcl PREG , CREG , [ GPR ] , NUM",{0xEC600000,0x8FFFFF}}, // 11101100x110xxxxxxxxxxxxxxxxxxxx
+{"stcl PREG , CREG , [ GPR ] , RLIST",{0xECC00000,0xFFFFF}}, // 111011001100xxxxxxxxxxxxxxxxxxxx
+{           "stm.w GPR ! , RLIST",{0xE8A00100,0xF5FFF}}, // 111010001010xxxx0x0xxxxxxxxxxxxx
+{             "stm.w GPR , RLIST",{0xE8800100,0xF5FFF}}, // 111010001000xxxx0x0xxxxxxxxxxxxx
+{           "stmdb GPR ! , RLIST",{0xE9200100,0xF5FFF}}, // 111010010010xxxx0x0xxxxxxxxxxxxx
+{             "stmdb GPR , RLIST",{0xE9000100,0xF5FFF}}, // 111010010000xxxx0x0xxxxxxxxxxxxx
+{       "str GPR , [ GPR , GPR ]",{0x50400900,0x1FFFFFF}}, // 0101000xxxxxxxxxxxxxxxxxxxxxxxxx
+{       "str GPR , [ GPR , NUM ]",{0xF8400C00,0xFFFFFFFF}}, // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{     "str GPR , [ GPR , NUM ] !",{0xF8400D00,0xFF2FF}}, // 111110000100xxxxxxxx11x1xxxxxxxx
+{             "str GPR , [ GPR ]",{0x60000900,0xF73FFFFF}}, // xxxx0xxx00xxxxxxxxxxxxxxxxxxxxxx
+{       "str GPR , [ GPR ] , NUM",{0xF8400900,0xFF2FF}}, // 111110000100xxxxxxxx10x1xxxxxxxx
+{"str.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8400010,0xFF03F}}, // 111110000100xxxxxxxx000000xxxxxx
+{     "str.w GPR , [ GPR , GPR ]",{0xF8400000,0xFF00F}}, // 111110000100xxxxxxxx00000000xxxx
+{     "str.w GPR , [ GPR , NUM ]",{0xF8C00001,0xFFFFF}}, // 111110001100xxxxxxxxxxxxxxxxxxxx
+{           "str.w GPR , [ GPR ]",{0xF8C00000,0xFF000}}, // 111110001100xxxxxxxx000000000000
+{      "strb GPR , [ GPR , GPR ]",{0x54000900,0x1FFFFFF}}, // 0101010xxxxxxxxxxxxxxxxxxxxxxxxx
+{      "strb GPR , [ GPR , NUM ]",{0xF8000C00,0x8FFFFFFF}}, // x111xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{    "strb GPR , [ GPR , NUM ] !",{0xF8000D00,0xFF2FF}}, // 111110000000xxxxxxxx11x1xxxxxxxx
+{            "strb GPR , [ GPR ]",{0x70000900,0x3FFFFF}}, // 0111000000xxxxxxxxxxxxxxxxxxxxxx
+{      "strb GPR , [ GPR ] , NUM",{0xF8000900,0xFF2FF}}, // 111110000000xxxxxxxx10x1xxxxxxxx
+{"strb.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8000010,0xFF03F}}, // 111110000000xxxxxxxx000000xxxxxx
+{    "strb.w GPR , [ GPR , GPR ]",{0xF8000000,0xFF00F}}, // 111110000000xxxxxxxx00000000xxxx
+{    "strb.w GPR , [ GPR , NUM ]",{0xF8800001,0xFFFFF}}, // 111110001000xxxxxxxxxxxxxxxxxxxx
+{          "strb.w GPR , [ GPR ]",{0xF8800000,0xFF000}}, // 111110001000xxxxxxxx000000000000
+{     "strbt GPR , [ GPR , NUM ]",{0xF8000E01,0xFF0FF}}, // 111110000000xxxxxxxx1110xxxxxxxx
+{           "strbt GPR , [ GPR ]",{0xF8000E00,0xFF000}}, // 111110000000xxxxxxxx111000000000
+{"strd GPR , GPR , [ GPR , NUM ]",{0xE9400000,0x8FFFFF}}, // 11101001x100xxxxxxxxxxxxxxxxxxxx
+{"strd GPR , GPR , [ GPR , NUM ] !",{0xE9600000,0x8FFFFF}}, // 11101001x110xxxxxxxxxxxxxxxxxxxx
+{      "strd GPR , GPR , [ GPR ]",{0xE9C00000,0xFFF00}}, // 111010011100xxxxxxxxxxxx00000000
+{"strd GPR , GPR , [ GPR ] , NUM",{0xE8600000,0x8FFFFF}}, // 11101000x110xxxxxxxxxxxxxxxxxxxx
+{"strex GPR , GPR , [ GPR , NUM ]",{0xE8400001,0xFFFFF}}, // 111010000100xxxxxxxxxxxxxxxxxxxx
+{     "strex GPR , GPR , [ GPR ]",{0xE8400000,0xFFF00}}, // 111010000100xxxxxxxxxxxx00000000
+{    "strexb GPR , GPR , [ GPR ]",{0xE8C00F40,0xFF00F}}, // 111010001100xxxxxxxx11110100xxxx
+{"strexd GPR , GPR , GPR , [ GPR ]",{0xE8C00070,0xFFF0F}}, // 111010001100xxxxxxxxxxxx0111xxxx
+{    "strexh GPR , GPR , [ GPR ]",{0xE8C00F50,0xFF00F}}, // 111010001100xxxxxxxx11110101xxxx
+{      "strh GPR , [ GPR , GPR ]",{0x52200900,0x1FFFFFF}}, // 0101001xxxxxxxxxxxxxxxxxxxxxxxxx
+{      "strh GPR , [ GPR , NUM ]",{0xF8200C00,0x7FCFF0FF}}, // 1xxxxxxxxx10xxxxxxxx1100xxxxxxxx
+{    "strh GPR , [ GPR , NUM ] !",{0xF8200D00,0xFF2FF}}, // 111110000010xxxxxxxx11x1xxxxxxxx
+{            "strh GPR , [ GPR ]",{0x80200900,0x3FFFFF}}, // 1000000000xxxxxxxxxxxxxxxxxxxxxx
+{      "strh GPR , [ GPR ] , NUM",{0xF8200900,0xFF2FF}}, // 111110000010xxxxxxxx10x1xxxxxxxx
+{"strh.w GPR , [ GPR , GPR , SHIFT NUM ]",{0xF8200010,0xFF03F}}, // 111110000010xxxxxxxx000000xxxxxx
+{    "strh.w GPR , [ GPR , GPR ]",{0xF8200000,0xFF00F}}, // 111110000010xxxxxxxx00000000xxxx
+{    "strh.w GPR , [ GPR , NUM ]",{0xF8A00001,0xFFFFF}}, // 111110001010xxxxxxxxxxxxxxxxxxxx
+{          "strh.w GPR , [ GPR ]",{0xF8A00000,0xFF000}}, // 111110001010xxxxxxxx000000000000
+{     "strht GPR , [ GPR , NUM ]",{0xF8200E01,0xFF0FF}}, // 111110000010xxxxxxxx1110xxxxxxxx
+{           "strht GPR , [ GPR ]",{0xF8200E00,0xFF000}}, // 111110000010xxxxxxxx111000000000
+{      "strt GPR , [ GPR , NUM ]",{0xF8400E01,0xFF0FF}}, // 111110000100xxxxxxxx1110xxxxxxxx
+{            "strt GPR , [ GPR ]",{0xF8400E00,0xFF000}}, // 111110000100xxxxxxxx111000000000
+{         "sub.w GPR , GPR , GPR",{0xEBA00000,0xF8F0F}}, // 111010111010xxxxx000xxxx0000xxxx
+{ "sub.w GPR , GPR , GPR , SHIFT",{0xEBA00030,0xF8F0F}}, // 111010111010xxxxx000xxxx0011xxxx
+{"sub.w GPR , GPR , GPR , SHIFT NUM",{0xEBA00010,0xFFFFF}}, // 111010111010xxxxxxxxxxxxxxxxxxxx
+{         "sub.w GPR , GPR , NUM",{0xF1A00000,0x40F7FFF}}, // 11110x011010xxxx0xxxxxxxxxxxxxxx
+{          "subs GPR , GPR , GPR",{0x1BDE8F00,0x1FFFFFF}}, // 0001101xxxxxxxxxxxxxxxxxxxxxxxxx
+{          "subs GPR , GPR , NUM",{0xF3DE8F00,0xEC0000FF}}, // xxx1xx111101111010001111xxxxxxxx
+{                "subs GPR , NUM",{0x3BDE8F00,0x7FFFFFF}}, // 00111xxxxxxxxxxxxxxxxxxxxxxxxxxx
+{        "subs.w GPR , GPR , GPR",{0xEBB00000,0xF8F0F}}, // 111010111011xxxxx000xxxx0000xxxx
+{"subs.w GPR , GPR , GPR , SHIFT",{0xEBB00030,0xF8F0F}}, // 111010111011xxxxx000xxxx0011xxxx
+{"subs.w GPR , GPR , GPR , SHIFT NUM",{0xEBB00010,0xFFFFF}}, // 111010111011xxxxxxxxxxxxxxxxxxxx
+{        "subs.w GPR , GPR , NUM",{0xF1B00000,0x40F7FFF}}, // 11110x011011xxxx0xxxxxxxxxxxxxxx
+{          "subw GPR , GPR , NUM",{0xF2A00000,0x40F7FFF}}, // 11110x101010xxxx0xxxxxxxxxxxxxxx
+{         "sxtab GPR , GPR , GPR",{0xFA40F080,0xF0F4F}}, // 111110100100xxxx1111xxxx1x00xxxx
+{"sxtab GPR , GPR , GPR , SHIFT NUM",{0xFA40F090,0xF0F7F}}, // 111110100100xxxx1111xxxx1xxxxxxx
+{       "sxtab16 GPR , GPR , GPR",{0xFA20F080,0xF0F4F}}, // 111110100010xxxx1111xxxx1x00xxxx
+{"sxtab16 GPR , GPR , GPR , SHIFT NUM",{0xFA20F090,0xF0F7F}}, // 111110100010xxxx1111xxxx1xxxxxxx
+{         "sxtah GPR , GPR , GPR",{0xFA00F080,0xF0F4F}}, // 111110100000xxxx1111xxxx1x00xxxx
+{"sxtah GPR , GPR , GPR , SHIFT NUM",{0xFA00F090,0xF0F7F}}, // 111110100000xxxx1111xxxx1xxxxxxx
+{              "sxtb.w GPR , GPR",{0xFA4FF080,0x0F4F}}, // 11111010010011111111xxxx1x00xxxx
+{  "sxtb.w GPR , GPR , SHIFT NUM",{0xFA4FF090,0x0F7F}}, // 11111010010011111111xxxx1xxxxxxx
+{              "sxtb16 GPR , GPR",{0xFA2FF080,0x0F4F}}, // 11111010001011111111xxxx1x00xxxx
+{  "sxtb16 GPR , GPR , SHIFT NUM",{0xFA2FF090,0x0F7F}}, // 11111010001011111111xxxx1xxxxxxx
+{              "sxth.w GPR , GPR",{0xFA0FF080,0x0F4F}}, // 11111010000011111111xxxx1x00xxxx
+{  "sxth.w GPR , GPR , SHIFT NUM",{0xFA0FF090,0x0F7F}}, // 11111010000011111111xxxx1xxxxxxx
+{             "tbb [ GPR , GPR ]",{0xE8D0F000,0xF000F}}, // 111010001101xxxx111100000000xxxx
+{ "tbh [ GPR , GPR , SHIFT NUM ]",{0xE8D0F010,0xF000F}}, // 111010001101xxxx111100000001xxxx
+{               "teq.w GPR , GPR",{0xEA900F00,0xF800F}}, // 111010101001xxxxx00011110000xxxx
+{       "teq.w GPR , GPR , SHIFT",{0xEA900F30,0xF800F}}, // 111010101001xxxxx00011110011xxxx
+{   "teq.w GPR , GPR , SHIFT NUM",{0xEA900F10,0xFF0FF}}, // 111010101001xxxxxxxx1111xxxxxxxx
+{               "teq.w GPR , NUM",{0xF0900F00,0x40F70FF}}, // 11110x001001xxxx0xxx1111xxxxxxxx
+{               "tst.w GPR , GPR",{0xEA100F00,0xF800F}}, // 111010100001xxxxx00011110000xxxx
+{       "tst.w GPR , GPR , SHIFT",{0xEA100F30,0xF800F}}, // 111010100001xxxxx00011110011xxxx
+{   "tst.w GPR , GPR , SHIFT NUM",{0xEA100F10,0xFF0FF}}, // 111010100001xxxxxxxx1111xxxxxxxx
+{               "tst.w GPR , NUM",{0xF0100F00,0x40F70FF}}, // 11110x000001xxxx0xxx1111xxxxxxxx
+{        "uadd16 GPR , GPR , GPR",{0xFA90F040,0xF0F0F}}, // 111110101001xxxx1111xxxx0100xxxx
+{         "uadd8 GPR , GPR , GPR",{0xFA80F040,0xF0F0F}}, // 111110101000xxxx1111xxxx0100xxxx
+{          "uasx GPR , GPR , GPR",{0xFAA0F040,0xF0F0F}}, // 111110101010xxxx1111xxxx0100xxxx
+{    "ubfx GPR , GPR , NUM , NUM",{0xF3C00000,0x40F7FFF}}, // 11110x111100xxxx0xxxxxxxxxxxxxxx
+{                     "udf.w NUM",{0xF7F0A000,0xF0FFF}}, // 111101111111xxxx1010xxxxxxxxxxxx
+{          "udiv GPR , GPR , GPR",{0xFBB0F0F0,0xF0F0F}}, // 111110111011xxxx1111xxxx1111xxxx
+{       "uhadd16 GPR , GPR , GPR",{0xFA90F060,0xF0F0F}}, // 111110101001xxxx1111xxxx0110xxxx
+{        "uhadd8 GPR , GPR , GPR",{0xFA80F060,0xF0F0F}}, // 111110101000xxxx1111xxxx0110xxxx
+{         "uhasx GPR , GPR , GPR",{0xFAA0F060,0xF0F0F}}, // 111110101010xxxx1111xxxx0110xxxx
+{         "uhsax GPR , GPR , GPR",{0xFAE0F060,0xF0F0F}}, // 111110101110xxxx1111xxxx0110xxxx
+{       "uhsub16 GPR , GPR , GPR",{0xFAD0F060,0xF0F0F}}, // 111110101101xxxx1111xxxx0110xxxx
+{        "uhsub8 GPR , GPR , GPR",{0xFAC0F060,0xF0F0F}}, // 111110101100xxxx1111xxxx0110xxxx
+{   "umaal GPR , GPR , GPR , GPR",{0xFBE00060,0xFFF0F}}, // 111110111110xxxxxxxxxxxx0110xxxx
+{   "umlal GPR , GPR , GPR , GPR",{0xFBE00000,0xFFF0F}}, // 111110111110xxxxxxxxxxxx0000xxxx
+{   "umull GPR , GPR , GPR , GPR",{0xFBA00000,0xFFF0F}}, // 111110111010xxxxxxxxxxxx0000xxxx
+{       "uqadd16 GPR , GPR , GPR",{0xFA90F050,0xF0F0F}}, // 111110101001xxxx1111xxxx0101xxxx
+{        "uqadd8 GPR , GPR , GPR",{0xFA80F050,0xF0F0F}}, // 111110101000xxxx1111xxxx0101xxxx
+{         "uqasx GPR , GPR , GPR",{0xFAA0F050,0xF0F0F}}, // 111110101010xxxx1111xxxx0101xxxx
+{         "uqsax GPR , GPR , GPR",{0xFAE0F050,0xF0F0F}}, // 111110101110xxxx1111xxxx0101xxxx
+{       "uqsub16 GPR , GPR , GPR",{0xFAD0F050,0xF0F0F}}, // 111110101101xxxx1111xxxx0101xxxx
+{        "uqsub8 GPR , GPR , GPR",{0xFAC0F050,0xF0F0F}}, // 111110101100xxxx1111xxxx0101xxxx
+{         "usad8 GPR , GPR , GPR",{0xFB70F000,0xF0F0F}}, // 111110110111xxxx1111xxxx0000xxxx
+{  "usada8 GPR , GPR , GPR , GPR",{0xFB700000,0xFFF0F}}, // 111110110111xxxxxxxxxxxx0000xxxx
+{          "usat GPR , NUM , GPR",{0xF3800000,0x40F0F3F}}, // 11110x111000xxxx0000xxxx00xxxxxx
+{"usat GPR , NUM , GPR , SHIFT NUM",{0xF3800040,0x42F7FFF}}, // 11110x1110x0xxxx0xxxxxxxxxxxxxxx
+{        "usat16 GPR , NUM , GPR",{0xF3A00000,0xF0F0F}}, // 111100111010xxxx0000xxxx0000xxxx
+{          "usax GPR , GPR , GPR",{0xFAE0F040,0xF0F0F}}, // 111110101110xxxx1111xxxx0100xxxx
+{        "usub16 GPR , GPR , GPR",{0xFAD0F040,0xF0F0F}}, // 111110101101xxxx1111xxxx0100xxxx
+{         "usub8 GPR , GPR , GPR",{0xFAC0F040,0xF0F0F}}, // 111110101100xxxx1111xxxx0100xxxx
+{         "uxtab GPR , GPR , GPR",{0xFA50F080,0xF0F4F}}, // 111110100101xxxx1111xxxx1x00xxxx
+{"uxtab GPR , GPR , GPR , SHIFT NUM",{0xFA50F090,0xF0F7F}}, // 111110100101xxxx1111xxxx1xxxxxxx
+{       "uxtab16 GPR , GPR , GPR",{0xFA30F080,0xF0F4F}}, // 111110100011xxxx1111xxxx1x00xxxx
+{"uxtab16 GPR , GPR , GPR , SHIFT NUM",{0xFA30F090,0xF0F7F}}, // 111110100011xxxx1111xxxx1xxxxxxx
+{         "uxtah GPR , GPR , GPR",{0xFA10F080,0xF0F4F}}, // 111110100001xxxx1111xxxx1x00xxxx
+{"uxtah GPR , GPR , GPR , SHIFT NUM",{0xFA10F090,0xF0F7F}}, // 111110100001xxxx1111xxxx1xxxxxxx
+{              "uxtb.w GPR , GPR",{0xFA5FF080,0x0F4F}}, // 11111010010111111111xxxx1x00xxxx
+{  "uxtb.w GPR , GPR , SHIFT NUM",{0xFA5FF090,0x0F7F}}, // 11111010010111111111xxxx1xxxxxxx
+{              "uxtb16 GPR , GPR",{0xFA3FF080,0x0F4F}}, // 11111010001111111111xxxx1x00xxxx
+{  "uxtb16 GPR , GPR , SHIFT NUM",{0xFA3FF090,0x0F7F}}, // 11111010001111111111xxxx1xxxxxxx
+{              "uxth.w GPR , GPR",{0xFA1FF080,0x0F4F}}, // 11111010000111111111xxxx1x00xxxx
+{  "uxth.w GPR , GPR , SHIFT NUM",{0xFA1FF090,0x0F7F}}, // 11111010000111111111xxxx1xxxxxxx
+{   "vaba.s16 DREG , DREG , DREG",{0xEF100710,0x4FF0AF}}, // 111011110x01xxxxxxxx0111x0x1xxxx
+{   "vaba.s16 QREG , QREG , QREG",{0xEF100750,0x4EE0AE}}, // 111011110x01xxx0xxx00111x1x1xxx0
+{   "vaba.s32 DREG , DREG , DREG",{0xEF200710,0x4FF0AF}}, // 111011110x10xxxxxxxx0111x0x1xxxx
+{   "vaba.s32 QREG , QREG , QREG",{0xEF200750,0x4EE0AE}}, // 111011110x10xxx0xxx00111x1x1xxx0
+{    "vaba.s8 DREG , DREG , DREG",{0xEF000710,0x4FF0AF}}, // 111011110x00xxxxxxxx0111x0x1xxxx
+{    "vaba.s8 QREG , QREG , QREG",{0xEF000750,0x4EE0AE}}, // 111011110x00xxx0xxx00111x1x1xxx0
+{   "vaba.u16 DREG , DREG , DREG",{0xFF100710,0x4FF0AF}}, // 111111110x01xxxxxxxx0111x0x1xxxx
+{   "vaba.u16 QREG , QREG , QREG",{0xFF100750,0x4EE0AE}}, // 111111110x01xxx0xxx00111x1x1xxx0
+{   "vaba.u32 DREG , DREG , DREG",{0xFF200710,0x4FF0AF}}, // 111111110x10xxxxxxxx0111x0x1xxxx
+{   "vaba.u32 QREG , QREG , QREG",{0xFF200750,0x4EE0AE}}, // 111111110x10xxx0xxx00111x1x1xxx0
+{    "vaba.u8 DREG , DREG , DREG",{0xFF000710,0x4FF0AF}}, // 111111110x00xxxxxxxx0111x0x1xxxx
+{    "vaba.u8 QREG , QREG , QREG",{0xFF000750,0x4EE0AE}}, // 111111110x00xxx0xxx00111x1x1xxx0
+{  "vabal.s16 QREG , DREG , DREG",{0xEF900500,0x4FE0AF}}, // 111011111x01xxxxxxx00101x0x0xxxx
+{  "vabal.s32 QREG , DREG , DREG",{0xEFA00500,0x4FE0AF}}, // 111011111x10xxxxxxx00101x0x0xxxx
+{   "vabal.s8 QREG , DREG , DREG",{0xEF800500,0x4FE0AF}}, // 111011111x00xxxxxxx00101x0x0xxxx
+{  "vabal.u16 QREG , DREG , DREG",{0xFF900500,0x4FE0AF}}, // 111111111x01xxxxxxx00101x0x0xxxx
+{  "vabal.u32 QREG , DREG , DREG",{0xFFA00500,0x4FE0AF}}, // 111111111x10xxxxxxx00101x0x0xxxx
+{   "vabal.u8 QREG , DREG , DREG",{0xFF800500,0x4FE0AF}}, // 111111111x00xxxxxxx00101x0x0xxxx
+{   "vabd.f32 DREG , DREG , DREG",{0xFF200D00,0x4FF0AF}}, // 111111110x10xxxxxxxx1101x0x0xxxx
+{   "vabd.f32 QREG , QREG , QREG",{0xFF200D40,0x4EE0AE}}, // 111111110x10xxx0xxx01101x1x0xxx0
+{   "vabd.s16 DREG , DREG , DREG",{0xEF100700,0x4FF0AF}}, // 111011110x01xxxxxxxx0111x0x0xxxx
+{   "vabd.s16 QREG , QREG , QREG",{0xEF100740,0x4EE0AE}}, // 111011110x01xxx0xxx00111x1x0xxx0
+{   "vabd.s32 DREG , DREG , DREG",{0xEF200700,0x4FF0AF}}, // 111011110x10xxxxxxxx0111x0x0xxxx
+{   "vabd.s32 QREG , QREG , QREG",{0xEF200740,0x4EE0AE}}, // 111011110x10xxx0xxx00111x1x0xxx0
+{    "vabd.s8 DREG , DREG , DREG",{0xEF000700,0x4FF0AF}}, // 111011110x00xxxxxxxx0111x0x0xxxx
+{    "vabd.s8 QREG , QREG , QREG",{0xEF000740,0x4EE0AE}}, // 111011110x00xxx0xxx00111x1x0xxx0
+{   "vabd.u16 DREG , DREG , DREG",{0xFF100700,0x4FF0AF}}, // 111111110x01xxxxxxxx0111x0x0xxxx
+{   "vabd.u16 QREG , QREG , QREG",{0xFF100740,0x4EE0AE}}, // 111111110x01xxx0xxx00111x1x0xxx0
+{   "vabd.u32 DREG , DREG , DREG",{0xFF200700,0x4FF0AF}}, // 111111110x10xxxxxxxx0111x0x0xxxx
+{   "vabd.u32 QREG , QREG , QREG",{0xFF200740,0x4EE0AE}}, // 111111110x10xxx0xxx00111x1x0xxx0
+{    "vabd.u8 DREG , DREG , DREG",{0xFF000700,0x4FF0AF}}, // 111111110x00xxxxxxxx0111x0x0xxxx
+{    "vabd.u8 QREG , QREG , QREG",{0xFF000740,0x4EE0AE}}, // 111111110x00xxx0xxx00111x1x0xxx0
+{  "vabdl.s16 QREG , DREG , DREG",{0xEF900700,0x4FE0AF}}, // 111011111x01xxxxxxx00111x0x0xxxx
+{  "vabdl.s32 QREG , DREG , DREG",{0xEFA00700,0x4FE0AF}}, // 111011111x10xxxxxxx00111x0x0xxxx
+{   "vabdl.s8 QREG , DREG , DREG",{0xEF800700,0x4FE0AF}}, // 111011111x00xxxxxxx00111x0x0xxxx
+{  "vabdl.u16 QREG , DREG , DREG",{0xFF900700,0x4FE0AF}}, // 111111111x01xxxxxxx00111x0x0xxxx
+{  "vabdl.u32 QREG , DREG , DREG",{0xFFA00700,0x4FE0AF}}, // 111111111x10xxxxxxx00111x0x0xxxx
+{   "vabdl.u8 QREG , DREG , DREG",{0xFF800700,0x4FE0AF}}, // 111111111x00xxxxxxx00111x0x0xxxx
+{          "vabs.f32 DREG , DREG",{0xFFB90700,0x40F02F}}, // 111111111x111001xxxx011100x0xxxx
+{          "vabs.f32 QREG , QREG",{0xFFB90740,0x40E02E}}, // 111111111x111001xxx0011101x0xxx0
+{          "vabs.f64 DREG , DREG",{0xEEB00BC0,0x40F02F}}, // 111011101x110000xxxx101111x0xxxx
+{          "vabs.s16 DREG , DREG",{0xFFB50300,0x40F02F}}, // 111111111x110101xxxx001100x0xxxx
+{          "vabs.s16 QREG , QREG",{0xFFB50340,0x40E02E}}, // 111111111x110101xxx0001101x0xxx0
+{          "vabs.s32 DREG , DREG",{0xFFB90300,0x40F02F}}, // 111111111x111001xxxx001100x0xxxx
+{          "vabs.s32 QREG , QREG",{0xFFB90340,0x40E02E}}, // 111111111x111001xxx0001101x0xxx0
+{           "vabs.s8 DREG , DREG",{0xFFB10300,0x40F02F}}, // 111111111x110001xxxx001100x0xxxx
+{           "vabs.s8 QREG , QREG",{0xFFB10340,0x40E02E}}, // 111111111x110001xxx0001101x0xxx0
+{  "vacge.f32 DREG , DREG , DREG",{0xFF000E10,0x4FF0AF}}, // 111111110x00xxxxxxxx1110x0x1xxxx
+{  "vacge.f32 QREG , QREG , QREG",{0xFF000E50,0x4EE0AE}}, // 111111110x00xxx0xxx01110x1x1xxx0
+{  "vacgt.f32 DREG , DREG , DREG",{0xFF200E10,0x4FF0AF}}, // 111111110x10xxxxxxxx1110x0x1xxxx
+{  "vacgt.f32 QREG , QREG , QREG",{0xFF200E50,0x4EE0AE}}, // 111111110x10xxx0xxx01110x1x1xxx0
+{   "vadd.f32 SREG , SREG , SREG",{0xEE300A00,0x4FF0AF}}, // 111011100x11xxxxxxxx1010x0x0xxxx
+{   "vadd.f64 DREG , DREG , DREG",{0xEE300B00,0x4FF0AF}}, // 111011100x11xxxxxxxx1011x0x0xxxx
+{   "vadd.i16 DREG , DREG , DREG",{0xEF100800,0x4FF0AF}}, // 111011110x01xxxxxxxx1000x0x0xxxx
+{   "vadd.i16 QREG , QREG , QREG",{0xEF100840,0x4EE0AE}}, // 111011110x01xxx0xxx01000x1x0xxx0
+{   "vadd.i32 DREG , DREG , DREG",{0xEF200800,0x4FF0AF}}, // 111011110x10xxxxxxxx1000x0x0xxxx
+{   "vadd.i32 QREG , QREG , QREG",{0xEF200840,0x4EE0AE}}, // 111011110x10xxx0xxx01000x1x0xxx0
+{   "vadd.i64 DREG , DREG , DREG",{0xEF300800,0x4FF0AF}}, // 111011110x11xxxxxxxx1000x0x0xxxx
+{   "vadd.i64 QREG , QREG , QREG",{0xEF300840,0x4EE0AE}}, // 111011110x11xxx0xxx01000x1x0xxx0
+{    "vadd.i8 DREG , DREG , DREG",{0xEF000800,0x4FF0AF}}, // 111011110x00xxxxxxxx1000x0x0xxxx
+{    "vadd.i8 QREG , QREG , QREG",{0xEF000840,0x4EE0AE}}, // 111011110x00xxx0xxx01000x1x0xxx0
+{ "vaddhn.i16 DREG , QREG , QREG",{0xEF800400,0x4EF0AE}}, // 111011111x00xxx0xxxx0100x0x0xxx0
+{ "vaddhn.i32 DREG , QREG , QREG",{0xEF900400,0x4EF0AE}}, // 111011111x01xxx0xxxx0100x0x0xxx0
+{ "vaddhn.i64 DREG , QREG , QREG",{0xEFA00400,0x4EF0AE}}, // 111011111x10xxx0xxxx0100x0x0xxx0
+{  "vaddl.s16 QREG , DREG , DREG",{0xEF900000,0x4FE0AF}}, // 111011111x01xxxxxxx00000x0x0xxxx
+{  "vaddl.s32 QREG , DREG , DREG",{0xEFA00000,0x4FE0AF}}, // 111011111x10xxxxxxx00000x0x0xxxx
+{   "vaddl.s8 QREG , DREG , DREG",{0xEF800000,0x4FE0AF}}, // 111011111x00xxxxxxx00000x0x0xxxx
+{  "vaddl.u16 QREG , DREG , DREG",{0xFF900000,0x4FE0AF}}, // 111111111x01xxxxxxx00000x0x0xxxx
+{  "vaddl.u32 QREG , DREG , DREG",{0xFFA00000,0x4FE0AF}}, // 111111111x10xxxxxxx00000x0x0xxxx
+{   "vaddl.u8 QREG , DREG , DREG",{0xFF800000,0x4FE0AF}}, // 111111111x00xxxxxxx00000x0x0xxxx
+{  "vaddw.s16 QREG , QREG , DREG",{0xEF900100,0x4EE0AF}}, // 111011111x01xxx0xxx00001x0x0xxxx
+{  "vaddw.s32 QREG , QREG , DREG",{0xEFA00100,0x4EE0AF}}, // 111011111x10xxx0xxx00001x0x0xxxx
+{   "vaddw.s8 QREG , QREG , DREG",{0xEF800100,0x4EE0AF}}, // 111011111x00xxx0xxx00001x0x0xxxx
+{  "vaddw.u16 QREG , QREG , DREG",{0xFF900100,0x4EE0AF}}, // 111111111x01xxx0xxx00001x0x0xxxx
+{  "vaddw.u32 QREG , QREG , DREG",{0xFFA00100,0x4EE0AF}}, // 111111111x10xxx0xxx00001x0x0xxxx
+{   "vaddw.u8 QREG , QREG , DREG",{0xFF800100,0x4EE0AF}}, // 111111111x00xxx0xxx00001x0x0xxxx
+{       "vand DREG , DREG , DREG",{0xEF000110,0x4FF0AF}}, // 111011110x00xxxxxxxx0001x0x1xxxx
+{       "vand QREG , QREG , QREG",{0xEF000150,0x4EE0AE}}, // 111011110x00xxx0xxx00001x1x1xxx0
+{       "vbic DREG , DREG , DREG",{0xEF100110,0x4FF0AF}}, // 111011110x01xxxxxxxx0001x0x1xxxx
+{       "vbic QREG , QREG , QREG",{0xEF100150,0x4EE0AE}}, // 111011110x01xxx0xxx00001x1x1xxx0
+{           "vbic.i16 DREG , NUM",{0xEF800930,0x1047F20F}}, // 111x11111x000xxxxxxx10x10011xxxx
+{           "vbic.i16 QREG , NUM",{0xEF800970,0x1047E20F}}, // 111x11111x000xxxxxx010x10111xxxx
+{           "vbic.i32 DREG , NUM",{0xEF800130,0x1047F60F}}, // 111x11111x000xxxxxxx0xx10011xxxx
+{           "vbic.i32 QREG , NUM",{0xEF800170,0x1047E60F}}, // 111x11111x000xxxxxx00xx10111xxxx
+{       "vbif DREG , DREG , DREG",{0xFF300110,0x4FF0AF}}, // 111111110x11xxxxxxxx0001x0x1xxxx
+{       "vbif QREG , QREG , QREG",{0xFF300150,0x4EE0AE}}, // 111111110x11xxx0xxx00001x1x1xxx0
+{       "vbit DREG , DREG , DREG",{0xFF200110,0x4FF0AF}}, // 111111110x10xxxxxxxx0001x0x1xxxx
+{       "vbit QREG , QREG , QREG",{0xFF200150,0x4EE0AE}}, // 111111110x10xxx0xxx00001x1x1xxx0
+{       "vbsl DREG , DREG , DREG",{0xFF100110,0x4FF0AF}}, // 111111110x01xxxxxxxx0001x0x1xxxx
+{       "vbsl QREG , QREG , QREG",{0xFF100150,0x4EE0AE}}, // 111111110x01xxx0xxx00001x1x1xxx0
+{    "vceq.f32 DREG , DREG , NUM",{0xFFB90500,0x40F02F}}, // 111111111x111001xxxx010100x0xxxx
+{    "vceq.f32 QREG , QREG , NUM",{0xFFB90540,0x40E02E}}, // 111111111x111001xxx0010101x0xxx0
+{    "vceq.i16 DREG , DREG , NUM",{0xFFB50100,0x40F02F}}, // 111111111x110101xxxx000100x0xxxx
+{    "vceq.i16 QREG , QREG , NUM",{0xFFB50140,0x40E02E}}, // 111111111x110101xxx0000101x0xxx0
+{    "vceq.i32 DREG , DREG , NUM",{0xFFB90100,0x40F02F}}, // 111111111x111001xxxx000100x0xxxx
+{    "vceq.i32 QREG , QREG , NUM",{0xFFB90140,0x40E02E}}, // 111111111x111001xxx0000101x0xxx0
+{     "vceq.i8 DREG , DREG , NUM",{0xFFB10100,0x40F02F}}, // 111111111x110001xxxx000100x0xxxx
+{     "vceq.i8 QREG , QREG , NUM",{0xFFB10140,0x40E02E}}, // 111111111x110001xxx0000101x0xxx0
+{   "vcge.f32 DREG , DREG , DREG",{0xFF000E00,0x4FF0AF}}, // 111111110x00xxxxxxxx1110x0x0xxxx
+{   "vcge.f32 QREG , QREG , QREG",{0xFF000E40,0x4EE0AE}}, // 111111110x00xxx0xxx01110x1x0xxx0
+{   "vcge.s16 DREG , DREG , DREG",{0xEF100310,0x4FF0AF}}, // 111011110x01xxxxxxxx0011x0x1xxxx
+{   "vcge.s16 QREG , QREG , QREG",{0xEF100350,0x4EE0AE}}, // 111011110x01xxx0xxx00011x1x1xxx0
+{   "vcge.s32 DREG , DREG , DREG",{0xEF200310,0x4FF0AF}}, // 111011110x10xxxxxxxx0011x0x1xxxx
+{   "vcge.s32 QREG , QREG , QREG",{0xEF200350,0x4EE0AE}}, // 111011110x10xxx0xxx00011x1x1xxx0
+{    "vcge.s8 DREG , DREG , DREG",{0xEF000310,0x4FF0AF}}, // 111011110x00xxxxxxxx0011x0x1xxxx
+{    "vcge.s8 QREG , QREG , QREG",{0xEF000350,0x4EE0AE}}, // 111011110x00xxx0xxx00011x1x1xxx0
+{   "vcge.u16 DREG , DREG , DREG",{0xFF100310,0x4FF0AF}}, // 111111110x01xxxxxxxx0011x0x1xxxx
+{   "vcge.u16 QREG , QREG , QREG",{0xFF100350,0x4EE0AE}}, // 111111110x01xxx0xxx00011x1x1xxx0
+{   "vcge.u32 DREG , DREG , DREG",{0xFF200310,0x4FF0AF}}, // 111111110x10xxxxxxxx0011x0x1xxxx
+{   "vcge.u32 QREG , QREG , QREG",{0xFF200350,0x4EE0AE}}, // 111111110x10xxx0xxx00011x1x1xxx0
+{    "vcge.u8 DREG , DREG , DREG",{0xFF000310,0x4FF0AF}}, // 111111110x00xxxxxxxx0011x0x1xxxx
+{    "vcge.u8 QREG , QREG , QREG",{0xFF000350,0x4EE0AE}}, // 111111110x00xxx0xxx00011x1x1xxx0
+{   "vcgt.f32 DREG , DREG , DREG",{0xFF280E00,0x4FF0AF}}, // 111111110x10xxxxxxxx1110x0x0xxxx
+{    "vcgt.f32 DREG , DREG , NUM",{0xFFB90400,0x40F02F}}, // 111111111x111001xxxx010000x0xxxx
+{    "vcgt.f32 QREG , QREG , NUM",{0xFFB90440,0x40E02E}}, // 111111111x111001xxx0010001x0xxx0
+{   "vcgt.s16 DREG , DREG , DREG",{0xEF150300,0x4FF0AF}}, // 111011110x01xxxxxxxx0011x0x0xxxx
+{    "vcgt.s16 DREG , DREG , NUM",{0xFFB50000,0x40F02F}}, // 111111111x110101xxxx000000x0xxxx
+{    "vcgt.s16 QREG , QREG , NUM",{0xFFB50040,0x40E02E}}, // 111111111x110101xxx0000001x0xxx0
+{   "vcgt.s32 DREG , DREG , DREG",{0xEF290300,0x4FF0AF}}, // 111011110x10xxxxxxxx0011x0x0xxxx
+{    "vcgt.s32 DREG , DREG , NUM",{0xFFB90000,0x40F02F}}, // 111111111x111001xxxx000000x0xxxx
+{    "vcgt.s32 QREG , QREG , NUM",{0xFFB90040,0x40E02E}}, // 111111111x111001xxx0000001x0xxx0
+{     "vcgt.s8 DREG , DREG , NUM",{0xFFB10000,0x40F02F}}, // 111111111x110001xxxx000000x0xxxx
+{     "vcgt.s8 QREG , QREG , NUM",{0xFFB10040,0x40E02E}}, // 111111111x110001xxx0000001x0xxx0
+{   "vcgt.u16 DREG , DREG , DREG",{0xFF100300,0x4FF0AF}}, // 111111110x01xxxxxxxx0011x0x0xxxx
+{   "vcgt.u16 QREG , QREG , QREG",{0xFF100340,0x4EE0AE}}, // 111111110x01xxx0xxx00011x1x0xxx0
+{   "vcgt.u32 DREG , DREG , DREG",{0xFF200300,0x4FF0AF}}, // 111111110x10xxxxxxxx0011x0x0xxxx
+{   "vcgt.u32 QREG , QREG , QREG",{0xFF200340,0x4EE0AE}}, // 111111110x10xxx0xxx00011x1x0xxx0
+{    "vcgt.u8 DREG , DREG , DREG",{0xFF000300,0x4FF0AF}}, // 111111110x00xxxxxxxx0011x0x0xxxx
+{    "vcgt.u8 QREG , QREG , QREG",{0xFF000340,0x4EE0AE}}, // 111111110x00xxx0xxx00011x1x0xxx0
+{    "vcle.f32 DREG , DREG , NUM",{0xFFB90580,0x40F02F}}, // 111111111x111001xxxx010110x0xxxx
+{    "vcle.f32 QREG , QREG , NUM",{0xFFB905C0,0x40E02E}}, // 111111111x111001xxx0010111x0xxx0
+{    "vcle.s16 DREG , DREG , NUM",{0xFFB50180,0x40F02F}}, // 111111111x110101xxxx000110x0xxxx
+{    "vcle.s16 QREG , QREG , NUM",{0xFFB501C0,0x40E02E}}, // 111111111x110101xxx0000111x0xxx0
+{    "vcle.s32 DREG , DREG , NUM",{0xFFB90180,0x40F02F}}, // 111111111x111001xxxx000110x0xxxx
+{    "vcle.s32 QREG , QREG , NUM",{0xFFB901C0,0x40E02E}}, // 111111111x111001xxx0000111x0xxx0
+{     "vcle.s8 DREG , DREG , NUM",{0xFFB10180,0x40F02F}}, // 111111111x110001xxxx000110x0xxxx
+{     "vcle.s8 QREG , QREG , NUM",{0xFFB101C0,0x40E02E}}, // 111111111x110001xxx0000111x0xxx0
+{          "vcls.s16 DREG , DREG",{0xFFB40400,0x40F02F}}, // 111111111x110100xxxx010000x0xxxx
+{          "vcls.s16 QREG , QREG",{0xFFB40440,0x40E02E}}, // 111111111x110100xxx0010001x0xxx0
+{          "vcls.s32 DREG , DREG",{0xFFB80400,0x40F02F}}, // 111111111x111000xxxx010000x0xxxx
+{          "vcls.s32 QREG , QREG",{0xFFB80440,0x40E02E}}, // 111111111x111000xxx0010001x0xxx0
+{           "vcls.s8 DREG , DREG",{0xFFB00400,0x40F02F}}, // 111111111x110000xxxx010000x0xxxx
+{           "vcls.s8 QREG , QREG",{0xFFB00440,0x40E02E}}, // 111111111x110000xxx0010001x0xxx0
+{    "vclt.f32 DREG , DREG , NUM",{0xFFB90600,0x40F02F}}, // 111111111x111001xxxx011000x0xxxx
+{    "vclt.f32 QREG , QREG , NUM",{0xFFB90640,0x40E02E}}, // 111111111x111001xxx0011001x0xxx0
+{    "vclt.s16 DREG , DREG , NUM",{0xFFB50200,0x40F02F}}, // 111111111x110101xxxx001000x0xxxx
+{    "vclt.s16 QREG , QREG , NUM",{0xFFB50240,0x40E02E}}, // 111111111x110101xxx0001001x0xxx0
+{    "vclt.s32 DREG , DREG , NUM",{0xFFB90200,0x40F02F}}, // 111111111x111001xxxx001000x0xxxx
+{    "vclt.s32 QREG , QREG , NUM",{0xFFB90240,0x40E02E}}, // 111111111x111001xxx0001001x0xxx0
+{     "vclt.s8 DREG , DREG , NUM",{0xFFB10200,0x40F02F}}, // 111111111x110001xxxx001000x0xxxx
+{     "vclt.s8 QREG , QREG , NUM",{0xFFB10240,0x40E02E}}, // 111111111x110001xxx0001001x0xxx0
+{          "vclz.i16 DREG , DREG",{0xFFB40480,0x40F02F}}, // 111111111x110100xxxx010010x0xxxx
+{          "vclz.i16 QREG , QREG",{0xFFB404C0,0x40E02E}}, // 111111111x110100xxx0010011x0xxx0
+{          "vclz.i32 DREG , DREG",{0xFFB80480,0x40F02F}}, // 111111111x111000xxxx010010x0xxxx
+{          "vclz.i32 QREG , QREG",{0xFFB804C0,0x40E02E}}, // 111111111x111000xxx0010011x0xxx0
+{           "vclz.i8 DREG , DREG",{0xFFB00480,0x40F02F}}, // 111111111x110000xxxx010010x0xxxx
+{           "vclz.i8 QREG , QREG",{0xFFB004C0,0x40E02E}}, // 111111111x110000xxx0010011x0xxx0
+{           "vcmp.f32 SREG , NUM",{0xEEB50A40,0x40F000}}, // 111011101x110101xxxx101001000000
+{          "vcmp.f32 SREG , SREG",{0xEEB40A40,0x40F02F}}, // 111011101x110100xxxx101001x0xxxx
+{          "vcmp.f64 DREG , DREG",{0xEEB40B40,0x40F02F}}, // 111011101x110100xxxx101101x0xxxx
+{           "vcmp.f64 DREG , NUM",{0xEEB50B40,0x40F000}}, // 111011101x110101xxxx101101000000
+{          "vcmpe.f32 SREG , NUM",{0xEEB50AC0,0x40F000}}, // 111011101x110101xxxx101011000000
+{         "vcmpe.f32 SREG , SREG",{0xEEB40AC0,0x40F02F}}, // 111011101x110100xxxx101011x0xxxx
+{         "vcmpe.f64 DREG , DREG",{0xEEB40BC0,0x40F02F}}, // 111011101x110100xxxx101111x0xxxx
+{          "vcmpe.f64 DREG , NUM",{0xEEB50BC0,0x40F000}}, // 111011101x110101xxxx101111000000
+{            "vcnt.8 DREG , DREG",{0xFFB00500,0x40F02F}}, // 111111111x110000xxxx010100x0xxxx
+{            "vcnt.8 QREG , QREG",{0xFFB00540,0x40E02E}}, // 111111111x110000xxx0010101x0xxx0
+{      "vcvt.f16.f32 DREG , QREG",{0xFFB60600,0x40F02E}}, // 111111111x110110xxxx011000x0xxx0
+{      "vcvt.f32.f16 QREG , DREG",{0xFFB60700,0x40E02F}}, // 111111111x110110xxx0011100x0xxxx
+{      "vcvt.f32.f64 SREG , DREG",{0xEEB70BC0,0x40F02F}}, // 111011101x110111xxxx101111x0xxxx
+{"vcvt.f32.s16 SREG , SREG , NUM",{0xEEBA0A40,0x40F02F}}, // 111011101x111010xxxx101001x0xxxx
+{      "vcvt.f32.s32 DREG , DREG",{0xFFBB0600,0x40F02F}}, // 111111111x111011xxxx011000x0xxxx
+{"vcvt.f32.s32 DREG , DREG , NUM",{0xEFBB0E10,0x5FF02F}}, // 111011111x1xxxxxxxxx111000x1xxxx
+{      "vcvt.f32.s32 QREG , QREG",{0xFFBB0640,0x40E02E}}, // 111111111x111011xxx0011001x0xxx0
+{"vcvt.f32.s32 QREG , QREG , NUM",{0xEFBB0E50,0x5FE02E}}, // 111011111x1xxxxxxxx0111001x1xxx0
+{"vcvt.f32.u16 SREG , SREG , NUM",{0xEEBB0A40,0x40F02F}}, // 111011101x111011xxxx101001x0xxxx
+{"vcvt.f32.u32 DREG , DREG , NUM",{0xFFA00E10,0x5FF02F}}, // 111111111x1xxxxxxxxx111000x1xxxx
+{"vcvt.f32.u32 QREG , QREG , NUM",{0xFFA00E50,0x5FE02E}}, // 111111111x1xxxxxxxx0111001x1xxx0
+{      "vcvt.f64.f32 DREG , SREG",{0xEEB70AC0,0x40F02F}}, // 111011101x110111xxxx101011x0xxxx
+{"vcvt.f64.s16 DREG , DREG , NUM",{0xEEBA0B40,0x40F02F}}, // 111011101x111010xxxx101101x0xxxx
+{"vcvt.f64.s32 DREG , DREG , NUM",{0xEEBA0BC0,0x40F02F}}, // 111011101x111010xxxx101111x0xxxx
+{      "vcvt.f64.s32 DREG , SREG",{0xEEB80BC0,0x40F02F}}, // 111011101x111000xxxx101111x0xxxx
+{"vcvt.f64.u16 DREG , DREG , NUM",{0xEEBB0B40,0x40F02F}}, // 111011101x111011xxxx101101x0xxxx
+{"vcvt.f64.u32 DREG , DREG , NUM",{0xEEBB0BC0,0x40F02F}}, // 111011101x111011xxxx101111x0xxxx
+{      "vcvt.f64.u32 DREG , SREG",{0xEEB80B40,0x40F02F}}, // 111011101x111000xxxx101101x0xxxx
+{"vcvt.s16.f32 SREG , SREG , NUM",{0xEEBE0A40,0x40F02F}}, // 111011101x111110xxxx101001x0xxxx
+{"vcvt.s16.f64 DREG , DREG , NUM",{0xEEBE0B40,0x40F02F}}, // 111011101x111110xxxx101101x0xxxx
+{      "vcvt.s32.f32 DREG , DREG",{0xFFBB0700,0x40F02F}}, // 111111111x111011xxxx011100x0xxxx
+{"vcvt.s32.f32 DREG , DREG , NUM",{0xEFBB0F10,0x5FF02F}}, // 111011111x1xxxxxxxxx111100x1xxxx
+{      "vcvt.s32.f32 QREG , QREG",{0xFFBB0740,0x40E02E}}, // 111111111x111011xxx0011101x0xxx0
+{"vcvt.s32.f32 QREG , QREG , NUM",{0xEFBB0F50,0x5FE02E}}, // 111011111x1xxxxxxxx0111101x1xxx0
+{"vcvt.s32.f64 DREG , DREG , NUM",{0xEEBE0BC0,0x40F02F}}, // 111011101x111110xxxx101111x0xxxx
+{      "vcvt.s32.f64 SREG , DREG",{0xEEBD0BC0,0x40F02F}}, // 111011101x111101xxxx101111x0xxxx
+{"vcvt.u16.f32 SREG , SREG , NUM",{0xEEBF0A40,0x40F02F}}, // 111011101x111111xxxx101001x0xxxx
+{"vcvt.u16.f64 DREG , DREG , NUM",{0xEEBF0B40,0x40F02F}}, // 111011101x111111xxxx101101x0xxxx
+{"vcvt.u32.f32 DREG , DREG , NUM",{0xFFA00F10,0x5FF02F}}, // 111111111x1xxxxxxxxx111100x1xxxx
+{"vcvt.u32.f32 QREG , QREG , NUM",{0xFFA00F50,0x5FE02E}}, // 111111111x1xxxxxxxx0111101x1xxx0
+{"vcvt.u32.f64 DREG , DREG , NUM",{0xEEBF0BC0,0x40F02F}}, // 111011101x111111xxxx101111x0xxxx
+{      "vcvt.u32.f64 SREG , DREG",{0xEEBC0BC0,0x40F02F}}, // 111011101x111100xxxx101111x0xxxx
+{     "vcvta.s32.f32 SREG , SREG",{0xFEBC0AC0,0x40F02F}}, // 111111101x111100xxxx101011x0xxxx
+{     "vcvta.s32.f64 SREG , DREG",{0xFEBC0BC0,0x40F02F}}, // 111111101x111100xxxx101111x0xxxx
+{     "vcvta.u32.f32 SREG , SREG",{0xFEBC0A40,0x40F02F}}, // 111111101x111100xxxx101001x0xxxx
+{     "vcvta.u32.f64 SREG , DREG",{0xFEBC0B40,0x40F02F}}, // 111111101x111100xxxx101101x0xxxx
+{     "vcvtb.f16.f32 SREG , SREG",{0xEEB30A40,0x40F02F}}, // 111011101x110011xxxx101001x0xxxx
+{     "vcvtb.f16.f64 SREG , DREG",{0xEEB30B40,0x40F02F}}, // 111011101x110011xxxx101101x0xxxx
+{     "vcvtb.f32.f16 SREG , SREG",{0xEEB20A40,0x40F02F}}, // 111011101x110010xxxx101001x0xxxx
+{     "vcvtb.f64.f16 DREG , SREG",{0xEEB20B40,0x40F02F}}, // 111011101x110010xxxx101101x0xxxx
+{     "vcvtm.s32.f32 SREG , SREG",{0xFEBF0AC0,0x40F02F}}, // 111111101x111111xxxx101011x0xxxx
+{     "vcvtm.s32.f64 SREG , DREG",{0xFEBF0BC0,0x40F02F}}, // 111111101x111111xxxx101111x0xxxx
+{     "vcvtm.u32.f32 SREG , SREG",{0xFEBF0A40,0x40F02F}}, // 111111101x111111xxxx101001x0xxxx
+{     "vcvtm.u32.f64 SREG , DREG",{0xFEBF0B40,0x40F02F}}, // 111111101x111111xxxx101101x0xxxx
+{     "vcvtn.s32.f32 SREG , SREG",{0xFEBD0AC0,0x40F02F}}, // 111111101x111101xxxx101011x0xxxx
+{     "vcvtn.s32.f64 SREG , DREG",{0xFEBD0BC0,0x40F02F}}, // 111111101x111101xxxx101111x0xxxx
+{     "vcvtn.u32.f32 SREG , SREG",{0xFEBD0A40,0x40F02F}}, // 111111101x111101xxxx101001x0xxxx
+{     "vcvtn.u32.f64 SREG , DREG",{0xFEBD0B40,0x40F02F}}, // 111111101x111101xxxx101101x0xxxx
+{     "vcvtp.s32.f32 SREG , SREG",{0xFEBE0AC0,0x40F02F}}, // 111111101x111110xxxx101011x0xxxx
+{     "vcvtp.s32.f64 SREG , DREG",{0xFEBE0BC0,0x40F02F}}, // 111111101x111110xxxx101111x0xxxx
+{     "vcvtp.u32.f32 SREG , SREG",{0xFEBE0A40,0x40F02F}}, // 111111101x111110xxxx101001x0xxxx
+{     "vcvtp.u32.f64 SREG , DREG",{0xFEBE0B40,0x40F02F}}, // 111111101x111110xxxx101101x0xxxx
+{     "vcvtr.s32.f32 SREG , SREG",{0xEEBD0A40,0x40F02F}}, // 111011101x111101xxxx101001x0xxxx
+{     "vcvtr.s32.f64 SREG , DREG",{0xEEBD0B40,0x40F02F}}, // 111011101x111101xxxx101101x0xxxx
+{     "vcvtr.u32.f32 SREG , SREG",{0xEEBC0A40,0x40F02F}}, // 111011101x111100xxxx101001x0xxxx
+{     "vcvtr.u32.f64 SREG , DREG",{0xEEBC0B40,0x40F02F}}, // 111011101x111100xxxx101101x0xxxx
+{     "vcvtt.f16.f32 SREG , SREG",{0xEEB30AC0,0x40F02F}}, // 111011101x110011xxxx101011x0xxxx
+{     "vcvtt.f16.f64 SREG , DREG",{0xEEB30BC0,0x40F02F}}, // 111011101x110011xxxx101111x0xxxx
+{     "vcvtt.f32.f16 SREG , SREG",{0xEEB20AC0,0x40F02F}}, // 111011101x110010xxxx101011x0xxxx
+{     "vcvtt.f64.f16 DREG , SREG",{0xEEB20BC0,0x40F02F}}, // 111011101x110010xxxx101111x0xxxx
+{   "vdiv.f32 SREG , SREG , SREG",{0xEE800A00,0x4FF0AF}}, // 111011101x00xxxxxxxx1010x0x0xxxx
+{   "vdiv.f64 DREG , DREG , DREG",{0xEE800B00,0x4FF0AF}}, // 111011101x00xxxxxxxx1011x0x0xxxx
+{   "vdup.16 DREG , DREG [ NUM ]",{0xFFB20C00,0x4CF02F}}, // 111111111x11xx10xxxx110000x0xxxx
+{   "vdup.16 QREG , DREG [ NUM ]",{0xFFB20C40,0x4CE02F}}, // 111111111x11xx10xxx0110001x0xxxx
+{   "vdup.32 DREG , DREG [ NUM ]",{0xFFB40C00,0x48F02F}}, // 111111111x11x100xxxx110000x0xxxx
+{   "vdup.32 QREG , DREG [ NUM ]",{0xFFB40C40,0x48E02F}}, // 111111111x11x100xxx0110001x0xxxx
+{    "vdup.8 DREG , DREG [ NUM ]",{0xFFB10C00,0x4EF02F}}, // 111111111x11xxx1xxxx110000x0xxxx
+{    "vdup.8 QREG , DREG [ NUM ]",{0xFFB10C40,0x4EE02F}}, // 111111111x11xxx1xxx0110001x0xxxx
+{       "veor DREG , DREG , DREG",{0xFF000110,0x4FF0AF}}, // 111111110x00xxxxxxxx0001x0x1xxxx
+{       "veor QREG , QREG , QREG",{0xFF000150,0x4EE0AE}}, // 111111110x00xxx0xxx00001x1x1xxx0
+{"vext.16 DREG , DREG , DREG , NUM",{0xEFB00200,0x4FF4AF}}, // 111011111x11xxxxxxxx0x10x0x0xxxx
+{"vext.16 QREG , QREG , QREG , NUM",{0xEFB00240,0x4EECAE}}, // 111011111x11xxx0xxx0xx10x1x0xxx0
+{"vext.32 DREG , DREG , DREG , NUM",{0xEFB00000,0x4FF4AF}}, // 111011111x11xxxxxxxx0x00x0x0xxxx
+{"vext.32 QREG , QREG , QREG , NUM",{0xEFB00440,0x4EE8AE}}, // 111011111x11xxx0xxx0x100x1x0xxx0
+{"vext.64 QREG , QREG , QREG , NUM",{0xEFB00040,0x4EE8AE}}, // 111011111x11xxx0xxx0x000x1x0xxx0
+{"vext.8 DREG , DREG , DREG , NUM",{0xEFB00100,0x4FF6AF}}, // 111011111x11xxxxxxxx0xx1x0x0xxxx
+{"vext.8 QREG , QREG , QREG , NUM",{0xEFB00140,0x4EEEAE}}, // 111011111x11xxx0xxx0xxx1x1x0xxx0
+{   "vfma.f32 SREG , SREG , SREG",{0xEEA00A00,0x4FF0AF}}, // 111011101x10xxxxxxxx1010x0x0xxxx
+{   "vfma.f64 DREG , DREG , DREG",{0xEEA00B00,0x4FF0AF}}, // 111011101x10xxxxxxxx1011x0x0xxxx
+{   "vfms.f32 DREG , DREG , DREG",{0xEF200C10,0x4FF0AF}}, // 111011110x10xxxxxxxx1100x0x1xxxx
+{   "vfms.f32 QREG , QREG , QREG",{0xEF200C50,0x4EE0AE}}, // 111011110x10xxx0xxx01100x1x1xxx0
+{   "vfms.f64 DREG , DREG , DREG",{0xEEA00B40,0x4FF0AF}}, // 111011101x10xxxxxxxx1011x1x0xxxx
+{  "vfnma.f32 SREG , SREG , SREG",{0xEE900A40,0x4FF0AF}}, // 111011101x01xxxxxxxx1010x1x0xxxx
+{  "vfnma.f64 DREG , DREG , DREG",{0xEE900B40,0x4FF0AF}}, // 111011101x01xxxxxxxx1011x1x0xxxx
+{  "vfnms.f32 SREG , SREG , SREG",{0xEE900A00,0x4FF0AF}}, // 111011101x01xxxxxxxx1010x0x0xxxx
+{  "vfnms.f64 DREG , DREG , DREG",{0xEE900B00,0x4FF0AF}}, // 111011101x01xxxxxxxx1011x0x0xxxx
+{  "vhadd.s16 DREG , DREG , DREG",{0xEF100000,0x4FF0AF}}, // 111011110x01xxxxxxxx0000x0x0xxxx
+{  "vhadd.s16 QREG , QREG , QREG",{0xEF100040,0x4EE0AE}}, // 111011110x01xxx0xxx00000x1x0xxx0
+{  "vhadd.s32 DREG , DREG , DREG",{0xEF200000,0x4FF0AF}}, // 111011110x10xxxxxxxx0000x0x0xxxx
+{  "vhadd.s32 QREG , QREG , QREG",{0xEF200040,0x4EE0AE}}, // 111011110x10xxx0xxx00000x1x0xxx0
+{   "vhadd.s8 DREG , DREG , DREG",{0xEF000000,0x4FF0AF}}, // 111011110x00xxxxxxxx0000x0x0xxxx
+{   "vhadd.s8 QREG , QREG , QREG",{0xEF000040,0x4EE0AE}}, // 111011110x00xxx0xxx00000x1x0xxx0
+{  "vhadd.u16 DREG , DREG , DREG",{0xFF100000,0x4FF0AF}}, // 111111110x01xxxxxxxx0000x0x0xxxx
+{  "vhadd.u16 QREG , QREG , QREG",{0xFF100040,0x4EE0AE}}, // 111111110x01xxx0xxx00000x1x0xxx0
+{  "vhadd.u32 DREG , DREG , DREG",{0xFF200000,0x4FF0AF}}, // 111111110x10xxxxxxxx0000x0x0xxxx
+{  "vhadd.u32 QREG , QREG , QREG",{0xFF200040,0x4EE0AE}}, // 111111110x10xxx0xxx00000x1x0xxx0
+{   "vhadd.u8 DREG , DREG , DREG",{0xFF000000,0x4FF0AF}}, // 111111110x00xxxxxxxx0000x0x0xxxx
+{   "vhadd.u8 QREG , QREG , QREG",{0xFF000040,0x4EE0AE}}, // 111111110x00xxx0xxx00000x1x0xxx0
+{  "vhsub.s16 DREG , DREG , DREG",{0xEF100200,0x4FF0AF}}, // 111011110x01xxxxxxxx0010x0x0xxxx
+{  "vhsub.s16 QREG , QREG , QREG",{0xEF100240,0x4EE0AE}}, // 111011110x01xxx0xxx00010x1x0xxx0
+{  "vhsub.s32 DREG , DREG , DREG",{0xEF200200,0x4FF0AF}}, // 111011110x10xxxxxxxx0010x0x0xxxx
+{  "vhsub.s32 QREG , QREG , QREG",{0xEF200240,0x4EE0AE}}, // 111011110x10xxx0xxx00010x1x0xxx0
+{   "vhsub.s8 DREG , DREG , DREG",{0xEF000200,0x4FF0AF}}, // 111011110x00xxxxxxxx0010x0x0xxxx
+{   "vhsub.s8 QREG , QREG , QREG",{0xEF000240,0x4EE0AE}}, // 111011110x00xxx0xxx00010x1x0xxx0
+{  "vhsub.u16 DREG , DREG , DREG",{0xFF100200,0x4FF0AF}}, // 111111110x01xxxxxxxx0010x0x0xxxx
+{  "vhsub.u16 QREG , QREG , QREG",{0xFF100240,0x4EE0AE}}, // 111111110x01xxx0xxx00010x1x0xxx0
+{  "vhsub.u32 DREG , DREG , DREG",{0xFF200200,0x4FF0AF}}, // 111111110x10xxxxxxxx0010x0x0xxxx
+{  "vhsub.u32 QREG , QREG , QREG",{0xFF200240,0x4EE0AE}}, // 111111110x10xxx0xxx00010x1x0xxx0
+{   "vhsub.u8 DREG , DREG , DREG",{0xFF000200,0x4FF0AF}}, // 111111110x00xxxxxxxx0010x0x0xxxx
+{   "vhsub.u8 QREG , QREG , QREG",{0xFF000240,0x4EE0AE}}, // 111111110x00xxx0xxx00010x1x0xxx0
+{ "vld1.16 RLIST , [ GPR : NUM ]",{0xF9A0041F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11111
+{"vld1.16 RLIST , [ GPR : NUM ] !",{0xF9A0041D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11101
+{"vld1.16 RLIST , [ GPR : NUM ] , GPR",{0xF9A00410,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx1xxxx
+{       "vld1.16 RLIST , [ GPR ]",{0xF9A0040F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{     "vld1.16 RLIST , [ GPR ] !",{0xF9A0040D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{ "vld1.16 RLIST , [ GPR ] , GPR",{0xF9A00400,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{"vld1.32 RLIST , [ GPR : NUM ] !",{0xF9A0083D,0xCFFEB0}}, // 11111001xx10xxxxxxxxxxx0x0xx1101
+{"vld1.32 RLIST , [ GPR : NUM ] , GPR",{0xF9A00830,0xCFFEBF}}, // 11111001xx10xxxxxxxxxxx0x0xxxxxx
+{       "vld1.32 RLIST , [ GPR ]",{0xF9A0080F,0xCFFEA0}}, // 11111001xx10xxxxxxxxxxx0x0x01111
+{     "vld1.32 RLIST , [ GPR ] !",{0xF9A0080D,0xCFFEA0}}, // 11111001xx10xxxxxxxxxxx0x0x01101
+{ "vld1.32 RLIST , [ GPR ] , GPR",{0xF9A00800,0xCFFEAF}}, // 11111001xx10xxxxxxxxxxx0x0x0xxxx
+{ "vld1.64 RLIST , [ GPR : NUM ]",{0xF92002DF,0x4FFD30}}, // 111110010x10xxxxxxxxxx1x11xx1111
+{"vld1.64 RLIST , [ GPR : NUM ] !",{0xF92002DD,0x4FFD30}}, // 111110010x10xxxxxxxxxx1x11xx1101
+{"vld1.64 RLIST , [ GPR : NUM ] , GPR",{0xF92002D0,0x4FFD3F}}, // 111110010x10xxxxxxxxxx1x11xxxxxx
+{       "vld1.64 RLIST , [ GPR ]",{0xF92002CF,0x4FFD00}}, // 111110010x10xxxxxxxxxx1x11001111
+{     "vld1.64 RLIST , [ GPR ] !",{0xF92002CD,0x4FFD00}}, // 111110010x10xxxxxxxxxx1x11001101
+{ "vld1.64 RLIST , [ GPR ] , GPR",{0xF92002C0,0x4FFD0F}}, // 111110010x10xxxxxxxxxx1x1100xxxx
+{"vld1.8 RLIST , [ GPR : NUM ] , GPR",{0xF9200210,0x4FFD3F}}, // 111110010x10xxxxxxxxxx1x00xxxxxx
+{        "vld1.8 RLIST , [ GPR ]",{0xF9A0000F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{      "vld1.8 RLIST , [ GPR ] !",{0xF9A0000D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{  "vld1.8 RLIST , [ GPR ] , GPR",{0xF9A00000,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{ "vld2.16 RLIST , [ GPR : NUM ]",{0xF9A0051F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11111
+{"vld2.16 RLIST , [ GPR : NUM ] !",{0xF9A0051D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11101
+{"vld2.16 RLIST , [ GPR : NUM ] , GPR",{0xF9A00510,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx1xxxx
+{       "vld2.16 RLIST , [ GPR ]",{0xF9A0050F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{     "vld2.16 RLIST , [ GPR ] !",{0xF9A0050D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{ "vld2.16 RLIST , [ GPR ] , GPR",{0xF9A00500,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{ "vld2.32 RLIST , [ GPR : NUM ]",{0xF9A0091F,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1111
+{"vld2.32 RLIST , [ GPR : NUM ] !",{0xF9A0091D,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1101
+{"vld2.32 RLIST , [ GPR : NUM ] , GPR",{0xF9A00910,0xCFFFFF}}, // 11111001xx10xxxxxxxxxxxxxxxxxxxx
+{       "vld2.32 RLIST , [ GPR ]",{0xF9A0090F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{     "vld2.32 RLIST , [ GPR ] !",{0xF9A0090D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{ "vld2.32 RLIST , [ GPR ] , GPR",{0xF9A00900,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{  "vld2.8 RLIST , [ GPR : NUM ]",{0xF9A0011F,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1111
+{"vld2.8 RLIST , [ GPR : NUM ] !",{0xF9A0011D,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1101
+{"vld2.8 RLIST , [ GPR : NUM ] , GPR",{0xF9A00110,0xCFFFFF}}, // 11111001xx10xxxxxxxxxxxxxxxxxxxx
+{        "vld2.8 RLIST , [ GPR ]",{0xF9A0010F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{      "vld2.8 RLIST , [ GPR ] !",{0xF9A0010D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{  "vld2.8 RLIST , [ GPR ] , GPR",{0xF9A00100,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{"vld3.16 RLIST , [ GPR : NUM ] , GPR",{0xF9200450,0x4FF10F}}, // 111110010x10xxxxxxxx010x0101xxxx
+{       "vld3.16 RLIST , [ GPR ]",{0xF9A0060F,0xCFFBE0}}, // 11111001xx10xxxxxxxxx1xxxxx01111
+{     "vld3.16 RLIST , [ GPR ] !",{0xF9A0060D,0xCFFBE0}}, // 11111001xx10xxxxxxxxx1xxxxx01101
+{ "vld3.16 RLIST , [ GPR ] , GPR",{0xF9A00600,0xCFFBEF}}, // 11111001xx10xxxxxxxxx1xxxxx0xxxx
+{       "vld3.32 RLIST , [ GPR ]",{0xF9A00A0F,0xCFFEE0}}, // 11111001xx10xxxxxxxxxxx0xxx01111
+{     "vld3.32 RLIST , [ GPR ] !",{0xF9A00A0D,0xCFFEE0}}, // 11111001xx10xxxxxxxxxxx0xxx01101
+{ "vld3.32 RLIST , [ GPR ] , GPR",{0xF9A00A00,0xCFFEEF}}, // 11111001xx10xxxxxxxxxxx0xxx0xxxx
+{"vld3.8 RLIST , [ GPR : NUM ] , GPR",{0xF9200410,0x4FF10F}}, // 111110010x10xxxxxxxx010x0001xxxx
+{        "vld3.8 RLIST , [ GPR ]",{0xF9A0020F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{      "vld3.8 RLIST , [ GPR ] !",{0xF9A0020D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{  "vld3.8 RLIST , [ GPR ] , GPR",{0xF9A00200,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{ "vld4.16 RLIST , [ GPR : NUM ]",{0xF9A0071F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11111
+{"vld4.16 RLIST , [ GPR : NUM ] !",{0xF9A0071D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx11101
+{"vld4.16 RLIST , [ GPR : NUM ] , GPR",{0xF9A00710,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx1xxxx
+{       "vld4.16 RLIST , [ GPR ]",{0xF9A0070F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{     "vld4.16 RLIST , [ GPR ] !",{0xF9A0070D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{ "vld4.16 RLIST , [ GPR ] , GPR",{0xF9A00700,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{ "vld4.32 RLIST , [ GPR : NUM ]",{0xF9A00B1F,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1111
+{"vld4.32 RLIST , [ GPR : NUM ] !",{0xF9A00B1D,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1101
+{"vld4.32 RLIST , [ GPR : NUM ] , GPR",{0xF9A00B10,0xCFFFFF}}, // 11111001xx10xxxxxxxxxxxxxxxxxxxx
+{       "vld4.32 RLIST , [ GPR ]",{0xF9A00B0F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{     "vld4.32 RLIST , [ GPR ] !",{0xF9A00B0D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{ "vld4.32 RLIST , [ GPR ] , GPR",{0xF9A00B00,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{  "vld4.8 RLIST , [ GPR : NUM ]",{0xF920001F,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1111
+{"vld4.8 RLIST , [ GPR : NUM ] !",{0xF920001D,0xCFFFF0}}, // 11111001xx10xxxxxxxxxxxxxxxx1101
+{"vld4.8 RLIST , [ GPR : NUM ] , GPR",{0xF9200010,0xCFFFFF}}, // 11111001xx10xxxxxxxxxxxxxxxxxxxx
+{        "vld4.8 RLIST , [ GPR ]",{0xF920000F,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01111
+{      "vld4.8 RLIST , [ GPR ] !",{0xF920000D,0xCFFFE0}}, // 11111001xx10xxxxxxxxxxxxxxx01101
+{  "vld4.8 RLIST , [ GPR ] , GPR",{0xF9200000,0xCFFFEF}}, // 11111001xx10xxxxxxxxxxxxxxx0xxxx
+{          "vldmdb GPR ! , RLIST",{0xED300A00,0x4FF1FF}}, // 111011010x11xxxxxxxx101xxxxxxxxx
+{          "vldmia GPR ! , RLIST",{0xECB00A00,0x4FF1FF}}, // 111011001x11xxxxxxxx101xxxxxxxxx
+{            "vldmia GPR , RLIST",{0xEC900A00,0x4FF1FF}}, // 111011001x01xxxxxxxx101xxxxxxxxx
+{     "vldr DREG , [ GPR , NUM ]",{0xED100B00,0xCFF0FF}}, // 11101101xx01xxxxxxxx1011xxxxxxxx
+{           "vldr DREG , [ GPR ]",{0xED900B00,0x4FF000}}, // 111011011x01xxxxxxxx101100000000
+{     "vldr SREG , [ GPR , NUM ]",{0xED100A00,0xCFF0FF}}, // 11101101xx01xxxxxxxx1010xxxxxxxx
+{           "vldr SREG , [ GPR ]",{0xED900A00,0x4FF000}}, // 111011011x01xxxxxxxx101000000000
+{   "vmax.f32 DREG , DREG , DREG",{0xEF000F00,0x4FF0AF}}, // 111011110x00xxxxxxxx1111x0x0xxxx
+{   "vmax.f32 QREG , QREG , QREG",{0xEF000F40,0x4EE0AE}}, // 111011110x00xxx0xxx01111x1x0xxx0
+{   "vmax.s16 DREG , DREG , DREG",{0xEF100600,0x4FF0AF}}, // 111011110x01xxxxxxxx0110x0x0xxxx
+{   "vmax.s16 QREG , QREG , QREG",{0xEF100640,0x4EE0AE}}, // 111011110x01xxx0xxx00110x1x0xxx0
+{   "vmax.s32 DREG , DREG , DREG",{0xEF200600,0x4FF0AF}}, // 111011110x10xxxxxxxx0110x0x0xxxx
+{   "vmax.s32 QREG , QREG , QREG",{0xEF200640,0x4EE0AE}}, // 111011110x10xxx0xxx00110x1x0xxx0
+{    "vmax.s8 DREG , DREG , DREG",{0xEF000600,0x4FF0AF}}, // 111011110x00xxxxxxxx0110x0x0xxxx
+{    "vmax.s8 QREG , QREG , QREG",{0xEF000640,0x4EE0AE}}, // 111011110x00xxx0xxx00110x1x0xxx0
+{   "vmax.u16 DREG , DREG , DREG",{0xFF100600,0x4FF0AF}}, // 111111110x01xxxxxxxx0110x0x0xxxx
+{   "vmax.u16 QREG , QREG , QREG",{0xFF100640,0x4EE0AE}}, // 111111110x01xxx0xxx00110x1x0xxx0
+{   "vmax.u32 DREG , DREG , DREG",{0xFF200600,0x4FF0AF}}, // 111111110x10xxxxxxxx0110x0x0xxxx
+{   "vmax.u32 QREG , QREG , QREG",{0xFF200640,0x4EE0AE}}, // 111111110x10xxx0xxx00110x1x0xxx0
+{    "vmax.u8 DREG , DREG , DREG",{0xFF000600,0x4FF0AF}}, // 111111110x00xxxxxxxx0110x0x0xxxx
+{    "vmax.u8 QREG , QREG , QREG",{0xFF000640,0x4EE0AE}}, // 111111110x00xxx0xxx00110x1x0xxx0
+{ "vmaxnm.f32 SREG , SREG , SREG",{0xFE800A00,0x4FF0AF}}, // 111111101x00xxxxxxxx1010x0x0xxxx
+{ "vmaxnm.f64 DREG , DREG , DREG",{0xFE800B00,0x4FF0AF}}, // 111111101x00xxxxxxxx1011x0x0xxxx
+{   "vmin.f32 DREG , DREG , DREG",{0xEF200F00,0x4FF0AF}}, // 111011110x10xxxxxxxx1111x0x0xxxx
+{   "vmin.f32 QREG , QREG , QREG",{0xEF200F40,0x4EE0AE}}, // 111011110x10xxx0xxx01111x1x0xxx0
+{   "vmin.s16 DREG , DREG , DREG",{0xEF100610,0x4FF0AF}}, // 111011110x01xxxxxxxx0110x0x1xxxx
+{   "vmin.s16 QREG , QREG , QREG",{0xEF100650,0x4EE0AE}}, // 111011110x01xxx0xxx00110x1x1xxx0
+{   "vmin.s32 DREG , DREG , DREG",{0xEF200610,0x4FF0AF}}, // 111011110x10xxxxxxxx0110x0x1xxxx
+{   "vmin.s32 QREG , QREG , QREG",{0xEF200650,0x4EE0AE}}, // 111011110x10xxx0xxx00110x1x1xxx0
+{    "vmin.s8 DREG , DREG , DREG",{0xEF000610,0x4FF0AF}}, // 111011110x00xxxxxxxx0110x0x1xxxx
+{    "vmin.s8 QREG , QREG , QREG",{0xEF000650,0x4EE0AE}}, // 111011110x00xxx0xxx00110x1x1xxx0
+{   "vmin.u16 DREG , DREG , DREG",{0xFF100610,0x4FF0AF}}, // 111111110x01xxxxxxxx0110x0x1xxxx
+{   "vmin.u16 QREG , QREG , QREG",{0xFF100650,0x4EE0AE}}, // 111111110x01xxx0xxx00110x1x1xxx0
+{   "vmin.u32 DREG , DREG , DREG",{0xFF200610,0x4FF0AF}}, // 111111110x10xxxxxxxx0110x0x1xxxx
+{   "vmin.u32 QREG , QREG , QREG",{0xFF200650,0x4EE0AE}}, // 111111110x10xxx0xxx00110x1x1xxx0
+{    "vmin.u8 DREG , DREG , DREG",{0xFF000610,0x4FF0AF}}, // 111111110x00xxxxxxxx0110x0x1xxxx
+{    "vmin.u8 QREG , QREG , QREG",{0xFF000650,0x4EE0AE}}, // 111111110x00xxx0xxx00110x1x1xxx0
+{ "vminnm.f32 SREG , SREG , SREG",{0xFE800A40,0x4FF0AF}}, // 111111101x00xxxxxxxx1010x1x0xxxx
+{ "vminnm.f64 DREG , DREG , DREG",{0xFE800B40,0x4FF0AF}}, // 111111101x00xxxxxxxx1011x1x0xxxx
+{   "vmla.f32 SREG , SREG , SREG",{0xCE000A00,0x204FF0AF}}, // 11x011100x00xxxxxxxx1010x0x0xxxx
+{   "vmla.f64 DREG , DREG , DREG",{0xCE000B00,0x204FF0AF}}, // 11x011100x00xxxxxxxx1011x0x0xxxx
+{   "vmla.i16 DREG , DREG , DREG",{0xEF100900,0x4FF0AF}}, // 111011110x01xxxxxxxx1001x0x0xxxx
+{"vmla.i16 DREG , DREG , DREG [ NUM ]",{0xEF900040,0x4FF0AF}}, // 111011111x01xxxxxxxx0000x1x0xxxx
+{"vmla.i16 QREG , QREG , DREG [ NUM ]",{0xFF900040,0x4EE0AF}}, // 111111111x01xxx0xxx00000x1x0xxxx
+{   "vmla.i16 QREG , QREG , QREG",{0xEF100940,0x4EE0AE}}, // 111011110x01xxx0xxx01001x1x0xxx0
+{   "vmla.i32 DREG , DREG , DREG",{0xEF200900,0x4FF0AF}}, // 111011110x10xxxxxxxx1001x0x0xxxx
+{"vmla.i32 DREG , DREG , DREG [ NUM ]",{0xEFA00040,0x4FF0AF}}, // 111011111x10xxxxxxxx0000x1x0xxxx
+{"vmla.i32 QREG , QREG , DREG [ NUM ]",{0xFFA00040,0x4EE0AF}}, // 111111111x10xxx0xxx00000x1x0xxxx
+{   "vmla.i32 QREG , QREG , QREG",{0xEF200940,0x4EE0AE}}, // 111011110x10xxx0xxx01001x1x0xxx0
+{    "vmla.i8 DREG , DREG , DREG",{0xEF000900,0x4FF0AF}}, // 111011110x00xxxxxxxx1001x0x0xxxx
+{    "vmla.i8 QREG , QREG , QREG",{0xEF000940,0x4EE0AE}}, // 111011110x00xxx0xxx01001x1x0xxx0
+{  "vmlal.s16 QREG , DREG , DREG",{0xEF900800,0x4FE0AF}}, // 111011111x01xxxxxxx01000x0x0xxxx
+{"vmlal.s16 QREG , DREG , DREG [ NUM ]",{0xEF900240,0x4FE0AF}}, // 111011111x01xxxxxxx00010x1x0xxxx
+{  "vmlal.s32 QREG , DREG , DREG",{0xEFA00800,0x4FE0AF}}, // 111011111x10xxxxxxx01000x0x0xxxx
+{"vmlal.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00240,0x4FE0AF}}, // 111011111x10xxxxxxx00010x1x0xxxx
+{   "vmlal.s8 QREG , DREG , DREG",{0xEF800800,0x4FE0AF}}, // 111011111x00xxxxxxx01000x0x0xxxx
+{  "vmlal.u16 QREG , DREG , DREG",{0xFF900800,0x4FE0AF}}, // 111111111x01xxxxxxx01000x0x0xxxx
+{"vmlal.u16 QREG , DREG , DREG [ NUM ]",{0xFF900240,0x4FE0AF}}, // 111111111x01xxxxxxx00010x1x0xxxx
+{  "vmlal.u32 QREG , DREG , DREG",{0xFFA00800,0x4FE0AF}}, // 111111111x10xxxxxxx01000x0x0xxxx
+{"vmlal.u32 QREG , DREG , DREG [ NUM ]",{0xFFA00240,0x4FE0AF}}, // 111111111x10xxxxxxx00010x1x0xxxx
+{   "vmlal.u8 QREG , DREG , DREG",{0xFF800800,0x4FE0AF}}, // 111111111x00xxxxxxx01000x0x0xxxx
+{   "vmls.f32 DREG , DREG , DREG",{0xEF200D10,0x4FF0AF}}, // 111011110x10xxxxxxxx1101x0x1xxxx
+{"vmls.f32 DREG , DREG , DREG [ NUM ]",{0xEFA00540,0x4FF0AF}}, // 111011111x10xxxxxxxx0101x1x0xxxx
+{"vmls.f32 QREG , QREG , DREG [ NUM ]",{0xFFA00540,0x4EE0AF}}, // 111111111x10xxx0xxx00101x1x0xxxx
+{   "vmls.f32 QREG , QREG , QREG",{0xEF200D50,0x4EE0AE}}, // 111011110x10xxx0xxx01101x1x1xxx0
+{   "vmls.f64 DREG , DREG , DREG",{0xCE000B40,0x204FF0AF}}, // 11x011100x00xxxxxxxx1011x1x0xxxx
+{   "vmls.i16 DREG , DREG , DREG",{0xFF100900,0x4FF0AF}}, // 111111110x01xxxxxxxx1001x0x0xxxx
+{"vmls.i16 QREG , QREG , DREG [ NUM ]",{0xFF900440,0x4EE0AF}}, // 111111111x01xxx0xxx00100x1x0xxxx
+{   "vmls.i16 QREG , QREG , QREG",{0xFF100940,0x4EE0AE}}, // 111111110x01xxx0xxx01001x1x0xxx0
+{   "vmls.i32 DREG , DREG , DREG",{0xFF200900,0x4FF0AF}}, // 111111110x10xxxxxxxx1001x0x0xxxx
+{"vmls.i32 QREG , QREG , DREG [ NUM ]",{0xFFA00440,0x4EE0AF}}, // 111111111x10xxx0xxx00100x1x0xxxx
+{   "vmls.i32 QREG , QREG , QREG",{0xFF200940,0x4EE0AE}}, // 111111110x10xxx0xxx01001x1x0xxx0
+{    "vmls.i8 DREG , DREG , DREG",{0xFF000900,0x4FF0AF}}, // 111111110x00xxxxxxxx1001x0x0xxxx
+{    "vmls.i8 QREG , QREG , QREG",{0xFF000940,0x4EE0AE}}, // 111111110x00xxx0xxx01001x1x0xxx0
+{  "vmlsl.s16 QREG , DREG , DREG",{0xEF900A00,0x4FE0AF}}, // 111011111x01xxxxxxx01010x0x0xxxx
+{"vmlsl.s16 QREG , DREG , DREG [ NUM ]",{0xEF900640,0x4FE0AF}}, // 111011111x01xxxxxxx00110x1x0xxxx
+{  "vmlsl.s32 QREG , DREG , DREG",{0xEFA00A00,0x4FE0AF}}, // 111011111x10xxxxxxx01010x0x0xxxx
+{"vmlsl.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00640,0x4FE0AF}}, // 111011111x10xxxxxxx00110x1x0xxxx
+{   "vmlsl.s8 QREG , DREG , DREG",{0xEF800A00,0x4FE0AF}}, // 111011111x00xxxxxxx01010x0x0xxxx
+{  "vmlsl.u16 QREG , DREG , DREG",{0xFF900A00,0x4FE0AF}}, // 111111111x01xxxxxxx01010x0x0xxxx
+{"vmlsl.u16 QREG , DREG , DREG [ NUM ]",{0xFF900640,0x4FE0AF}}, // 111111111x01xxxxxxx00110x1x0xxxx
+{  "vmlsl.u32 QREG , DREG , DREG",{0xFFA00A00,0x4FE0AF}}, // 111111111x10xxxxxxx01010x0x0xxxx
+{"vmlsl.u32 QREG , DREG , DREG [ NUM ]",{0xFFA00640,0x4FE0AF}}, // 111111111x10xxxxxxx00110x1x0xxxx
+{   "vmlsl.u8 QREG , DREG , DREG",{0xFF800A00,0x4FE0AF}}, // 111111111x00xxxxxxx01010x0x0xxxx
+{         "vmov DREG , GPR , GPR",{0xEC400B10,0xFF02F}}, // 111011000100xxxxxxxx101100x1xxxx
+{         "vmov GPR , GPR , DREG",{0xEC500B10,0xFF02F}}, // 111011000101xxxxxxxx101100x1xxxx
+{  "vmov GPR , GPR , SREG , SREG",{0xEC500A10,0xFF02F}}, // 111011000101xxxxxxxx101000x1xxxx
+{               "vmov GPR , SREG",{0xEE100A10,0xFF080}}, // 111011100001xxxxxxxx1010x0010000
+{               "vmov SREG , GPR",{0xCE000A10,0x200FF080}}, // 11x011100000xxxxxxxx1010x0010000
+{  "vmov SREG , SREG , GPR , GPR",{0xEC400A10,0xFF02F}}, // 111011000100xxxxxxxx101000x1xxxx
+{    "vmov.16 DREG [ NUM ] , GPR",{0xEE000B30,0x2FF0C0}}, // 1110111000x0xxxxxxxx1011xx110000
+{    "vmov.32 DREG [ NUM ] , GPR",{0xEE000B10,0x2FF080}}, // 1110111000x0xxxxxxxx1011x0010000
+{    "vmov.32 GPR , DREG [ NUM ]",{0xEE100B10,0x2FF080}}, // 1110111000x1xxxxxxxx1011x0010000
+{     "vmov.8 DREG [ NUM ] , GPR",{0xEE400B10,0x2FF0E0}}, // 1110111001x0xxxxxxxx1011xxx10000
+{           "vmov.f32 SREG , NUM",{0xEEB00A00,0x4FF00F}}, // 111011101x11xxxxxxxx10100000xxxx
+{          "vmov.f32 SREG , SREG",{0xEEB00A40,0x40F02F}}, // 111011101x110000xxxx101001x0xxxx
+{          "vmov.f64 DREG , DREG",{0xEEB00B40,0x40F02F}}, // 111011101x110000xxxx101101x0xxxx
+{           "vmov.f64 DREG , NUM",{0xEEB00B00,0x4FF00F}}, // 111011101x11xxxxxxxx10110000xxxx
+{           "vmov.i16 DREG , NUM",{0xEF800810,0x1047F20F}}, // 111x11111x000xxxxxxx10x00001xxxx
+{           "vmov.i16 QREG , NUM",{0xEF800850,0x1047E20F}}, // 111x11111x000xxxxxx010x00101xxxx
+{           "vmov.i32 DREG , NUM",{0xEF800010,0x1047FF0F}}, // 111x11111x000xxxxxxxxxxx0001xxxx
+{           "vmov.i32 QREG , NUM",{0xEF800050,0x1047EF0F}}, // 111x11111x000xxxxxx0xxxx0101xxxx
+{           "vmov.i64 DREG , NUM",{0xEF800E30,0x1047F00F}}, // 111x11111x000xxxxxxx11100011xxxx
+{           "vmov.i64 QREG , NUM",{0xEF800E70,0x1047E00F}}, // 111x11111x000xxxxxx011100111xxxx
+{            "vmov.i8 DREG , NUM",{0xEF800E10,0x1047F00F}}, // 111x11111x000xxxxxxx11100001xxxx
+{            "vmov.i8 QREG , NUM",{0xEF800E50,0x1047E00F}}, // 111x11111x000xxxxxx011100101xxxx
+{   "vmov.s16 GPR , DREG [ NUM ]",{0xEE100B30,0x2FF0C0}}, // 1110111000x1xxxxxxxx1011xx110000
+{    "vmov.s8 GPR , DREG [ NUM ]",{0xEE500B10,0x2FF0E0}}, // 1110111001x1xxxxxxxx1011xxx10000
+{   "vmov.u16 GPR , DREG [ NUM ]",{0xEE900B30,0x2FF0C0}}, // 1110111010x1xxxxxxxx1011xx110000
+{    "vmov.u8 GPR , DREG [ NUM ]",{0xEED00B10,0x2FF0E0}}, // 1110111011x1xxxxxxxx1011xxx10000
+{         "vmovl.s16 QREG , DREG",{0xEF900A10,0x40E02F}}, // 111011111x010000xxx0101000x1xxxx
+{         "vmovl.s32 QREG , DREG",{0xEFA00A10,0x40E02F}}, // 111011111x100000xxx0101000x1xxxx
+{          "vmovl.s8 QREG , DREG",{0xEF880A10,0x40E02F}}, // 111011111x001000xxx0101000x1xxxx
+{         "vmovl.u16 QREG , DREG",{0xFF900A10,0x40E02F}}, // 111111111x010000xxx0101000x1xxxx
+{         "vmovl.u32 QREG , DREG",{0xFFA00A10,0x40E02F}}, // 111111111x100000xxx0101000x1xxxx
+{          "vmovl.u8 QREG , DREG",{0xFF880A10,0x40E02F}}, // 111111111x001000xxx0101000x1xxxx
+{         "vmovn.i16 DREG , QREG",{0xFFB20200,0x40F02E}}, // 111111111x110010xxxx001000x0xxx0
+{         "vmovn.i32 DREG , QREG",{0xFFB60200,0x40F02E}}, // 111111111x110110xxxx001000x0xxx0
+{         "vmovn.i64 DREG , QREG",{0xFFBA0200,0x40F02E}}, // 111111111x111010xxxx001000x0xxx0
+{           "vmrs GPR , MEDIAREG",{0xEEF50A10,0x3F000}}, // 11101110111101xxxxxx101000010000
+{                "vmrs GPR , OPT",{0xEEF00A10,0xBF000}}, // 111011101111x0xxxxxx101000010000
+{              "vmrs STATR , OPT",{0xEEF1FA10,0x0000}}, // 11101110111100011111101000010000
+{                "vmsr OPT , GPR",{0xEEE00A10,0xBF06F}}, // 111011101110x0xxxxxx10100xx1xxxx
+{"vmul.f32 DREG , DREG , DREG [ NUM ]",{0xEFA00940,0x4FF0AF}}, // 111011111x10xxxxxxxx1001x1x0xxxx
+{   "vmul.f32 SREG , SREG , SREG",{0xEE200A00,0x4FF0AF}}, // 111011100x10xxxxxxxx1010x0x0xxxx
+{   "vmul.f64 DREG , DREG , DREG",{0xEE200B00,0x4FF0AF}}, // 111011100x10xxxxxxxx1011x0x0xxxx
+{   "vmul.i16 DREG , DREG , DREG",{0xEF100910,0x4FF0AF}}, // 111011110x01xxxxxxxx1001x0x1xxxx
+{"vmul.i16 DREG , DREG , DREG [ NUM ]",{0xEF900840,0x4FF0AF}}, // 111011111x01xxxxxxxx1000x1x0xxxx
+{"vmul.i16 QREG , QREG , DREG [ NUM ]",{0xFF900840,0x4EE0AF}}, // 111111111x01xxx0xxx01000x1x0xxxx
+{   "vmul.i16 QREG , QREG , QREG",{0xEF100950,0x4EE0AE}}, // 111011110x01xxx0xxx01001x1x1xxx0
+{   "vmul.i32 DREG , DREG , DREG",{0xEF200910,0x4FF0AF}}, // 111011110x10xxxxxxxx1001x0x1xxxx
+{"vmul.i32 DREG , DREG , DREG [ NUM ]",{0xEFA00840,0x4FF0AF}}, // 111011111x10xxxxxxxx1000x1x0xxxx
+{"vmul.i32 QREG , QREG , DREG [ NUM ]",{0xFFA00840,0x4EE0AF}}, // 111111111x10xxx0xxx01000x1x0xxxx
+{   "vmul.i32 QREG , QREG , QREG",{0xEF200950,0x4EE0AE}}, // 111011110x10xxx0xxx01001x1x1xxx0
+{    "vmul.i8 DREG , DREG , DREG",{0xEF000910,0x4FF0AF}}, // 111011110x00xxxxxxxx1001x0x1xxxx
+{    "vmul.i8 QREG , QREG , QREG",{0xEF000950,0x4EE0AE}}, // 111011110x00xxx0xxx01001x1x1xxx0
+{    "vmul.p8 DREG , DREG , DREG",{0xFF000910,0x4FF0AF}}, // 111111110x00xxxxxxxx1001x0x1xxxx
+{    "vmul.p8 QREG , QREG , QREG",{0xFF000950,0x4EE0AE}}, // 111111110x00xxx0xxx01001x1x1xxx0
+{   "vmull.p8 QREG , DREG , DREG",{0xEF800E00,0x4FE0AF}}, // 111011111x00xxxxxxx01110x0x0xxxx
+{  "vmull.s16 QREG , DREG , DREG",{0xEF900C00,0x4FE0AF}}, // 111011111x01xxxxxxx01100x0x0xxxx
+{"vmull.s16 QREG , DREG , DREG [ NUM ]",{0xEF900A40,0x4FE0AF}}, // 111011111x01xxxxxxx01010x1x0xxxx
+{  "vmull.s32 QREG , DREG , DREG",{0xEFA00C00,0x4FE0AF}}, // 111011111x10xxxxxxx01100x0x0xxxx
+{"vmull.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00A40,0x4FE0AF}}, // 111011111x10xxxxxxx01010x1x0xxxx
+{   "vmull.s8 QREG , DREG , DREG",{0xEF800C00,0x4FE0AF}}, // 111011111x00xxxxxxx01100x0x0xxxx
+{  "vmull.u16 QREG , DREG , DREG",{0xFF900C00,0x4FE0AF}}, // 111111111x01xxxxxxx01100x0x0xxxx
+{"vmull.u16 QREG , DREG , DREG [ NUM ]",{0xFF900A40,0x4FE0AF}}, // 111111111x01xxxxxxx01010x1x0xxxx
+{  "vmull.u32 QREG , DREG , DREG",{0xFFA00C00,0x4FE0AF}}, // 111111111x10xxxxxxx01100x0x0xxxx
+{"vmull.u32 QREG , DREG , DREG [ NUM ]",{0xFFA00A40,0x4FE0AF}}, // 111111111x10xxxxxxx01010x1x0xxxx
+{   "vmull.u8 QREG , DREG , DREG",{0xFF800C00,0x4FE0AF}}, // 111111111x00xxxxxxx01100x0x0xxxx
+{              "vmvn DREG , DREG",{0xFFB00580,0x40F02F}}, // 111111111x110000xxxx010110x0xxxx
+{              "vmvn QREG , QREG",{0xFFB005C0,0x40E02E}}, // 111111111x110000xxx0010111x0xxx0
+{           "vmvn.i16 DREG , NUM",{0xEF800830,0x1047F20F}}, // 111x11111x000xxxxxxx10x00011xxxx
+{           "vmvn.i16 QREG , NUM",{0xEF800870,0x1047E20F}}, // 111x11111x000xxxxxx010x00111xxxx
+{           "vmvn.i32 DREG , NUM",{0xEF800030,0x1047FF0F}}, // 111x11111x000xxxxxxxxxxx0011xxxx
+{           "vmvn.i32 QREG , NUM",{0xEF800070,0x1047EF0F}}, // 111x11111x000xxxxxx0xxxx0111xxxx
+{          "vneg.f32 SREG , SREG",{0xEEB10A40,0x40F02F}}, // 111011101x110001xxxx101001x0xxxx
+{          "vneg.f64 DREG , DREG",{0xEEB10B40,0x40F02F}}, // 111011101x110001xxxx101101x0xxxx
+{          "vneg.s16 DREG , DREG",{0xFFB50380,0x40F02F}}, // 111111111x110101xxxx001110x0xxxx
+{          "vneg.s16 QREG , QREG",{0xFFB503C0,0x40E02E}}, // 111111111x110101xxx0001111x0xxx0
+{          "vneg.s32 DREG , DREG",{0xFFB90380,0x40F02F}}, // 111111111x111001xxxx001110x0xxxx
+{          "vneg.s32 QREG , QREG",{0xFFB903C0,0x40E02E}}, // 111111111x111001xxx0001111x0xxx0
+{           "vneg.s8 DREG , DREG",{0xFFB10380,0x40F02F}}, // 111111111x110001xxxx001110x0xxxx
+{           "vneg.s8 QREG , QREG",{0xFFB103C0,0x40E02E}}, // 111111111x110001xxx0001111x0xxx0
+{  "vnmla.f32 SREG , SREG , SREG",{0xEE100A40,0x4FF0AF}}, // 111011100x01xxxxxxxx1010x1x0xxxx
+{  "vnmla.f64 DREG , DREG , DREG",{0xEE100B40,0x4FF0AF}}, // 111011100x01xxxxxxxx1011x1x0xxxx
+{  "vnmls.f32 SREG , SREG , SREG",{0xEE100A00,0x4FF0AF}}, // 111011100x01xxxxxxxx1010x0x0xxxx
+{  "vnmls.f64 DREG , DREG , DREG",{0xEE100B00,0x4FF0AF}}, // 111011100x01xxxxxxxx1011x0x0xxxx
+{  "vnmul.f32 SREG , SREG , SREG",{0xEE200A40,0x4FF0AF}}, // 111011100x10xxxxxxxx1010x1x0xxxx
+{  "vnmul.f64 DREG , DREG , DREG",{0xEE200B40,0x4FF0AF}}, // 111011100x10xxxxxxxx1011x1x0xxxx
+{       "vorn DREG , DREG , DREG",{0xEF300110,0x4FF0AF}}, // 111011110x11xxxxxxxx0001x0x1xxxx
+{       "vorn QREG , QREG , QREG",{0xEF300150,0x4EE0AE}}, // 111011110x11xxx0xxx00001x1x1xxx0
+{       "vorr DREG , DREG , DREG",{0xEF200110,0x4FF0AF}}, // 111011110x10xxxxxxxx0001x0x1xxxx
+{       "vorr QREG , QREG , QREG",{0xEF200150,0x4EE0AE}}, // 111011110x10xxx0xxx00001x1x1xxx0
+{           "vorr.i16 DREG , NUM",{0xEF800910,0x1047F20F}}, // 111x11111x000xxxxxxx10x10001xxxx
+{           "vorr.i16 QREG , NUM",{0xEF800950,0x1047E20F}}, // 111x11111x000xxxxxx010x10101xxxx
+{           "vorr.i32 DREG , NUM",{0xEF800110,0x1047F60F}}, // 111x11111x000xxxxxxx0xx10001xxxx
+{           "vorr.i32 QREG , NUM",{0xEF800150,0x1047E60F}}, // 111x11111x000xxxxxx00xx10101xxxx
+{        "vpadal.s16 DREG , DREG",{0xFFB40600,0x40F02F}}, // 111111111x110100xxxx011000x0xxxx
+{        "vpadal.s16 QREG , QREG",{0xFFB40640,0x40E02E}}, // 111111111x110100xxx0011001x0xxx0
+{        "vpadal.s32 DREG , DREG",{0xFFB80600,0x40F02F}}, // 111111111x111000xxxx011000x0xxxx
+{        "vpadal.s32 QREG , QREG",{0xFFB80640,0x40E02E}}, // 111111111x111000xxx0011001x0xxx0
+{         "vpadal.s8 DREG , DREG",{0xFFB00600,0x40F02F}}, // 111111111x110000xxxx011000x0xxxx
+{         "vpadal.s8 QREG , QREG",{0xFFB00640,0x40E02E}}, // 111111111x110000xxx0011001x0xxx0
+{        "vpadal.u16 DREG , DREG",{0xFFB40680,0x40F02F}}, // 111111111x110100xxxx011010x0xxxx
+{        "vpadal.u16 QREG , QREG",{0xFFB406C0,0x40E02E}}, // 111111111x110100xxx0011011x0xxx0
+{        "vpadal.u32 DREG , DREG",{0xFFB80680,0x40F02F}}, // 111111111x111000xxxx011010x0xxxx
+{        "vpadal.u32 QREG , QREG",{0xFFB806C0,0x40E02E}}, // 111111111x111000xxx0011011x0xxx0
+{         "vpadal.u8 DREG , DREG",{0xFFB00680,0x40F02F}}, // 111111111x110000xxxx011010x0xxxx
+{         "vpadal.u8 QREG , QREG",{0xFFB006C0,0x40E02E}}, // 111111111x110000xxx0011011x0xxx0
+{  "vpadd.f32 DREG , DREG , DREG",{0xFF000D00,0x4FF0AF}}, // 111111110x00xxxxxxxx1101x0x0xxxx
+{  "vpadd.i16 DREG , DREG , DREG",{0xEF100B10,0x4FF0AF}}, // 111011110x01xxxxxxxx1011x0x1xxxx
+{  "vpadd.i32 DREG , DREG , DREG",{0xEF200B10,0x4FF0AF}}, // 111011110x10xxxxxxxx1011x0x1xxxx
+{   "vpadd.i8 DREG , DREG , DREG",{0xEF000B10,0x4FF0AF}}, // 111011110x00xxxxxxxx1011x0x1xxxx
+{        "vpaddl.s16 DREG , DREG",{0xFFB40200,0x40F02F}}, // 111111111x110100xxxx001000x0xxxx
+{        "vpaddl.s16 QREG , QREG",{0xFFB40240,0x40E02E}}, // 111111111x110100xxx0001001x0xxx0
+{        "vpaddl.s32 DREG , DREG",{0xFFB80200,0x40F02F}}, // 111111111x111000xxxx001000x0xxxx
+{        "vpaddl.s32 QREG , QREG",{0xFFB80240,0x40E02E}}, // 111111111x111000xxx0001001x0xxx0
+{         "vpaddl.s8 DREG , DREG",{0xFFB00200,0x40F02F}}, // 111111111x110000xxxx001000x0xxxx
+{         "vpaddl.s8 QREG , QREG",{0xFFB00240,0x40E02E}}, // 111111111x110000xxx0001001x0xxx0
+{        "vpaddl.u16 DREG , DREG",{0xFFB40280,0x40F02F}}, // 111111111x110100xxxx001010x0xxxx
+{        "vpaddl.u16 QREG , QREG",{0xFFB402C0,0x40E02E}}, // 111111111x110100xxx0001011x0xxx0
+{        "vpaddl.u32 DREG , DREG",{0xFFB80280,0x40F02F}}, // 111111111x111000xxxx001010x0xxxx
+{        "vpaddl.u32 QREG , QREG",{0xFFB802C0,0x40E02E}}, // 111111111x111000xxx0001011x0xxx0
+{         "vpaddl.u8 DREG , DREG",{0xFFB00280,0x40F02F}}, // 111111111x110000xxxx001010x0xxxx
+{         "vpaddl.u8 QREG , QREG",{0xFFB002C0,0x40E02E}}, // 111111111x110000xxx0001011x0xxx0
+{  "vpmax.f32 DREG , DREG , DREG",{0xFF000F00,0x4FF0AF}}, // 111111110x00xxxxxxxx1111x0x0xxxx
+{  "vpmax.s16 DREG , DREG , DREG",{0xEF100A00,0x4FF0AF}}, // 111011110x01xxxxxxxx1010x0x0xxxx
+{  "vpmax.s32 DREG , DREG , DREG",{0xEF200A00,0x4FF0AF}}, // 111011110x10xxxxxxxx1010x0x0xxxx
+{   "vpmax.s8 DREG , DREG , DREG",{0xEF000A00,0x4FF0AF}}, // 111011110x00xxxxxxxx1010x0x0xxxx
+{  "vpmax.u16 DREG , DREG , DREG",{0xFF100A00,0x4FF0AF}}, // 111111110x01xxxxxxxx1010x0x0xxxx
+{  "vpmax.u32 DREG , DREG , DREG",{0xFF200A00,0x4FF0AF}}, // 111111110x10xxxxxxxx1010x0x0xxxx
+{   "vpmax.u8 DREG , DREG , DREG",{0xFF000A00,0x4FF0AF}}, // 111111110x00xxxxxxxx1010x0x0xxxx
+{  "vpmin.f32 DREG , DREG , DREG",{0xFF200F00,0x4FF0AF}}, // 111111110x10xxxxxxxx1111x0x0xxxx
+{  "vpmin.s16 DREG , DREG , DREG",{0xEF100A10,0x4FF0AF}}, // 111011110x01xxxxxxxx1010x0x1xxxx
+{  "vpmin.s32 DREG , DREG , DREG",{0xEF200A10,0x4FF0AF}}, // 111011110x10xxxxxxxx1010x0x1xxxx
+{   "vpmin.s8 DREG , DREG , DREG",{0xEF000A10,0x4FF0AF}}, // 111011110x00xxxxxxxx1010x0x1xxxx
+{  "vpmin.u16 DREG , DREG , DREG",{0xFF100A10,0x4FF0AF}}, // 111111110x01xxxxxxxx1010x0x1xxxx
+{  "vpmin.u32 DREG , DREG , DREG",{0xFF200A10,0x4FF0AF}}, // 111111110x10xxxxxxxx1010x0x1xxxx
+{   "vpmin.u8 DREG , DREG , DREG",{0xFF000A10,0x4FF0AF}}, // 111111110x00xxxxxxxx1010x0x1xxxx
+{                    "vpop RLIST",{0xECBD0A00,0x40F1FF}}, // 111011001x111101xxxx101xxxxxxxxx
+{                   "vpush RLIST",{0xED2D0A00,0x40F1FF}}, // 111011010x101101xxxx101xxxxxxxxx
+{         "vqabs.s16 DREG , DREG",{0xFFB40700,0x40F02F}}, // 111111111x110100xxxx011100x0xxxx
+{         "vqabs.s16 QREG , QREG",{0xFFB40740,0x40E02E}}, // 111111111x110100xxx0011101x0xxx0
+{         "vqabs.s32 DREG , DREG",{0xFFB80700,0x40F02F}}, // 111111111x111000xxxx011100x0xxxx
+{         "vqabs.s32 QREG , QREG",{0xFFB80740,0x40E02E}}, // 111111111x111000xxx0011101x0xxx0
+{          "vqabs.s8 DREG , DREG",{0xFFB00700,0x40F02F}}, // 111111111x110000xxxx011100x0xxxx
+{          "vqabs.s8 QREG , QREG",{0xFFB00740,0x40E02E}}, // 111111111x110000xxx0011101x0xxx0
+{  "vqadd.s16 DREG , DREG , DREG",{0xEF100010,0x4FF0AF}}, // 111011110x01xxxxxxxx0000x0x1xxxx
+{  "vqadd.s16 QREG , QREG , QREG",{0xEF100050,0x4EE0AE}}, // 111011110x01xxx0xxx00000x1x1xxx0
+{  "vqadd.s32 DREG , DREG , DREG",{0xEF200010,0x4FF0AF}}, // 111011110x10xxxxxxxx0000x0x1xxxx
+{  "vqadd.s32 QREG , QREG , QREG",{0xEF200050,0x4EE0AE}}, // 111011110x10xxx0xxx00000x1x1xxx0
+{  "vqadd.s64 DREG , DREG , DREG",{0xEF300010,0x4FF0AF}}, // 111011110x11xxxxxxxx0000x0x1xxxx
+{  "vqadd.s64 QREG , QREG , QREG",{0xEF300050,0x4EE0AE}}, // 111011110x11xxx0xxx00000x1x1xxx0
+{   "vqadd.s8 DREG , DREG , DREG",{0xEF000010,0x4FF0AF}}, // 111011110x00xxxxxxxx0000x0x1xxxx
+{   "vqadd.s8 QREG , QREG , QREG",{0xEF000050,0x4EE0AE}}, // 111011110x00xxx0xxx00000x1x1xxx0
+{  "vqadd.u16 DREG , DREG , DREG",{0xFF100010,0x4FF0AF}}, // 111111110x01xxxxxxxx0000x0x1xxxx
+{  "vqadd.u16 QREG , QREG , QREG",{0xFF100050,0x4EE0AE}}, // 111111110x01xxx0xxx00000x1x1xxx0
+{  "vqadd.u32 DREG , DREG , DREG",{0xFF200010,0x4FF0AF}}, // 111111110x10xxxxxxxx0000x0x1xxxx
+{  "vqadd.u32 QREG , QREG , QREG",{0xFF200050,0x4EE0AE}}, // 111111110x10xxx0xxx00000x1x1xxx0
+{  "vqadd.u64 DREG , DREG , DREG",{0xFF300010,0x4FF0AF}}, // 111111110x11xxxxxxxx0000x0x1xxxx
+{  "vqadd.u64 QREG , QREG , QREG",{0xFF300050,0x4EE0AE}}, // 111111110x11xxx0xxx00000x1x1xxx0
+{   "vqadd.u8 DREG , DREG , DREG",{0xFF000010,0x4FF0AF}}, // 111111110x00xxxxxxxx0000x0x1xxxx
+{   "vqadd.u8 QREG , QREG , QREG",{0xFF000050,0x4EE0AE}}, // 111111110x00xxx0xxx00000x1x1xxx0
+{"vqdmlal.s16 QREG , DREG , DREG",{0xEF900900,0x4FE0AF}}, // 111011111x01xxxxxxx01001x0x0xxxx
+{"vqdmlal.s16 QREG , DREG , DREG [ NUM ]",{0xEF900340,0x4FE0AF}}, // 111011111x01xxxxxxx00011x1x0xxxx
+{"vqdmlal.s32 QREG , DREG , DREG",{0xEFA00900,0x4FE0AF}}, // 111011111x10xxxxxxx01001x0x0xxxx
+{"vqdmlal.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00340,0x4FE0AF}}, // 111011111x10xxxxxxx00011x1x0xxxx
+{"vqdmlsl.s16 QREG , DREG , DREG",{0xEF900B00,0x4FE0AF}}, // 111011111x01xxxxxxx01011x0x0xxxx
+{"vqdmlsl.s16 QREG , DREG , DREG [ NUM ]",{0xEF900740,0x4FE0AF}}, // 111011111x01xxxxxxx00111x1x0xxxx
+{"vqdmlsl.s32 QREG , DREG , DREG",{0xEFA00B00,0x4FE0AF}}, // 111011111x10xxxxxxx01011x0x0xxxx
+{"vqdmlsl.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00740,0x4FE0AF}}, // 111011111x10xxxxxxx00111x1x0xxxx
+{"vqdmulh.s16 DREG , DREG , DREG",{0xEF100B00,0x4FF0AF}}, // 111011110x01xxxxxxxx1011x0x0xxxx
+{"vqdmulh.s16 DREG , DREG , DREG [ NUM ]",{0xEF900C40,0x4FF0AF}}, // 111011111x01xxxxxxxx1100x1x0xxxx
+{"vqdmulh.s16 QREG , QREG , QREG",{0xEF100B40,0x4EE0AE}}, // 111011110x01xxx0xxx01011x1x0xxx0
+{"vqdmulh.s32 DREG , DREG , DREG",{0xEF200B00,0x4FF0AF}}, // 111011110x10xxxxxxxx1011x0x0xxxx
+{"vqdmulh.s32 DREG , DREG , DREG [ NUM ]",{0xEFA00C40,0x4FF0AF}}, // 111011111x10xxxxxxxx1100x1x0xxxx
+{"vqdmulh.s32 QREG , QREG , QREG",{0xEF200B40,0x4EE0AE}}, // 111011110x10xxx0xxx01011x1x0xxx0
+{"vqdmull.s16 QREG , DREG , DREG",{0xEF900D00,0x4FE0AF}}, // 111011111x01xxxxxxx01101x0x0xxxx
+{"vqdmull.s16 QREG , DREG , DREG [ NUM ]",{0xEF900B40,0x4FE0AF}}, // 111011111x01xxxxxxx01011x1x0xxxx
+{"vqdmull.s32 QREG , DREG , DREG",{0xEFA00D00,0x4FE0AF}}, // 111011111x10xxxxxxx01101x0x0xxxx
+{"vqdmull.s32 QREG , DREG , DREG [ NUM ]",{0xEFA00B40,0x4FE0AF}}, // 111011111x10xxxxxxx01011x1x0xxxx
+{        "vqmovn.s16 DREG , QREG",{0xFFB20280,0x40F02E}}, // 111111111x110010xxxx001010x0xxx0
+{        "vqmovn.s32 DREG , QREG",{0xFFB60280,0x40F02E}}, // 111111111x110110xxxx001010x0xxx0
+{        "vqmovn.s64 DREG , QREG",{0xFFBA0280,0x40F02E}}, // 111111111x111010xxxx001010x0xxx0
+{        "vqmovn.u16 DREG , QREG",{0xFFB202C0,0x40F02E}}, // 111111111x110010xxxx001011x0xxx0
+{        "vqmovn.u32 DREG , QREG",{0xFFB602C0,0x40F02E}}, // 111111111x110110xxxx001011x0xxx0
+{        "vqmovn.u64 DREG , QREG",{0xFFBA02C0,0x40F02E}}, // 111111111x111010xxxx001011x0xxx0
+{       "vqmovun.s16 DREG , QREG",{0xFFB20240,0x40F02E}}, // 111111111x110010xxxx001001x0xxx0
+{       "vqmovun.s32 DREG , QREG",{0xFFB60240,0x40F02E}}, // 111111111x110110xxxx001001x0xxx0
+{       "vqmovun.s64 DREG , QREG",{0xFFBA0240,0x40F02E}}, // 111111111x111010xxxx001001x0xxx0
+{         "vqneg.s16 DREG , DREG",{0xFFB40780,0x40F02F}}, // 111111111x110100xxxx011110x0xxxx
+{         "vqneg.s16 QREG , QREG",{0xFFB407C0,0x40E02E}}, // 111111111x110100xxx0011111x0xxx0
+{         "vqneg.s32 DREG , DREG",{0xFFB80780,0x40F02F}}, // 111111111x111000xxxx011110x0xxxx
+{         "vqneg.s32 QREG , QREG",{0xFFB807C0,0x40E02E}}, // 111111111x111000xxx0011111x0xxx0
+{          "vqneg.s8 DREG , DREG",{0xFFB00780,0x40F02F}}, // 111111111x110000xxxx011110x0xxxx
+{          "vqneg.s8 QREG , QREG",{0xFFB007C0,0x40E02E}}, // 111111111x110000xxx0011111x0xxx0
+{"vqrdmulh.s16 DREG , DREG , DREG",{0xFF100B00,0x4FF0AF}}, // 111111110x01xxxxxxxx1011x0x0xxxx
+{"vqrdmulh.s16 DREG , DREG , DREG [ NUM ]",{0xEF900D40,0x4FF0AF}}, // 111011111x01xxxxxxxx1101x1x0xxxx
+{"vqrdmulh.s16 QREG , QREG , DREG [ NUM ]",{0xFF900D40,0x4EE0AF}}, // 111111111x01xxx0xxx01101x1x0xxxx
+{"vqrdmulh.s16 QREG , QREG , QREG",{0xFF100B40,0x4EE0AE}}, // 111111110x01xxx0xxx01011x1x0xxx0
+{"vqrdmulh.s32 DREG , DREG , DREG",{0xFF200B00,0x4FF0AF}}, // 111111110x10xxxxxxxx1011x0x0xxxx
+{"vqrdmulh.s32 DREG , DREG , DREG [ NUM ]",{0xEFA00D40,0x4FF0AF}}, // 111011111x10xxxxxxxx1101x1x0xxxx
+{"vqrdmulh.s32 QREG , QREG , DREG [ NUM ]",{0xFFA00D40,0x4EE0AF}}, // 111111111x10xxx0xxx01101x1x0xxxx
+{"vqrdmulh.s32 QREG , QREG , QREG",{0xFF200B40,0x4EE0AE}}, // 111111110x10xxx0xxx01011x1x0xxx0
+{ "vqrshl.s16 DREG , DREG , DREG",{0xEF100510,0x4FF0AF}}, // 111011110x01xxxxxxxx0101x0x1xxxx
+{ "vqrshl.s16 QREG , QREG , QREG",{0xEF100550,0x4EE0AE}}, // 111011110x01xxx0xxx00101x1x1xxx0
+{ "vqrshl.s32 DREG , DREG , DREG",{0xEF200510,0x4FF0AF}}, // 111011110x10xxxxxxxx0101x0x1xxxx
+{ "vqrshl.s32 QREG , QREG , QREG",{0xEF200550,0x4EE0AE}}, // 111011110x10xxx0xxx00101x1x1xxx0
+{ "vqrshl.s64 DREG , DREG , DREG",{0xEF300510,0x4FF0AF}}, // 111011110x11xxxxxxxx0101x0x1xxxx
+{ "vqrshl.s64 QREG , QREG , QREG",{0xEF300550,0x4EE0AE}}, // 111011110x11xxx0xxx00101x1x1xxx0
+{  "vqrshl.s8 DREG , DREG , DREG",{0xEF000510,0x4FF0AF}}, // 111011110x00xxxxxxxx0101x0x1xxxx
+{  "vqrshl.s8 QREG , QREG , QREG",{0xEF000550,0x4EE0AE}}, // 111011110x00xxx0xxx00101x1x1xxx0
+{ "vqrshl.u16 DREG , DREG , DREG",{0xFF100510,0x4FF0AF}}, // 111111110x01xxxxxxxx0101x0x1xxxx
+{ "vqrshl.u16 QREG , QREG , QREG",{0xFF100550,0x4EE0AE}}, // 111111110x01xxx0xxx00101x1x1xxx0
+{ "vqrshl.u32 DREG , DREG , DREG",{0xFF200510,0x4FF0AF}}, // 111111110x10xxxxxxxx0101x0x1xxxx
+{ "vqrshl.u32 QREG , QREG , QREG",{0xFF200550,0x4EE0AE}}, // 111111110x10xxx0xxx00101x1x1xxx0
+{ "vqrshl.u64 DREG , DREG , DREG",{0xFF300510,0x4FF0AF}}, // 111111110x11xxxxxxxx0101x0x1xxxx
+{ "vqrshl.u64 QREG , QREG , QREG",{0xFF300550,0x4EE0AE}}, // 111111110x11xxx0xxx00101x1x1xxx0
+{  "vqrshl.u8 DREG , DREG , DREG",{0xFF000510,0x4FF0AF}}, // 111111110x00xxxxxxxx0101x0x1xxxx
+{  "vqrshl.u8 QREG , QREG , QREG",{0xFF000550,0x4EE0AE}}, // 111111110x00xxx0xxx00101x1x1xxx0
+{ "vqrshrn.s16 DREG , QREG , NUM",{0xEF880950,0x47F02E}}, // 111011111x001xxxxxxx100101x1xxx0
+{ "vqrshrn.s32 DREG , QREG , NUM",{0xEF900950,0x4FF02E}}, // 111011111x01xxxxxxxx100101x1xxx0
+{ "vqrshrn.s64 DREG , QREG , NUM",{0xEFA00950,0x5FF02E}}, // 111011111x1xxxxxxxxx100101x1xxx0
+{ "vqrshrn.u16 DREG , QREG , NUM",{0xFF880950,0x47F02E}}, // 111111111x001xxxxxxx100101x1xxx0
+{ "vqrshrn.u32 DREG , QREG , NUM",{0xFF900950,0x4FF02E}}, // 111111111x01xxxxxxxx100101x1xxx0
+{ "vqrshrn.u64 DREG , QREG , NUM",{0xFFA00950,0x5FF02E}}, // 111111111x1xxxxxxxxx100101x1xxx0
+{"vqrshrun.s16 DREG , QREG , NUM",{0xFF880850,0x47F02E}}, // 111111111x001xxxxxxx100001x1xxx0
+{"vqrshrun.s32 DREG , QREG , NUM",{0xFF900850,0x4FF02E}}, // 111111111x01xxxxxxxx100001x1xxx0
+{"vqrshrun.s64 DREG , QREG , NUM",{0xFFA00850,0x5FF02E}}, // 111111111x1xxxxxxxxx100001x1xxx0
+{  "vqshl.s16 DREG , DREG , DREG",{0xEF100410,0x4FF0AF}}, // 111011110x01xxxxxxxx0100x0x1xxxx
+{   "vqshl.s16 DREG , DREG , NUM",{0xEF900710,0x4FF02F}}, // 111011111x01xxxxxxxx011100x1xxxx
+{   "vqshl.s16 QREG , QREG , NUM",{0xEF900750,0x4FE02E}}, // 111011111x01xxxxxxx0011101x1xxx0
+{  "vqshl.s16 QREG , QREG , QREG",{0xEF100450,0x4EE0AE}}, // 111011110x01xxx0xxx00100x1x1xxx0
+{  "vqshl.s32 DREG , DREG , DREG",{0xEF200410,0x4FF0AF}}, // 111011110x10xxxxxxxx0100x0x1xxxx
+{   "vqshl.s32 DREG , DREG , NUM",{0xEFA00710,0x5FF02F}}, // 111011111x1xxxxxxxxx011100x1xxxx
+{   "vqshl.s32 QREG , QREG , NUM",{0xEFA00750,0x5FE02E}}, // 111011111x1xxxxxxxx0011101x1xxx0
+{  "vqshl.s32 QREG , QREG , QREG",{0xEF200450,0x4EE0AE}}, // 111011110x10xxx0xxx00100x1x1xxx0
+{  "vqshl.s64 DREG , DREG , DREG",{0xEF300410,0x4FF0AF}}, // 111011110x11xxxxxxxx0100x0x1xxxx
+{   "vqshl.s64 DREG , DREG , NUM",{0xEFB00790,0x7FF02F}}, // 111011111xxxxxxxxxxx011110x1xxxx
+{   "vqshl.s64 QREG , QREG , NUM",{0xEFB007D0,0x7FE02E}}, // 111011111xxxxxxxxxx0011111x1xxx0
+{  "vqshl.s64 QREG , QREG , QREG",{0xEF300450,0x4EE0AE}}, // 111011110x11xxx0xxx00100x1x1xxx0
+{   "vqshl.s8 DREG , DREG , DREG",{0xEF000410,0x4FF0AF}}, // 111011110x00xxxxxxxx0100x0x1xxxx
+{    "vqshl.s8 DREG , DREG , NUM",{0xEF880710,0x47F02F}}, // 111011111x001xxxxxxx011100x1xxxx
+{    "vqshl.s8 QREG , QREG , NUM",{0xEF880750,0x47E02E}}, // 111011111x001xxxxxx0011101x1xxx0
+{   "vqshl.s8 QREG , QREG , QREG",{0xEF000450,0x4EE0AE}}, // 111011110x00xxx0xxx00100x1x1xxx0
+{  "vqshl.u16 DREG , DREG , DREG",{0xFF100410,0x4FF0AF}}, // 111111110x01xxxxxxxx0100x0x1xxxx
+{   "vqshl.u16 DREG , DREG , NUM",{0xFF900710,0x4FF02F}}, // 111111111x01xxxxxxxx011100x1xxxx
+{   "vqshl.u16 QREG , QREG , NUM",{0xFF900750,0x4FE02E}}, // 111111111x01xxxxxxx0011101x1xxx0
+{  "vqshl.u16 QREG , QREG , QREG",{0xFF100450,0x4EE0AE}}, // 111111110x01xxx0xxx00100x1x1xxx0
+{  "vqshl.u32 DREG , DREG , DREG",{0xFF200410,0x4FF0AF}}, // 111111110x10xxxxxxxx0100x0x1xxxx
+{   "vqshl.u32 DREG , DREG , NUM",{0xFFA00710,0x5FF02F}}, // 111111111x1xxxxxxxxx011100x1xxxx
+{   "vqshl.u32 QREG , QREG , NUM",{0xFFA00750,0x5FE02E}}, // 111111111x1xxxxxxxx0011101x1xxx0
+{  "vqshl.u32 QREG , QREG , QREG",{0xFF200450,0x4EE0AE}}, // 111111110x10xxx0xxx00100x1x1xxx0
+{  "vqshl.u64 DREG , DREG , DREG",{0xFF300410,0x4FF0AF}}, // 111111110x11xxxxxxxx0100x0x1xxxx
+{   "vqshl.u64 DREG , DREG , NUM",{0xFFB00790,0x7FF02F}}, // 111111111xxxxxxxxxxx011110x1xxxx
+{   "vqshl.u64 QREG , QREG , NUM",{0xFFB007D0,0x7FE02E}}, // 111111111xxxxxxxxxx0011111x1xxx0
+{  "vqshl.u64 QREG , QREG , QREG",{0xFF300450,0x4EE0AE}}, // 111111110x11xxx0xxx00100x1x1xxx0
+{   "vqshl.u8 DREG , DREG , DREG",{0xFF000410,0x4FF0AF}}, // 111111110x00xxxxxxxx0100x0x1xxxx
+{    "vqshl.u8 DREG , DREG , NUM",{0xFF880710,0x47F02F}}, // 111111111x001xxxxxxx011100x1xxxx
+{    "vqshl.u8 QREG , QREG , NUM",{0xFF880750,0x47E02E}}, // 111111111x001xxxxxx0011101x1xxx0
+{   "vqshl.u8 QREG , QREG , QREG",{0xFF000450,0x4EE0AE}}, // 111111110x00xxx0xxx00100x1x1xxx0
+{  "vqshlu.s16 DREG , DREG , NUM",{0xFF900610,0x4FF02F}}, // 111111111x01xxxxxxxx011000x1xxxx
+{  "vqshlu.s16 QREG , QREG , NUM",{0xFF900650,0x4FE02E}}, // 111111111x01xxxxxxx0011001x1xxx0
+{  "vqshlu.s32 DREG , DREG , NUM",{0xFFA00610,0x5FF02F}}, // 111111111x1xxxxxxxxx011000x1xxxx
+{  "vqshlu.s32 QREG , QREG , NUM",{0xFFA00650,0x5FE02E}}, // 111111111x1xxxxxxxx0011001x1xxx0
+{  "vqshlu.s64 DREG , DREG , NUM",{0xFF800690,0x7FF02F}}, // 111111111xxxxxxxxxxx011010x1xxxx
+{  "vqshlu.s64 QREG , QREG , NUM",{0xFF8006D0,0x7FE02E}}, // 111111111xxxxxxxxxx0011011x1xxx0
+{   "vqshlu.s8 DREG , DREG , NUM",{0xFF880610,0x47F02F}}, // 111111111x001xxxxxxx011000x1xxxx
+{   "vqshlu.s8 QREG , QREG , NUM",{0xFF880650,0x47E02E}}, // 111111111x001xxxxxx0011001x1xxx0
+{  "vqshrn.s16 DREG , QREG , NUM",{0xEF880910,0x47F02E}}, // 111011111x001xxxxxxx100100x1xxx0
+{  "vqshrn.s32 DREG , QREG , NUM",{0xEF900910,0x4FF02E}}, // 111011111x01xxxxxxxx100100x1xxx0
+{  "vqshrn.s64 DREG , QREG , NUM",{0xEFA00910,0x5FF02E}}, // 111011111x1xxxxxxxxx100100x1xxx0
+{  "vqshrn.u16 DREG , QREG , NUM",{0xFF880910,0x47F02E}}, // 111111111x001xxxxxxx100100x1xxx0
+{  "vqshrn.u32 DREG , QREG , NUM",{0xFF900910,0x4FF02E}}, // 111111111x01xxxxxxxx100100x1xxx0
+{  "vqshrn.u64 DREG , QREG , NUM",{0xFFA00910,0x5FF02E}}, // 111111111x1xxxxxxxxx100100x1xxx0
+{ "vqshrun.s16 DREG , QREG , NUM",{0xFF880810,0x47F02E}}, // 111111111x001xxxxxxx100000x1xxx0
+{ "vqshrun.s32 DREG , QREG , NUM",{0xFF900810,0x4FF02E}}, // 111111111x01xxxxxxxx100000x1xxx0
+{ "vqshrun.s64 DREG , QREG , NUM",{0xFFA00810,0x5FF02E}}, // 111111111x1xxxxxxxxx100000x1xxx0
+{  "vqsub.s16 DREG , DREG , DREG",{0xEF100210,0x4FF0AF}}, // 111011110x01xxxxxxxx0010x0x1xxxx
+{  "vqsub.s16 QREG , QREG , QREG",{0xEF100250,0x4EE0AE}}, // 111011110x01xxx0xxx00010x1x1xxx0
+{  "vqsub.s32 DREG , DREG , DREG",{0xEF200210,0x4FF0AF}}, // 111011110x10xxxxxxxx0010x0x1xxxx
+{  "vqsub.s32 QREG , QREG , QREG",{0xEF200250,0x4EE0AE}}, // 111011110x10xxx0xxx00010x1x1xxx0
+{  "vqsub.s64 DREG , DREG , DREG",{0xEF300210,0x4FF0AF}}, // 111011110x11xxxxxxxx0010x0x1xxxx
+{  "vqsub.s64 QREG , QREG , QREG",{0xEF300250,0x4EE0AE}}, // 111011110x11xxx0xxx00010x1x1xxx0
+{   "vqsub.s8 DREG , DREG , DREG",{0xEF000210,0x4FF0AF}}, // 111011110x00xxxxxxxx0010x0x1xxxx
+{   "vqsub.s8 QREG , QREG , QREG",{0xEF000250,0x4EE0AE}}, // 111011110x00xxx0xxx00010x1x1xxx0
+{  "vqsub.u16 DREG , DREG , DREG",{0xFF100210,0x4FF0AF}}, // 111111110x01xxxxxxxx0010x0x1xxxx
+{  "vqsub.u16 QREG , QREG , QREG",{0xFF100250,0x4EE0AE}}, // 111111110x01xxx0xxx00010x1x1xxx0
+{  "vqsub.u32 DREG , DREG , DREG",{0xFF200210,0x4FF0AF}}, // 111111110x10xxxxxxxx0010x0x1xxxx
+{  "vqsub.u32 QREG , QREG , QREG",{0xFF200250,0x4EE0AE}}, // 111111110x10xxx0xxx00010x1x1xxx0
+{  "vqsub.u64 DREG , DREG , DREG",{0xFF300210,0x4FF0AF}}, // 111111110x11xxxxxxxx0010x0x1xxxx
+{  "vqsub.u64 QREG , QREG , QREG",{0xFF300250,0x4EE0AE}}, // 111111110x11xxx0xxx00010x1x1xxx0
+{   "vqsub.u8 DREG , DREG , DREG",{0xFF000210,0x4FF0AF}}, // 111111110x00xxxxxxxx0010x0x1xxxx
+{   "vqsub.u8 QREG , QREG , QREG",{0xFF000250,0x4EE0AE}}, // 111111110x00xxx0xxx00010x1x1xxx0
+{"vraddhn.i16 DREG , QREG , QREG",{0xFF800400,0x4EF0AE}}, // 111111111x00xxx0xxxx0100x0x0xxx0
+{"vraddhn.i32 DREG , QREG , QREG",{0xFF900400,0x4EF0AE}}, // 111111111x01xxx0xxxx0100x0x0xxx0
+{"vraddhn.i64 DREG , QREG , QREG",{0xFFA00400,0x4EF0AE}}, // 111111111x10xxx0xxxx0100x0x0xxx0
+{        "vrecpe.f32 DREG , DREG",{0xFFBB0500,0x40F02F}}, // 111111111x111011xxxx010100x0xxxx
+{        "vrecpe.f32 QREG , QREG",{0xFFBB0540,0x40E02E}}, // 111111111x111011xxx0010101x0xxx0
+{        "vrecpe.u32 DREG , DREG",{0xFFBB0400,0x40F02F}}, // 111111111x111011xxxx010000x0xxxx
+{        "vrecpe.u32 QREG , QREG",{0xFFBB0440,0x40E02E}}, // 111111111x111011xxx0010001x0xxx0
+{ "vrecps.f32 DREG , DREG , DREG",{0xEF000F10,0x4FF0AF}}, // 111011110x00xxxxxxxx1111x0x1xxxx
+{ "vrecps.f32 QREG , QREG , QREG",{0xEF000F50,0x4EE0AE}}, // 111011110x00xxx0xxx01111x1x1xxx0
+{          "vrev16.8 DREG , DREG",{0xFFB00100,0x40F02F}}, // 111111111x110000xxxx000100x0xxxx
+{          "vrev16.8 QREG , QREG",{0xFFB00140,0x40E02E}}, // 111111111x110000xxx0000101x0xxx0
+{         "vrev32.16 DREG , DREG",{0xFFB40080,0x40F02F}}, // 111111111x110100xxxx000010x0xxxx
+{         "vrev32.16 QREG , QREG",{0xFFB400C0,0x40E02E}}, // 111111111x110100xxx0000011x0xxx0
+{          "vrev32.8 DREG , DREG",{0xFFB00080,0x40F02F}}, // 111111111x110000xxxx000010x0xxxx
+{          "vrev32.8 QREG , QREG",{0xFFB000C0,0x40E02E}}, // 111111111x110000xxx0000011x0xxx0
+{         "vrev64.16 DREG , DREG",{0xFFB40000,0x40F02F}}, // 111111111x110100xxxx000000x0xxxx
+{         "vrev64.16 QREG , QREG",{0xFFB40040,0x40E02E}}, // 111111111x110100xxx0000001x0xxx0
+{         "vrev64.32 DREG , DREG",{0xFFB80000,0x40F02F}}, // 111111111x111000xxxx000000x0xxxx
+{         "vrev64.32 QREG , QREG",{0xFFB80040,0x40E02E}}, // 111111111x111000xxx0000001x0xxx0
+{          "vrev64.8 DREG , DREG",{0xFFB00000,0x40F02F}}, // 111111111x110000xxxx000000x0xxxx
+{          "vrev64.8 QREG , QREG",{0xFFB00040,0x40E02E}}, // 111111111x110000xxx0000001x0xxx0
+{ "vrhadd.s16 DREG , DREG , DREG",{0xEF100100,0x4FF0AF}}, // 111011110x01xxxxxxxx0001x0x0xxxx
+{ "vrhadd.s16 QREG , QREG , QREG",{0xEF100140,0x4EE0AE}}, // 111011110x01xxx0xxx00001x1x0xxx0
+{ "vrhadd.s32 DREG , DREG , DREG",{0xEF200100,0x4FF0AF}}, // 111011110x10xxxxxxxx0001x0x0xxxx
+{ "vrhadd.s32 QREG , QREG , QREG",{0xEF200140,0x4EE0AE}}, // 111011110x10xxx0xxx00001x1x0xxx0
+{  "vrhadd.s8 DREG , DREG , DREG",{0xEF000100,0x4FF0AF}}, // 111011110x00xxxxxxxx0001x0x0xxxx
+{  "vrhadd.s8 QREG , QREG , QREG",{0xEF000140,0x4EE0AE}}, // 111011110x00xxx0xxx00001x1x0xxx0
+{ "vrhadd.u16 DREG , DREG , DREG",{0xFF100100,0x4FF0AF}}, // 111111110x01xxxxxxxx0001x0x0xxxx
+{ "vrhadd.u16 QREG , QREG , QREG",{0xFF100140,0x4EE0AE}}, // 111111110x01xxx0xxx00001x1x0xxx0
+{ "vrhadd.u32 DREG , DREG , DREG",{0xFF200100,0x4FF0AF}}, // 111111110x10xxxxxxxx0001x0x0xxxx
+{ "vrhadd.u32 QREG , QREG , QREG",{0xFF200140,0x4EE0AE}}, // 111111110x10xxx0xxx00001x1x0xxx0
+{  "vrhadd.u8 DREG , DREG , DREG",{0xFF000100,0x4FF0AF}}, // 111111110x00xxxxxxxx0001x0x0xxxx
+{  "vrhadd.u8 QREG , QREG , QREG",{0xFF000140,0x4EE0AE}}, // 111111110x00xxx0xxx00001x1x0xxx0
+{        "vrinta.f32 SREG , SREG",{0xFEB80A40,0x40F02F}}, // 111111101x111000xxxx101001x0xxxx
+{        "vrinta.f64 DREG , DREG",{0xFEB80B40,0x40F02F}}, // 111111101x111000xxxx101101x0xxxx
+{        "vrintm.f32 SREG , SREG",{0xFEBB0A40,0x40F02F}}, // 111111101x111011xxxx101001x0xxxx
+{        "vrintm.f64 DREG , DREG",{0xFEBB0B40,0x40F02F}}, // 111111101x111011xxxx101101x0xxxx
+{        "vrintn.f32 SREG , SREG",{0xFEB90A40,0x40F02F}}, // 111111101x111001xxxx101001x0xxxx
+{        "vrintn.f64 DREG , DREG",{0xFEB90B40,0x40F02F}}, // 111111101x111001xxxx101101x0xxxx
+{        "vrintp.f32 SREG , SREG",{0xFEBA0A40,0x40F02F}}, // 111111101x111010xxxx101001x0xxxx
+{        "vrintp.f64 DREG , DREG",{0xFEBA0B40,0x40F02F}}, // 111111101x111010xxxx101101x0xxxx
+{        "vrintr.f32 SREG , SREG",{0xEEB60A40,0x40F02F}}, // 111011101x110110xxxx101001x0xxxx
+{        "vrintr.f64 DREG , DREG",{0xEEB60B40,0x40F02F}}, // 111011101x110110xxxx101101x0xxxx
+{        "vrintx.f32 SREG , SREG",{0xEEB70A40,0x40F02F}}, // 111011101x110111xxxx101001x0xxxx
+{        "vrintx.f64 DREG , DREG",{0xEEB70B40,0x40F02F}}, // 111011101x110111xxxx101101x0xxxx
+{        "vrintz.f32 SREG , SREG",{0xEEB60AC0,0x40F02F}}, // 111011101x110110xxxx101011x0xxxx
+{        "vrintz.f64 DREG , DREG",{0xEEB60BC0,0x40F02F}}, // 111011101x110110xxxx101111x0xxxx
+{  "vrshl.s16 DREG , DREG , DREG",{0xEF100500,0x4FF0AF}}, // 111011110x01xxxxxxxx0101x0x0xxxx
+{  "vrshl.s16 QREG , QREG , QREG",{0xEF100540,0x4EE0AE}}, // 111011110x01xxx0xxx00101x1x0xxx0
+{  "vrshl.s32 DREG , DREG , DREG",{0xEF200500,0x4FF0AF}}, // 111011110x10xxxxxxxx0101x0x0xxxx
+{  "vrshl.s32 QREG , QREG , QREG",{0xEF200540,0x4EE0AE}}, // 111011110x10xxx0xxx00101x1x0xxx0
+{  "vrshl.s64 DREG , DREG , DREG",{0xEF300500,0x4FF0AF}}, // 111011110x11xxxxxxxx0101x0x0xxxx
+{  "vrshl.s64 QREG , QREG , QREG",{0xEF300540,0x4EE0AE}}, // 111011110x11xxx0xxx00101x1x0xxx0
+{   "vrshl.s8 DREG , DREG , DREG",{0xEF000500,0x4FF0AF}}, // 111011110x00xxxxxxxx0101x0x0xxxx
+{   "vrshl.s8 QREG , QREG , QREG",{0xEF000540,0x4EE0AE}}, // 111011110x00xxx0xxx00101x1x0xxx0
+{  "vrshl.u16 DREG , DREG , DREG",{0xFF100500,0x4FF0AF}}, // 111111110x01xxxxxxxx0101x0x0xxxx
+{  "vrshl.u16 QREG , QREG , QREG",{0xFF100540,0x4EE0AE}}, // 111111110x01xxx0xxx00101x1x0xxx0
+{  "vrshl.u32 DREG , DREG , DREG",{0xFF200500,0x4FF0AF}}, // 111111110x10xxxxxxxx0101x0x0xxxx
+{  "vrshl.u32 QREG , QREG , QREG",{0xFF200540,0x4EE0AE}}, // 111111110x10xxx0xxx00101x1x0xxx0
+{  "vrshl.u64 DREG , DREG , DREG",{0xFF300500,0x4FF0AF}}, // 111111110x11xxxxxxxx0101x0x0xxxx
+{  "vrshl.u64 QREG , QREG , QREG",{0xFF300540,0x4EE0AE}}, // 111111110x11xxx0xxx00101x1x0xxx0
+{   "vrshl.u8 DREG , DREG , DREG",{0xFF000500,0x4FF0AF}}, // 111111110x00xxxxxxxx0101x0x0xxxx
+{   "vrshl.u8 QREG , QREG , QREG",{0xFF000540,0x4EE0AE}}, // 111111110x00xxx0xxx00101x1x0xxx0
+{   "vrshr.s16 DREG , DREG , NUM",{0xEF900210,0x4FF02F}}, // 111011111x01xxxxxxxx001000x1xxxx
+{   "vrshr.s16 QREG , QREG , NUM",{0xEF900250,0x4FE02E}}, // 111011111x01xxxxxxx0001001x1xxx0
+{   "vrshr.s32 DREG , DREG , NUM",{0xEFA00210,0x5FF02F}}, // 111011111x1xxxxxxxxx001000x1xxxx
+{   "vrshr.s32 QREG , QREG , NUM",{0xEFA00250,0x5FE02E}}, // 111011111x1xxxxxxxx0001001x1xxx0
+{   "vrshr.s64 DREG , DREG , NUM",{0xEF800290,0x7FF02F}}, // 111011111xxxxxxxxxxx001010x1xxxx
+{   "vrshr.s64 QREG , QREG , NUM",{0xEF8002D0,0x7FE02E}}, // 111011111xxxxxxxxxx0001011x1xxx0
+{    "vrshr.s8 DREG , DREG , NUM",{0xEF880210,0x47F02F}}, // 111011111x001xxxxxxx001000x1xxxx
+{    "vrshr.s8 QREG , QREG , NUM",{0xEF880250,0x47E02E}}, // 111011111x001xxxxxx0001001x1xxx0
+{   "vrshr.u16 DREG , DREG , NUM",{0xFF900210,0x4FF02F}}, // 111111111x01xxxxxxxx001000x1xxxx
+{   "vrshr.u16 QREG , QREG , NUM",{0xFF900250,0x4FE02E}}, // 111111111x01xxxxxxx0001001x1xxx0
+{   "vrshr.u32 DREG , DREG , NUM",{0xFFA00210,0x5FF02F}}, // 111111111x1xxxxxxxxx001000x1xxxx
+{   "vrshr.u32 QREG , QREG , NUM",{0xFFA00250,0x5FE02E}}, // 111111111x1xxxxxxxx0001001x1xxx0
+{   "vrshr.u64 DREG , DREG , NUM",{0xFF800290,0x7FF02F}}, // 111111111xxxxxxxxxxx001010x1xxxx
+{   "vrshr.u64 QREG , QREG , NUM",{0xFF8002D0,0x7FE02E}}, // 111111111xxxxxxxxxx0001011x1xxx0
+{    "vrshr.u8 DREG , DREG , NUM",{0xFF880210,0x47F02F}}, // 111111111x001xxxxxxx001000x1xxxx
+{    "vrshr.u8 QREG , QREG , NUM",{0xFF880250,0x47E02E}}, // 111111111x001xxxxxx0001001x1xxx0
+{  "vrshrn.i16 DREG , QREG , NUM",{0xEF880850,0x47F02E}}, // 111011111x001xxxxxxx100001x1xxx0
+{  "vrshrn.i32 DREG , QREG , NUM",{0xEF900850,0x4FF02E}}, // 111011111x01xxxxxxxx100001x1xxx0
+{  "vrshrn.i64 DREG , QREG , NUM",{0xEFA00850,0x5FF02E}}, // 111011111x1xxxxxxxxx100001x1xxx0
+{       "vrsqrte.f32 DREG , DREG",{0xFFBB0580,0x40F02F}}, // 111111111x111011xxxx010110x0xxxx
+{       "vrsqrte.f32 QREG , QREG",{0xFFBB05C0,0x40E02E}}, // 111111111x111011xxx0010111x0xxx0
+{       "vrsqrte.u32 DREG , DREG",{0xFFBB0480,0x40F02F}}, // 111111111x111011xxxx010010x0xxxx
+{       "vrsqrte.u32 QREG , QREG",{0xFFBB04C0,0x40E02E}}, // 111111111x111011xxx0010011x0xxx0
+{"vrsqrts.f32 DREG , DREG , DREG",{0xEF200F10,0x4FF0AF}}, // 111011110x10xxxxxxxx1111x0x1xxxx
+{"vrsqrts.f32 QREG , QREG , QREG",{0xEF200F50,0x4EE0AE}}, // 111011110x10xxx0xxx01111x1x1xxx0
+{   "vrsra.s16 DREG , DREG , NUM",{0xEF900310,0x4FF02F}}, // 111011111x01xxxxxxxx001100x1xxxx
+{   "vrsra.s16 QREG , QREG , NUM",{0xEF900350,0x4FE02E}}, // 111011111x01xxxxxxx0001101x1xxx0
+{   "vrsra.s32 DREG , DREG , NUM",{0xEFA00310,0x5FF02F}}, // 111011111x1xxxxxxxxx001100x1xxxx
+{   "vrsra.s32 QREG , QREG , NUM",{0xEFA00350,0x5FE02E}}, // 111011111x1xxxxxxxx0001101x1xxx0
+{   "vrsra.s64 DREG , DREG , NUM",{0xEF800390,0x7FF02F}}, // 111011111xxxxxxxxxxx001110x1xxxx
+{   "vrsra.s64 QREG , QREG , NUM",{0xEF8003D0,0x7FE02E}}, // 111011111xxxxxxxxxx0001111x1xxx0
+{    "vrsra.s8 DREG , DREG , NUM",{0xEF880310,0x47F02F}}, // 111011111x001xxxxxxx001100x1xxxx
+{    "vrsra.s8 QREG , QREG , NUM",{0xEF880350,0x47E02E}}, // 111011111x001xxxxxx0001101x1xxx0
+{   "vrsra.u16 DREG , DREG , NUM",{0xFF900310,0x4FF02F}}, // 111111111x01xxxxxxxx001100x1xxxx
+{   "vrsra.u16 QREG , QREG , NUM",{0xFF900350,0x4FE02E}}, // 111111111x01xxxxxxx0001101x1xxx0
+{   "vrsra.u32 DREG , DREG , NUM",{0xFFA00310,0x5FF02F}}, // 111111111x1xxxxxxxxx001100x1xxxx
+{   "vrsra.u32 QREG , QREG , NUM",{0xFFA00350,0x5FE02E}}, // 111111111x1xxxxxxxx0001101x1xxx0
+{   "vrsra.u64 DREG , DREG , NUM",{0xFF800390,0x7FF02F}}, // 111111111xxxxxxxxxxx001110x1xxxx
+{   "vrsra.u64 QREG , QREG , NUM",{0xFF8003D0,0x7FE02E}}, // 111111111xxxxxxxxxx0001111x1xxx0
+{    "vrsra.u8 DREG , DREG , NUM",{0xFF880310,0x47F02F}}, // 111111111x001xxxxxxx001100x1xxxx
+{    "vrsra.u8 QREG , QREG , NUM",{0xFF880350,0x47E02E}}, // 111111111x001xxxxxx0001101x1xxx0
+{"vrsubhn.i16 DREG , QREG , QREG",{0xFF800600,0x4EF0AE}}, // 111111111x00xxx0xxxx0110x0x0xxx0
+{"vrsubhn.i32 DREG , QREG , QREG",{0xFF900600,0x4EF0AE}}, // 111111111x01xxx0xxxx0110x0x0xxx0
+{"vrsubhn.i64 DREG , QREG , QREG",{0xFFA00600,0x4EF0AE}}, // 111111111x10xxx0xxxx0110x0x0xxx0
+{ "vseleq.f32 SREG , SREG , SREG",{0xFE000A00,0x4FF0AF}}, // 111111100x00xxxxxxxx1010x0x0xxxx
+{ "vseleq.f64 DREG , DREG , DREG",{0xFE000B00,0x4FF0AF}}, // 111111100x00xxxxxxxx1011x0x0xxxx
+{ "vselge.f32 SREG , SREG , SREG",{0xFE200A00,0x4FF0AF}}, // 111111100x10xxxxxxxx1010x0x0xxxx
+{ "vselge.f64 DREG , DREG , DREG",{0xFE200B00,0x4FF0AF}}, // 111111100x10xxxxxxxx1011x0x0xxxx
+{ "vselgt.f32 SREG , SREG , SREG",{0xFE300A00,0x4FF0AF}}, // 111111100x11xxxxxxxx1010x0x0xxxx
+{ "vselgt.f64 DREG , DREG , DREG",{0xFE300B00,0x4FF0AF}}, // 111111100x11xxxxxxxx1011x0x0xxxx
+{ "vselvs.f32 SREG , SREG , SREG",{0xFE100A00,0x4FF0AF}}, // 111111100x01xxxxxxxx1010x0x0xxxx
+{ "vselvs.f64 DREG , DREG , DREG",{0xFE100B00,0x4FF0AF}}, // 111111100x01xxxxxxxx1011x0x0xxxx
+{    "vshl.i16 DREG , DREG , NUM",{0xEF900510,0x4FF02F}}, // 111011111x01xxxxxxxx010100x1xxxx
+{    "vshl.i16 QREG , QREG , NUM",{0xEF900550,0x4FE02E}}, // 111011111x01xxxxxxx0010101x1xxx0
+{    "vshl.i32 DREG , DREG , NUM",{0xEFA00510,0x5FF02F}}, // 111011111x1xxxxxxxxx010100x1xxxx
+{    "vshl.i32 QREG , QREG , NUM",{0xEFA00550,0x5FE02E}}, // 111011111x1xxxxxxxx0010101x1xxx0
+{    "vshl.i64 DREG , DREG , NUM",{0xEF800590,0x7FF02F}}, // 111011111xxxxxxxxxxx010110x1xxxx
+{    "vshl.i64 QREG , QREG , NUM",{0xEF8005D0,0x7FE02E}}, // 111011111xxxxxxxxxx0010111x1xxx0
+{     "vshl.i8 DREG , DREG , NUM",{0xEF880510,0x47F02F}}, // 111011111x001xxxxxxx010100x1xxxx
+{     "vshl.i8 QREG , QREG , NUM",{0xEF880550,0x47E02E}}, // 111011111x001xxxxxx0010101x1xxx0
+{   "vshl.s16 DREG , DREG , DREG",{0xEF100400,0x4FF0AF}}, // 111011110x01xxxxxxxx0100x0x0xxxx
+{   "vshl.s16 QREG , QREG , QREG",{0xEF100440,0x4EE0AE}}, // 111011110x01xxx0xxx00100x1x0xxx0
+{   "vshl.s32 DREG , DREG , DREG",{0xEF200400,0x4FF0AF}}, // 111011110x10xxxxxxxx0100x0x0xxxx
+{   "vshl.s32 QREG , QREG , QREG",{0xEF200440,0x4EE0AE}}, // 111011110x10xxx0xxx00100x1x0xxx0
+{   "vshl.s64 DREG , DREG , DREG",{0xEF300400,0x4FF0AF}}, // 111011110x11xxxxxxxx0100x0x0xxxx
+{   "vshl.s64 QREG , QREG , QREG",{0xEF300440,0x4EE0AE}}, // 111011110x11xxx0xxx00100x1x0xxx0
+{    "vshl.s8 DREG , DREG , DREG",{0xEF000400,0x4FF0AF}}, // 111011110x00xxxxxxxx0100x0x0xxxx
+{    "vshl.s8 QREG , QREG , QREG",{0xEF000440,0x4EE0AE}}, // 111011110x00xxx0xxx00100x1x0xxx0
+{   "vshl.u16 DREG , DREG , DREG",{0xFF100400,0x4FF0AF}}, // 111111110x01xxxxxxxx0100x0x0xxxx
+{   "vshl.u16 QREG , QREG , QREG",{0xFF100440,0x4EE0AE}}, // 111111110x01xxx0xxx00100x1x0xxx0
+{   "vshl.u32 DREG , DREG , DREG",{0xFF200400,0x4FF0AF}}, // 111111110x10xxxxxxxx0100x0x0xxxx
+{   "vshl.u32 QREG , QREG , QREG",{0xFF200440,0x4EE0AE}}, // 111111110x10xxx0xxx00100x1x0xxx0
+{   "vshl.u64 DREG , DREG , DREG",{0xFF300400,0x4FF0AF}}, // 111111110x11xxxxxxxx0100x0x0xxxx
+{   "vshl.u64 QREG , QREG , QREG",{0xFF300440,0x4EE0AE}}, // 111111110x11xxx0xxx00100x1x0xxx0
+{    "vshl.u8 DREG , DREG , DREG",{0xFF000400,0x4FF0AF}}, // 111111110x00xxxxxxxx0100x0x0xxxx
+{    "vshl.u8 QREG , QREG , QREG",{0xFF000440,0x4EE0AE}}, // 111111110x00xxx0xxx00100x1x0xxx0
+{   "vshll.i16 QREG , DREG , NUM",{0xFFB60300,0x40E02F}}, // 111111111x110110xxx0001100x0xxxx
+{   "vshll.i32 QREG , DREG , NUM",{0xFFBA0300,0x40E02F}}, // 111111111x111010xxx0001100x0xxxx
+{    "vshll.i8 QREG , DREG , NUM",{0xFFB20300,0x40E02F}}, // 111111111x110010xxx0001100x0xxxx
+{   "vshll.s16 QREG , DREG , NUM",{0xEF910A10,0x4FE02F}}, // 111011111x01xxxxxxx0101000x1xxxx
+{   "vshll.s32 QREG , DREG , NUM",{0xEFA10A10,0x5FE02F}}, // 111011111x1xxxxxxxx0101000x1xxxx
+{    "vshll.s8 QREG , DREG , NUM",{0xEF890A10,0x47E02F}}, // 111011111x001xxxxxx0101000x1xxxx
+{   "vshll.u16 QREG , DREG , NUM",{0xFF910A10,0x4FE02F}}, // 111111111x01xxxxxxx0101000x1xxxx
+{   "vshll.u32 QREG , DREG , NUM",{0xFFA10A10,0x5FE02F}}, // 111111111x1xxxxxxxx0101000x1xxxx
+{    "vshll.u8 QREG , DREG , NUM",{0xFF890A10,0x47E02F}}, // 111111111x001xxxxxx0101000x1xxxx
+{    "vshr.s16 DREG , DREG , NUM",{0xEF900010,0x4FF02F}}, // 111011111x01xxxxxxxx000000x1xxxx
+{    "vshr.s16 QREG , QREG , NUM",{0xEF900050,0x4FE02E}}, // 111011111x01xxxxxxx0000001x1xxx0
+{    "vshr.s32 DREG , DREG , NUM",{0xEFA00010,0x5FF02F}}, // 111011111x1xxxxxxxxx000000x1xxxx
+{    "vshr.s32 QREG , QREG , NUM",{0xEFA00050,0x5FE02E}}, // 111011111x1xxxxxxxx0000001x1xxx0
+{    "vshr.s64 DREG , DREG , NUM",{0xEF800090,0x7FF02F}}, // 111011111xxxxxxxxxxx000010x1xxxx
+{    "vshr.s64 QREG , QREG , NUM",{0xEF8000D0,0x7FE02E}}, // 111011111xxxxxxxxxx0000011x1xxx0
+{     "vshr.s8 DREG , DREG , NUM",{0xEF880010,0x47F02F}}, // 111011111x001xxxxxxx000000x1xxxx
+{     "vshr.s8 QREG , QREG , NUM",{0xEF880050,0x47E02E}}, // 111011111x001xxxxxx0000001x1xxx0
+{    "vshr.u16 DREG , DREG , NUM",{0xFF900010,0x4FF02F}}, // 111111111x01xxxxxxxx000000x1xxxx
+{    "vshr.u16 QREG , QREG , NUM",{0xFF900050,0x4FE02E}}, // 111111111x01xxxxxxx0000001x1xxx0
+{    "vshr.u32 DREG , DREG , NUM",{0xFFA00010,0x5FF02F}}, // 111111111x1xxxxxxxxx000000x1xxxx
+{    "vshr.u32 QREG , QREG , NUM",{0xFFA00050,0x5FE02E}}, // 111111111x1xxxxxxxx0000001x1xxx0
+{    "vshr.u64 DREG , DREG , NUM",{0xFF800090,0x7FF02F}}, // 111111111xxxxxxxxxxx000010x1xxxx
+{    "vshr.u64 QREG , QREG , NUM",{0xFF8000D0,0x7FE02E}}, // 111111111xxxxxxxxxx0000011x1xxx0
+{     "vshr.u8 DREG , DREG , NUM",{0xFF880010,0x47F02F}}, // 111111111x001xxxxxxx000000x1xxxx
+{     "vshr.u8 QREG , QREG , NUM",{0xFF880050,0x47E02E}}, // 111111111x001xxxxxx0000001x1xxx0
+{   "vshrn.i16 DREG , QREG , NUM",{0xEF880810,0x47F02E}}, // 111011111x001xxxxxxx100000x1xxx0
+{   "vshrn.i32 DREG , QREG , NUM",{0xEF900810,0x4FF02E}}, // 111011111x01xxxxxxxx100000x1xxx0
+{   "vshrn.i64 DREG , QREG , NUM",{0xEFA00810,0x5FF02E}}, // 111011111x1xxxxxxxxx100000x1xxx0
+{     "vsli.16 DREG , DREG , NUM",{0xFF900510,0x4FF02F}}, // 111111111x01xxxxxxxx010100x1xxxx
+{     "vsli.16 QREG , QREG , NUM",{0xFF900550,0x4FE02E}}, // 111111111x01xxxxxxx0010101x1xxx0
+{     "vsli.32 DREG , DREG , NUM",{0xFFA00510,0x5FF02F}}, // 111111111x1xxxxxxxxx010100x1xxxx
+{     "vsli.32 QREG , QREG , NUM",{0xFFA00550,0x5FE02E}}, // 111111111x1xxxxxxxx0010101x1xxx0
+{     "vsli.64 DREG , DREG , NUM",{0xFF800590,0x7FF02F}}, // 111111111xxxxxxxxxxx010110x1xxxx
+{     "vsli.64 QREG , QREG , NUM",{0xFF8005D0,0x7FE02E}}, // 111111111xxxxxxxxxx0010111x1xxx0
+{      "vsli.8 DREG , DREG , NUM",{0xFF880510,0x47F02F}}, // 111111111x001xxxxxxx010100x1xxxx
+{      "vsli.8 QREG , QREG , NUM",{0xFF880550,0x47E02E}}, // 111111111x001xxxxxx0010101x1xxx0
+{         "vsqrt.f32 SREG , SREG",{0xEEB10AC0,0x40F02F}}, // 111011101x110001xxxx101011x0xxxx
+{         "vsqrt.f64 DREG , DREG",{0xEEB10BC0,0x40F02F}}, // 111011101x110001xxxx101111x0xxxx
+{    "vsra.s16 DREG , DREG , NUM",{0xEF900110,0x4FF02F}}, // 111011111x01xxxxxxxx000100x1xxxx
+{    "vsra.s16 QREG , QREG , NUM",{0xEF900150,0x4FE02E}}, // 111011111x01xxxxxxx0000101x1xxx0
+{    "vsra.s32 DREG , DREG , NUM",{0xEFA00110,0x5FF02F}}, // 111011111x1xxxxxxxxx000100x1xxxx
+{    "vsra.s32 QREG , QREG , NUM",{0xEFA00150,0x5FE02E}}, // 111011111x1xxxxxxxx0000101x1xxx0
+{    "vsra.s64 DREG , DREG , NUM",{0xEF800190,0x7FF02F}}, // 111011111xxxxxxxxxxx000110x1xxxx
+{    "vsra.s64 QREG , QREG , NUM",{0xEF8001D0,0x7FE02E}}, // 111011111xxxxxxxxxx0000111x1xxx0
+{     "vsra.s8 DREG , DREG , NUM",{0xEF880110,0x47F02F}}, // 111011111x001xxxxxxx000100x1xxxx
+{     "vsra.s8 QREG , QREG , NUM",{0xEF880150,0x47E02E}}, // 111011111x001xxxxxx0000101x1xxx0
+{    "vsra.u16 DREG , DREG , NUM",{0xFF900110,0x4FF02F}}, // 111111111x01xxxxxxxx000100x1xxxx
+{    "vsra.u16 QREG , QREG , NUM",{0xFF900150,0x4FE02E}}, // 111111111x01xxxxxxx0000101x1xxx0
+{    "vsra.u32 DREG , DREG , NUM",{0xFFA00110,0x5FF02F}}, // 111111111x1xxxxxxxxx000100x1xxxx
+{    "vsra.u32 QREG , QREG , NUM",{0xFFA00150,0x5FE02E}}, // 111111111x1xxxxxxxx0000101x1xxx0
+{    "vsra.u64 DREG , DREG , NUM",{0xFF800190,0x7FF02F}}, // 111111111xxxxxxxxxxx000110x1xxxx
+{    "vsra.u64 QREG , QREG , NUM",{0xFF8001D0,0x7FE02E}}, // 111111111xxxxxxxxxx0000111x1xxx0
+{     "vsra.u8 DREG , DREG , NUM",{0xFF880110,0x47F02F}}, // 111111111x001xxxxxxx000100x1xxxx
+{     "vsra.u8 QREG , QREG , NUM",{0xFF880150,0x47E02E}}, // 111111111x001xxxxxx0000101x1xxx0
+{     "vsri.16 DREG , DREG , NUM",{0xFF900410,0x4FF02F}}, // 111111111x01xxxxxxxx010000x1xxxx
+{     "vsri.16 QREG , QREG , NUM",{0xFF900450,0x4FE02E}}, // 111111111x01xxxxxxx0010001x1xxx0
+{     "vsri.32 DREG , DREG , NUM",{0xFFA00410,0x5FF02F}}, // 111111111x1xxxxxxxxx010000x1xxxx
+{     "vsri.32 QREG , QREG , NUM",{0xFFA00450,0x5FE02E}}, // 111111111x1xxxxxxxx0010001x1xxx0
+{     "vsri.64 DREG , DREG , NUM",{0xFF800490,0x7FF02F}}, // 111111111xxxxxxxxxxx010010x1xxxx
+{     "vsri.64 QREG , QREG , NUM",{0xFF8004D0,0x7FE02E}}, // 111111111xxxxxxxxxx0010011x1xxx0
+{      "vsri.8 DREG , DREG , NUM",{0xFF880410,0x47F02F}}, // 111111111x001xxxxxxx010000x1xxxx
+{      "vsri.8 QREG , QREG , NUM",{0xFF880450,0x47E02E}}, // 111111111x001xxxxxx0010001x1xxx0
+{ "vst1.16 RLIST , [ GPR : NUM ]",{0xF980041F,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx11111
+{"vst1.16 RLIST , [ GPR : NUM ] !",{0xF980041D,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx11101
+{"vst1.16 RLIST , [ GPR : NUM ] , GPR",{0xF9800410,0xCFFFEF}}, // 11111001xx00xxxxxxxxxxxxxxx1xxxx
+{       "vst1.16 RLIST , [ GPR ]",{0xF980040F,0xCFFFC0}}, // 11111001xx00xxxxxxxxxxxxxx001111
+{     "vst1.16 RLIST , [ GPR ] !",{0xF980040D,0xCFFFC0}}, // 11111001xx00xxxxxxxxxxxxxx001101
+{ "vst1.16 RLIST , [ GPR ] , GPR",{0xF9800400,0xCFFFCF}}, // 11111001xx00xxxxxxxxxxxxxx00xxxx
+{"vst1.32 RLIST , [ GPR : NUM ] !",{0xF980083D,0xCFFAB0}}, // 11111001xx00xxxxxxxxx0x0x0xx1101
+{"vst1.32 RLIST , [ GPR : NUM ] , GPR",{0xF9800830,0xCFFABF}}, // 11111001xx00xxxxxxxxx0x0x0xxxxxx
+{       "vst1.32 RLIST , [ GPR ]",{0xF980080F,0xCFFE80}}, // 11111001xx00xxxxxxxxxxx0x0001111
+{     "vst1.32 RLIST , [ GPR ] !",{0xF980080D,0xCFFE80}}, // 11111001xx00xxxxxxxxxxx0x0001101
+{ "vst1.32 RLIST , [ GPR ] , GPR",{0xF9800800,0xCFFE8F}}, // 11111001xx00xxxxxxxxxxx0x000xxxx
+{ "vst1.64 RLIST , [ GPR : NUM ]",{0xF90002DF,0x4FFD30}}, // 111110010x00xxxxxxxxxx1x11xx1111
+{"vst1.64 RLIST , [ GPR : NUM ] !",{0xF90002DD,0x4FFD30}}, // 111110010x00xxxxxxxxxx1x11xx1101
+{"vst1.64 RLIST , [ GPR : NUM ] , GPR",{0xF90002D0,0x4FFD3F}}, // 111110010x00xxxxxxxxxx1x11xxxxxx
+{       "vst1.64 RLIST , [ GPR ]",{0xF90002CF,0x4FFD00}}, // 111110010x00xxxxxxxxxx1x11001111
+{     "vst1.64 RLIST , [ GPR ] !",{0xF90002CD,0x4FFD00}}, // 111110010x00xxxxxxxxxx1x11001101
+{ "vst1.64 RLIST , [ GPR ] , GPR",{0xF90002C0,0x4FFD0F}}, // 111110010x00xxxxxxxxxx1x1100xxxx
+{"vst1.8 RLIST , [ GPR : NUM ] , GPR",{0xF9000210,0x4FFD3F}}, // 111110010x00xxxxxxxxxx1x00xxxxxx
+{        "vst1.8 RLIST , [ GPR ]",{0xF980000F,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx01111
+{      "vst1.8 RLIST , [ GPR ] !",{0xF980000D,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx01101
+{  "vst1.8 RLIST , [ GPR ] , GPR",{0xF9800000,0xCFFFEF}}, // 11111001xx00xxxxxxxxxxxxxxx0xxxx
+{ "vst2.16 RLIST , [ GPR : NUM ]",{0xF980051F,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx11111
+{"vst2.16 RLIST , [ GPR : NUM ] !",{0xF980051D,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx11101
+{"vst2.16 RLIST , [ GPR : NUM ] , GPR",{0xF9800510,0xCFFFEF}}, // 11111001xx00xxxxxxxxxxxxxxx1xxxx
+{       "vst2.16 RLIST , [ GPR ]",{0xF980050F,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx01111
+{     "vst2.16 RLIST , [ GPR ] !",{0xF980050D,0xCFFFE0}}, // 11111001xx00xxxxxxxxxxxxxxx01101
+{ "vst2.16 RLIST , [ GPR ] , GPR",{0xF9800500,0xCFFFEF}}, // 11111001xx00xxxxxxxxxxxxxxx0xxxx
+{ "vst2.32 RLIST , [ GPR : NUM ]",{0xF980091F,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1111
+{"vst2.32 RLIST , [ GPR : NUM ] !",{0xF980091D,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1101
+{"vst2.32 RLIST , [ GPR : NUM ] , GPR",{0xF9800910,0xCFFBFF}}, // 11111001xx00xxxxxxxxx0xxxxxxxxxx
+{       "vst2.32 RLIST , [ GPR ]",{0xF980090F,0xCFFBC0}}, // 11111001xx00xxxxxxxxx0xxxx001111
+{     "vst2.32 RLIST , [ GPR ] !",{0xF980090D,0xCFFBC0}}, // 11111001xx00xxxxxxxxx0xxxx001101
+{ "vst2.32 RLIST , [ GPR ] , GPR",{0xF9800900,0xCFFBCF}}, // 11111001xx00xxxxxxxxx0xxxx00xxxx
+{  "vst2.8 RLIST , [ GPR : NUM ]",{0xF980011F,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1111
+{"vst2.8 RLIST , [ GPR : NUM ] !",{0xF980011D,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1101
+{"vst2.8 RLIST , [ GPR : NUM ] , GPR",{0xF9800110,0xCFFBFF}}, // 11111001xx00xxxxxxxxx0xxxxxxxxxx
+{        "vst2.8 RLIST , [ GPR ]",{0xF980010F,0xCFFBE0}}, // 11111001xx00xxxxxxxxx0xxxxx01111
+{      "vst2.8 RLIST , [ GPR ] !",{0xF980010D,0xCFFBE0}}, // 11111001xx00xxxxxxxxx0xxxxx01101
+{  "vst2.8 RLIST , [ GPR ] , GPR",{0xF9800100,0xCFFBEF}}, // 11111001xx00xxxxxxxxx0xxxxx0xxxx
+{"vst3.16 RLIST , [ GPR : NUM ] , GPR",{0xF9000450,0x4FF10F}}, // 111110010x00xxxxxxxx010x0101xxxx
+{       "vst3.16 RLIST , [ GPR ]",{0xF980060F,0xCFF3E0}}, // 11111001xx00xxxxxxxx01xxxxx01111
+{     "vst3.16 RLIST , [ GPR ] !",{0xF980060D,0xCFF3E0}}, // 11111001xx00xxxxxxxx01xxxxx01101
+{ "vst3.16 RLIST , [ GPR ] , GPR",{0xF9800600,0xCFF3EF}}, // 11111001xx00xxxxxxxx01xxxxx0xxxx
+{       "vst3.32 RLIST , [ GPR ]",{0xF9800A0F,0xCFFEC0}}, // 11111001xx00xxxxxxxxxxx0xx001111
+{     "vst3.32 RLIST , [ GPR ] !",{0xF9800A0D,0xCFFEC0}}, // 11111001xx00xxxxxxxxxxx0xx001101
+{ "vst3.32 RLIST , [ GPR ] , GPR",{0xF9800A00,0xCFFECF}}, // 11111001xx00xxxxxxxxxxx0xx00xxxx
+{"vst3.8 RLIST , [ GPR : NUM ] , GPR",{0xF9000410,0x4FF10F}}, // 111110010x00xxxxxxxx010x0001xxxx
+{        "vst3.8 RLIST , [ GPR ]",{0xF980020F,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx01111
+{      "vst3.8 RLIST , [ GPR ] !",{0xF980020D,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx01101
+{  "vst3.8 RLIST , [ GPR ] , GPR",{0xF9800200,0xCFF7EF}}, // 11111001xx00xxxxxxxx0xxxxxx0xxxx
+{ "vst4.16 RLIST , [ GPR : NUM ]",{0xF980071F,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx11111
+{"vst4.16 RLIST , [ GPR : NUM ] !",{0xF980071D,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx11101
+{"vst4.16 RLIST , [ GPR : NUM ] , GPR",{0xF9800710,0xCFF7EF}}, // 11111001xx00xxxxxxxx0xxxxxx1xxxx
+{       "vst4.16 RLIST , [ GPR ]",{0xF980070F,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx01111
+{     "vst4.16 RLIST , [ GPR ] !",{0xF980070D,0xCFF7E0}}, // 11111001xx00xxxxxxxx0xxxxxx01101
+{ "vst4.16 RLIST , [ GPR ] , GPR",{0xF9800700,0xCFF7EF}}, // 11111001xx00xxxxxxxx0xxxxxx0xxxx
+{ "vst4.32 RLIST , [ GPR : NUM ]",{0xF9800B1F,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1111
+{"vst4.32 RLIST , [ GPR : NUM ] !",{0xF9800B1D,0xCFFBF0}}, // 11111001xx00xxxxxxxxx0xxxxxx1101
+{"vst4.32 RLIST , [ GPR : NUM ] , GPR",{0xF9800B10,0xCFFBFF}}, // 11111001xx00xxxxxxxxx0xxxxxxxxxx
+{       "vst4.32 RLIST , [ GPR ]",{0xF9800B0F,0xCFFBC0}}, // 11111001xx00xxxxxxxxx0xxxx001111
+{     "vst4.32 RLIST , [ GPR ] !",{0xF9800B0D,0xCFFBC0}}, // 11111001xx00xxxxxxxxx0xxxx001101
+{ "vst4.32 RLIST , [ GPR ] , GPR",{0xF9800B00,0xCFFBCF}}, // 11111001xx00xxxxxxxxx0xxxx00xxxx
+{  "vst4.8 RLIST , [ GPR : NUM ]",{0xF900001F,0xCFF3F0}}, // 11111001xx00xxxxxxxx00xxxxxx1111
+{"vst4.8 RLIST , [ GPR : NUM ] !",{0xF900001D,0xCFF3F0}}, // 11111001xx00xxxxxxxx00xxxxxx1101
+{"vst4.8 RLIST , [ GPR : NUM ] , GPR",{0xF9000010,0xCFF3FF}}, // 11111001xx00xxxxxxxx00xxxxxxxxxx
+{        "vst4.8 RLIST , [ GPR ]",{0xF900000F,0xCFF3E0}}, // 11111001xx00xxxxxxxx00xxxxx01111
+{      "vst4.8 RLIST , [ GPR ] !",{0xF900000D,0xCFF3E0}}, // 11111001xx00xxxxxxxx00xxxxx01101
+{  "vst4.8 RLIST , [ GPR ] , GPR",{0xF9000000,0xCFF3EF}}, // 11111001xx00xxxxxxxx00xxxxx0xxxx
+{          "vstmdb GPR ! , RLIST",{0xED200A00,0x4FF1FF}}, // 111011010x10xxxxxxxx101xxxxxxxxx
+{          "vstmia GPR ! , RLIST",{0xECA00A00,0x4FF1FF}}, // 111011001x10xxxxxxxx101xxxxxxxxx
+{            "vstmia GPR , RLIST",{0xEC800A00,0x4FF1FF}}, // 111011001x00xxxxxxxx101xxxxxxxxx
+{     "vstr DREG , [ GPR , NUM ]",{0xCD000B00,0x20CFF0FF}}, // 11x01101xx00xxxxxxxx1011xxxxxxxx
+{           "vstr DREG , [ GPR ]",{0xED800B00,0x4FF000}}, // 111011011x00xxxxxxxx101100000000
+{     "vstr SREG , [ GPR , NUM ]",{0xCD000A00,0x20CFF0FF}}, // 11x01101xx00xxxxxxxx1010xxxxxxxx
+{           "vstr SREG , [ GPR ]",{0xED800A00,0x4FF000}}, // 111011011x00xxxxxxxx101000000000
+{   "vsub.f32 DREG , DREG , DREG",{0xEF200D00,0x4FF0AF}}, // 111011110x10xxxxxxxx1101x0x0xxxx
+{   "vsub.f32 QREG , QREG , QREG",{0xEF200D40,0x4EE0AE}}, // 111011110x10xxx0xxx01101x1x0xxx0
+{   "vsub.f64 DREG , DREG , DREG",{0xEE300B40,0x4FF0AF}}, // 111011100x11xxxxxxxx1011x1x0xxxx
+{   "vsub.i16 DREG , DREG , DREG",{0xFF100800,0x4FF0AF}}, // 111111110x01xxxxxxxx1000x0x0xxxx
+{   "vsub.i16 QREG , QREG , QREG",{0xFF100840,0x4EE0AE}}, // 111111110x01xxx0xxx01000x1x0xxx0
+{   "vsub.i32 DREG , DREG , DREG",{0xFF200800,0x4FF0AF}}, // 111111110x10xxxxxxxx1000x0x0xxxx
+{   "vsub.i32 QREG , QREG , QREG",{0xFF200840,0x4EE0AE}}, // 111111110x10xxx0xxx01000x1x0xxx0
+{   "vsub.i64 DREG , DREG , DREG",{0xFF300800,0x4FF0AF}}, // 111111110x11xxxxxxxx1000x0x0xxxx
+{   "vsub.i64 QREG , QREG , QREG",{0xFF300840,0x4EE0AE}}, // 111111110x11xxx0xxx01000x1x0xxx0
+{    "vsub.i8 DREG , DREG , DREG",{0xFF000800,0x4FF0AF}}, // 111111110x00xxxxxxxx1000x0x0xxxx
+{    "vsub.i8 QREG , QREG , QREG",{0xFF000840,0x4EE0AE}}, // 111111110x00xxx0xxx01000x1x0xxx0
+{ "vsubhn.i16 DREG , QREG , QREG",{0xEF800600,0x4EF0AE}}, // 111011111x00xxx0xxxx0110x0x0xxx0
+{ "vsubhn.i32 DREG , QREG , QREG",{0xEF900600,0x4EF0AE}}, // 111011111x01xxx0xxxx0110x0x0xxx0
+{ "vsubhn.i64 DREG , QREG , QREG",{0xEFA00600,0x4EF0AE}}, // 111011111x10xxx0xxxx0110x0x0xxx0
+{  "vsubl.s16 QREG , DREG , DREG",{0xEF900200,0x4FE0AF}}, // 111011111x01xxxxxxx00010x0x0xxxx
+{  "vsubl.s32 QREG , DREG , DREG",{0xEFA00200,0x4FE0AF}}, // 111011111x10xxxxxxx00010x0x0xxxx
+{   "vsubl.s8 QREG , DREG , DREG",{0xEF800200,0x4FE0AF}}, // 111011111x00xxxxxxx00010x0x0xxxx
+{  "vsubl.u16 QREG , DREG , DREG",{0xFF900200,0x4FE0AF}}, // 111111111x01xxxxxxx00010x0x0xxxx
+{  "vsubl.u32 QREG , DREG , DREG",{0xFFA00200,0x4FE0AF}}, // 111111111x10xxxxxxx00010x0x0xxxx
+{   "vsubl.u8 QREG , DREG , DREG",{0xFF800200,0x4FE0AF}}, // 111111111x00xxxxxxx00010x0x0xxxx
+{  "vsubw.s16 QREG , QREG , DREG",{0xEF900300,0x4EE0AF}}, // 111011111x01xxx0xxx00011x0x0xxxx
+{  "vsubw.s32 QREG , QREG , DREG",{0xEFA00300,0x4EE0AF}}, // 111011111x10xxx0xxx00011x0x0xxxx
+{   "vsubw.s8 QREG , QREG , DREG",{0xEF800300,0x4EE0AF}}, // 111011111x00xxx0xxx00011x0x0xxxx
+{  "vsubw.u16 QREG , QREG , DREG",{0xFF900300,0x4EE0AF}}, // 111111111x01xxx0xxx00011x0x0xxxx
+{  "vsubw.u32 QREG , QREG , DREG",{0xFFA00300,0x4EE0AF}}, // 111111111x10xxx0xxx00011x0x0xxxx
+{   "vsubw.u8 QREG , QREG , DREG",{0xFF800300,0x4EE0AF}}, // 111111111x00xxx0xxx00011x0x0xxxx
+{              "vswp DREG , DREG",{0xFFB20000,0x40F02F}}, // 111111111x110010xxxx000000x0xxxx
+{              "vswp QREG , QREG",{0xFFB20040,0x40E02E}}, // 111111111x110010xxx0000001x0xxx0
+{    "vtbl.8 DREG , RLIST , DREG",{0xFFB00800,0x4FF3AF}}, // 111111111x11xxxxxxxx10xxx0x0xxxx
+{    "vtbx.8 DREG , RLIST , DREG",{0xFFB00840,0x4FF3AF}}, // 111111111x11xxxxxxxx10xxx1x0xxxx
+{           "vtrn.16 DREG , DREG",{0xFFB60080,0x40F02F}}, // 111111111x110110xxxx000010x0xxxx
+{           "vtrn.16 QREG , QREG",{0xFFB600C0,0x40E02E}}, // 111111111x110110xxx0000011x0xxx0
+{           "vtrn.32 DREG , DREG",{0xFFBA0080,0x40F02F}}, // 111111111x111010xxxx000010x0xxxx
+{           "vtrn.32 QREG , QREG",{0xFFBA00C0,0x40E02E}}, // 111111111x111010xxx0000011x0xxx0
+{            "vtrn.8 DREG , DREG",{0xFFB20080,0x40F02F}}, // 111111111x110010xxxx000010x0xxxx
+{            "vtrn.8 QREG , QREG",{0xFFB200C0,0x40E02E}}, // 111111111x110010xxx0000011x0xxx0
+{    "vtst.16 DREG , DREG , DREG",{0xEF100810,0x4FF0AF}}, // 111011110x01xxxxxxxx1000x0x1xxxx
+{    "vtst.16 QREG , QREG , QREG",{0xEF100850,0x4EE0AE}}, // 111011110x01xxx0xxx01000x1x1xxx0
+{    "vtst.32 DREG , DREG , DREG",{0xEF200810,0x4FF0AF}}, // 111011110x10xxxxxxxx1000x0x1xxxx
+{    "vtst.32 QREG , QREG , QREG",{0xEF200850,0x4EE0AE}}, // 111011110x10xxx0xxx01000x1x1xxx0
+{     "vtst.8 DREG , DREG , DREG",{0xEF000810,0x4FF0AF}}, // 111011110x00xxxxxxxx1000x0x1xxxx
+{     "vtst.8 QREG , QREG , QREG",{0xEF000850,0x4EE0AE}}, // 111011110x00xxx0xxx01000x1x1xxx0
+{           "vuzp.16 DREG , DREG",{0xFFB60100,0x40F02F}}, // 111111111x110110xxxx000100x0xxxx
+{           "vuzp.16 QREG , QREG",{0xFFB60140,0x40E02E}}, // 111111111x110110xxx0000101x0xxx0
+{           "vuzp.32 QREG , QREG",{0xFFBA0140,0x40E02E}}, // 111111111x111010xxx0000101x0xxx0
+{            "vuzp.8 DREG , DREG",{0xFFB20100,0x40F02F}}, // 111111111x110010xxxx000100x0xxxx
+{            "vuzp.8 QREG , QREG",{0xFFB20140,0x40E02E}}, // 111111111x110010xxx0000101x0xxx0
+{           "vzip.16 DREG , DREG",{0xFFB60180,0x40F02F}}, // 111111111x110110xxxx000110x0xxxx
+{           "vzip.16 QREG , QREG",{0xFFB601C0,0x40E02E}}, // 111111111x110110xxx0000111x0xxx0
+{           "vzip.32 QREG , QREG",{0xFFBA01C0,0x40E02E}}, // 111111111x111010xxx0000111x0xxx0
+{            "vzip.8 DREG , DREG",{0xFFB20180,0x40F02F}}, // 111111111x110010xxxx000110x0xxxx
+{            "vzip.8 QREG , QREG",{0xFFB201C0,0x40E02E}}, // 111111111x110010xxx0000111x0xxx0
+{                         "wfe.w",{0xF3AF8002,0x0000}}, // 11110011101011111000000000000010
+{                         "wfi.w",{0xF3AF8003,0x0000}}, // 11110011101011111000000000000011
+{                       "yield.w",{0xF3AF8001,0x0000}}, // 11110011101011111000000000000001
