@@ -37,7 +37,6 @@ targets = sorted(opc2seed)
 syn2seed = {}
 
 for opc in targets:
-
 	seed = opc2seed[opc]
 
 	syn = common.syntax_from_string(common.disasm16(seed))
@@ -52,11 +51,8 @@ for opc in targets:
 		instr2 = common.disasm16(seed2)
 		syn2 = common.syntax_from_string(instr2)
 
-		#print 'syn2: %s' % syn2
-
 		if syn2 == opc or syn2.startswith(opc+' '):
 			if not (syn2 in syn2seed):
-				print '"%s": 0x%08X' % (syn2, seed2)
+				print '"%s": 0x%04X' % (syn2, seed2)
 				syn2seed[syn2] = seed2
-
 

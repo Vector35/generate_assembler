@@ -43,7 +43,7 @@ for syn in syntaxes:
 	distxt = common.disasm16(seed)
 	syn = common.syntax_from_string(distxt)
 
-	print "// examples of %s" % syn
+	print "\t\t# examples of %s" % syn
 
 	collection = 0
 	for f in fuzz:
@@ -57,7 +57,7 @@ for syn in syntaxes:
 		if distxt2 in seen:
 			continue
 
-		print '%04X,"%s"' % (seed2, distxt2)
+		print '\t\t[\'\\x%02X\\x%02X\',\'%s\'],' % (seed2 >> 8, seed2 & 0xFF, distxt2)
 		seen[distxt2] = True
 
 		collection += 1

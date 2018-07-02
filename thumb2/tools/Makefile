@@ -1,7 +1,7 @@
 CPPFLAGS = 
 CPPFLAGS += -I/usr/local/include -std=c++11 -O0 -g
 
-all: opc_seeds16 opc_seeds32
+all: opc_seeds16 opc_seeds32 gofer.so
 
 common.o: common.cpp
 	g++ -std=c++11 -Ofast -c common.cpp -o common.o

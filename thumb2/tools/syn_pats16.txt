@@ -1,5 +1,4 @@
 {                "adcs GPR , GPR",{0x4140,0x003F}}, // 0100000101xxxxxx
-{          "adcs GPR , GPR , NUM",{0xF150,0x040F}}, // 11110x010101xxxx
 {                 "add GPR , GPR",{0x4400,0x00FF}}, // 01000100xxxxxxxx
 {           "add GPR , GPR , GPR",{0x4468,0x0087}}, // 01000100x1101xxx
 {           "add GPR , GPR , NUM",{0xAC00,0x07FF}}, // 10101xxxxxxxxxxx
@@ -9,7 +8,6 @@
 {                "adds GPR , NUM",{0x3000,0x07FF}}, // 00110xxxxxxxxxxx
 {                 "adr GPR , NUM",{0xA000,0x07FF}}, // 10100xxxxxxxxxxx
 {                "ands GPR , GPR",{0x4000,0x003F}}, // 0100000000xxxxxx
-{          "ands GPR , GPR , NUM",{0xF010,0x040F}}, // 11110x000001xxxx
 {                "asrs GPR , GPR",{0x4100,0x003F}}, // 0100000100xxxxxx
 {          "asrs GPR , GPR , NUM",{0x1000,0x07FF}}, // 00010xxxxxxxxxxx
 {                         "b NUM",{0xE000,0x07FF}}, // 11100xxxxxxxxxxx

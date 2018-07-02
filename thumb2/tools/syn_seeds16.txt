@@ -1,5 +1,4 @@
 "adcs GPR , GPR": 0x4140
-"adcs GPR , GPR , NUM": 0xF150
 "add GPR , GPR": 0x4400
 "add GPR , GPR , GPR": 0x4468
 "add GPR , GPR , NUM": 0xAC00
@@ -9,7 +8,6 @@
 "adds GPR , NUM": 0x3000
 "adr GPR , NUM": 0xA000
 "ands GPR , GPR": 0x4000
-"ands GPR , GPR , NUM": 0xF010
 "asrs GPR , GPR , NUM": 0x1000
 "asrs GPR , GPR": 0x4100
 "b NUM": 0xE000
