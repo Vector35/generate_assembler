@@ -14,7 +14,7 @@
 #include <capstone/capstone.h>
 #include <capstone/arm.h>
 
-extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
+extern "C" void get_disasm_capstone(uint8_t *data, int len, char *distxt, int *dtlen)
 {
 	int rc = -1;
 
@@ -34,27 +34,31 @@ extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
 
 	/* actually disassemble */
 	uint64_t addr = 0;
-	size_t size = len;
+	size_t len2 = len;
 	const uint8_t *pinsword = data;
 
-	size_t count = cs_disasm_iter(handle, &pinsword, &size, &addr, insn);
-	if(count != 1) {
+	if(cs_disasm_iter(handle, &pinsword, &len2, &addr, insn)) {
+		/* copy out string */
+		strcpy(distxt, insn->mnemonic);
+		if(insn->op_str[0]) {
+			strcat(distxt, " ");
+			strcat(distxt, insn->op_str);
+		}
+
+		/* copy out disassembled length */
+		*dtlen = len - len2;
+	}
+
+	else {
 		if(cs_errno(handle) == CS_ERR_OK) {
-			if(result)
-				strcpy(result, "undef");
+			if(distxt)
+				strcpy(distxt, "undef");
 		}
 		else {
 			printf("ERROR: cs_disasm_iter()\n");
 			exit(-1);
 		}
 	}
-	else
-	if(result) {
-		strcpy(result, insn->mnemonic);
-		if(insn->op_str[0]) {
-			strcat(result, " ");
-			strcat(result, insn->op_str);
-		}
-	}
+
 }
 

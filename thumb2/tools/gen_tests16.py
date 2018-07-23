@@ -31,19 +31,29 @@ for l in lines:
 # go!
 ###############
 
+mode = 'text'
+if sys.argv[1:] and sys.argv[1]=='bin':
+	mode = 'bin'
+
 seen = {}
 fuzz = common.fuzz6_16()
 
 syntaxes = sorted(syn2seed)
 
 for syn in syntaxes:
+	assert fuzz[0] == 0
+	fuzz = fuzz[1:]
 	shuffle(fuzz)
+	fuzz = [0] + fuzz
 	seed = syn2seed[syn]
 	mask = syn2mask[syn]
 	distxt = common.disasm16(seed)
+	if not distxt:
+		print 'shit, %08X: %s did not disassemble' % (seed, syn)
 	syn = common.syntax_from_string(distxt)
 
-	print "\t\t# examples of %s" % syn
+	if mode == 'text':
+		print "\t\t# examples of %s" % syn
 
 	collection = 0
 	for f in fuzz:
@@ -57,7 +67,10 @@ for syn in syntaxes:
 		if distxt2 in seen:
 			continue
 
-		print '\t\t[\'\\x%02X\\x%02X\',\'%s\'],' % (seed2 >> 8, seed2 & 0xFF, distxt2)
+		if mode == 'text':
+			print '\t\t[\'\\x%02X\\x%02X\',\'%s\'],' % (seed2 >> 8, seed2 & 0xFF, distxt2)
+		else:
+			sys.stdout.write(struct.pack('>H', seed2))
 		seen[distxt2] = True
 
 		collection += 1

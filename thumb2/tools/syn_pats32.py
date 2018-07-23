@@ -29,6 +29,7 @@ if sys.argv[1:]:
 
 for syn in targets:
 	seed = syn2seed[syn]
+	print 'seed: %08X' % (seed)
 
 	syn2 = common.syntax_from_insword32(seed)
 	if syn != syn2:
@@ -65,5 +66,7 @@ for syn in targets:
 	#print 'always0: %08X' % always0
 	constbits = always1 | always0
 	changebits = ctypes.c_uint32(~constbits).value
-	print "{%s,{0x%04X,0x%04X}}, // %s" % (('"'+syn+'"').rjust(32), seed, changebits, constMaskStr)
+	qsynq = '"%s"' % syn
+	qsynq = (48-len(qsynq))*' ' + qsynq
+	print "{%s,{0x%08X,0x%08X}}, // %s" % (qsynq, seed, changebits, constMaskStr)
 
