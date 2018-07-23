@@ -14,7 +14,7 @@
 #include <capstone/capstone.h>
 #include <capstone/arm.h>
 
-extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
+extern "C" void get_disasm_capstone(uint8_t *data, uint32_t addr_, char *result)
 {
 	int rc = -1;
 
@@ -33,7 +33,7 @@ extern "C" void get_disasm_capstone(uint8_t *data, int len, char *result)
 	}
 
 	/* actually disassemble */
-	uint64_t addr = 0;
+	uint64_t addr = addr_;
 	size_t size = 4;
 	const uint8_t *pinsword = data;
 
