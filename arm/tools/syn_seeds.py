@@ -18,9 +18,9 @@ lines = None
 with open('opc_seeds.txt') as fp:
 	lines = fp.readlines()
 for l in lines:
-	m = re.match(r'^"(.*)": (.*)', l)
+	m = re.match(r'^(.*) (.*)', l)
 	if m:
-		opc2seed[m.group(1)] = int(m.group(2),16)
+		opc2seed[m.group(2)] = int(m.group(1),16)
 
 ###############
 # go!
@@ -64,7 +64,10 @@ for opc in targets:
 		
 	seed = opc2seed[opc]
 
-	if common.syntax_from_string(common.disasm(seed)) in syn2seed:
+	distxt = common.disasm(seed)
+	if distxt == 'undef':
+		continue
+	if common.syntax_from_string(distxt, seed) in syn2seed:
 		print 'skipping %s' % opc
 		continue
 
@@ -73,13 +76,15 @@ for opc in targets:
 	for (i,mask) in enumerate(fuzz):
 		seed2 = seed ^ mask
 		instr2 = common.disasm(seed2)
-		syn2 = common.syntax_from_string(instr2)
+		if instr2 == 'undef':
+			continue
+		syn2 = common.syntax_from_string(instr2, seed2)
 
 		#print 'syn2: %s' % syn2
 
 		if syn2 == opc or syn2.startswith(opc+' '):
 			if not (syn2 in syn2seed):
-				print '"%s": 0x%08X' % (syn2, seed2)
+				print '%08X %s' % (seed2, syn2)
 				syn2seed[syn2] = seed2
 
 
