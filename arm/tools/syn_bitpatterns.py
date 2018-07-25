@@ -16,9 +16,9 @@ lines = None
 with open('syn_seeds.txt') as fp:
 	lines = fp.readlines()
 for l in lines:
-	m = re.match(r'^"(.*)": (.*)', l)
+	m = re.match(r'^(.*?) (.*)$', l)
 	if m:
-		syn2seed[m.group(1)] = int(m.group(2),16)
+		syn2seed[m.group(2)] = int(m.group(1),16)
 
 ###############
 # go!

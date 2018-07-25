@@ -251,7 +251,7 @@ def disasm(insword):
 
 def syntax_from_string(instr, insword):
 	tokens = tokenize(instr, insword)
-	if len(tokens) == 0:
+	if len(tokens) == 1:
 		return tokens[0]
 	else:
 		return tokens[0] + ' ' + ''.join(tokens[1:])
