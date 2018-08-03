@@ -1,3 +1,13 @@
+#include <map>
+#include <string>
+using namespace std;
+
+struct info {
+	uint32_t seed; /* start parent */
+	uint32_t mask; /* which bits to mutate */
+};
+
+map<string, struct info> lookup = {
 {                            "adc<c> GPR,GPR,GPR",{0x60A00000,0xF00FF00F}}, // xxxx00001010xxxxxxxx00000000xxxx
 {                      "adc<c> GPR,GPR,GPR,SHIFT",{0x60A00060,0xF00FF00F}}, // xxxx00001010xxxxxxxx00000110xxxx
 {                   "adc<c> GPR,GPR,GPR,SHIFTGPR",{0x60A00010,0xF00FFF6F}}, // xxxx00001010xxxxxxxxxxxx0xx1xxxx
@@ -1786,3 +1796,5 @@
 {                                        "wfe<c>",{0x6320F002,0xF0000000}}, // xxxx0011001000001111000000000010
 {                                        "wfi<c>",{0x6320F003,0xF0000000}}, // xxxx0011001000001111000000000011
 {                                      "yield<c>",{0x6320F001,0xF0000000}}, // xxxx0011001000001111000000000001
+};
+

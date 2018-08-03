@@ -67,6 +67,9 @@ def fqo_to_opcode(fqo, insword):
 	regex = re_s + re_cc + re_ds1 + re_ds2 + r'$'
 	
 	# collect possible opcodes this could be
+	# eg:	given "vgneq" is it "vgn"+"eq" or "vgneq" ?
+	#		given "vselvs" or "movs", 
+	#		how about "svc"?
 	opcs = []
 	tmp = fqo
 	while tmp:

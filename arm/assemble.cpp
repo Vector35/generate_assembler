@@ -202,40 +202,40 @@ uint32_t enforce_bit_match(uint32_t inp, int bit, vector<match> matches)
 */
 uint32_t hook_first(uint32_t seed, vector<token> toks)
 {
-	if(seed != 0x7c000004 && seed != 0x7c000000)
-		return seed;
+//	if(seed != 0x7c000004 && seed != 0x7c000000)
+//		return seed;
+//
+//	if(DEBUG_HOOKS) {
+//		printf("manually assembling (seed=%08X): %s\n", seed, tokens_to_string(toks).c_str());
+//		for(int i=0; i<toks.size(); ++i)
+//			printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
+//	}
+//
+//	uint32_t insword = 0;
+//
+//	switch(seed) {
+//		case 0x7C000004: // INS
+//		{
+//			insword = 0x7C000004;
+//			insword |= toks[3].ival << 21;							// rs
+//			insword |= toks[1].ival << 16;							// rt
+//			insword |= (toks[7].ival + toks[5].ival - 1) << 11;		// msb (pos+size-1)
+//			insword |= toks[5].ival << 6;							// lsb (pos)
+//			break;
+//		}
+//
+//		case 0x7C000000: // EXT
+//		{
+//			insword = 0x7C000000;
+//			insword |= toks[3].ival << 21;							// rs
+//			insword |= toks[1].ival << 16;							// rt
+//			insword |= (toks[7].ival - 1) << 11;					// msbd (size-1)
+//			insword |= toks[5].ival << 6;							// lsb (pos)
+//			break;
+//		}
+//	}
 
-	if(DEBUG_HOOKS) {
-		printf("manually assembling (seed=%08X): %s\n", seed, tokens_to_string(toks).c_str());
-		for(int i=0; i<toks.size(); ++i)
-			printf("toks[%d] is: %s\n", i, token_to_string(toks[i]).c_str());
-	}
-
-	uint32_t insword = 0;
-
-	switch(seed) {
-		case 0x7C000004: // INS
-		{
-			insword = 0x7C000004;
-			insword |= toks[3].ival << 21;							// rs
-			insword |= toks[1].ival << 16;							// rt
-			insword |= (toks[7].ival + toks[5].ival - 1) << 11;		// msb (pos+size-1)
-			insword |= toks[5].ival << 6;							// lsb (pos)
-			break;
-		}
-
-		case 0x7C000000: // EXT
-		{
-			insword = 0x7C000000;
-			insword |= toks[3].ival << 21;							// rs
-			insword |= toks[1].ival << 16;							// rt
-			insword |= (toks[7].ival - 1) << 11;					// msbd (size-1)
-			insword |= toks[5].ival << 6;							// lsb (pos)
-			break;
-		}
-	}
-
-	return insword;
+	return seed;
 }
 
 /* SECOND shot at manipulating the assembling process
@@ -249,20 +249,21 @@ uint32_t hook_first(uint32_t seed, vector<token> toks)
 */
 uint32_t hook_middle(uint32_t seed, uint32_t insword, int bit)
 {
-	switch(seed)
-	{
-		/* instructions need first two register fields to match */
-		case 0x58210000: // bgezc
-		case 0x18210000: // bgezalc
-		case 0x1C210000: // bltzalc
-		case 0x5C210000: // bltzc
-		{
-			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
-			return enforce_bit_match(insword, bit, matches);
-		}
-		default:
-		return insword;
-	}
+//	switch(seed)
+//	{
+//		/* instructions need first two register fields to match */
+//		case 0x58210000: // bgezc
+//		case 0x18210000: // bgezalc
+//		case 0x1C210000: // bltzalc
+//		case 0x5C210000: // bltzc
+//		{
+//			vector<struct match> matches = {{25,21,20,16},{20,16,25,21}};
+//			return enforce_bit_match(insword, bit, matches);
+//		}
+//		default:
+//		return insword;
+//	}
+	return insword;
 }
 
 /* LAST shot at manipulating the assembling process
