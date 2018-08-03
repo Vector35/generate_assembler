@@ -5,7 +5,7 @@ all: gofer.so opc_seeds
 
 gofer.so: gofer.cpp
 	g++ $(CPPFLAGS) \
-		-lcapstone \
+		-lcapstone -lbfd -liberty -lopcodes -lz \
 		-shared -o gofer.so gofer.cpp \
 		-Wl,-headerpad_max_install_names
 	install_name_tool -change libcapstone.3.dylib /usr/local/lib/libcapstone.3.dylib gofer.so

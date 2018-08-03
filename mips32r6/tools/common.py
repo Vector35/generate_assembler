@@ -4,6 +4,20 @@ import struct
 
 import itertools
 
+def normalize(distxt):
+	# runs of spaces become one space
+	distxt = re.sub(r'\s+', ' ', distxt)
+	# remove spaces after commas
+	distxt = re.sub(r', +', ',', distxt)
+	# remove leading zeroes from hex immediates
+	distxt = re.sub(r'0x(0+)', '0x', distxt)
+	# map regs like $t1 to t1
+	distxt = re.sub(r'\$(\w\d+)', r'\1', distxt)
+	# libopcodes just emits the number when instruction is undefined, eg: \x00\x00\x00\x01 -> "0x1"
+	if re.match(r'^0x[a-f0-9]+$', distxt):
+		distxt = 'undef'
+	return distxt
+
 def tokenize(string):
 	gpr_aliases = {'$zero':0, '$at':1, '$v0':2, '$v1':3, \
 			'$a0':4, '$a1':5, '$a2':6, '$a3':7, \
@@ -97,18 +111,30 @@ def tokenize(string):
 
 gofer = None
 cbuf = None
-def disasm(insword):
+def disasm_cs(insword):
 	# initialize disassembler, if necessary
 	global gofer, cbuf
 	if not gofer:
 		gofer = ctypes.CDLL("gofer.so")
 		cbuf = ctypes.create_string_buffer(256)
 
-	data = struct.pack('<I', insword)
+	data = struct.pack('>I', insword)
 	gofer.get_disasm_capstone(data, 4, ctypes.byref(cbuf))
 
 	return cbuf.value
-	
+
+def disasm_loc(insword):
+	# initialize disassembler, if necessary
+	global gofer, cbuf
+	if not gofer:
+		gofer = ctypes.CDLL("gofer.so")
+		cbuf = ctypes.create_string_buffer(256)
+
+	data = struct.pack('>I', insword)
+	gofer.get_disasm_libopcodes(data, 4, ctypes.byref(cbuf))
+
+	return cbuf.value
+
 def syntax_from_string(instr):
 	tokens = tokenize(instr)
 	
