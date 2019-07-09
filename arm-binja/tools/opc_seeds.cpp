@@ -1,7 +1,7 @@
 /* multithreaded version of survey_opcs.cpp */
 #define NTHREADS 16
-#define MAXENCODING 0x10000000 /* top nybble is condition field (0000b == 'eq') */
-
+#define MAXENCODING 0x100000000 /* top nybble is condition field (0000b == 'eq') */
+								/* CANCEL THAT! for some "v" instructions they are extra */
 #define MODE_COUNT 0
 #define MODE_SEED 1
 #define MODE_VERBOSE 1
@@ -33,9 +33,23 @@ struct worker_arg {
 
 void replace_cond_suffix(char *target)
 {
-	#define NCCS 14
-	const char *cond_suffixes[NCCS] = {"eq", "ne", "cs", "cc", "mi", "pl", "vs",
-		"vc", "hi", "ls", "ge", "lt", "gt", "le"};
+	#define NCCS 16
+	const char *cond_suffixes[NCCS] = {
+		"eq",		/* equal */
+		"ne",		/* not equal */
+		"cs", "hs",	/* carry set or unsigned higher or same */
+		"cc", "lo",	/* carry clear or unsigned lower */
+		"mi",		/* negative */
+		"pl",		/* positive or zero */
+		"vs",		/* ... */
+		"vc",
+		"hi",
+		"ls",
+		"ge",
+		"lt",
+		"gt",
+		"le"
+	};
 	
 	for(int i=0; i<NCCS; ++i) {
 		if(0==strncmp(target, cond_suffixes[i], 2)) {
@@ -60,6 +74,8 @@ string opcode_get(char *distxt)
 			break;
 		}
 	}
+
+	return opcodeA;
 
 	/* replace conditional suffix at end, eg "vcvtbeq.f32.f16" -> "vcvtb<c>.f32.f16" */
 	int lenA = strlen(opcodeA);
