@@ -1,0 +1,545 @@
+{                     "adc GPR,GPR,GPR,SHIFT GPR",{0xE0A00010,0xF1FFFF6F}}, // xxxx000xxxxxxxxxxxxxxxxx0xx1xxxx
+{                     "adc GPR,GPR,GPR,SHIFT NUM",{0xE0A00020,0xF01FFFEF}}, // xxxx0000101xxxxxxxxxxxxxxxx0xxxx
+{                               "adc GPR,GPR,NUM",{0xE2A00000,0xF01FFFFF}}, // xxxx0010101xxxxxxxxxxxxxxxxxxxxx
+{                         "adc GPR,GPR,GPR,SHIFT",{0xE0A00060,0xF01FF00F}}, // xxxx0000101xxxxxxxxx00000110xxxx
+{                     "add GPR,GPR,GPR,SHIFT GPR",{0xE0800010,0xF01FFF6F}}, // xxxx0000100xxxxxxxxxxxxx0xx1xxxx
+{                     "add GPR,GPR,GPR,SHIFT NUM",{0xE0800020,0xF01FFFEF}}, // xxxx0000100xxxxxxxxxxxxxxxx0xxxx
+{                               "add GPR,GPR,NUM",{0xE2800000,0xF01FFFFF}}, // xxxx0010100xxxxxxxxxxxxxxxxxxxxx
+{                         "add GPR,GPR,GPR,SHIFT",{0xE0800060,0xF01FF00F}}, // xxxx0000100xxxxxxxxx00000110xxxx
+{                     "and GPR,GPR,GPR,SHIFT GPR",{0xE0000010,0xF01FFF6F}}, // xxxx0000000xxxxxxxxxxxxx0xx1xxxx
+{                     "and GPR,GPR,GPR,SHIFT NUM",{0xE0000020,0xF01FFFEF}}, // xxxx0000000xxxxxxxxxxxxxxxx0xxxx
+{                               "and GPR,GPR,NUM",{0xE2000000,0xF01FFFFF}}, // xxxx0010000xxxxxxxxxxxxxxxxxxxxx
+{                         "and GPR,GPR,GPR,SHIFT",{0xE0000060,0xF01FF00F}}, // xxxx0000000xxxxxxxxx00000110xxxx
+{                               "asr GPR,GPR,GPR",{0xE1A00050,0xF01FFF0F}}, // xxxx0001101xxxxxxxxxxxxx0101xxxx
+{                     "bic GPR,GPR,GPR,SHIFT GPR",{0xE1C00010,0xF01FFF6F}}, // xxxx0001110xxxxxxxxxxxxx0xx1xxxx
+{                     "bic GPR,GPR,GPR,SHIFT NUM",{0xE1C00020,0xF0FFFFEF}}, // xxxx0001xxxxxxxxxxxxxxxxxxx0xxxx
+{                               "bic GPR,GPR,NUM",{0xE3C00000,0xF01FFFFF}}, // xxxx0011110xxxxxxxxxxxxxxxxxxxxx
+{                         "bic GPR,GPR,GPR,SHIFT",{0xE1C00060,0xF01FF00F}}, // xxxx0001110xxxxxxxxx00000110xxxx
+{                                       "blx NUM",{0xFB000030,0x0FFFFFFF}}, // 1111xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{              "cdp2 PREG,NUM,CREG,CREG,CREG,NUM",{0xFE000020,0x01FFFFEF}}, // 1111111xxxxxxxxxxxxxxxxxxxx0xxxx
+{                         "cmn GPR,GPR,SHIFT GPR",{0xE1700010,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx1xxxx
+{                         "cmn GPR,GPR,SHIFT NUM",{0xE1700020,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx0xxxx
+{                                   "cmn GPR,NUM",{0xE3700000,0xF00FFFFF}}, // xxxx00110111xxxxxxxxxxxxxxxxxxxx
+{                             "cmn GPR,GPR,SHIFT",{0xE1700060,0xF07FFFFF}}, // xxxx00010xxxxxxxxxxxxxxxxxxxxxxx
+{                         "cmp GPR,GPR,SHIFT GPR",{0xE1500010,0xF01FFFEF}}, // xxxx0001010xxxxxxxxxxxxxxxx1xxxx
+{                         "cmp GPR,GPR,SHIFT NUM",{0xE1500020,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx0xxxx
+{                                   "cmp GPR,NUM",{0xE3500000,0xF00FFFFF}}, // xxxx00110101xxxxxxxxxxxxxxxxxxxx
+{                             "cmp GPR,GPR,SHIFT",{0xE1500060,0xF00FFFFF}}, // xxxx00010101xxxxxxxxxxxxxxxxxxxx
+{                                   "cps IRQ,NUM",{0xF1000001,0x0006FFFF}}, // 1111000100000xx0xxxxxxxxxxxxxxxx
+{                                       "cps NUM",{0xF1020000,0x0004FE3F}}, // 1111000100000x10xxxxxxx000xxxxxx
+{                                 "cpsid IRQ,NUM",{0xF10C0001,0x0002FFFF}}, // 11110001000011x0xxxxxxxxxxxxxxxx
+{                                     "cpsid NUM",{0xF10E0000,0x0000FE3F}}, // 1111000100001110xxxxxxx000xxxxxx
+{                                 "cpsie IRQ,NUM",{0xF1080001,0x0002FFFF}}, // 11110001000010x0xxxxxxxxxxxxxxxx
+{                                     "cpsie NUM",{0xF10A0000,0x0000FE3F}}, // 1111000100001010xxxxxxx000xxxxxx
+{                                       "dmb OPT",{0xF5700052,0x001FFF0D}}, // 11110101011xxxxxxxxxxxxx0101xx1x
+{                                       "dsb OPT",{0xF5700042,0x001FFF0D}}, // 11110101011xxxxxxxxxxxxx0100xx1x
+{                     "eor GPR,GPR,GPR,SHIFT GPR",{0xE0200010,0xF01FFF6F}}, // xxxx0000001xxxxxxxxxxxxx0xx1xxxx
+{                     "eor GPR,GPR,GPR,SHIFT NUM",{0xE0200020,0xF01FFFEF}}, // xxxx0000001xxxxxxxxxxxxxxxx0xxxx
+{                               "eor GPR,GPR,NUM",{0xE2200000,0xF01FFFFF}}, // xxxx0010001xxxxxxxxxxxxxxxxxxxxx
+{                         "eor GPR,GPR,GPR,SHIFT",{0xE0200060,0xF01FF00F}}, // xxxx0000001xxxxxxxxx00000110xxxx
+{                            "fldmiax GPR!,RLIST",{0xECB00B01,0xF3FFF0FE}}, // xxxx11xxxxxxxxxxxxxx1011xxxxxxx1
+{                            "fstmiax GPR!,RLIST",{0xECA00B01,0xF3FFF0FE}}, // xxxx11xxxxxxxxxxxxxx1011xxxxxxx1
+{                                       "isb OPT",{0xF5700062,0x001FFF1D}}, // 11110101011xxxxxxxxxxxxx011xxx1x
+{                      "ldc PREG,CREG,[GPR,NUM]!",{0xED300000,0xF08FFFFF}}, // xxxx1101x011xxxxxxxxxxxxxxxxxxxx
+{                     "ldc PREG,CREG,[GPR],RLIST",{0xEC900000,0xF00FFFFF}}, // xxxx11001001xxxxxxxxxxxxxxxxxxxx
+{                           "ldc PREG,CREG,[GPR]",{0xED100000,0xF18FFF00}}, // xxxx110xx001xxxxxxxxxxxx00000000
+{                       "ldc PREG,CREG,[GPR,NUM]",{0xED100001,0xF18FFFFF}}, // xxxx110xx001xxxxxxxxxxxxxxxxxxxx
+{                      "ldc2 PREG,CREG,[GPR],NUM",{0xFC300000,0x008FFFFF}}, // 11111100x011xxxxxxxxxxxxxxxxxxxx
+{                          "ldc2 PREG,CREG,[GPR]",{0xFD100000,0x008FFF00}}, // 11111101x001xxxxxxxxxxxx00000000
+{                      "ldc2 PREG,CREG,[GPR,NUM]",{0xFD100001,0x008FFFFF}}, // 11111101x001xxxxxxxxxxxxxxxxxxxx
+{                     "ldc2 PREG,CREG,[GPR,NUM]!",{0xFD300000,0x008FFFFF}}, // 11111101x011xxxxxxxxxxxxxxxxxxxx
+{                            "ldc2 PREG,CREG,NUM",{0xFC3F0000,0x01A0FFFF}}, // 1111110xx0x11111xxxxxxxxxxxxxxxx
+{                    "ldc2l PREG,CREG,[GPR,NUM]!",{0xFD700000,0x008FFFFF}}, // 11111101x111xxxxxxxxxxxxxxxxxxxx
+{                   "ldc2l PREG,CREG,[GPR],RLIST",{0xFCD00000,0x000FFFFF}}, // 111111001101xxxxxxxxxxxxxxxxxxxx
+{                         "ldc2l PREG,CREG,[GPR]",{0xFD500000,0x008FFF00}}, // 11111101x101xxxxxxxxxxxx00000000
+{                     "ldc2l PREG,CREG,[GPR,NUM]",{0xFD500001,0x008FFFFF}}, // 11111101x101xxxxxxxxxxxxxxxxxxxx
+{                           "ldc2l PREG,CREG,NUM",{0xFC7F0000,0x01A0FFFF}}, // 1111110xx1x11111xxxxxxxxxxxxxxxx
+{                     "ldcl PREG,CREG,[GPR,NUM]!",{0xED700000,0xF08FFFFF}}, // xxxx1101x111xxxxxxxxxxxxxxxxxxxx
+{                    "ldcl PREG,CREG,[GPR],RLIST",{0xECD00000,0xF00FFFFF}}, // xxxx11001101xxxxxxxxxxxxxxxxxxxx
+{                          "ldcl PREG,CREG,[GPR]",{0xED500000,0xF08FFF00}}, // xxxx1101x101xxxxxxxxxxxx00000000
+{                      "ldcl PREG,CREG,[GPR,NUM]",{0xED500001,0xF08FFFFF}}, // xxxx1101x101xxxxxxxxxxxxxxxxxxxx
+{                                "ldm GPR!,RLIST",{0xE8B00000,0xF00FFFFF}}, // xxxx10001011xxxxxxxxxxxxxxxxxxxx
+{                                "ldm GPR,RLIST^",{0xE8D00000,0xF00FFFFF}}, // xxxx10001101xxxxxxxxxxxxxxxxxxxx
+{                               "ldm GPR!,RLIST^",{0xE8F00000,0xF00FFFFF}}, // xxxx10001111xxxxxxxxxxxxxxxxxxxx
+{                              "ldmda GPR!,RLIST",{0xE8300000,0xF00FFFFF}}, // xxxx10000011xxxxxxxxxxxxxxxxxxxx
+{                              "ldmda GPR,RLIST^",{0xE8500000,0xF00FFFFF}}, // xxxx10000101xxxxxxxxxxxxxxxxxxxx
+{                             "ldmda GPR!,RLIST^",{0xE8700000,0xF00FFFFF}}, // xxxx10000111xxxxxxxxxxxxxxxxxxxx
+{                              "ldmdb GPR!,RLIST",{0xE9300000,0xF00FFFFF}}, // xxxx10010011xxxxxxxxxxxxxxxxxxxx
+{                              "ldmdb GPR,RLIST^",{0xE9500000,0xF00FFFFF}}, // xxxx10010101xxxxxxxxxxxxxxxxxxxx
+{                             "ldmdb GPR!,RLIST^",{0xE9700000,0xF00FFFFF}}, // xxxx10010111xxxxxxxxxxxxxxxxxxxx
+{                              "ldmib GPR!,RLIST",{0xE9B00000,0xF00FFFFF}}, // xxxx10011011xxxxxxxxxxxxxxxxxxxx
+{                              "ldmib GPR,RLIST^",{0xE9D00000,0xF00FFFFF}}, // xxxx10011101xxxxxxxxxxxxxxxxxxxx
+{                             "ldmib GPR!,RLIST^",{0xE9F00000,0xF00FFFFF}}, // xxxx10011111xxxxxxxxxxxxxxxxxxxx
+{                                 "ldr GPR,[GPR]",{0xE5100000,0xF08FF000}}, // xxxx0101x001xxxxxxxx000000000000
+{                            "ldr GPR,[GPR],-GPR",{0xE6100000,0xF00FF00F}}, // xxxx01100001xxxxxxxx00000000xxxx
+{                             "ldr GPR,[GPR,NUM]",{0xE5100001,0xF38FFFFF}}, // xxxx01xxx001xxxxxxxxxxxxxxxxxxxx
+{                  "ldr GPR,[GPR],-GPR,SHIFT NUM",{0xE6100020,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                            "ldr GPR,[GPR,NUM]!",{0xE5300000,0xF38FFFFF}}, // xxxx01xxx011xxxxxxxxxxxxxxxxxxxx
+{                             "ldr GPR,[GPR],GPR",{0xE6900000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                            "ldr GPR,[GPR,-GPR]",{0xE7100000,0xF03FFFFF}}, // xxxx011100xxxxxxxxxxxxxxxxxxxxxx
+{                      "ldr GPR,[GPR],-GPR,SHIFT",{0xE6100060,0xF00FF00F}}, // xxxx01100001xxxxxxxx00000110xxxx
+{                   "ldr GPR,[GPR],GPR,SHIFT NUM",{0xE6900020,0xF01FFFFF}}, // xxxx0110100xxxxxxxxxxxxxxxxxxxxx
+{                  "ldr GPR,[GPR,-GPR,SHIFT NUM]",{0xE7100020,0xF03FFFFF}}, // xxxx011100xxxxxxxxxxxxxxxxxxxxxx
+{                           "ldr GPR,[GPR,-GPR]!",{0xE7300000,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                             "ldr GPR,[GPR,GPR]",{0xE7900000,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                       "ldr GPR,[GPR],GPR,SHIFT",{0xE6900060,0xF00FFFFF}}, // xxxx01101001xxxxxxxxxxxxxxxxxxxx
+{                      "ldr GPR,[GPR,-GPR,SHIFT]",{0xE7100060,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                 "ldr GPR,[GPR,-GPR,SHIFT NUM]!",{0xE7300020,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                   "ldr GPR,[GPR,GPR,SHIFT NUM]",{0xE7900020,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                                   "ldr GPR,NUM",{0xE41F0000,0xF7A0FFFF}}, // xxxx0xxxx0x11111xxxxxxxxxxxxxxxx
+{                            "ldr GPR,[GPR,GPR]!",{0xE7B00000,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                     "ldr GPR,[GPR,-GPR,SHIFT]!",{0xE7300060,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                       "ldr GPR,[GPR,GPR,SHIFT]",{0xE7900060,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                  "ldr GPR,[GPR,GPR,SHIFT NUM]!",{0xE7B00020,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                                "ldrb GPR,[GPR]",{0xE5500000,0xF08FF000}}, // xxxx0101x101xxxxxxxx000000000000
+{                           "ldrb GPR,[GPR],-GPR",{0xE6500000,0xF00FF00F}}, // xxxx01100101xxxxxxxx00000000xxxx
+{                            "ldrb GPR,[GPR,NUM]",{0xE5500001,0xF38FFFFF}}, // xxxx01xxx101xxxxxxxxxxxxxxxxxxxx
+{                 "ldrb GPR,[GPR],-GPR,SHIFT NUM",{0xE6500020,0xF0FFFFFF}}, // xxxx0110xxxxxxxxxxxxxxxxxxxxxxxx
+{                           "ldrb GPR,[GPR,NUM]!",{0xE5700000,0xF38FFFFF}}, // xxxx01xxx111xxxxxxxxxxxxxxxxxxxx
+{                            "ldrb GPR,[GPR],GPR",{0xE6D00000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                           "ldrb GPR,[GPR,-GPR]",{0xE7500000,0xF00FF0FF}}, // xxxx01110101xxxxxxxx0000xxxxxxxx
+{                     "ldrb GPR,[GPR],-GPR,SHIFT",{0xE6500060,0xF00FF00F}}, // xxxx01100101xxxxxxxx00000110xxxx
+{                  "ldrb GPR,[GPR],GPR,SHIFT NUM",{0xE6D00020,0xF01FFFFF}}, // xxxx0110110xxxxxxxxxxxxxxxxxxxxx
+{                 "ldrb GPR,[GPR,-GPR,SHIFT NUM]",{0xE7500020,0xF00FFFFF}}, // xxxx01110101xxxxxxxxxxxxxxxxxxxx
+{                          "ldrb GPR,[GPR,-GPR]!",{0xE7700000,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                            "ldrb GPR,[GPR,GPR]",{0xE7D00000,0xF07FFFFF}}, // xxxx01111xxxxxxxxxxxxxxxxxxxxxxx
+{                      "ldrb GPR,[GPR],GPR,SHIFT",{0xE6D00060,0xF01FFFFF}}, // xxxx0110110xxxxxxxxxxxxxxxxxxxxx
+{                     "ldrb GPR,[GPR,-GPR,SHIFT]",{0xE7500060,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                "ldrb GPR,[GPR,-GPR,SHIFT NUM]!",{0xE7700020,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                  "ldrb GPR,[GPR,GPR,SHIFT NUM]",{0xE7D00020,0xF01FFFFF}}, // xxxx0111110xxxxxxxxxxxxxxxxxxxxx
+{                                  "ldrb GPR,NUM",{0xE45F0000,0xF7A0FFFF}}, // xxxx0xxxx1x11111xxxxxxxxxxxxxxxx
+{                           "ldrb GPR,[GPR,GPR]!",{0xE7F00000,0xF00FF03F}}, // xxxx01111111xxxxxxxx000000xxxxxx
+{                    "ldrb GPR,[GPR,-GPR,SHIFT]!",{0xE7700060,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                      "ldrb GPR,[GPR,GPR,SHIFT]",{0xE7D00060,0xF01FFFFF}}, // xxxx0111110xxxxxxxxxxxxxxxxxxxxx
+{                 "ldrb GPR,[GPR,GPR,SHIFT NUM]!",{0xE7F00020,0xF00FFFFF}}, // xxxx01111111xxxxxxxxxxxxxxxxxxxx
+{                          "ldrbt GPR,[GPR],-GPR",{0xE6700000,0xF00FF00F}}, // xxxx01100111xxxxxxxx00000000xxxx
+{                "ldrbt GPR,[GPR],-GPR,SHIFT NUM",{0xE6700020,0xF07FFFFF}}, // xxxx01100xxxxxxxxxxxxxxxxxxxxxxx
+{                           "ldrbt GPR,[GPR],GPR",{0xE6F00000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                    "ldrbt GPR,[GPR],-GPR,SHIFT",{0xE6700060,0xF00FF00F}}, // xxxx01100111xxxxxxxx00000110xxxx
+{                 "ldrbt GPR,[GPR],GPR,SHIFT NUM",{0xE6F00020,0xF00FFFEF}}, // xxxx01101111xxxxxxxxxxxxxxx0xxxx
+{                     "ldrbt GPR,[GPR],GPR,SHIFT",{0xE6F00060,0xF00FF00F}}, // xxxx01101111xxxxxxxx00000110xxxx
+{                                 "ldrbt GPR,NUM",{0xE47F0000,0xF780FFFF}}, // xxxx0xxxx1111111xxxxxxxxxxxxxxxx
+{                        "ldrd GPR,GPR,[GPR],NUM",{0xE04000D0,0xF7EFFF0F}}, // xxxx0xxxxxx0xxxxxxxxxxxx1101xxxx
+{                        "ldrd GPR,GPR,[GPR],GPR",{0xE08000D0,0xF7EFFF0F}}, // xxxx0xxxxxx0xxxxxxxxxxxx1101xxxx
+{                       "ldrd GPR,GPR,[GPR,-GPR]",{0xE10000D0,0xF00FFF0F}}, // xxxx00010000xxxxxxxxxxxx1101xxxx
+{                      "ldrd GPR,GPR,[GPR,-GPR]!",{0xE12000D0,0xF00FFF0F}}, // xxxx00010010xxxxxxxxxxxx1101xxxx
+{                            "ldrd GPR,GPR,[GPR]",{0xE14000D0,0xF78FF000}}, // xxxx0xxxx100xxxxxxxx000011010000
+{                        "ldrd GPR,GPR,[GPR,GPR]",{0xE18000D0,0xF00FFF0F}}, // xxxx00011000xxxxxxxxxxxx1101xxxx
+{                        "ldrd GPR,GPR,[GPR,NUM]",{0xE14000D1,0xF78FFF0F}}, // xxxx0xxxx100xxxxxxxxxxxx1101xxxx
+{                       "ldrd GPR,GPR,[GPR,NUM]!",{0xE16000D0,0xF78FFF0F}}, // xxxx0xxxx110xxxxxxxxxxxx1101xxxx
+{                       "ldrd GPR,GPR,[GPR,GPR]!",{0xE1A000D0,0xF00FFF0F}}, // xxxx00011010xxxxxxxxxxxx1101xxxx
+{                            "ldrh GPR,[GPR],NUM",{0xE05000B0,0xFF8FFF0F}}, // xxxxxxxxx101xxxxxxxxxxxx1011xxxx
+{                            "ldrh GPR,[GPR],GPR",{0xE09000B0,0xF00FFF0F}}, // xxxx00001001xxxxxxxxxxxx1011xxxx
+{                           "ldrh GPR,[GPR,-GPR]",{0xE11000B0,0xF00FFF0F}}, // xxxx00010001xxxxxxxxxxxx1011xxxx
+{                          "ldrh GPR,[GPR,-GPR]!",{0xE13000B0,0xF00FFF0F}}, // xxxx00010011xxxxxxxxxxxx1011xxxx
+{                                "ldrh GPR,[GPR]",{0xE15000B0,0xF78FF000}}, // xxxx0xxxx101xxxxxxxx000010110000
+{                            "ldrh GPR,[GPR,GPR]",{0xE19000B0,0xF00FFF0F}}, // xxxx00011001xxxxxxxxxxxx1011xxxx
+{                            "ldrh GPR,[GPR,NUM]",{0xE15000B1,0xF78FFF0F}}, // xxxx0xxxx101xxxxxxxxxxxx1011xxxx
+{                           "ldrh GPR,[GPR,NUM]!",{0xE17000B0,0xF78FFF0F}}, // xxxx0xxxx111xxxxxxxxxxxx1011xxxx
+{                           "ldrh GPR,[GPR,GPR]!",{0xE1B000B0,0xF00FFF0F}}, // xxxx00011011xxxxxxxxxxxx1011xxxx
+{                           "ldrht GPR,[GPR],NUM",{0xE07000B0,0xFF8FFF0F}}, // xxxxxxxxx111xxxxxxxxxxxx1011xxxx
+{                           "ldrht GPR,[GPR],GPR",{0xE0B000B0,0xF00FFF0F}}, // xxxx00001011xxxxxxxxxxxx1011xxxx
+{                           "ldrsb GPR,[GPR],NUM",{0xE05000D0,0xFF8FFF0F}}, // xxxxxxxxx101xxxxxxxxxxxx1101xxxx
+{                           "ldrsb GPR,[GPR],GPR",{0xE09000D0,0xF00FFF0F}}, // xxxx00001001xxxxxxxxxxxx1101xxxx
+{                          "ldrsb GPR,[GPR,-GPR]",{0xE11000D0,0xF00FFF0F}}, // xxxx00010001xxxxxxxxxxxx1101xxxx
+{                         "ldrsb GPR,[GPR,-GPR]!",{0xE13000D0,0xF00FFF0F}}, // xxxx00010011xxxxxxxxxxxx1101xxxx
+{                               "ldrsb GPR,[GPR]",{0xE15000D0,0xF78FF000}}, // xxxx0xxxx101xxxxxxxx000011010000
+{                           "ldrsb GPR,[GPR,GPR]",{0xE19000D0,0xF00FFF0F}}, // xxxx00011001xxxxxxxxxxxx1101xxxx
+{                           "ldrsb GPR,[GPR,NUM]",{0xE15000D1,0xF78FFF0F}}, // xxxx0xxxx101xxxxxxxxxxxx1101xxxx
+{                          "ldrsb GPR,[GPR,NUM]!",{0xE17000D0,0xF78FFF0F}}, // xxxx0xxxx111xxxxxxxxxxxx1101xxxx
+{                          "ldrsb GPR,[GPR,GPR]!",{0xE1B000D0,0xF00FFF0F}}, // xxxx00011011xxxxxxxxxxxx1101xxxx
+{                          "ldrsbt GPR,[GPR],NUM",{0xE07000D0,0xFF8FFF0F}}, // xxxxxxxxx111xxxxxxxxxxxx1101xxxx
+{                          "ldrsbt GPR,[GPR],GPR",{0xE0B000D0,0xF00FFF0F}}, // xxxx00001011xxxxxxxxxxxx1101xxxx
+{                           "ldrsh GPR,[GPR],NUM",{0xE05000F0,0xFF8FFF0F}}, // xxxxxxxxx101xxxxxxxxxxxx1111xxxx
+{                           "ldrsh GPR,[GPR],GPR",{0xE09000F0,0xF00FFF0F}}, // xxxx00001001xxxxxxxxxxxx1111xxxx
+{                          "ldrsh GPR,[GPR,-GPR]",{0xE11000F0,0xF00FFF0F}}, // xxxx00010001xxxxxxxxxxxx1111xxxx
+{                         "ldrsh GPR,[GPR,-GPR]!",{0xE13000F0,0xF00FFF0F}}, // xxxx00010011xxxxxxxxxxxx1111xxxx
+{                               "ldrsh GPR,[GPR]",{0xE15000F0,0xF08FF000}}, // xxxx0001x101xxxxxxxx000011110000
+{                           "ldrsh GPR,[GPR,GPR]",{0xE19000F0,0xF00FFF0F}}, // xxxx00011001xxxxxxxxxxxx1111xxxx
+{                           "ldrsh GPR,[GPR,NUM]",{0xE15000F1,0xF08FFF0F}}, // xxxx0001x101xxxxxxxxxxxx1111xxxx
+{                          "ldrsh GPR,[GPR,NUM]!",{0xE17000F0,0xF08FFF0F}}, // xxxx0001x111xxxxxxxxxxxx1111xxxx
+{                          "ldrsh GPR,[GPR,GPR]!",{0xE1B000F0,0xF00FFF0F}}, // xxxx00011011xxxxxxxxxxxx1111xxxx
+{                          "ldrsht GPR,[GPR],NUM",{0xE07000F0,0xFF8FFF0F}}, // xxxxxxxxx111xxxxxxxxxxxx1111xxxx
+{                          "ldrsht GPR,[GPR],GPR",{0xE0B000F0,0xF00FFF0F}}, // xxxx00001011xxxxxxxxxxxx1111xxxx
+{                           "ldrt GPR,[GPR],-GPR",{0xE6300000,0xF00FF00F}}, // xxxx01100011xxxxxxxx00000000xxxx
+{                 "ldrt GPR,[GPR],-GPR,SHIFT NUM",{0xE6300020,0xF07FFFFF}}, // xxxx01100xxxxxxxxxxxxxxxxxxxxxxx
+{                            "ldrt GPR,[GPR],GPR",{0xE6B00000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                     "ldrt GPR,[GPR],-GPR,SHIFT",{0xE6300060,0xF00FF00F}}, // xxxx01100011xxxxxxxx00000110xxxx
+{                  "ldrt GPR,[GPR],GPR,SHIFT NUM",{0xE6B00020,0xF00FFFEF}}, // xxxx01101011xxxxxxxxxxxxxxx0xxxx
+{                      "ldrt GPR,[GPR],GPR,SHIFT",{0xE6B00060,0xF00FF00F}}, // xxxx01101011xxxxxxxx00000110xxxx
+{                                  "ldrt GPR,NUM",{0xE43F0000,0xF780FFFF}}, // xxxx0xxxx0111111xxxxxxxxxxxxxxxx
+{                               "lsl GPR,GPR,NUM",{0xE1A00080,0xF0FFFF8F}}, // xxxx0001xxxxxxxxxxxxxxxxx000xxxx
+{                               "lsr GPR,GPR,GPR",{0xE1A00030,0xF01FFF0F}}, // xxxx0001101xxxxxxxxxxxxx0011xxxx
+{                "mcr PREG,NUM,GPR,CREG,CREG,NUM",{0xEE000030,0xFFEFFFEF}}, // xxxxxxxxxxx0xxxxxxxxxxxxxxx1xxxx
+{               "mcr2 PREG,NUM,GPR,CREG,CREG,NUM",{0xFE000030,0x00EFFFEF}}, // 11111110xxx0xxxxxxxxxxxxxxx1xxxx
+{                                   "mov GPR,NUM",{0xE3A00000,0xF01FFFFF}}, // xxxx0011101xxxxxxxxxxxxxxxxxxxxx
+{                "mrc PREG,NUM,GPR,CREG,CREG,NUM",{0xEE100030,0xFFEFFFEF}}, // xxxxxxxxxxx1xxxxxxxxxxxxxxx1xxxx
+{                  "mrc PREG,NUM,STATR,CREG,CREG",{0xEE10F010,0xFFEF0F0F}}, // xxxxxxxxxxx1xxxx1111xxxx0001xxxx
+{              "mrc PREG,NUM,STATR,CREG,CREG,NUM",{0xEE10F030,0xFFEF0FEF}}, // xxxxxxxxxxx1xxxx1111xxxxxxx1xxxx
+{               "mrc2 PREG,NUM,GPR,CREG,CREG,NUM",{0xFE100030,0x01EFFFEF}}, // 1111111xxxx1xxxxxxxxxxxxxxx1xxxx
+{                 "mrc2 PREG,NUM,STATR,CREG,CREG",{0xFE10F010,0x01EF0F0F}}, // 1111111xxxx1xxxx1111xxxx0001xxxx
+{             "mrc2 PREG,NUM,STATR,CREG,CREG,NUM",{0xFE10F030,0x01EF0FEF}}, // 1111111xxxx1xxxx1111xxxxxxx1xxxx
+{                                  "msr BREG,GPR",{0xE1200200,0xF00FFD0F}}, // xxxx00010010xxxxxxxxxx1x0000xxxx
+{                                 "msr STATR,NUM",{0xE3210000,0xF04FFFFF}}, // xxxx00110x10xxxxxxxxxxxxxxxxxxxx
+{                         "mvn GPR,GPR,SHIFT GPR",{0xE1E00010,0xF0FFFF6F}}, // xxxx0001xxxxxxxxxxxxxxxx0xx1xxxx
+{                         "mvn GPR,GPR,SHIFT NUM",{0xE1E00020,0xF0FFFFEF}}, // xxxx0001xxxxxxxxxxxxxxxxxxx0xxxx
+{                                   "mvn GPR,NUM",{0xE3E00000,0xF01FFFFF}}, // xxxx0011111xxxxxxxxxxxxxxxxxxxxx
+{                             "mvn GPR,GPR,SHIFT",{0xE1E00060,0xF01FF00F}}, // xxxx0001111xxxxxxxxx00000110xxxx
+{                     "orr GPR,GPR,GPR,SHIFT GPR",{0xE1800010,0xF01FFF6F}}, // xxxx0001100xxxxxxxxxxxxx0xx1xxxx
+{                     "orr GPR,GPR,GPR,SHIFT NUM",{0xE1800020,0xF0FFFFEF}}, // xxxx0001xxxxxxxxxxxxxxxxxxx0xxxx
+{                               "orr GPR,GPR,NUM",{0xE3800000,0xF01FFFFF}}, // xxxx0011100xxxxxxxxxxxxxxxxxxxxx
+{                         "orr GPR,GPR,GPR,SHIFT",{0xE1800060,0xF01FF00F}}, // xxxx0001100xxxxxxxxx00000110xxxx
+{                   "pkhbt GPR,GPR,GPR,SHIFT NUM",{0xE6800090,0xF1FFFF8F}}, // xxxx011xxxxxxxxxxxxxxxxxx001xxxx
+{                                 "pld [GPR,NUM]",{0xF5500001,0x00BFFFFF}}, // 11110101x1xxxxxxxxxxxxxxxxxxxxxx
+{                                "pld [GPR,-GPR]",{0xF7500000,0x003FF01F}}, // 1111011101xxxxxxxxxx0000000xxxxx
+{                      "pld [GPR,-GPR,SHIFT NUM]",{0xF7500020,0x003FFFFF}}, // 1111011101xxxxxxxxxxxxxxxxxxxxxx
+{                                 "pld [GPR,GPR]",{0xF7D00000,0x003FF01F}}, // 1111011111xxxxxxxxxx0000000xxxxx
+{                          "pld [GPR,-GPR,SHIFT]",{0xF7500060,0x003FF01F}}, // 1111011101xxxxxxxxxx0000011xxxxx
+{                       "pld [GPR,GPR,SHIFT NUM]",{0xF7D00020,0x003FFFFF}}, // 1111011111xxxxxxxxxxxxxxxxxxxxxx
+{                           "pld [GPR,GPR,SHIFT]",{0xF7D00060,0x003FF01F}}, // 1111011111xxxxxxxxxx0000011xxxxx
+{                                "pldw [GPR,NUM]",{0xF5100001,0x00BFFFFF}}, // 11110101x0xxxxxxxxxxxxxxxxxxxxxx
+{                               "pldw [GPR,-GPR]",{0xF7100000,0x003FF01F}}, // 1111011100xxxxxxxxxx0000000xxxxx
+{                     "pldw [GPR,-GPR,SHIFT NUM]",{0xF7100020,0x003FFFFF}}, // 1111011100xxxxxxxxxxxxxxxxxxxxxx
+{                                "pldw [GPR,GPR]",{0xF7900000,0x003FF01F}}, // 1111011110xxxxxxxxxx0000000xxxxx
+{                         "pldw [GPR,-GPR,SHIFT]",{0xF7100060,0x003FF01F}}, // 1111011100xxxxxxxxxx0000011xxxxx
+{                      "pldw [GPR,GPR,SHIFT NUM]",{0xF7900020,0x003FFFFF}}, // 1111011110xxxxxxxxxxxxxxxxxxxxxx
+{                          "pldw [GPR,GPR,SHIFT]",{0xF7900060,0x003FF01F}}, // 1111011110xxxxxxxxxx0000011xxxxx
+{                                 "pli [GPR,NUM]",{0xF4500001,0x00BFFFFF}}, // 11110100x1xxxxxxxxxxxxxxxxxxxxxx
+{                                "pli [GPR,-GPR]",{0xF6500000,0x003FF01F}}, // 1111011001xxxxxxxxxx0000000xxxxx
+{                      "pli [GPR,-GPR,SHIFT NUM]",{0xF6500020,0x003FFFFF}}, // 1111011001xxxxxxxxxxxxxxxxxxxxxx
+{                                 "pli [GPR,GPR]",{0xF6D00000,0x003FF01F}}, // 1111011011xxxxxxxxxx0000000xxxxx
+{                          "pli [GPR,-GPR,SHIFT]",{0xF6500060,0x003FF01F}}, // 1111011001xxxxxxxxxx0000011xxxxx
+{                       "pli [GPR,GPR,SHIFT NUM]",{0xF6D00020,0x003FFFFF}}, // 1111011011xxxxxxxxxxxxxxxxxxxxxx
+{                           "pli [GPR,GPR,SHIFT]",{0xF6D00060,0x003FF01F}}, // 1111011011xxxxxxxxxx0000011xxxxx
+{                                    "rfeda GPR!",{0xF8300000,0x000FFFFF}}, // 111110000011xxxxxxxxxxxxxxxxxxxx
+{                                    "rfedb GPR!",{0xF9300000,0x000FFFFF}}, // 111110010011xxxxxxxxxxxxxxxxxxxx
+{                                    "rfeia GPR!",{0xF8B00000,0x000FFFFF}}, // 111110001011xxxxxxxxxxxxxxxxxxxx
+{                                    "rfeib GPR!",{0xF9B00000,0x000FFFFF}}, // 111110011011xxxxxxxxxxxxxxxxxxxx
+{                               "ror GPR,GPR,NUM",{0xE1A000E0,0xF01FFF8F}}, // xxxx0001101xxxxxxxxxxxxxx110xxxx
+{                     "rsb GPR,GPR,GPR,SHIFT GPR",{0xE0600010,0xF01FFF6F}}, // xxxx0000011xxxxxxxxxxxxx0xx1xxxx
+{                     "rsb GPR,GPR,GPR,SHIFT NUM",{0xE0600020,0xF01FFFEF}}, // xxxx0000011xxxxxxxxxxxxxxxx0xxxx
+{                               "rsb GPR,GPR,NUM",{0xE2600000,0xF01FFFFF}}, // xxxx0010011xxxxxxxxxxxxxxxxxxxxx
+{                         "rsb GPR,GPR,GPR,SHIFT",{0xE0600060,0xF01FF00F}}, // xxxx0000011xxxxxxxxx00000110xxxx
+{                     "rsc GPR,GPR,GPR,SHIFT GPR",{0xE0E00010,0xF1FFFF6F}}, // xxxx000xxxxxxxxxxxxxxxxx0xx1xxxx
+{                     "rsc GPR,GPR,GPR,SHIFT NUM",{0xE0E00020,0xF01FFFEF}}, // xxxx0000111xxxxxxxxxxxxxxxx0xxxx
+{                               "rsc GPR,GPR,NUM",{0xE2E00000,0xF01FFFFF}}, // xxxx0010111xxxxxxxxxxxxxxxxxxxxx
+{                         "rsc GPR,GPR,GPR,SHIFT",{0xE0E00060,0xF01FF00F}}, // xxxx0000111xxxxxxxxx00000110xxxx
+{                     "sbc GPR,GPR,GPR,SHIFT GPR",{0xE0C00010,0xF01FFF6F}}, // xxxx0000110xxxxxxxxxxxxx0xx1xxxx
+{                     "sbc GPR,GPR,GPR,SHIFT NUM",{0xE0C00020,0xF01FFFEF}}, // xxxx0000110xxxxxxxxxxxxxxxx0xxxx
+{                               "sbc GPR,GPR,NUM",{0xE2C00000,0xF01FFFFF}}, // xxxx0010110xxxxxxxxxxxxxxxxxxxxx
+{                         "sbc GPR,GPR,GPR,SHIFT",{0xE0C00060,0xF01FF00F}}, // xxxx0000110xxxxxxxxx00000110xxxx
+{                                     "setend be",{0xF1010200,0x07FEFDFF}}, // 11110xxxxxxxxxx1xxxxxx1xxxxxxxxx
+{                                "srsda GPR!,NUM",{0xF8600000,0x001FFFFF}}, // 11111000011xxxxxxxxxxxxxxxxxxxxx
+{                                "srsdb GPR!,NUM",{0xF9600000,0x001FFFFF}}, // 11111001011xxxxxxxxxxxxxxxxxxxxx
+{                                "srsia GPR!,NUM",{0xF8E00000,0x001FFFFF}}, // 11111000111xxxxxxxxxxxxxxxxxxxxx
+{                                "srsib GPR!,NUM",{0xF9E00000,0x001FFFFF}}, // 11111001111xxxxxxxxxxxxxxxxxxxxx
+{                    "ssat GPR,NUM,GPR,SHIFT NUM",{0xE6A00050,0xF1FFFFCF}}, // xxxx011xxxxxxxxxxxxxxxxxxx01xxxx
+{                      "stc PREG,CREG,[GPR,NUM]!",{0xED200000,0xF08FFFFF}}, // xxxx1101x010xxxxxxxxxxxxxxxxxxxx
+{                     "stc PREG,CREG,[GPR],RLIST",{0xEC800000,0xF00FFFFF}}, // xxxx11001000xxxxxxxxxxxxxxxxxxxx
+{                           "stc PREG,CREG,[GPR]",{0xED000000,0xF18FFF00}}, // xxxx110xx000xxxxxxxxxxxx00000000
+{                       "stc PREG,CREG,[GPR,NUM]",{0xED000001,0xF18FFFFF}}, // xxxx110xx000xxxxxxxxxxxxxxxxxxxx
+{                      "stc2 PREG,CREG,[GPR],NUM",{0xF8200000,0x0C8FFFFF}}, // 1111xx00x010xxxxxxxxxxxxxxxxxxxx
+{                          "stc2 PREG,CREG,[GPR]",{0xF9000000,0x0E8FFF00}}, // 1111xxx1x000xxxxxxxxxxxx00000000
+{                      "stc2 PREG,CREG,[GPR,NUM]",{0xF9000001,0x0E8FFFFF}}, // 1111xxx1x000xxxxxxxxxxxxxxxxxxxx
+{                     "stc2 PREG,CREG,[GPR,NUM]!",{0xF9200000,0x0E8FFFFF}}, // 1111xxx1x010xxxxxxxxxxxxxxxxxxxx
+{                    "stc2l PREG,CREG,[GPR,NUM]!",{0xFD600000,0x028FFFFF}}, // 111111x1x110xxxxxxxxxxxxxxxxxxxx
+{                   "stc2l PREG,CREG,[GPR],RLIST",{0xFCC00000,0x000FFFFF}}, // 111111001100xxxxxxxxxxxxxxxxxxxx
+{                         "stc2l PREG,CREG,[GPR]",{0xFD400000,0x028FFF00}}, // 111111x1x100xxxxxxxxxxxx00000000
+{                     "stc2l PREG,CREG,[GPR,NUM]",{0xFD400001,0x028FFFFF}}, // 111111x1x100xxxxxxxxxxxxxxxxxxxx
+{                     "stcl PREG,CREG,[GPR,NUM]!",{0xED600000,0xF08FFFFF}}, // xxxx1101x110xxxxxxxxxxxxxxxxxxxx
+{                    "stcl PREG,CREG,[GPR],RLIST",{0xECC00000,0xF00FFFFF}}, // xxxx11001100xxxxxxxxxxxxxxxxxxxx
+{                          "stcl PREG,CREG,[GPR]",{0xED400000,0xF08FFF00}}, // xxxx1101x100xxxxxxxxxxxx00000000
+{                      "stcl PREG,CREG,[GPR,NUM]",{0xED400001,0xF08FFFFF}}, // xxxx1101x100xxxxxxxxxxxxxxxxxxxx
+{                                "stm GPR!,RLIST",{0xE8A00000,0xF00FFFFF}}, // xxxx10001010xxxxxxxxxxxxxxxxxxxx
+{                                "stm GPR,RLIST^",{0xE8C00000,0xF00FFFFF}}, // xxxx10001100xxxxxxxxxxxxxxxxxxxx
+{                               "stm GPR!,RLIST^",{0xE8E00000,0xF00FFFFF}}, // xxxx10001110xxxxxxxxxxxxxxxxxxxx
+{                              "stmda GPR!,RLIST",{0xE8200000,0xF00FFFFF}}, // xxxx10000010xxxxxxxxxxxxxxxxxxxx
+{                              "stmda GPR,RLIST^",{0xE8400000,0xF00FFFFF}}, // xxxx10000100xxxxxxxxxxxxxxxxxxxx
+{                             "stmda GPR!,RLIST^",{0xE8600000,0xF00FFFFF}}, // xxxx10000110xxxxxxxxxxxxxxxxxxxx
+{                              "stmdb GPR!,RLIST",{0xE9200000,0xF00FFFFF}}, // xxxx10010010xxxxxxxxxxxxxxxxxxxx
+{                              "stmdb GPR,RLIST^",{0xE9400000,0xF00FFFFF}}, // xxxx10010100xxxxxxxxxxxxxxxxxxxx
+{                             "stmdb GPR!,RLIST^",{0xE9600000,0xF00FFFFF}}, // xxxx10010110xxxxxxxxxxxxxxxxxxxx
+{                              "stmib GPR!,RLIST",{0xE9A00000,0xF00FFFFF}}, // xxxx10011010xxxxxxxxxxxxxxxxxxxx
+{                              "stmib GPR,RLIST^",{0xE9C00000,0xF00FFFFF}}, // xxxx10011100xxxxxxxxxxxxxxxxxxxx
+{                             "stmib GPR!,RLIST^",{0xE9E00000,0xF00FFFFF}}, // xxxx10011110xxxxxxxxxxxxxxxxxxxx
+{                                 "str GPR,[GPR]",{0xE5000000,0xF08FF000}}, // xxxx0101x000xxxxxxxx000000000000
+{                            "str GPR,[GPR],-GPR",{0xE6000000,0xF00FFFFF}}, // xxxx01100000xxxxxxxxxxxxxxxxxxxx
+{                             "str GPR,[GPR,NUM]",{0xE5000001,0xF38FFFFF}}, // xxxx01xxx000xxxxxxxxxxxxxxxxxxxx
+{                  "str GPR,[GPR],-GPR,SHIFT NUM",{0xE6000020,0xF07FFFFF}}, // xxxx01100xxxxxxxxxxxxxxxxxxxxxxx
+{                            "str GPR,[GPR,NUM]!",{0xE5200000,0xF38FFFFF}}, // xxxx01xxx010xxxxxxxxxxxxxxxxxxxx
+{                             "str GPR,[GPR],GPR",{0xE6800000,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                            "str GPR,[GPR,-GPR]",{0xE7000000,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                      "str GPR,[GPR],-GPR,SHIFT",{0xE6000060,0xF00FFFFF}}, // xxxx01100000xxxxxxxxxxxxxxxxxxxx
+{                   "str GPR,[GPR],GPR,SHIFT NUM",{0xE6800020,0xF00FFFFF}}, // xxxx01101000xxxxxxxxxxxxxxxxxxxx
+{                  "str GPR,[GPR,-GPR,SHIFT NUM]",{0xE7000020,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                           "str GPR,[GPR,-GPR]!",{0xE7200000,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                             "str GPR,[GPR,GPR]",{0xE7800000,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                       "str GPR,[GPR],GPR,SHIFT",{0xE6800060,0xF00FF00F}}, // xxxx01101000xxxxxxxx00000110xxxx
+{                      "str GPR,[GPR,-GPR,SHIFT]",{0xE7000060,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                 "str GPR,[GPR,-GPR,SHIFT NUM]!",{0xE7200020,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                   "str GPR,[GPR,GPR,SHIFT NUM]",{0xE7800020,0xF01FFFFF}}, // xxxx0111100xxxxxxxxxxxxxxxxxxxxx
+{                                   "str GPR,NUM",{0xE40F0000,0xF3A0FFFF}}, // xxxx01xxx0x01111xxxxxxxxxxxxxxxx
+{                            "str GPR,[GPR,GPR]!",{0xE7A00000,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                     "str GPR,[GPR,-GPR,SHIFT]!",{0xE7200060,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                       "str GPR,[GPR,GPR,SHIFT]",{0xE7800060,0xF07FFFFF}}, // xxxx01111xxxxxxxxxxxxxxxxxxxxxxx
+{                  "str GPR,[GPR,GPR,SHIFT NUM]!",{0xE7A00020,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                                "strb GPR,[GPR]",{0xE5400000,0xF08FF000}}, // xxxx0101x100xxxxxxxx000000000000
+{                           "strb GPR,[GPR],-GPR",{0xE6400000,0xF00FFFFF}}, // xxxx01100100xxxxxxxxxxxxxxxxxxxx
+{                            "strb GPR,[GPR,NUM]",{0xE5400001,0xF38FFFFF}}, // xxxx01xxx100xxxxxxxxxxxxxxxxxxxx
+{                 "strb GPR,[GPR],-GPR,SHIFT NUM",{0xE6400020,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                           "strb GPR,[GPR,NUM]!",{0xE5600000,0xF38FFFFF}}, // xxxx01xxx110xxxxxxxxxxxxxxxxxxxx
+{                            "strb GPR,[GPR],GPR",{0xE6C00000,0xF1FFFFFF}}, // xxxx011xxxxxxxxxxxxxxxxxxxxxxxxx
+{                           "strb GPR,[GPR,-GPR]",{0xE7400000,0xF00FFFFF}}, // xxxx01110100xxxxxxxxxxxxxxxxxxxx
+{                     "strb GPR,[GPR],-GPR,SHIFT",{0xE6400060,0xF00FFFFF}}, // xxxx01100100xxxxxxxxxxxxxxxxxxxx
+{                  "strb GPR,[GPR],GPR,SHIFT NUM",{0xE6C00020,0xF01FFFFF}}, // xxxx0110110xxxxxxxxxxxxxxxxxxxxx
+{                 "strb GPR,[GPR,-GPR,SHIFT NUM]",{0xE7400020,0xF00FFFFF}}, // xxxx01110100xxxxxxxxxxxxxxxxxxxx
+{                          "strb GPR,[GPR,-GPR]!",{0xE7600000,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                            "strb GPR,[GPR,GPR]",{0xE7C00000,0xF07FFFFF}}, // xxxx01111xxxxxxxxxxxxxxxxxxxxxxx
+{                      "strb GPR,[GPR],GPR,SHIFT",{0xE6C00060,0xF01FFFFF}}, // xxxx0110110xxxxxxxxxxxxxxxxxxxxx
+{                     "strb GPR,[GPR,-GPR,SHIFT]",{0xE7400060,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                "strb GPR,[GPR,-GPR,SHIFT NUM]!",{0xE7600020,0xF07FFFFF}}, // xxxx01110xxxxxxxxxxxxxxxxxxxxxxx
+{                  "strb GPR,[GPR,GPR,SHIFT NUM]",{0xE7C00020,0xF01FFFFF}}, // xxxx0111110xxxxxxxxxxxxxxxxxxxxx
+{                                  "strb GPR,NUM",{0xE44F0000,0xF3A0FFFF}}, // xxxx01xxx1x01111xxxxxxxxxxxxxxxx
+{                           "strb GPR,[GPR,GPR]!",{0xE7E00000,0xF00FF03F}}, // xxxx01111110xxxxxxxx000000xxxxxx
+{                    "strb GPR,[GPR,-GPR,SHIFT]!",{0xE7600060,0xF0FFFFFF}}, // xxxx0111xxxxxxxxxxxxxxxxxxxxxxxx
+{                      "strb GPR,[GPR,GPR,SHIFT]",{0xE7C00060,0xF01FFFFF}}, // xxxx0111110xxxxxxxxxxxxxxxxxxxxx
+{                 "strb GPR,[GPR,GPR,SHIFT NUM]!",{0xE7E00020,0xF00FFFFF}}, // xxxx01111110xxxxxxxxxxxxxxxxxxxx
+{                          "strbt GPR,[GPR],-GPR",{0xE6600000,0xF00FF00F}}, // xxxx01100110xxxxxxxx00000000xxxx
+{                "strbt GPR,[GPR],-GPR,SHIFT NUM",{0xE6600020,0xF07FFFFF}}, // xxxx01100xxxxxxxxxxxxxxxxxxxxxxx
+{                           "strbt GPR,[GPR],GPR",{0xE6E00000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                    "strbt GPR,[GPR],-GPR,SHIFT",{0xE6600060,0xF00FF00F}}, // xxxx01100110xxxxxxxx00000110xxxx
+{                 "strbt GPR,[GPR],GPR,SHIFT NUM",{0xE6E00020,0xF00FFFEF}}, // xxxx01101110xxxxxxxxxxxxxxx0xxxx
+{                     "strbt GPR,[GPR],GPR,SHIFT",{0xE6E00060,0xF00FF00F}}, // xxxx01101110xxxxxxxx00000110xxxx
+{                                 "strbt GPR,NUM",{0xE46F0000,0xF780FFFF}}, // xxxx0xxxx1101111xxxxxxxxxxxxxxxx
+{                        "strd GPR,GPR,[GPR],NUM",{0xE04000F0,0xF7EFFF0F}}, // xxxx0xxxxxx0xxxxxxxxxxxx1111xxxx
+{                        "strd GPR,GPR,[GPR],GPR",{0xE08000F0,0xF7EFFF0F}}, // xxxx0xxxxxx0xxxxxxxxxxxx1111xxxx
+{                       "strd GPR,GPR,[GPR,-GPR]",{0xE10000F0,0xF00FFF0F}}, // xxxx00010000xxxxxxxxxxxx1111xxxx
+{                      "strd GPR,GPR,[GPR,-GPR]!",{0xE12000F0,0xF00FFF0F}}, // xxxx00010010xxxxxxxxxxxx1111xxxx
+{                            "strd GPR,GPR,[GPR]",{0xE14000F0,0xF78FF000}}, // xxxx0xxxx100xxxxxxxx000011110000
+{                        "strd GPR,GPR,[GPR,GPR]",{0xE18000F0,0xF00FFF0F}}, // xxxx00011000xxxxxxxxxxxx1111xxxx
+{                        "strd GPR,GPR,[GPR,NUM]",{0xE14000F1,0xF78FFF0F}}, // xxxx0xxxx100xxxxxxxxxxxx1111xxxx
+{                       "strd GPR,GPR,[GPR,NUM]!",{0xE16000F0,0xF08FFF0F}}, // xxxx0001x110xxxxxxxxxxxx1111xxxx
+{                       "strd GPR,GPR,[GPR,GPR]!",{0xE1A000F0,0xF00FFF0F}}, // xxxx00011010xxxxxxxxxxxx1111xxxx
+{                            "strh GPR,[GPR],NUM",{0xE04000B0,0xF78FFF0F}}, // xxxx0xxxx100xxxxxxxxxxxx1011xxxx
+{                            "strh GPR,[GPR],GPR",{0xE08000B0,0xF00FFF0F}}, // xxxx00001000xxxxxxxxxxxx1011xxxx
+{                           "strh GPR,[GPR,-GPR]",{0xE10000B0,0xF00FFFFF}}, // xxxx00010000xxxxxxxxxxxxxxxxxxxx
+{                          "strh GPR,[GPR,-GPR]!",{0xE12000B0,0xF00FFFFF}}, // xxxx00010010xxxxxxxxxxxxxxxxxxxx
+{                                "strh GPR,[GPR]",{0xE14000B0,0xF78FF000}}, // xxxx0xxxx100xxxxxxxx000010110000
+{                            "strh GPR,[GPR,GPR]",{0xE18000B0,0xF00FFF0F}}, // xxxx00011000xxxxxxxxxxxx1011xxxx
+{                            "strh GPR,[GPR,NUM]",{0xE14000B1,0xF78FFFFF}}, // xxxx0xxxx100xxxxxxxxxxxxxxxxxxxx
+{                           "strh GPR,[GPR,NUM]!",{0xE16000B0,0xF78FFFFF}}, // xxxx0xxxx110xxxxxxxxxxxxxxxxxxxx
+{                           "strh GPR,[GPR,GPR]!",{0xE1A000B0,0xF00FFF0F}}, // xxxx00011010xxxxxxxxxxxx1011xxxx
+{                           "strht GPR,[GPR],NUM",{0xE06000B0,0xF78FFF0F}}, // xxxx0xxxx110xxxxxxxxxxxx1011xxxx
+{                           "strht GPR,[GPR],GPR",{0xE0A000B0,0xF00FFF0F}}, // xxxx00001010xxxxxxxxxxxx1011xxxx
+{                           "strt GPR,[GPR],-GPR",{0xE6200000,0xF00FF00F}}, // xxxx01100010xxxxxxxx00000000xxxx
+{                 "strt GPR,[GPR],-GPR,SHIFT NUM",{0xE6200020,0xF07FFFFF}}, // xxxx01100xxxxxxxxxxxxxxxxxxxxxxx
+{                            "strt GPR,[GPR],GPR",{0xE6A00000,0xF07FFFFF}}, // xxxx01101xxxxxxxxxxxxxxxxxxxxxxx
+{                     "strt GPR,[GPR],-GPR,SHIFT",{0xE6200060,0xF00FF00F}}, // xxxx01100010xxxxxxxx00000110xxxx
+{                  "strt GPR,[GPR],GPR,SHIFT NUM",{0xE6A00020,0xF00FFFEF}}, // xxxx01101010xxxxxxxxxxxxxxx0xxxx
+{                      "strt GPR,[GPR],GPR,SHIFT",{0xE6A00060,0xF00FF00F}}, // xxxx01101010xxxxxxxx00000110xxxx
+{                                  "strt GPR,NUM",{0xE42F0000,0xF780FFFF}}, // xxxx0xxxx0101111xxxxxxxxxxxxxxxx
+{                     "sub GPR,GPR,GPR,SHIFT GPR",{0xE0400010,0xF01FFF6F}}, // xxxx0000010xxxxxxxxxxxxx0xx1xxxx
+{                     "sub GPR,GPR,GPR,SHIFT NUM",{0xE0400020,0xF01FFFEF}}, // xxxx0000010xxxxxxxxxxxxxxxx0xxxx
+{                               "sub GPR,GPR,NUM",{0xE2400000,0xF01FFFFF}}, // xxxx0010010xxxxxxxxxxxxxxxxxxxxx
+{                         "sub GPR,GPR,GPR,SHIFT",{0xE0400060,0xF01FF00F}}, // xxxx0000010xxxxxxxxx00000110xxxx
+{                         "teq GPR,GPR,SHIFT GPR",{0xE1300010,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx1xxxx
+{                         "teq GPR,GPR,SHIFT NUM",{0xE1300020,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx0xxxx
+{                                   "teq GPR,NUM",{0xE3300000,0xF00FFFFF}}, // xxxx00110011xxxxxxxxxxxxxxxxxxxx
+{                             "teq GPR,GPR,SHIFT",{0xE1300060,0xF07FFFFF}}, // xxxx00010xxxxxxxxxxxxxxxxxxxxxxx
+{                         "tst GPR,GPR,SHIFT GPR",{0xE1100010,0xF01FFFEF}}, // xxxx0001000xxxxxxxxxxxxxxxx1xxxx
+{                         "tst GPR,GPR,SHIFT NUM",{0xE1100020,0xF07FFFEF}}, // xxxx00010xxxxxxxxxxxxxxxxxx0xxxx
+{                                   "tst GPR,NUM",{0xE3100000,0xF00FFFFF}}, // xxxx00110001xxxxxxxxxxxxxxxxxxxx
+{                             "tst GPR,GPR,SHIFT",{0xE1100060,0xF00FFFFF}}, // xxxx00010001xxxxxxxxxxxxxxxxxxxx
+{                    "usat GPR,NUM,GPR,SHIFT NUM",{0xE6E00050,0xF1FFFFCF}}, // xxxx011xxxxxxxxxxxxxxxxxxx01xxxx
+{                           "vaba QREG,QREG,QREG",{0xF2100750,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0111x1x1xxxx
+{                           "vabd QREG,QREG,QREG",{0xF3200D40,0x07FFFBAF}}, // 11110xxxxxxxxxxxxxxxx1xxx1x0xxxx
+{                                "vabs DREG,DREG",{0xEEB00BC0,0xF040F1FF}}, // xxxx11101x110000xxxx101xxxxxxxxx
+{                          "vacge QREG,QREG,QREG",{0xF2000E50,0x075FF0AF}}, // 11110xxx0x0xxxxxxxxx1110x1x1xxxx
+{                          "vacgt QREG,QREG,QREG",{0xF2200E50,0x075FF0AF}}, // 11110xxx0x1xxxxxxxxx1110x1x1xxxx
+{                           "vadd DREG,DREG,DREG",{0xEE300B00,0xFFCFF3FF}}, // xxxxxxxxxx11xxxxxxxx10xxxxxxxxxx
+{                           "vadd QREG,QREG,QREG",{0xF2300840,0x00FFF5AF}}, // 11110010xxxxxxxxxxxx1x0xx1x0xxxx
+{                           "vand QREG,QREG,QREG",{0xF2000150,0x004FF0AF}}, // 111100100x00xxxxxxxx0001x1x1xxxx
+{                           "vbic QREG,QREG,QREG",{0xF2100150,0x004FF0AF}}, // 111100100x01xxxxxxxx0001x1x1xxxx
+{                                 "vbic DREG,NUM",{0xF2800130,0x077FFE0F}}, // 11110xxx1xxxxxxxxxxxxxx10011xxxx
+{                                 "vbic QREG,NUM",{0xF2800170,0x077FFE1F}}, // 11110xxx1xxxxxxxxxxxxxx1011xxxxx
+{                           "vbif QREG,QREG,QREG",{0xF3300150,0x004FF0AF}}, // 111100110x11xxxxxxxx0001x1x1xxxx
+{                           "vbit QREG,QREG,QREG",{0xF3200150,0x004FF0AF}}, // 111100110x10xxxxxxxx0001x1x1xxxx
+{                           "vbsl QREG,QREG,QREG",{0xF3100150,0x004FF0AF}}, // 111100110x01xxxxxxxx0001x1x1xxxx
+{                           "vceq QREG,QREG,QREG",{0xF2000E40,0x07FFF6BF}}, // 11110xxxxxxxxxxxxxxx1xx0x1xxxxxx
+{                           "vcge QREG,QREG,QREG",{0xF3000E40,0x01FFFDBF}}, // 1111001xxxxxxxxxxxxxxx1xx1xxxxxx
+{                           "vcgt QREG,QREG,QREG",{0xF3200E40,0x07FFFDAF}}, // 11110xxxxxxxxxxxxxxxxx1xx1x0xxxx
+{                            "vcle QREG,QREG,NUM",{0xF3B905C0,0x004FFC2F}}, // 111100111x11xxxxxxxxxx0111x0xxxx
+{                                "vcls QREG,QREG",{0xF3B40440,0x004FF02F}}, // 111100111x11xxxxxxxx010001x0xxxx
+{                            "vclt QREG,QREG,NUM",{0xF3B90640,0x004CFC2F}}, // 111100111x11xx01xxxxxx1001x0xxxx
+{                                "vclz QREG,QREG",{0xF3B404C0,0x004FF02F}}, // 111100111x11xxxxxxxx010011x0xxxx
+{                                "vcmp DREG,DREG",{0xEEB40B40,0xF040F1FF}}, // xxxx11101x110100xxxx101xxxxxxxxx
+{                                 "vcmp SREG,NUM",{0xEEB50A40,0xF040F0FF}}, // xxxx11101x110101xxxx1010xxxxxxxx
+{                                 "vcmp DREG,NUM",{0xEEB50B40,0xF040F1FF}}, // xxxx11101x110101xxxx101xxxxxxxxx
+{                               "vcmpe DREG,DREG",{0xEEB40BC0,0xF040F1FF}}, // xxxx11101x110100xxxx101xxxxxxxxx
+{                                "vcmpe SREG,NUM",{0xEEB50AC0,0xF040F0FF}}, // xxxx11101x110101xxxx1010xxxxxxxx
+{                                "vcmpe DREG,NUM",{0xEEB50BC0,0xF040F1FF}}, // xxxx11101x110101xxxx101xxxxxxxxx
+{                                "vcnt QREG,QREG",{0xF3B00540,0x004FF02F}}, // 111100111x11xxxxxxxx010101x0xxxx
+{                                "vcvt QREG,DREG",{0xF3B20700,0x004CF0EF}}, // 111100111x11xx10xxxx0111xxx0xxxx
+{                                "vcvt DREG,DREG",{0xF3B30600,0x004FF1AF}}, // 111100111x11xxxxxxxx011xx0x0xxxx
+{                            "vcvt DREG,DREG,NUM",{0xF3B20E10,0x07FFF7BF}}, // 11110xxxxxxxxxxxxxxx1xxxx0xxxxxx
+{                                "vcvt QREG,QREG",{0xF3B30640,0x007FF1AF}}, // 111100111xxxxxxxxxxx011xx1x0xxxx
+{                            "vcvt QREG,QREG,NUM",{0xF3B20E50,0x07FFF7BF}}, // 11110xxxxxxxxxxxxxxx1xxxx1xxxxxx
+{                                "vcvt DREG,SREG",{0xEEB70AC0,0xF04FF1FF}}, // xxxx11101x11xxxxxxxx101xxxxxxxxx
+{                            "vcvt SREG,SREG,NUM",{0xEEBF0AC0,0xF07FF0FF}}, // xxxx11101xxxxxxxxxxx1010xxxxxxxx
+{                                "vcvt SREG,SREG",{0xEEBD0AC0,0xF07FF0FF}}, // xxxx11101xxxxxxxxxxx1010xxxxxxxx
+{                               "vcvtb SREG,DREG",{0xEEB30B40,0xF040F1FF}}, // xxxx11101x110011xxxx101xxxxxxxxx
+{                               "vcvtb DREG,SREG",{0xEEB20B40,0xF040F1FF}}, // xxxx11101x110010xxxx101xxxxxxxxx
+{                               "vcvtr SREG,DREG",{0xEEBD0B40,0xF07FF1FF}}, // xxxx11101xxxxxxxxxxx101xxxxxxxxx
+{                               "vcvtt SREG,DREG",{0xEEB30BC0,0xF040F1FF}}, // xxxx11101x110011xxxx101xxxxxxxxx
+{                               "vcvtt DREG,SREG",{0xEEB20BC0,0xF040F1FF}}, // xxxx11101x110010xxxx101xxxxxxxxx
+{                           "vdiv DREG,DREG,DREG",{0xEE800B00,0xF04FF1FF}}, // xxxx11101x00xxxxxxxx101xxxxxxxxx
+{                           "vdup QREG,DREG[NUM]",{0xF3B00C40,0x00CFF03F}}, // 11110011xx11xxxxxxxx110001xxxxxx
+{                                 "vdup QREG,GPR",{0xEEA00B30,0xF04FF1EF}}, // xxxx11101x10xxxxxxxx101xxxx1xxxx
+{                           "veor QREG,QREG,QREG",{0xF3000150,0x004FF0AF}}, // 111100110x00xxxxxxxx0001x1x1xxxx
+{                       "vext QREG,QREG,QREG,NUM",{0xF2B00040,0x07FFFFAF}}, // 11110xxxxxxxxxxxxxxxxxxxx1x0xxxx
+{                           "vfma DREG,DREG,DREG",{0xEEA00B00,0xF04FF1FF}}, // xxxx11101x10xxxxxxxx101xxxxxxxxx
+{                           "vfms DREG,DREG,DREG",{0xEEA00B40,0xFFFFF1FF}}, // xxxxxxxxxxxxxxxxxxxx101xxxxxxxxx
+{                          "vfnma DREG,DREG,DREG",{0xEE900B40,0xF07FF1FF}}, // xxxx11101xxxxxxxxxxx101xxxxxxxxx
+{                          "vfnms DREG,DREG,DREG",{0xEE900B00,0xF04FF1FF}}, // xxxx11101x01xxxxxxxx101xxxxxxxxx
+{                          "vhadd QREG,QREG,QREG",{0xF2100040,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0000x1x0xxxx
+{                          "vhsub QREG,QREG,QREG",{0xF2100240,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0010x1x0xxxx
+{                  "vld1 RLIST,[GPR:NUM:NUM],GPR",{0xF4200250,0x07DFFFFF}}, // 11110xxxxx1xxxxxxxxxxxxxxxxxxxxx
+{                             "vld1 RLIST,[GPR]!",{0xF420024D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                              "vld1 RLIST,[GPR]",{0xF420024F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                     "vld1 RLIST,[GPR:NUM:NUM]!",{0xF420025D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                      "vld1 RLIST,[GPR:NUM:NUM]",{0xF420025F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                  "vld2 RLIST,[GPR:NUM:NUM],GPR",{0xF4200350,0x07DFFFFF}}, // 11110xxxxx1xxxxxxxxxxxxxxxxxxxxx
+{                             "vld2 RLIST,[GPR]!",{0xF420034D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                              "vld2 RLIST,[GPR]",{0xF420034F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                     "vld2 RLIST,[GPR:NUM:NUM]!",{0xF420035D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                      "vld2 RLIST,[GPR:NUM:NUM]",{0xF420035F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                  "vld3 RLIST,[GPR:NUM:NUM],GPR",{0xF4200450,0x07DFFFFF}}, // 11110xxxxx1xxxxxxxxxxxxxxxxxxxxx
+{                             "vld3 RLIST,[GPR]!",{0xF420044D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                              "vld3 RLIST,[GPR]",{0xF420044F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                     "vld3 RLIST,[GPR:NUM:NUM]!",{0xF420045D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                      "vld3 RLIST,[GPR:NUM:NUM]",{0xF420045F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                  "vld4 RLIST,[GPR:NUM:NUM],GPR",{0xF4200050,0x07DFFFFF}}, // 11110xxxxx1xxxxxxxxxxxxxxxxxxxxx
+{                             "vld4 RLIST,[GPR]!",{0xF420004D,0x07DFFFE0}}, // 11110xxxxx1xxxxxxxxxxxxxxxx01101
+{                              "vld4 RLIST,[GPR]",{0xF420004F,0x07DFFFE0}}, // 11110xxxxx1xxxxxxxxxxxxxxxx01111
+{                     "vld4 RLIST,[GPR:NUM:NUM]!",{0xF420005D,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1101
+{                      "vld4 RLIST,[GPR:NUM:NUM]",{0xF420005F,0x07DFFFF0}}, // 11110xxxxx1xxxxxxxxxxxxxxxxx1111
+{                             "vldmia GPR!,RLIST",{0xECB00A00,0xF3FFF1FF}}, // xxxx11xxxxxxxxxxxxxx101xxxxxxxxx
+{                           "vldr SREG,[GPR,NUM]",{0xED100A01,0xF3FFF0FF}}, // xxxx11xxxxxxxxxxxxxx1010xxxxxxxx
+{                               "vldr DREG,[GPR]",{0xED100B00,0xF1FFF000}}, // xxxx110xxxxxxxxxxxxx101100000000
+{                           "vldr DREG,[GPR,NUM]",{0xED100B01,0xF1FFF0FF}}, // xxxx110xxxxxxxxxxxxx1011xxxxxxxx
+{                           "vmax QREG,QREG,QREG",{0xF2000F40,0x07FFF9AF}}, // 11110xxxxxxxxxxxxxxxx11xx1x0xxxx
+{                           "vmin QREG,QREG,QREG",{0xF2200F40,0x07FFF9BF}}, // 11110xxxxxxxxxxxxxxxx11xx1xxxxxx
+{                           "vmla DREG,DREG,DREG",{0xEE000B00,0xFC7FF2AF}}, // xxxxxx100xxxxxxxxxxx10x1x0x0xxxx
+{                     "vmlal QREG,QREG,DREG[NUM]",{0xF3900240,0x007FF1AF}}, // 111100111xxxxxxxxxxx001xx1x0xxxx
+{                          "vmlal QREG,DREG,DREG",{0xF2900800,0x077FF0AF}}, // 11110xxx1xxxxxxxxxxx1000x0x0xxxx
+{                           "vmls DREG,DREG,DREG",{0xEE000B40,0xF0CFF0BF}}, // xxxx1110xx00xxxxxxxx1011x1xxxxxx
+{                      "vmls QREG,QREG,DREG[NUM]",{0xF3900440,0x007FF1AF}}, // 111100111xxxxxxxxxxx010xx1x0xxxx
+{                           "vmls QREG,QREG,QREG",{0xF2300D50,0x07FFF4BF}}, // 11110xxxxxxxxxxxxxxx1x01x1xxxxxx
+{                     "vmlsl QREG,QREG,DREG[NUM]",{0xF3900640,0x007FF1AF}}, // 111100111xxxxxxxxxxx011xx1x0xxxx
+{                          "vmlsl QREG,DREG,DREG",{0xF2900A00,0x077FF0AF}}, // 11110xxx1xxxxxxxxxxx1010x0x0xxxx
+{                             "vmov DREG,GPR,GPR",{0xEC400B10,0xF1FFF1FF}}, // xxxx110xxxxxxxxxxxxx101xxxxxxxxx
+{                        "vmov GPR,GPR,SREG,SREG",{0xEC500A10,0xF3FFF1FF}}, // xxxx11xxxxxxxxxxxxxx101xxxxxxxxx
+{                             "vmov GPR,GPR,DREG",{0xEC500B10,0xF1FFF1FF}}, // xxxx110xxxxxxxxxxxxx101xxxxxxxxx
+{                            "vmov DREG[NUM],GPR",{0xEE400B10,0xF3EFF1EF}}, // xxxx11xxxxx0xxxxxxxx101xxxx1xxxx
+{                                 "vmov SREG,GPR",{0xEE000A10,0xF0FFF1EF}}, // xxxx1110xxxxxxxxxxxx101xxxx1xxxx
+{                            "vmov GPR,DREG[NUM]",{0xEE500B10,0xFFFFF1EF}}, // xxxxxxxxxxxxxxxxxxxx101xxxx1xxxx
+{                                 "vmov GPR,SREG",{0xEE100A10,0xF0FFF0EF}}, // xxxx1110xxxxxxxxxxxx1010xxx1xxxx
+{                        "vmov SREG,DREG,GPR,GPR",{0xEC400A3F,0xF3FFF01F}}, // xxxx11xxxxxxxxxxxxxx1010001xxxxx
+{                                 "vmov SREG,NUM",{0xEEF00A00,0xF04FF0AF}}, // xxxx11101x11xxxxxxxx1010x0x0xxxx
+{                                 "vmov QREG,NUM",{0xEEB00B40,0xF040F1FF}}, // xxxx11101x110000xxxx101xxxxxxxxx
+{                             "vmrs GPR,MEDIAREG",{0xEEF50A10,0xF0FFF0EF}}, // xxxx1110xxxxxxxxxxxx1010xxx1xxxx
+{                                "vmrs STATR,OPT",{0xEEF1FA10,0xF00000EF}}, // xxxx11101111000111111010xxx1xxxx
+{                             "vmsr MEDIAREG,GPR",{0xEEE50A10,0xF0FFF1EF}}, // xxxx1110xxxxxxxxxxxx101xxxx1xxxx
+{                                "vmsr OPT,STATR",{0xEEE1FA10,0xF00001EF}}, // xxxx1110111000011111101xxxx1xxxx
+{                      "vmul QREG,QREG,DREG[NUM]",{0xF3900940,0x007FF3EF}}, // 111100111xxxxxxxxxxx10xxxxx0xxxx
+{                           "vmul QREG,QREG,QREG",{0xF2100950,0x07FFF4AF}}, // 11110xxxxxxxxxxxxxxx1x01x1x1xxxx
+{                           "vmul DREG,DREG,DREG",{0xF2100910,0x07FFF4AF}}, // 11110xxxxxxxxxxxxxxx1x01x0x1xxxx
+{                     "vmull QREG,DREG,DREG[NUM]",{0xF2900A40,0x077FF0BF}}, // 11110xxx1xxxxxxxxxxx1010x1xxxxxx
+{                                "vmvn QREG,QREG",{0xF3B005C0,0x004FF02F}}, // 111100111x11xxxxxxxx010111x0xxxx
+{                                 "vmvn QREG,NUM",{0xF2800870,0x077FFF1F}}, // 11110xxx1xxxxxxxxxxxxxxx011xxxxx
+{                                "vneg DREG,DREG",{0xEEB10B40,0xF040F1FF}}, // xxxx11101x110001xxxx101xxxxxxxxx
+{                          "vnmla DREG,DREG,DREG",{0xEE100B40,0xF04FF0AF}}, // xxxx11100x01xxxxxxxx1011x1x0xxxx
+{                          "vnmls DREG,DREG,DREG",{0xEE100B00,0xF04FF0AF}}, // xxxx11100x01xxxxxxxx1011x0x0xxxx
+{                          "vnmul DREG,DREG,DREG",{0xEE200B40,0xF3CFF1FF}}, // xxxx11xxxx10xxxxxxxx101xxxxxxxxx
+{                           "vorn QREG,QREG,QREG",{0xF2300150,0x004FF0AF}}, // 111100100x11xxxxxxxx0001x1x1xxxx
+{                           "vorr QREG,QREG,QREG",{0xF2200150,0x004FF0AF}}, // 111100100x10xxxxxxxx0001x1x1xxxx
+{                                 "vorr DREG,NUM",{0xF2800110,0x077FFE0F}}, // 11110xxx1xxxxxxxxxxxxxx10001xxxx
+{                                 "vorr QREG,NUM",{0xF2800150,0x077FFE1F}}, // 11110xxx1xxxxxxxxxxxxxx1010xxxxx
+{                              "vpadal QREG,QREG",{0xF3B40640,0x004FF0AF}}, // 111100111x11xxxxxxxx0110x1x0xxxx
+{                          "vpadd QREG,QREG,QREG",{0xF3000D40,0x077FF7BF}}, // 11110xxx0xxxxxxxxxxx1xxxx1xxxxxx
+{                              "vpaddl QREG,QREG",{0xF3B40240,0x004FF1AF}}, // 111100111x11xxxxxxxx001xx1x0xxxx
+{                          "vpmax QREG,QREG,QREG",{0xF3000F40,0x07FFF5BF}}, // 11110xxxxxxxxxxxxxxx1x1xx1xxxxxx
+{                          "vpmin QREG,QREG,QREG",{0xF3200F40,0x07FFF5BF}}, // 11110xxxxxxxxxxxxxxx1x1xx1xxxxxx
+{                               "vqabs QREG,QREG",{0xF3B40740,0x007FF02F}}, // 111100111xxxxxxxxxxx011101x0xxxx
+{                          "vqadd QREG,QREG,QREG",{0xF2100050,0x077FF0AF}}, // 11110xxx0xxxxxxxxxxx0000x1x1xxxx
+{                        "vqdmlal QREG,DREG,DREG",{0xF2800900,0x007FF0EF}}, // 111100101xxxxxxxxxxx1001xxx0xxxx
+{                        "vqdmlsl QREG,DREG,DREG",{0xF2800B00,0x007FF0BF}}, // 111100101xxxxxxxxxxx1011x0xxxxxx
+{                   "vqdmulh QREG,QREG,DREG[NUM]",{0xF3800C40,0x00FFF0AF}}, // 11110011xxxxxxxxxxxx1100x1x0xxxx
+{                        "vqdmulh QREG,QREG,QREG",{0xF2000B40,0x007FF0AF}}, // 111100100xxxxxxxxxxx1011x1x0xxxx
+{                        "vqdmulh DREG,DREG,DREG",{0xF2000B00,0x007FF0AF}}, // 111100100xxxxxxxxxxx1011x0x0xxxx
+{                        "vqdmull QREG,DREG,DREG",{0xF2800D00,0x007FF0BF}}, // 111100101xxxxxxxxxxx1101x0xxxxxx
+{                               "vqneg QREG,QREG",{0xF3B407C0,0x007FF02F}}, // 111100111xxxxxxxxxxx011111x0xxxx
+{                  "vqrdmulh SREG,SREG,DREG[NUM]",{0xF3800D40,0x003FF06F}}, // 1111001110xxxxxxxxxx11010xx0xxxx
+{                  "vqrdmulh SREG,DREG,DREG[NUM]",{0xF3800DC0,0x003FF07F}}, // 1111001110xxxxxxxxxx11011xxxxxxx
+{                  "vqrdmulh DREG,SREG,DREG[NUM]",{0xF3C00D40,0x003FF06F}}, // 1111001111xxxxxxxxxx11010xx0xxxx
+{                       "vqrdmulh QREG,QREG,QREG",{0xF3000B40,0x00FFF0BF}}, // 11110011xxxxxxxxxxxx1011x1xxxxxx
+{                       "vqrdmulh DREG,DREG,DREG",{0xF3000B00,0x00FFF0BF}}, // 11110011xxxxxxxxxxxx1011x0xxxxxx
+{                         "vqrshl QREG,QREG,QREG",{0xF2100550,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0101x1x1xxxx
+{                          "vqshl QREG,QREG,QREG",{0xF2100450,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0100x1x1xxxx
+{                           "vqshl DREG,DREG,NUM",{0xF2900710,0x077FF1AF}}, // 11110xxx1xxxxxxxxxxx011xx0x1xxxx
+{                           "vqshl QREG,QREG,NUM",{0xF2900750,0x077FF1AF}}, // 11110xxx1xxxxxxxxxxx011xx1x1xxxx
+{                          "vqshlu QREG,QREG,NUM",{0xF3900650,0x007FF0AF}}, // 111100111xxxxxxxxxxx0110x1x1xxxx
+{                          "vqsub QREG,QREG,QREG",{0xF2100250,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0010x1x1xxxx
+{                              "vrecpe QREG,QREG",{0xF3B30540,0x004FF12F}}, // 111100111x11xxxxxxxx010x01x0xxxx
+{                         "vrecps QREG,QREG,QREG",{0xF2000F50,0x07DFF0AF}}, // 11110xxxxx0xxxxxxxxx1111x1x1xxxx
+{                              "vrev16 QREG,QREG",{0xF3B00140,0x0040F02F}}, // 111100111x110000xxxx000101x0xxxx
+{                              "vrev32 QREG,QREG",{0xF3B400C0,0x004CF02F}}, // 111100111x11xx00xxxx000011x0xxxx
+{                              "vrev64 QREG,QREG",{0xF3B40040,0x004CF02F}}, // 111100111x11xx00xxxx000001x0xxxx
+{                         "vrhadd QREG,QREG,QREG",{0xF2100140,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0001x1x0xxxx
+{                              "vrintr DREG,DREG",{0xEEB60B40,0xF04FF1FF}}, // xxxx11101x11xxxxxxxx101xxxxxxxxx
+{                              "vrintx DREG,DREG",{0xEEB70B40,0xF040F1FF}}, // xxxx11101x110111xxxx101xxxxxxxxx
+{                              "vrintz DREG,DREG",{0xEEB60BC0,0xF04FF1FF}}, // xxxx11101x11xxxxxxxx101xxxxxxxxx
+{                          "vrshl QREG,QREG,QREG",{0xF2100540,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0101x1x0xxxx
+{                           "vrshr QREG,QREG,NUM",{0xF2900250,0x077FF0AF}}, // 11110xxx1xxxxxxxxxxx0010x1x1xxxx
+{                             "vrsqrte QREG,QREG",{0xF3B305C0,0x004FF12F}}, // 111100111x11xxxxxxxx010x11x0xxxx
+{                        "vrsqrts QREG,QREG,QREG",{0xF2200F50,0x005FF0AF}}, // 111100100x1xxxxxxxxx1111x1x1xxxx
+{                           "vrsra QREG,QREG,NUM",{0xF2900350,0x077FF0AF}}, // 11110xxx1xxxxxxxxxxx0011x1x1xxxx
+{                            "vshl QREG,QREG,NUM",{0xF2900550,0x007FF1BF}}, // 111100101xxxxxxxxxxx010xx1xxxxxx
+{                           "vshl DREG,DREG,DREG",{0xF2100400,0x077FF0AF}}, // 11110xxx0xxxxxxxxxxx0100x0x0xxxx
+{                           "vshl QREG,QREG,QREG",{0xF2100440,0x07FFF0AF}}, // 11110xxxxxxxxxxxxxxx0100x1x0xxxx
+{                            "vshr QREG,QREG,NUM",{0xF2900050,0x077FF0AF}}, // 11110xxx1xxxxxxxxxxx0000x1x1xxxx
+{                            "vsli QREG,QREG,NUM",{0xF3900550,0x007FF0BF}}, // 111100111xxxxxxxxxxx0101x1xxxxxx
+{                               "vsqrt DREG,DREG",{0xEEB10BC0,0xF040F1FF}}, // xxxx11101x110001xxxx101xxxxxxxxx
+{                            "vsra QREG,QREG,NUM",{0xF2900150,0x077FF0BF}}, // 11110xxx1xxxxxxxxxxx0001x1xxxxxx
+{                            "vsri QREG,QREG,NUM",{0xF3900450,0x007FF0AF}}, // 111100111xxxxxxxxxxx0100x1x1xxxx
+{                  "vst1 RLIST,[GPR:NUM:NUM],GPR",{0xF4000250,0x07CFFFFF}}, // 11110xxxxx00xxxxxxxxxxxxxxxxxxxx
+{                             "vst1 RLIST,[GPR]!",{0xF400024D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                              "vst1 RLIST,[GPR]",{0xF400024F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                     "vst1 RLIST,[GPR:NUM:NUM]!",{0xF400025D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                      "vst1 RLIST,[GPR:NUM:NUM]",{0xF400025F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                  "vst2 RLIST,[GPR:NUM:NUM],GPR",{0xF4000350,0x07CFFFFF}}, // 11110xxxxx00xxxxxxxxxxxxxxxxxxxx
+{                             "vst2 RLIST,[GPR]!",{0xF400034D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                              "vst2 RLIST,[GPR]",{0xF400034F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                     "vst2 RLIST,[GPR:NUM:NUM]!",{0xF400035D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                      "vst2 RLIST,[GPR:NUM:NUM]",{0xF400035F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                  "vst3 RLIST,[GPR:NUM:NUM],GPR",{0xF4000450,0x07CFFFFF}}, // 11110xxxxx00xxxxxxxxxxxxxxxxxxxx
+{                             "vst3 RLIST,[GPR]!",{0xF400044D,0x07CFFFE0}}, // 11110xxxxx00xxxxxxxxxxxxxxx01101
+{                              "vst3 RLIST,[GPR]",{0xF400044F,0x07CFFFE0}}, // 11110xxxxx00xxxxxxxxxxxxxxx01111
+{                     "vst3 RLIST,[GPR:NUM:NUM]!",{0xF400045D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                      "vst3 RLIST,[GPR:NUM:NUM]",{0xF400045F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                  "vst4 RLIST,[GPR:NUM:NUM],GPR",{0xF4000050,0x07CFFFFF}}, // 11110xxxxx00xxxxxxxxxxxxxxxxxxxx
+{                             "vst4 RLIST,[GPR]!",{0xF400004D,0x07CFFFE0}}, // 11110xxxxx00xxxxxxxxxxxxxxx01101
+{                              "vst4 RLIST,[GPR]",{0xF400004F,0x07CFFFE0}}, // 11110xxxxx00xxxxxxxxxxxxxxx01111
+{                     "vst4 RLIST,[GPR:NUM:NUM]!",{0xF400005D,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1101
+{                      "vst4 RLIST,[GPR:NUM:NUM]",{0xF400005F,0x07CFFFF0}}, // 11110xxxxx00xxxxxxxxxxxxxxxx1111
+{                             "vstmia GPR!,RLIST",{0xECA00A00,0xF3FFF1FF}}, // xxxx11xxxxxxxxxxxxxx101xxxxxxxxx
+{                           "vstr SREG,[GPR,NUM]",{0xED000A01,0xF3FFF0FF}}, // xxxx11xxxxxxxxxxxxxx1010xxxxxxxx
+{                               "vstr DREG,[GPR]",{0xED000B00,0xF1FFF000}}, // xxxx110xxxxxxxxxxxxx101100000000
+{                           "vstr DREG,[GPR,NUM]",{0xED000B01,0xF3FFF0FF}}, // xxxx11xxxxxxxxxxxxxx1011xxxxxxxx
+{                           "vsub DREG,DREG,DREG",{0xEE300B40,0xF3FFF1FF}}, // xxxx11xxxxxxxxxxxxxx101xxxxxxxxx
+{                           "vsub QREG,QREG,QREG",{0xF3300840,0x07FFF5AF}}, // 11110xxxxxxxxxxxxxxx1x0xx1x0xxxx
+{                                "vswp QREG,QREG",{0xF3B20040,0x004DF02F}}, // 111100111x11xx1xxxxx000001x0xxxx
+{                                "vtrn QREG,QREG",{0xF3B600C0,0x004DE02F}}, // 111100111x11xx1xxxx0000011x0xxxx
+{                           "vtst QREG,QREG,QREG",{0xF2100850,0x00FFF0AF}}, // 11110010xxxxxxxxxxxx1000x1x1xxxx
+{                                "vuzp QREG,QREG",{0xF3B60140,0x004FE02F}}, // 111100111x11xxxxxxx0000101x0xxxx
+{                                "vzip QREG,QREG",{0xF3B601C0,0x004FE02F}}, // 111100111x11xxxxxxx0000111x0xxxx

@@ -4,10 +4,6 @@ import struct
 
 import itertools
 
-# ensure binja in path, eg:
-# PATHPATH=/Users/andrewl/repos/vector35/binaryninja/ui/binaryninja.app/Contents/Resources/python/
-import binaryninja
-
 re_root = r'(?P<root>.*?)'
 re_s = r'(?P<s>\.s)?'													# set flags
 re_cc = r'(?P<cc>(eq|ne|cs|hs|cc|lo|mi|pl|vs|vc|hi|ls|ge|lt|gt|le))?'	# condition code
@@ -213,7 +209,7 @@ def tokenize(distxt, insword):
 			toks.append('IRQ')
 		elif tok in shifts:
 			toks.append('SHIFT')
-			if i != len(ptoks)-1:
+			if i != len(ptoks)-1 and ptoks[i+1]!=']':
 				toks.append(' ')
 		elif re.match(r'^{.*?}', tok):
 			toks.append('RLIST')
@@ -244,7 +240,7 @@ def syntax_from_distxt(distxt, insword):
 
 def syntax_from_insword(insword):
 	distxt = disasm_libbinaryninjacore(insword)
-	return syntax_from_string(distxt, insword)
+	return syntax_from_distxt(distxt, insword)
 
 #------------------------------------------------------------------------------
 # disassembling
@@ -256,8 +252,10 @@ def disasm_python(insword):
 	global g_arch
 
 	if not g_arch:
+		# ensure binja in path, eg:
+		# PATHPATH=/Users/andrewl/repos/vector35/binaryninja/ui/binaryninja.app/Contents/Resources/python/
+		import binaryninja
 		g_arch = binaryninja.Architecture['armv7']
-	
 
 	data = struct.pack('<I', insword)
 	toksAndLen = g_arch.get_instruction_text(data, 0)
