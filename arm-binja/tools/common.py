@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 import re
+import sys
 import ctypes
 import struct
 
@@ -11,8 +14,9 @@ re_cc = r'(?P<cc>(eq|ne|cs|hs|cc|lo|mi|pl|vs|vc|hi|ls|ge|lt|gt|le))?'	# conditio
 re_ds1 = r'(?P<ds1>(\.\w?\d+))?'										# data size
 re_ds2 = r'(?P<ds2>(\.\w?\d+))?'										# data size
 
-# this is built from opcodes.py
-opcodes = {'adc', 'add', 'adr', 'and', 'asr', 'b', 'bfc', 'bfi', 'bic', 'bkpt',
+# this is built from opc_roots.py
+# 372 roots
+opc_roots = {'adc', 'add', 'adr', 'and', 'asr', 'b', 'bfc', 'bfi', 'bic', 'bkpt',
 'bl', 'blx', 'bx', 'bxj', 'cdp', 'cdp2', 'clrex', 'clz', 'cmn', 'cmp', 'cps',
 'cpsid', 'cpsie', 'dbg', 'dmb', 'dsb', 'eor', 'eret', 'fldmdbx', 'fldmiax',
 'fstmdbx', 'fstmiax', 'hint', 'hvc', 'isb', 'ldc', 'ldc2', 'ldc2l', 'ldcl',
@@ -63,50 +67,54 @@ opcodes = {'adc', 'add', 'adr', 'and', 'asr', 'b', 'bfc', 'bfi', 'bic', 'bkpt',
 # convert fully-qualified opcode (with ".s", CC, .32, etc.) to opcode
 # eg: "3E000B40 vmlslo.f64" to "vmls"
 # eg: "E75000D0 smmls" to "smmls" (see possibility "ls" maken for CC)
-def opcode_from_fqo(fqo, insword=0):
+#
+# return [opc_root, cc, opc_wildcc, opc_full, operands]
+def distxt_split(arg, insword=0):
+	# normalize to distxt (opcode and [operands])
+	distxt = arg
+	if type(arg) == int:
+		distxt = disasm_libbinaryninjacore(arg)
+
+	# split fully-qualified opcode and operands
+	[opc_full, operands] = ['','']
+	tmp = distxt.split(' ',1)
+	opc_full = tmp[0]
+	if tmp[1:]: operands = tmp[1]
+
 	regex = r'^' + re_root + re_s + re_cc + re_ds1 + re_ds2 + r'$'
-	#m = re.match(regex, fqo).groupdict()
-	m = re.match(regex, fqo)
-	if not m: raise Exception('regex no matchy %08X: %s' % (insword,fqo))
+	m = re.match(regex, opc_full)
+	if not m: raise Exception('regex no matchy %08X: %s' % (insword,opc_full))
 
-	# try root + candidate CC as opcode
+	# determine opcode root
+	#      is root+cc an opcode root? eg: "vc"+"ge", is "vcge" an opcode root?
+	# else is root    an opcode root? eg: "vc",      is "vc" an opcode root?
+	opc_root = None
+
+	opc_cc = None
 	tmp = m['root'] + (m['cc'] or '')
-	if tmp in opcodes:
-		return tmp
+	if tmp in opc_roots:
+		opc_root = tmp
+		opc_cc = ''
+	else:
+		tmp = m['root']
+		if tmp in opc_roots:
+			opc_root = tmp
+			opc_cc = m['cc'] or ''
+		else:
+			raise Exception('unfamiliar opcode %08X: %s' % (insword,opc_full))
 
-	# try root (without CC)
-	tmp = m['root']
-	if tmp in opcodes:
-		return tmp
-
-	raise Exception('unfamiliar opcode %08X: %s' % (insword,fqo))
-
-def opcode_from_distxt(distxt, insword=0):
-	fqo = distxt.split(' ',1)[0]
-	return opcode_from_fqo(fqo, insword)
-
-def opcode_from_insword(insword):
-	distxt = disasm_libbinaryninjacore(insword)
-	return opcode_from_distxt(distxt, insword)
+	#
+	opc_wildcc = opc_root + (m['s'] or '') + ('<c>' if opc_cc else '') + (m['ds1'] or '')  + (m['ds2'] or '')
+	
+	return (opc_root, opc_cc, opc_wildcc, opc_full, operands)
 
 #------------------------------------------------------------------------------
 # tokenizing, syntaxing
 #------------------------------------------------------------------------------
 
-def tokenize(distxt, insword):
-	orig = distxt
-
-	# opcode, operands
-	[opcode, fqo, operands] = ['', '', '']
-	if ' ' in distxt:
-		i = distxt.index(' ')
-		fqo = distxt[0:i]
-		opcode = opcode_from_fqo(fqo, insword)
-		operands = distxt[i+1:]
-	else:
-		fqo = distxt
-		opcode = opcode_from_fqo(distxt, insword)
-		operands = ''
+def tokenize(distxt, insword=0):
+	# split into opcode, operands, etc.
+	(opc_root, opc_cc, opc_wildcc, opc_full, operands) = distxt_split(distxt)
 
 	# pre-tokenize
 	digits = list('1234567890')
@@ -168,7 +176,7 @@ def tokenize(distxt, insword):
 		elif operands[0] == ' ':
 			operands = operands[1:]
 		else:
-			raise Exception('pretokenize stumped on: -%s- (original input: %08X:%s)' % (operands, insword, orig))
+			raise Exception('pretokenize stumped on: -%s- (original input: %08X:%s)' % (operands, insword, distxt))
 
 	#print 'pre tokens: ' + ' '.join(ptoks)
 
@@ -183,7 +191,7 @@ def tokenize(distxt, insword):
 		"r8_usr", "r9_fiq", "r9_usr", "spsr_abt", "spsr_fiq", "spsr_hyp",
 		"spsr_irq", "spsr_mon", "spsr_svc", "spsr_und", "sp_abt", "sp_fiq",
 		"sp_hyp", "sp_irq", "sp_mon", "sp_svc", "sp_und", "sp_usr"]
-	toks = [opcode]
+	toks = [opc_wildcc]
 	for (i,tok) in enumerate(ptoks):
 		if re.match(r'^[acs]psr_?.*', tok):
 			toks.append('STATR')
@@ -231,7 +239,7 @@ def tokenize(distxt, insword):
 	# done
 	return toks
 
-def syntax_from_distxt(distxt, insword):
+def syntax_from_distxt(distxt, insword=0):
 	tokens = tokenize(distxt, insword)
 	if len(tokens) == 1:
 		return tokens[0]
@@ -330,3 +338,234 @@ def fuzz6():
 	assert len(fuzz) == 32*31*30*29*28*27/720 + 32*31*30*29*28/120 + 32*31*30*29/24 + 32*31*30/6 + 32*31/2 + 32 + 1
 
 	return fuzz
+
+#------------------------------------------------------------------------------
+# fuzzing
+#------------------------------------------------------------------------------
+
+def test_check(actual, expected):
+	if actual != expected:
+		print('TEST FAILED!')
+		print('  actual: %s' % str(actual))
+		print('expected: %s' % str(expected))
+		sys.exit(-1)	
+
+if __name__ == '__main__':
+	# basic instruction splitting
+	expected = ('vmov','le','vmov<c>.f64','vmovle.f64','d0, #2.000000e+00')
+	actual = distxt_split('vmovle.f64 d0, #2.000000e+00')
+	test_check(actual, expected)
+
+	expected = ('vmov','le','vmov<c>.f64','vmovle.f64','d0, #2.000000e+00')
+	actual = distxt_split(0xDEB00B00)
+	test_check(actual, expected)
+
+	# temptation to take trailing two characters as CC (but they're not)
+	expected = ('hvc','','hvc','hvc','')
+	actual = distxt_split('hvc')
+	test_check(actual, expected)
+
+	expected = ('mls','','mls','mls','')
+	actual = distxt_split('mls')
+	test_check(actual, expected)
+
+	expected = ('smmls','','smmls','smmls','')
+	actual = distxt_split('smmls')
+	test_check(actual, expected)
+
+	expected = ('svc','','svc','svc','')
+	actual = distxt_split('svc')
+	test_check(actual, expected)
+
+	expected = ('teq','','teq','teq','')
+	actual = distxt_split('teq')
+	test_check(actual, expected)
+
+	expected = ('vacge','','vacge.f32','vacge.f32','')
+	actual = distxt_split('vacge.f32')
+	test_check(actual, expected)
+
+	expected = ('vacgt','','vacgt.f32','vacgt.f32','')
+	actual = distxt_split('vacgt.f32')
+	test_check(actual, expected)
+
+	expected = ('vceq','','vceq.f32','vceq.f32','')
+	actual = distxt_split('vceq.f32')
+	test_check(actual, expected)
+
+	expected = ('vceq','','vceq.i16','vceq.i16','')
+	actual = distxt_split('vceq.i16')
+	test_check(actual, expected)
+
+	expected = ('vceq','','vceq.i32','vceq.i32','')
+	actual = distxt_split('vceq.i32')
+	test_check(actual, expected)
+
+	expected = ('vceq','','vceq.i64','vceq.i64','')
+	actual = distxt_split('vceq.i64')
+	test_check(actual, expected)
+
+	expected = ('vceq','','vceq.i8','vceq.i8','')
+	actual = distxt_split('vceq.i8')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.f32','vcge.f32','')
+	actual = distxt_split('vcge.f32')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.s16','vcge.s16','')
+	actual = distxt_split('vcge.s16')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.s32','vcge.s32','')
+	actual = distxt_split('vcge.s32')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.s64','vcge.s64','')
+	actual = distxt_split('vcge.s64')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.s8','vcge.s8','')
+	actual = distxt_split('vcge.s8')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.u16','vcge.u16','')
+	actual = distxt_split('vcge.u16')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.u32','vcge.u32','')
+	actual = distxt_split('vcge.u32')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.u64','vcge.u64','')
+	actual = distxt_split('vcge.u64')
+	test_check(actual, expected)
+
+	expected = ('vcge','','vcge.u8','vcge.u8','')
+	actual = distxt_split('vcge.u8')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.f32','vcgt.f32','')
+	actual = distxt_split('vcgt.f32')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.s16','vcgt.s16','')
+	actual = distxt_split('vcgt.s16')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.s32','vcgt.s32','')
+	actual = distxt_split('vcgt.s32')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.s64','vcgt.s64','')
+	actual = distxt_split('vcgt.s64')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.s8','vcgt.s8','')
+	actual = distxt_split('vcgt.s8')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.u16','vcgt.u16','')
+	actual = distxt_split('vcgt.u16')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.u32','vcgt.u32','')
+	actual = distxt_split('vcgt.u32')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.u64','vcgt.u64','')
+	actual = distxt_split('vcgt.u64')
+	test_check(actual, expected)
+
+	expected = ('vcgt','','vcgt.u8','vcgt.u8','')
+	actual = distxt_split('vcgt.u8')
+	test_check(actual, expected)
+
+	expected = ('vcle','','vcle.f32','vcle.f32','')
+	actual = distxt_split('vcle.f32')
+	test_check(actual, expected)
+
+	expected = ('vcle','','vcle.s16','vcle.s16','')
+	actual = distxt_split('vcle.s16')
+	test_check(actual, expected)
+
+	expected = ('vcle','','vcle.s32','vcle.s32','')
+	actual = distxt_split('vcle.s32')
+	test_check(actual, expected)
+
+	expected = ('vcle','','vcle.s8','vcle.s8','')
+	actual = distxt_split('vcle.s8')
+	test_check(actual, expected)
+
+	expected = ('vcls','','vcls.s16','vcls.s16','')
+	actual = distxt_split('vcls.s16')
+	test_check(actual, expected)
+
+	expected = ('vcls','','vcls.s32','vcls.s32','')
+	actual = distxt_split('vcls.s32')
+	test_check(actual, expected)
+
+	expected = ('vcls','','vcls.s8','vcls.s8','')
+	actual = distxt_split('vcls.s8')
+	test_check(actual, expected)
+
+	expected = ('vclt','','vclt.f32','vclt.f32','')
+	actual = distxt_split('vclt.f32')
+	test_check(actual, expected)
+
+	expected = ('vclt','','vclt.s16','vclt.s16','')
+	actual = distxt_split('vclt.s16')
+	test_check(actual, expected)
+
+	expected = ('vclt','','vclt.s32','vclt.s32','')
+	actual = distxt_split('vclt.s32')
+	test_check(actual, expected)
+
+	expected = ('vclt','','vclt.s8','vclt.s8','')
+	actual = distxt_split('vclt.s8')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.f32','vmls.f32','')
+	actual = distxt_split('vmls.f32')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.f64','vmls.f64','')
+	actual = distxt_split('vmls.f64')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.i16','vmls.i16','')
+	actual = distxt_split('vmls.i16')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.i32','vmls.i32','')
+	actual = distxt_split('vmls.i32')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.i64','vmls.i64','')
+	actual = distxt_split('vmls.i64')
+	test_check(actual, expected)
+
+	expected = ('vmls','','vmls.i8','vmls.i8','')
+	actual = distxt_split('vmls.i8')
+	test_check(actual, expected)
+
+	expected = ('vnmls','','vnmls.f32','vnmls.f32','')
+	actual = distxt_split('vnmls.f32')
+	test_check(actual, expected)
+
+	expected = ('vnmls','','vnmls.f64','vnmls.f64','')
+	actual = distxt_split('vnmls.f64')
+	test_check(actual, expected)
+
+	# now actually split out the condition code
+	expected = ('adc','eq','adc.s<c>','adc.seq','r0, r0, r0')
+	actual = distxt_split('adc.seq r0, r0, r0')
+	test_check(actual, expected)
+
+	# calculate syntax given disassembly text
+	expected = 'adc.s<c> GPR,GPR,GPR'
+	actual = syntax_from_distxt('adc.shs r0, r0, r0')
+	test_check(actual, expected)
+
+	actual = syntax_from_insword(0x20b00000)
+	test_check(actual, expected)

@@ -30,25 +30,34 @@ for fqo in targets:
 	insword = fqo2insword[fqo]
 
 	distxt = common.disasm_libbinaryninjacore(insword)
-	opc = common.opcode_from_distxt(distxt, insword)
 	syn = common.syntax_from_distxt(distxt, insword)
+	opc = syn.split(' ', 1)[0]
+	print('ON %08X:%s opc:%s syn:%s' % (insword,distxt,opc,syn))
 
 	# already encountered this syntax? skip!
 	if syn in syntaxes:
 		#print('skipping %s' % fqo)
 		continue
+	print('%08X %s' % (insword, syn))
 	syntaxes.add(syn)
 
 	#print("// on %08X: %s" % (insword, fqo))
 
+	something = False
 	for (i,mask) in enumerate(fuzz):
 		insword2 = insword ^ mask
 		distxt2 = common.disasm_libbinaryninjacore(insword2)
-		opc2 = common.opcode_from_distxt(distxt2, insword2)
 		syn2 = common.syntax_from_distxt(distxt2, insword2)
+		opc2 = syn2.split(' ', 1)[0]
+		#print('\t\t%s'%syn2)
 
 		# same opcodes, but different syntaxes? save it!
 		if opc == opc2 and not syn2 in syntaxes:
 			print('%08X %s' % (insword2, syn2))
 			syntaxes.add(syn2)
+			something = True
+
+	if not something:
+		#print('something hella wrong: no fuzzed instruction words generated the same syntax')
+		pass
 

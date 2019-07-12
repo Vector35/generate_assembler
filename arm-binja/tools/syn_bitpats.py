@@ -89,7 +89,6 @@ if sys.argv[1:]:
 else:
 	# redo everything
 	[syns,seeds] = read_syns()
-	print('syns cut at index %d (line %d)' % (cut, cut+1))
 	for (i,syn) in enumerate(syns):
 		print(pattern_generate(syn, seeds[i]))
 
