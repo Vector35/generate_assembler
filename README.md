@@ -28,6 +28,6 @@ With compile optimized for speed, I'm getting 4k asssembles/sec for randomly sam
 
 ## License
 
-This code MIT licensed, see [LICENSE.txt](./license.txt).
+This code MIT licensed, see [LICENSE.txt](./LICENSE.txt).
 
 It links against the [Capstone disassembly framework](https://github.com/aquynh/capstone) which is BSD licensed.
